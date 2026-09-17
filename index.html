@@ -1,0 +1,4128 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<!-- ALA_I18N_BOOT -->
+<script>
+(function () {
+  try {
+    var k = "ala-language";
+    var q = (location.search.match(/[?&]lang=(en|ar)(?:&|#|$)/) || [])[1];
+    var s = null;
+    try { s = localStorage.getItem(k); } catch (e) {}
+    var lang = (q === "en" || q === "ar") ? q : (s === "en" || s === "ar") ? s : "en";
+    if (q) { try { localStorage.setItem(k, lang); } catch (e) {} }
+    var d = document.documentElement;
+    d.lang = lang;
+    d.dir = lang === "ar" ? "rtl" : "ltr";
+    d.setAttribute("lang", lang);
+    d.setAttribute("dir", d.dir);
+    if (lang === "ar") d.classList.add("ala-i18n-pending");
+  } catch (e) {}
+})();
+</script>
+<noscript><style>html.ala-i18n-pending body { visibility: visible !important; }</style></noscript>
+<!-- /ALA_I18N_BOOT -->
+
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahmed Latif Academy | Coaching, Leadership &amp; Personal Development</title>
+  <meta name="description" content="Transformative learning in coaching, leadership, communication, psychology and personal development with Ahmed Latif — ICF-PCC, 17+ years of experience and 600,000+ people trained.">
+  <meta property="og:title" content="Ahmed Latif Academy | Coaching, Leadership &amp; Personal Development">
+  <meta property="og:description" content="Transformative learning in coaching, leadership, communication, psychology and personal development with Ahmed Latif — ICF-PCC, 17+ years of experience and 600,000+ people trained.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#b8922f">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Allura&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    .anim-item, .anim-left, .anim-right, .anim-scale {
+      opacity: 0;
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .anim-item { transform: translateY(40px); }
+    .anim-left { transform: translateX(-50px); }
+    .anim-right { transform: translateX(50px); }
+    .anim-scale { transform: scale(0.9); }
+    .anim-item.visible,
+    .anim-left.visible,
+    .anim-right.visible,
+    .anim-scale.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .anim-item.visible.card-hover:hover,
+    .anim-scale.visible.card-hover:hover,
+    .anim-left.visible.card-hover:hover,
+    .anim-right.visible.card-hover:hover {
+      transform: translateY(-6px) scale(1.02);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .anim-item, .anim-left, .anim-right, .anim-scale {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    #hero,
+    #instructor,
+    #impact,
+    #academy,
+    #ala-method,
+    #programs,
+    #featured-programs,
+    #why-us,
+    #updates,
+    #contact {
+      scroll-margin-top: 88px;
+    }
+
+    body {
+      font-family: "Raleway", system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--charcoal);
+      background: var(--warm-white);
+      overflow-x: hidden;
+      padding-top: 4.75rem;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    /* Variables */
+    :root {
+      --gold: #b8922f;
+      --gold-hover: #d4af37;
+      --gold-light: #d4af37;
+      --charcoal: #1a1a1a;
+      --soft-black: #1a1a1a;
+      --warm-white: #fafaf8;
+      --white: #fff;
+      --light-gray: #f9fafb;
+      --muted-text: #555555;
+      --border: rgba(184, 146, 47, 0.15);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+      --transition: 0.2s ease;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .eyebrow {
+      font-family: "Raleway", system-ui, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .section-heading {
+      font-size: clamp(28px, 3.2vw, 40px);
+      color: var(--charcoal);
+      margin-bottom: 16px;
+    }
+
+    .section-intro {
+      font-size: 15px;
+      color: var(--muted-text);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* Layout */
+    .container {
+      width: min(1240px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 75px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .section-header .section-intro {
+      margin: 0 auto;
+    }
+
+    /* Header — portfolio navbar style */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.3s;
+      border-bottom: 1px solid rgba(184, 146, 47, 0.15);
+      background: rgba(250, 250, 248, 0.8);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    .site-header.scrolled {
+      background: rgba(250, 250, 248, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom-color: rgba(184, 146, 47, 0.3);
+      box-shadow: 0 4px 24px rgba(184, 146, 47, 0.12);
+    }
+
+    .header-inner {
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 0.625rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      height: auto;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      transition: opacity 0.3s;
+    }
+
+    .site-header .logo:hover {
+      opacity: 0.8;
+    }
+
+    .logo-img {
+      width: auto;
+      height: 2.75rem;
+      object-fit: contain;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    @media (min-width: 640px) {
+      .site-header .logo-img { height: 3rem; }
+    }
+
+    .footer-brand .logo-img {
+      height: 44px;
+    }
+
+    .logo-text strong {
+      display: block;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+    }
+
+    .logo-text .logo-academy {
+      color: var(--gold);
+    }
+
+    .logo-text small {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: var(--muted-text);
+    }
+
+    .main-nav {
+      display: none;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #555;
+    }
+
+    @media (min-width: 1024px) {
+      .main-nav { display: flex; }
+    }
+
+    .main-nav a {
+      position: relative;
+      padding: 0.375rem 0.625rem;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #555;
+      transition: color 0.3s;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: #b8922f;
+    }
+
+    .main-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0.625rem;
+      right: 0.625rem;
+      bottom: 0.125rem;
+      height: 1px;
+      background: #b8922f;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .main-nav a:hover::after,
+    .main-nav a.active::after {
+      transform: scaleX(1);
+    }
+
+    .nav-dropdown {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .nav-dropdown i {
+      font-size: 10px;
+      color: #888;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .header-cta {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: #b8922f;
+      color: #fff;
+      transition: all 0.3s;
+    }
+
+    @media (min-width: 768px) {
+      .header-inner > .header-cta,
+      .nav-actions > .header-cta { display: inline-flex; }
+    }
+
+    .header-cta:hover {
+      background: #d4af37;
+      box-shadow: 0 6px 20px rgba(184, 146, 47, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .header-cta i {
+      font-size: 13px;
+    }
+
+    .menu-toggle {
+      display: flex;
+      width: 2.5rem;
+      height: 2.5rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      border: 1px solid rgba(184, 146, 47, 0.3);
+      background: rgba(184, 146, 47, 0.1);
+      color: #b8922f;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+
+    @media (min-width: 1024px) {
+      .menu-toggle { display: none; }
+    }
+
+    .menu-toggle:hover {
+      background: #b8922f;
+      color: #fff;
+    }
+
+    .mobile-nav {
+      display: block;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      border-top: 0;
+      background: rgba(250, 250, 248, 0.98);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all 0.3s ease-out;
+    }
+
+    @media (min-width: 1024px) {
+      .mobile-nav { display: none; }
+    }
+
+    .mobile-nav.open {
+      max-height: 70vh;
+      opacity: 1;
+      border-top: 1px solid rgba(184, 146, 47, 0.15);
+    }
+
+    .mobile-nav-inner {
+      padding: 1rem;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+
+    .mobile-nav a {
+      display: block;
+      border-radius: 0.5rem;
+      padding: 0.625rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #333;
+      border-bottom: 0;
+      transition: all 0.3s;
+    }
+
+    .mobile-nav a:hover {
+      background: rgba(184, 146, 47, 0.1);
+      color: #b8922f;
+    }
+
+    .mobile-nav .header-cta {
+      display: flex;
+      margin-top: 0.75rem;
+      width: auto;
+      justify-content: center;
+      border-radius: 9999px;
+      background: #b8922f;
+      padding: 0.75rem 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #fff;
+    }
+
+    .mobile-nav .header-cta:hover {
+      background: #d4af37;
+      color: #fff;
+    }
+
+    /* Hero */
+    #hero {
+      background: var(--warm-white);
+      padding: 24px 0 28px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.18fr 0.82fr;
+      align-items: center;
+      gap: 16px;
+      min-height: 560px;
+    }
+
+    .hero-content {
+      padding: 0;
+      max-width: 500px;
+      align-self: center;
+    }
+
+    .hero-content .eyebrow {
+      margin-bottom: 16px;
+      font-size: 11px;
+    }
+
+    .hero-title {
+      font-size: clamp(44px, 4.6vw, 60px);
+      margin-bottom: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title .line-dark {
+      display: block;
+      color: var(--charcoal);
+    }
+
+    .hero-title .line-gold {
+      display: block;
+      color: var(--gold);
+    }
+
+    .hero-desc {
+      font-size: 15px;
+      color: var(--muted-text);
+      max-width: 400px;
+      line-height: 1.7;
+      margin-bottom: 26px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 24px;
+      border-radius: 5px;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      color: var(--charcoal);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 22px;
+      border: 1.5px solid var(--charcoal);
+      border-radius: 5px;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .btn-secondary:hover {
+      background: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      padding: 0 30px;
+      position: relative;
+      min-width: 110px;
+    }
+
+    .stat-item:first-child {
+      padding-left: 0;
+    }
+
+    .stat-item:last-child {
+      padding-right: 0;
+    }
+
+    .stat-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 4px;
+      bottom: 4px;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .stat-icon {
+      color: var(--gold);
+      font-size: 22px;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .stat-number {
+      font-family: "Raleway", system-ui, sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted-text);
+      margin-top: 0;
+      line-height: 1.3;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 560px;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .hero-deco {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(184, 146, 47, 0.14);
+    }
+
+    .hero-circle--lg {
+      width: 440px;
+      height: 440px;
+      bottom: 48px;
+      left: 28%;
+      transform: none;
+    }
+
+    .hero-circle--sm {
+      width: 300px;
+      height: 300px;
+      bottom: 110px;
+      left: 48%;
+      background: rgba(184, 146, 47, 0.08);
+      opacity: 0.7;
+    }
+
+    .hero-dots {
+      position: absolute;
+      top: -4px;
+      right: -138px;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      pointer-events: none;
+    }
+
+    .hero-dots-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .hero-dots-row:nth-child(1) { opacity: 0.20; }
+    .hero-dots-row:nth-child(2) { opacity: 0.38; }
+    .hero-dots-row:nth-child(3) { opacity: 0.62; }
+    .hero-dots-row:nth-child(4) { opacity: 0.95; }
+    .hero-dots-row:nth-child(5) { opacity: 0.62; }
+    .hero-dots-row:nth-child(6) { opacity: 0.38; }
+    .hero-dots-row:nth-child(7) { opacity: 0.20; }
+
+    .hero-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #b8922f;
+      flex-shrink: 0;
+    }
+
+    .hero-waves {
+      position: absolute;
+      top: 18%;
+      right: -8px;
+      width: 130px;
+      height: 65%;
+      opacity: 0.32;
+      z-index: 1;
+    }
+
+    .hero-waves svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-instructor {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-46%);
+      z-index: 2;
+      width: auto;
+      max-width: 105%;
+      height: auto;
+      max-height: 548px;
+      object-fit: contain;
+      object-position: bottom center;
+      image-rendering: auto;
+      filter: drop-shadow(0 10px 24px rgba(26, 26, 26, 0.1));
+    }
+
+    .hero-signature {
+      position: absolute;
+      bottom: 38px;
+      right: 0;
+      z-index: 3;
+      text-align: right;
+    }
+
+    .hero-signature .name {
+      font-family: "Brittany Signature", "Amsterdam Four", "Allura", cursive;
+      font-size: 34px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 0;
+      color: #1a1a1a;
+    }
+
+    .hero-signature .role {
+      font-family: "Raleway", system-ui, sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #1a1a1a;
+      margin-top: 6px;
+    }
+
+    @media (min-width: 1100px) {
+      #hero {
+        padding: 40px 0 0;
+    }
+
+      .hero-grid {
+        position: relative;
+        display: block;
+        min-height: 590px;
+        gap: 0;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 4;
+        width: 50%;
+        max-width: 520px;
+        padding: 10px 0 36px;
+      }
+
+      .hero-visual {
+        position: absolute;
+        top: 0;
+        right: -3%;
+        bottom: 0;
+        left: 40%;
+        width: auto;
+        height: 100%;
+        min-height: 590px;
+        z-index: 1;
+        overflow: visible;
+      }
+
+      .hero-circle--lg {
+        width: 390px;
+        height: 390px;
+        bottom: 72px;
+        left: 10%;
+        right: auto;
+      }
+
+      .hero-circle--sm {
+        width: 270px;
+        height: 270px;
+        bottom: 132px;
+        left: 24%;
+        opacity: 0.72;
+      }
+
+      .hero-dots {
+        top: 6px;
+        left: calc(48% + 234px);
+        right: auto;
+      }
+
+      .hero-waves {
+        right: -6px;
+        top: 10%;
+        width: 150px;
+        height: 74%;
+        opacity: 0.26;
+      }
+
+      .hero-instructor {
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(calc(-68% + 52px)) translateY(-20px) scale(1.06);
+        transform-origin: bottom center;
+        height: 98%;
+        width: auto;
+        max-width: none;
+        max-height: none;
+        object-fit: contain;
+        object-position: bottom center;
+      }
+
+      .hero-signature {
+        bottom: 112px;
+        left: calc(46% + 200px);
+        right: auto;
+        text-align: left;
+      }
+    }
+
+    /* Announcement */
+    #announcement {
+      background: var(--soft-black);
+      padding: 16px 0;
+    }
+
+    .announcement-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .announcement-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .announcement-left i {
+      color: var(--gold);
+      font-size: 16px;
+    }
+
+    .announcement-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    .announcement-text {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.5;
+    }
+
+    .announcement-link {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+      white-space: nowrap;
+      transition: opacity var(--transition);
+    }
+
+    .announcement-link:hover {
+      opacity: 0.85;
+    }
+
+    .announcement-link i {
+      margin-left: 4px;
+      font-size: 12px;
+      transition: transform var(--transition);
+    }
+
+    .announcement-link:hover i {
+      transform: translateX(3px);
+    }
+
+    /* Instructor */
+    #instructor {
+      background: var(--white);
+      padding: 72px 0;
+    }
+
+    .instructor-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .instructor-photo-wrap {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .instructor-photo-link {
+      position: relative;
+      display: block;
+      width: 360px;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+    }
+
+    .instructor-photo {
+      width: 360px;
+      height: 360px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      transition: opacity 0.3s ease;
+    }
+
+    .instructor-photo-hint {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: rgba(26, 26, 26, 0.35);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: var(--radius-md);
+      pointer-events: none;
+    }
+
+    .instructor-photo-link:hover .instructor-photo,
+    .instructor-photo-link:focus-visible .instructor-photo {
+      opacity: 0.55;
+    }
+
+    .instructor-photo-link:hover .instructor-photo-hint,
+    .instructor-photo-link:focus-visible .instructor-photo-hint {
+      opacity: 1;
+    }
+
+    .instructor-content .section-heading {
+      margin-bottom: 16px;
+    }
+
+    .instructor-content p {
+      font-size: 15px;
+      color: var(--muted-text);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .achievement-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .achievement-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px 10px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 112px;
+    }
+
+    .achievement-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .achievement-card i {
+      color: var(--gold);
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .achievement-card .number {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.2;
+    }
+
+    .achievement-card .title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-top: 4px;
+    }
+
+    .achievement-card .sub {
+      font-size: 11px;
+      color: var(--muted-text);
+      margin-top: 2px;
+    }
+
+    /* Academy */
+    #academy {
+      background: var(--warm-white);
+      padding: 68px 0;
+    }
+
+    .academy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .academy-content p {
+      font-size: 15px;
+      color: var(--muted-text);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .signature-text {
+      font-family: "Playfair Display", Georgia, serif;
+      font-style: italic;
+      font-size: 24px;
+      color: var(--charcoal);
+      opacity: 0.7;
+    }
+
+    .academy-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .academy-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 24px 16px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .academy-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .academy-card .icon-wrap {
+      width: 44px;
+      height: 44px;
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .academy-card i {
+      font-size: 24px;
+      color: var(--gold);
+    }
+
+    .academy-card h3 {
+      font-family: "Raleway", system-ui, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--charcoal);
+    }
+
+    .academy-card p {
+      font-size: 13px;
+      color: var(--muted-text);
+      line-height: 1.6;
+    }
+
+    /* Programs */
+    #programs {
+      background: var(--white);
+      padding: 72px 0;
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .program-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .program-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .program-card-image {
+      position: relative;
+      height: 160px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .program-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .program-card:hover .program-card-image img {
+      transform: scale(1.04);
+    }
+
+    .program-icon-badge {
+      position: absolute;
+      bottom: -18px;
+      left: 20px;
+      width: 40px;
+      height: 40px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 16px;
+      box-shadow: var(--shadow-sm);
+      z-index: 2;
+    }
+
+    .program-card-body {
+      padding: 22px 16px 18px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .program-card-body h3 {
+      font-family: "Raleway", system-ui, sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--charcoal);
+    }
+
+    .program-card-body p {
+      font-size: 13px;
+      color: var(--muted-text);
+      line-height: 1.6;
+      margin-bottom: 12px;
+      flex: 1;
+    }
+
+    .program-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap var(--transition);
+    }
+
+    .program-link:hover {
+      gap: 10px;
+    }
+
+    /* Featured Programs */
+    #featured-programs {
+      background: var(--light-gray);
+      padding: 68px 0;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .featured-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      height: 200px;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .featured-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .featured-card-image {
+      width: 40%;
+      flex-shrink: 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .featured-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 3px 8px;
+      border-radius: 3px;
+      color: var(--white);
+      z-index: 1;
+    }
+
+    .badge-program { background: var(--charcoal); }
+    .badge-coaching { background: #333; }
+    .badge-camp { background: #444; }
+
+    .featured-card-body {
+      padding: 16px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .featured-card-body h3 {
+      font-family: "Raleway", system-ui, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--charcoal);
+      line-height: 1.3;
+    }
+
+    .featured-card-body p {
+      font-size: 12px;
+      color: var(--muted-text);
+      line-height: 1.55;
+      margin-bottom: 10px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .featured-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .featured-meta span {
+      font-size: 12px;
+      color: var(--muted-text);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .featured-meta i {
+      color: var(--gold);
+      font-size: 12px;
+    }
+
+    .featured-cta {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap var(--transition);
+    }
+
+    .featured-cta:hover {
+      gap: 10px;
+    }
+
+    /* Why Us */
+    #why-us {
+      background: var(--soft-black);
+      padding: 58px 0;
+    }
+
+    #why-us .eyebrow,
+    #why-us .section-heading {
+      color: var(--white);
+    }
+
+    #why-us .section-header {
+      margin-bottom: 28px;
+    }
+
+    #why-us .section-heading {
+      margin-bottom: 0;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .why-item {
+      padding: 16px 32px;
+      text-align: center;
+      position: relative;
+      border-radius: var(--radius-md);
+      transition: transform var(--transition), background var(--transition);
+    }
+
+    .why-item:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .why-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 10%;
+      height: 80%;
+      width: 1px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .why-item i {
+      font-size: 28px;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .why-item h3 {
+      font-family: "Raleway", system-ui, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .why-item p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.7;
+    }
+
+    /* Events & News */
+    #updates {
+      background: var(--white);
+      padding: 72px 0;
+    }
+
+    .updates-grid {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: 48px;
+    }
+
+    .block-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .block-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--charcoal);
+    }
+
+    .block-title i {
+      color: var(--gold);
+    }
+
+    .view-all {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap var(--transition);
+    }
+
+    .view-all:hover {
+      gap: 8px;
+    }
+
+    .event-card {
+      display: flex;
+      gap: 14px;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      margin-bottom: 10px;
+      background: var(--white);
+      transition: box-shadow var(--transition);
+      align-items: flex-start;
+    }
+
+    .event-card:hover {
+      box-shadow: var(--shadow-sm);
+    }
+
+    .event-date {
+      flex-shrink: 0;
+      width: 52px;
+      text-align: center;
+      background: var(--warm-white);
+      border-radius: var(--radius-sm);
+      padding: 8px 4px;
+    }
+
+    .event-date .day {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1;
+    }
+
+    .event-date .month {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+
+    .event-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .event-info h4 {
+      font-family: "Raleway", system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+    }
+
+    .event-meta {
+      font-size: 11px;
+      color: var(--muted-text);
+      margin-bottom: 2px;
+    }
+
+    .event-date-range {
+      font-size: 11px;
+      color: var(--muted-text);
+      margin-bottom: 8px;
+    }
+
+    .btn-register {
+      display: inline-flex;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--white);
+      background: var(--gold);
+      padding: 7px 16px;
+      border-radius: var(--radius-sm);
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .btn-register:hover {
+      background: var(--gold-hover);
+      transform: translateY(-1px);
+    }
+
+    .news-card {
+      display: flex;
+      gap: 14px;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--white);
+      transition: box-shadow var(--transition), transform var(--transition);
+      overflow: hidden;
+    }
+
+    .news-card:hover {
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-2px);
+    }
+
+    .news-card img {
+      width: 110px;
+      height: 88px;
+      flex-shrink: 0;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 14px;
+    }
+
+    .news-grid .news-card:nth-child(1) {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .news-grid .news-card:nth-child(2) {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .news-card-featured {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .news-card-featured img {
+      width: 100%;
+      height: 160px;
+      border-radius: 0;
+    }
+
+    .news-card-featured .news-content {
+      padding: 16px;
+    }
+
+    .news-card-featured .news-content h4 {
+      font-size: 16px;
+    }
+
+    .news-content .date {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+
+    .news-content h4 {
+      font-family: "Raleway", system-ui, sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .news-content p {
+      font-size: 13px;
+      color: var(--muted-text);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .read-more {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap var(--transition);
+    }
+
+    .read-more:hover {
+      gap: 8px;
+    }
+
+    /* Contact / Lead */
+    #contact {
+      background: var(--warm-white);
+      padding: 72px 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .contact-content h2 {
+      font-size: clamp(28px, 3vw, 36px);
+      margin-bottom: 14px;
+      color: var(--charcoal);
+    }
+
+    .contact-content > p {
+      font-size: 15px;
+      color: var(--muted-text);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      max-width: 440px;
+    }
+
+    .contact-trust {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--charcoal);
+    }
+
+    .contact-trust-item i {
+      color: var(--gold);
+      font-size: 14px;
+      width: 18px;
+    }
+
+    .contact-deco {
+      margin-top: 28px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(184, 146, 47, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.8;
+    }
+
+    .contact-deco i {
+      font-size: 40px;
+      color: var(--gold);
+    }
+
+    .lead-form {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .lead-form:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-row .form-group {
+      margin-bottom: 0;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--charcoal);
+      background: var(--white);
+      transition: border-color var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+
+    .form-group textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      width: 100%;
+      margin-top: 6px;
+      padding: 14px 24px;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .form-submit:hover {
+      background: var(--gold-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--soft-black);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 56px 0 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-top: 16px;
+      max-width: 280px;
+    }
+
+    .footer-brand .logo-text strong {
+      color: var(--white);
+    }
+
+    .footer-col h4 {
+      font-family: "Raleway", system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 18px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 10px;
+      transition: color var(--transition);
+    }
+
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+      transition: border-color var(--transition), color var(--transition);
+    }
+
+    .footer-social a:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .footer-col .footer-social {
+      margin-top: 0;
+      flex-wrap: wrap;
+    }
+
+    .footer-col .footer-social a {
+      display: flex;
+      margin-bottom: 0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+
+    .text-link-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 22px;
+      transition: gap var(--transition);
+    }
+
+    .text-link-cta:hover {
+      gap: 12px;
+    }
+
+    .text-link-cta.is-disabled {
+      pointer-events: none;
+      cursor: default;
+      opacity: 0.85;
+    }
+
+    #impact {
+      background: var(--warm-white);
+      padding: 48px 0;
+    }
+
+    #impact .section-header {
+      margin-bottom: 28px;
+    }
+
+    .impact-group {
+      margin-bottom: 28px;
+    }
+
+    .impact-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .impact-group-label {
+      font-family: "Raleway", system-ui, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .impact-strip {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .impact-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px 16px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .impact-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .impact-item .number {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .impact-item .title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+    }
+
+    .impact-item .sub {
+      font-size: 12px;
+      color: var(--muted-text);
+      line-height: 1.5;
+    }
+
+    .case-block {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px 22px;
+      box-shadow: var(--shadow-sm);
+      max-width: 920px;
+      margin: 0 auto;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .case-block:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .case-block .eyebrow {
+      margin-bottom: 8px;
+      text-align: left;
+    }
+
+    .case-block h3 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+
+    .case-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .case-metric {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    }
+
+    .case-metric:hover {
+      transform: translateY(-2px);
+      border-color: rgba(184, 146, 47, 0.45);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .case-metric .label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .case-metric .value {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+
+    .case-metric .meta {
+      font-size: 12px;
+      color: var(--muted-text);
+    }
+
+    .case-block > p {
+      font-size: 13px;
+      color: var(--muted-text);
+      line-height: 1.65;
+      margin-bottom: 10px;
+    }
+
+    .impact-note {
+      margin-top: 0;
+      text-align: left;
+      font-size: 12px;
+      color: var(--muted-text);
+    }
+
+    .credentials-label {
+      font-family: "Raleway", system-ui, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold) !important;
+      margin: 4px 0 12px !important;
+    }
+
+    .mv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 36px;
+      align-items: stretch;
+    }
+
+    .mv-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 22px 20px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .mv-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .mv-card h3 {
+      font-family: "Raleway", system-ui, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .mv-card p {
+      font-size: 13px;
+      color: var(--muted-text);
+      line-height: 1.7;
+      margin: 0;
+      flex: 1;
+    }
+
+    #ala-method {
+      background: var(--white);
+      padding: 68px 0;
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .method-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px 18px;
+      text-align: left;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .method-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .method-card i {
+      color: var(--gold);
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .method-card h3 {
+      font-family: "Raleway", system-ui, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+
+    .method-card p {
+      font-size: 13px;
+      color: var(--muted-text);
+      line-height: 1.65;
+    }
+
+    .sectors-block {
+      margin-top: 36px;
+    }
+
+    .sectors-block h3 {
+      font-family: "Raleway", system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .sector-chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .sector-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--warm-white);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted-text);
+      white-space: nowrap;
+      box-shadow: none;
+      transition: transform var(--transition), border-color var(--transition), color var(--transition), background var(--transition);
+    }
+
+    .sector-chip:hover {
+      transform: translateY(-2px);
+      border-color: rgba(184, 146, 47, 0.55);
+      color: var(--charcoal);
+      background: var(--white);
+    }
+
+    .empty-state-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 22px 20px;
+      box-shadow: var(--shadow-sm);
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .empty-state-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .empty-state-card h4 {
+      font-family: "Raleway", system-ui, sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+
+    .empty-state-card p {
+      font-size: 14px;
+      color: var(--muted-text);
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    .empty-state-card .btn-register {
+      margin-top: 8px;
+    }
+
+    .news-empty {
+      grid-column: 1 / -1;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 1200;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #25D366;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+      color: #fff;
+    }
+
+    .contact-content .text-link-cta {
+      margin-top: 18px;
+      margin-bottom: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .achievement-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .impact-strip,
+      .method-grid,
+      .mv-grid,
+      .case-metrics {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .programs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .featured-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-card {
+        height: auto;
+        min-height: 180px;
+      }
+
+      .featured-grid .featured-card:last-child {
+        grid-column: auto;
+        max-width: 100%;
+      }
+
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .news-card-featured {
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .instructor-photo-link,
+      .instructor-photo {
+        width: 100%;
+        max-width: 360px;
+      }
+
+      .instructor-photo {
+        height: 320px;
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+
+      .why-item:nth-child(2)::after {
+        display: none;
+      }
+
+      .why-item:not(:last-child)::after {
+        display: none;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .instructor-grid,
+      .academy-grid {
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 56px 0;
+      }
+
+      .achievement-cards,
+      .impact-strip,
+      .method-grid,
+      .mv-grid,
+      .case-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .whatsapp-float {
+        right: 14px;
+        bottom: 18px;
+        width: 48px;
+        height: 48px;
+        font-size: 24px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        display: grid;
+      }
+
+      .hero-content {
+        padding: 20px 0 0;
+        order: 1;
+        width: auto;
+      }
+
+      .hero-visual {
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        order: 2;
+        min-height: 420px;
+      }
+
+      .hero-instructor {
+        position: relative;
+        left: auto;
+        transform: none;
+        max-height: 400px;
+        max-width: 100%;
+        margin: 0 auto;
+        display: block;
+      }
+
+      .hero-circle--lg {
+        width: 280px;
+        height: 280px;
+        left: 20%;
+        bottom: 30px;
+      }
+
+      .hero-circle--sm {
+        width: 200px;
+        height: 200px;
+        left: 40%;
+      }
+
+      .hero-dots {
+        top: -4px;
+        right: -132px;
+        left: auto;
+      }
+
+      .hero-signature {
+        bottom: 20px;
+        right: 8px;
+      }
+
+      .hero-stats {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .stat-item {
+        padding: 0 20px 0 0;
+      }
+
+      .stat-item:not(:last-child)::after {
+        display: none;
+      }
+
+      .instructor-grid,
+      .academy-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .achievement-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .academy-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .programs-grid,
+      .featured-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-grid .featured-card:last-child {
+        grid-column: auto;
+        max-width: 100%;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-item {
+        padding: 0;
+        padding-bottom: 28px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .why-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .updates-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .news-card {
+        flex-direction: column;
+      }
+
+      .news-card img {
+        width: 100%;
+        height: 160px;
+      }
+
+      .news-card-featured img {
+        height: 180px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .announcement-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: calc(100% - 32px);
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  /* ALA_I18N_CSS_START */
+html.ala-i18n-pending body {
+  visibility: hidden;
+}
+
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.1rem;
+  flex-shrink: 0;
+}
+
+.lang-switcher button {
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #888;
+  padding: 0.3rem 0.4rem;
+  border-radius: 0.25rem;
+  line-height: 1;
+  min-width: 1.75rem;
+}
+
+.lang-switcher button:hover {
+  color: #b8922f;
+}
+
+.lang-switcher button.is-active,
+.lang-switcher button[aria-current="true"] {
+  color: #b8922f;
+}
+
+.lang-sep {
+  color: #c8c8c8;
+  font-size: 0.75rem;
+  font-weight: 500;
+  user-select: none;
+}
+
+html[lang="ar"] body,
+html[lang="ar"] button,
+html[lang="ar"] input,
+html[lang="ar"] select,
+html[lang="ar"] textarea {
+  font-family: "Cairo", "Tahoma", sans-serif;
+}
+
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] h4 {
+  font-family: "Cairo", "Tahoma", sans-serif;
+  letter-spacing: 0;
+}
+
+html[lang="ar"] .logo-text strong,
+html[lang="ar"] .signature-text,
+html[lang="ar"] .hero-name {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+/* Keep hero signature identical to English (cursive name + Raleway role) */
+html[lang="ar"] .hero-signature .name {
+  font-family: "Brittany Signature", "Amsterdam Four", "Allura", cursive;
+}
+
+html[lang="ar"] .hero-signature .role {
+  font-family: "Raleway", system-ui, sans-serif;
+  text-transform: uppercase;
+}
+
+html[lang="ar"] .eyebrow,
+html[lang="ar"] .header-cta,
+html[lang="ar"] .mobile-nav .header-cta,
+html[lang="ar"] .nav-contact,
+html[lang="ar"] .block-title,
+html[lang="ar"] .featured-badge {
+  text-transform: none;
+  letter-spacing: 0.04em;
+}
+
+html[dir="rtl"] input,
+html[dir="rtl"] textarea,
+html[dir="rtl"] select {
+  direction: rtl;
+  text-align: start;
+}
+
+html[dir="rtl"] input[type="tel"],
+html[dir="rtl"] input[type="email"] {
+  direction: ltr;
+  unicode-bidi: plaintext;
+  text-align: start;
+}
+
+html[dir="rtl"] .fa-arrow-right,
+html[dir="rtl"] .fa-arrow-left,
+html[dir="rtl"] .fa-chevron-right,
+html[dir="rtl"] .fa-chevron-left {
+  transform: scaleX(-1);
+}
+
+html[dir="rtl"] .anim-left:not(.visible) {
+  transform: translateX(50px);
+}
+
+html[dir="rtl"] .anim-right:not(.visible) {
+  transform: translateX(-50px);
+}
+
+html[dir="rtl"] .main-nav a::after,
+html[dir="rtl"] .nav-links a::after {
+  transform-origin: right;
+}
+
+html[dir="rtl"] .whatsapp-float {
+  right: auto;
+  left: 20px;
+}
+
+html[dir="rtl"] .program-icon-badge {
+  left: auto;
+  right: 20px;
+}
+
+/* Hero stats — logical spacing so Arabic labels never collide */
+html[dir="rtl"] .hero-stats {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+html[dir="rtl"] .hero-stats .stat-item {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0;
+  padding-inline: 18px;
+  align-items: flex-start;
+}
+
+html[dir="rtl"] .hero-stats .stat-item:first-child {
+  padding-inline-start: 0;
+}
+
+html[dir="rtl"] .hero-stats .stat-item:last-child {
+  padding-inline-end: 0;
+}
+
+html[dir="rtl"] .hero-stats .stat-item:not(:last-child)::after {
+  left: auto;
+  right: auto;
+  inset-inline-end: 0;
+}
+
+html[dir="rtl"] .hero-stats .stat-label {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* =========================================================
+   Home hero — intentional RTL composition
+   Desired: [ visual LEFT ] [ Arabic content RIGHT ]
+   EN absolute hero (min-width: 1100px) is unchanged.
+   ========================================================= */
+html[dir="rtl"] #hero .hero-content {
+  text-align: start;
+}
+
+html[dir="rtl"] #hero .hero-desc {
+  margin-inline-end: 0;
+}
+
+html[dir="rtl"] #hero .hero-actions {
+  justify-content: flex-start;
+}
+
+html[dir="rtl"] #hero .btn-primary,
+html[dir="rtl"] #hero .btn-secondary {
+  flex-direction: row;
+}
+
+/* Desktop RTL hero — PERSON toward center/RIGHT; SIGNATURE to LEFT */
+@media (min-width: 1100px) {
+  html[dir="rtl"] #hero {
+    overflow: visible;
+  }
+
+  html[dir="rtl"] #hero .hero-grid {
+    padding-bottom: 8px;
+  }
+
+  html[dir="rtl"] #hero .hero-content {
+    width: 52%;
+    max-width: 520px;
+    margin-inline-start: 0;
+    margin-inline-end: auto;
+    padding-inline-start: 16px;
+    z-index: 4;
+  }
+
+  html[dir="rtl"] #hero .hero-desc {
+    max-width: 100%;
+  }
+
+  /*
+    Visual zone stays LEFT half, but composition sits toward CENTER
+    (person moves RIGHT relative to previous far-left placement).
+  */
+  html[dir="rtl"] #hero .hero-visual {
+    left: 0;
+    right: 48%;
+  }
+
+  /* Person + circle toward the right side of the visual zone (toward center) */
+  html[dir="rtl"] #hero .hero-instructor {
+    left: 64%;
+    transform: translateX(-50%) translateY(-16px) scale(1.06);
+    transform-origin: bottom center;
+  }
+
+  html[dir="rtl"] #hero .hero-circle--lg {
+    left: 60%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+
+  html[dir="rtl"] #hero .hero-circle--sm {
+    left: 66%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+
+  /*
+    Signature in LEFT negative space of the portrait — NOT between
+    person and Arabic content.
+  */
+  html[dir="rtl"] #hero .hero-signature {
+    left: 2%;
+    right: auto;
+    bottom: 56px;
+    text-align: left;
+    z-index: 3;
+    max-width: 38%;
+    pointer-events: none;
+  }
+
+  html[dir="rtl"] #hero .hero-dots {
+    left: 2%;
+    right: auto;
+    top: 6px;
+  }
+
+  html[dir="rtl"] #hero .hero-waves {
+    left: auto;
+    right: 4%;
+  }
+}
+
+@media (min-width: 1200px) {
+  html[dir="rtl"] #hero .hero-visual {
+    left: 1%;
+    right: 47%;
+  }
+
+  html[dir="rtl"] #hero .hero-instructor {
+    left: 66%;
+  }
+
+  html[dir="rtl"] #hero .hero-circle--lg {
+    left: 62%;
+  }
+
+  html[dir="rtl"] #hero .hero-circle--sm {
+    left: 68%;
+  }
+
+  html[dir="rtl"] #hero .hero-signature {
+    left: 3%;
+    bottom: 60px;
+  }
+}
+
+@media (min-width: 1400px) {
+  html[dir="rtl"] #hero .hero-visual {
+    left: 2%;
+    right: 46%;
+  }
+
+  html[dir="rtl"] #hero .hero-instructor {
+    left: 68%;
+  }
+
+  html[dir="rtl"] #hero .hero-circle--lg {
+    left: 64%;
+  }
+
+  html[dir="rtl"] #hero .hero-circle--sm {
+    left: 70%;
+  }
+
+  html[dir="rtl"] #hero .hero-signature {
+    left: 4%;
+    bottom: 64px;
+  }
+}
+
+/* Tablet: no desktop absolute offsets */
+@media (min-width: 769px) and (max-width: 1099px) {
+  html[dir="rtl"] #hero .hero-grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: center;
+    padding-bottom: 28px;
+  }
+
+  html[dir="rtl"] #hero .hero-content {
+    max-width: none;
+    width: auto;
+  }
+
+  html[dir="rtl"] #hero .hero-visual {
+    overflow: visible;
+    position: relative;
+    left: auto;
+    right: auto;
+  }
+
+  html[dir="rtl"] #hero .hero-instructor {
+    left: 55%;
+    transform: translateX(-50%);
+    max-width: 100%;
+  }
+
+  html[dir="rtl"] #hero .hero-signature {
+    left: 4%;
+    right: auto;
+    bottom: 20px;
+    text-align: left;
+    max-width: 42%;
+  }
+
+  html[dir="rtl"] #hero .hero-dots {
+    left: 0;
+    right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  html[dir="rtl"] #hero .hero-stats {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  html[dir="rtl"] #hero .hero-stats .stat-item {
+    flex: 1 1 calc(50% - 12px);
+    min-width: 140px;
+    padding-inline: 0;
+  }
+
+  html[dir="rtl"] #hero .hero-stats .stat-item:not(:last-child)::after {
+    display: none;
+  }
+
+  html[dir="rtl"] #hero .hero-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: visible;
+    padding-bottom: 8px;
+  }
+
+  html[dir="rtl"] #hero .hero-signature {
+    position: relative;
+    right: auto;
+    left: auto;
+    bottom: auto;
+    margin: 10px auto 0;
+    text-align: center;
+    max-width: none;
+    z-index: 3;
+  }
+
+  html[dir="rtl"] #hero .hero-dots {
+    left: 0;
+    right: auto;
+  }
+}
+
+html[dir="rtl"] .gallery-nav-prev,
+html[dir="rtl"] .lightbox-prev {
+  left: auto;
+  right: 14px;
+}
+
+html[dir="rtl"] .gallery-nav-next,
+html[dir="rtl"] .lightbox-next {
+  right: auto;
+  left: 14px;
+}
+
+html[dir="rtl"] .lightbox-close {
+  right: auto;
+  left: 0;
+}
+
+html[dir="rtl"] .outcomes-section .section-header,
+html[dir="rtl"] .case-block .eyebrow,
+html[dir="rtl"] .case-block,
+html[dir="rtl"] .program-card-body,
+html[dir="rtl"] .program-card-content,
+html[dir="rtl"] .instructor-content,
+html[dir="rtl"] .hero-content,
+html[dir="rtl"] .contact-content,
+html[dir="rtl"] .lead-form,
+html[dir="rtl"] .about-p,
+html[dir="rtl"] .audience-card,
+html[dir="rtl"] .learning-card,
+html[dir="rtl"] .why-card,
+html[dir="rtl"] .delivery-card {
+  text-align: start;
+}
+
+html[dir="rtl"] .breadcrumb-list {
+  flex-direction: row;
+}
+
+html[dir="rtl"] .breadcrumb-list li:not(:last-child)::after {
+  content: "‹";
+}
+
+@media (max-width: 768px) {
+  html[dir="rtl"] .whatsapp-float {
+    left: 14px;
+    right: auto;
+  }
+}
+/* ALA_I18N_CSS_END */
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u" class="logo" target="_top">
+        <img class="logo-img" src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a787bb09994d35aa03bbe17.png" alt="Ahmed Latif Academy">
+        <div class="logo-text">
+          <strong>Ahmed Latif <span class="logo-academy">Academy</span></strong>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#hero" class="active">Home</a>
+        <a href="#instructor">About</a>
+        <a href="#programs" class="nav-dropdown">Programs <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+        <a href="#updates">Events</a>
+        <a href="#updates">News</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#contact" class="header-cta">
+          <i class="fa-regular fa-compass" aria-hidden="true"></i>
+          Find Your Program
+        </a>
+        <div class="lang-switcher" role="group" aria-label="Language">
+          <button type="button" data-lang-switch="en" lang="en" aria-label="English">EN</button>
+          <span class="lang-sep" aria-hidden="true">/</span>
+          <button type="button" data-lang-switch="ar" lang="ar" aria-label="العربية">AR</button>
+        </div>
+
+
+
+
+
+
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <div class="mobile-nav-inner">
+        <a href="#hero">Home</a>
+        <a href="#instructor">About</a>
+        <a href="#programs">Programs</a>
+        <a href="#updates">Events</a>
+        <a href="#updates">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="header-cta">
+          <i class="fa-regular fa-compass" aria-hidden="true"></i>
+          Find Your Program
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow anim-item">Learn. Apply. Lead.</p>
+          <h1 class="hero-title anim-item">
+            <span class="line-dark">Master Skills.</span>
+            <span class="line-gold">Create Impact.</span>
+          </h1>
+          <p class="hero-desc anim-item">Transformative learning in leadership, coaching, communication, psychology, and personal development — designed to change mindsets, strengthen practical skills, and create lasting impact.</p>
+          <div class="hero-actions">
+            <a href="https://link.cashprocess.io/preview/fRaRY5RMY05VbnLSxGoO" class="btn-primary anim-scale" target="_top">Explore Programs <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="#instructor" class="btn-secondary anim-scale"><i class="fa-regular fa-user" aria-hidden="true"></i> Meet Dr. Ahmed Latif</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item anim-scale">
+              <i class="fa-solid fa-crown stat-icon" aria-hidden="true"></i>
+              <div class="stat-number">17+</div>
+              <div class="stat-label">Years of Experience</div>
+            </div>
+            <div class="stat-item anim-scale">
+              <i class="fa-regular fa-user-group stat-icon" aria-hidden="true"></i>
+              <div class="stat-number">600,000+</div>
+              <div class="stat-label">People Trained</div>
+            </div>
+            <div class="stat-item anim-scale">
+              <i class="fa-regular fa-clock stat-icon" aria-hidden="true"></i>
+              <div class="stat-number">6,000+</div>
+              <div class="stat-label">Coaching Hours</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual anim-right">
+          <div class="hero-deco" aria-hidden="true">
+            <div class="hero-circle hero-circle--lg"></div>
+            <div class="hero-circle hero-circle--sm"></div>
+            <div class="hero-dots">
+              <div class="hero-dots-row"><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span></div>
+              <div class="hero-dots-row"><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span></div>
+              <div class="hero-dots-row"><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span></div>
+              <div class="hero-dots-row"><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span></div>
+              <div class="hero-dots-row"><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span></div>
+              <div class="hero-dots-row"><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span></div>
+              <div class="hero-dots-row"><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span><span class="hero-dot"></span></div>
+            </div>
+            <div class="hero-waves">
+              <svg viewBox="0 0 120 500" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M100 40C70 80 90 120 60 160C30 200 50 240 20 280C10 300 30 340 10 380C0 400 20 440 10 480" stroke="#b8922f" stroke-width="1.2" stroke-opacity="0.25"/>
+                <path d="M115 20C85 70 105 110 75 160C45 210 65 260 35 310C25 335 45 385 25 430C15 455 35 480 20 500" stroke="#b8922f" stroke-width="1" stroke-opacity="0.18"/>
+                <path d="M80 60C55 95 70 130 45 170C20 210 35 250 15 290" stroke="#d4af37" stroke-width="1" stroke-opacity="0.3"/>
+              </svg>
+            </div>
+          </div>
+          <img
+            class="hero-instructor"
+            src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a883f0f318b7ced9e64423a.png"
+            alt="Ahmed Latif — Founder &amp; CEO of Ahmed Latif Academy"
+            width="960"
+            height="1024"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          >
+          <div class="hero-signature">
+            <div class="name">Ahmed Latif</div>
+            <div class="role">Founder &amp; CEO</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALA Brand Promise -->
+    <section id="announcement" aria-label="ALA Brand Promise">
+      <div class="container announcement-inner">
+        <div class="announcement-left">
+          <i class="fa-solid fa-gem" aria-hidden="true"></i>
+          <span class="announcement-label">ALA PROMISE</span>
+          <span class="announcement-text">We don't simply deliver training. We create transformation.</span>
+        </div>
+        <a href="https://link.cashprocess.io/preview/fRaRY5RMY05VbnLSxGoO" class="announcement-link" target="_top">Explore Programs <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+    </section>
+
+    <!-- About Instructor -->
+    <section id="instructor">
+      <div class="container instructor-grid">
+        <div class="instructor-photo-wrap">
+          <a href="https://link.cashprocess.io/preview/V9U56j7ycqn1PdKLeSuh" class="instructor-photo-link" aria-label="View Dr. Ahmed Latif portfolio" target="_top">
+            <img
+              class="instructor-photo"
+              src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a885d59e6501a9518db1bd0.jpg"
+              alt="Ahmed Latif, Founder and CEO of Ahmed Latif Academy"
+              width="960"
+              height="1024"
+              loading="lazy"
+              decoding="async"
+            >
+            <span class="instructor-photo-hint">View Portfolio <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </a>
+        </div>
+        <div class="instructor-content">
+          <p class="eyebrow anim-item">About Dr. Ahmed Latif</p>
+          <h2 class="section-heading anim-item">Learn from Experience. Grow with Purpose.</h2>
+          <p class="anim-item">Ahmed Latif is an internationally certified Life &amp; Executive Coach (ICF-PCC), motivational speaker, business consultant, corporate trainer, and Founder &amp; CEO of Ahmed Latif Academy (ALA). With more than 17 years of professional experience, he has become one of the leading figures in human development, leadership training, and executive coaching across the Middle East.</p>
+          <p class="credentials-label anim-item">Professional Credentials</p>
+          <div class="achievement-cards">
+            <div class="achievement-card anim-item">
+              <i class="fa-solid fa-certificate" aria-hidden="true"></i>
+              <div class="number">ICF-PCC</div>
+              <div class="title">Professional Certified Coach</div>
+              <div class="sub">International Coaching Federation</div>
+            </div>
+            <div class="achievement-card anim-item">
+              <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+              <div class="number">PhD + MBA</div>
+              <div class="title">Business Administration</div>
+              <div class="sub">Academic &amp; professional depth</div>
+            </div>
+            <div class="achievement-card anim-item">
+              <i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i>
+              <div class="number">5</div>
+              <div class="title">International TOT Certifications</div>
+              <div class="sub">Training of Trainers</div>
+            </div>
+            <div class="achievement-card anim-item">
+              <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
+              <div class="number">15+</div>
+              <div class="title">Universities Reached</div>
+              <div class="sub">Higher education delivery</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Credentials & Impact -->
+    <section id="impact">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Credentials &amp; Impact</p>
+          <h2 class="section-heading">Experience That Goes Beyond the Classroom</h2>
+        </div>
+
+        <div class="impact-group">
+          <p class="impact-group-label">Real-World Experience</p>
+          <div class="impact-strip">
+            <div class="impact-item">
+              <div class="number">3,000+</div>
+              <div class="title">Employees Trained</div>
+              <div class="sub">Selected corporate training initiative across Egypt</div>
+            </div>
+            <div class="impact-item">
+              <div class="number">900+</div>
+              <div class="title">Professionals Managed</div>
+              <div class="sub">Leadership experience in multinational organizations</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="impact-group">
+          <div class="case-block">
+            <p class="eyebrow">Selected Business Transformation</p>
+            <h3>Hayah Company</h3>
+            <div class="case-metrics">
+              <div class="case-metric">
+                <div class="label">Revenue Growth</div>
+                <div class="value">120K EGP → 33M+ EGP</div>
+                <div class="meta">Within four years</div>
+              </div>
+              <div class="case-metric">
+                <div class="label">Customer Growth</div>
+                <div class="value">120 → 30,000+</div>
+                <div class="meta">Customers</div>
+              </div>
+            </div>
+            <p>A selected consulting transformation led through strategic planning, system development, team enablement, and organizational performance improvement.</p>
+            <p class="impact-note">Selected consulting case. Results are specific to this engagement.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Academy -->
+    <section id="academy">
+      <div class="container academy-grid">
+        <div class="academy-content">
+          <p class="eyebrow">About Academy</p>
+          <h2 class="section-heading">Learning That Creates Real Transformation</h2>
+          <p>Ahmed Latif Academy (ALA) delivers professional training, coaching, consulting, and leadership development experiences for individuals, corporations, educational institutions, and organizations across the Middle East.</p>
+          <div class="signature-text">Ahmed Latif</div>
+        </div>
+        <div class="academy-cards">
+          <div class="academy-card">
+            <div class="icon-wrap"><i class="fa-solid fa-heart" aria-hidden="true"></i></div>
+            <h3>People First</h3>
+            <p>We believe in every individual's ability to learn, grow, and reach their potential.</p>
+          </div>
+          <div class="academy-card">
+            <div class="icon-wrap"><i class="fa-solid fa-award" aria-hidden="true"></i></div>
+            <h3>Excellence</h3>
+            <p>High standards of quality and professionalism across every learning experience.</p>
+          </div>
+          <div class="academy-card">
+            <div class="icon-wrap"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
+            <h3>Continuous Growth</h3>
+            <p>A culture of lifelong learning, curiosity, and continuous improvement.</p>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="mv-grid">
+          <div class="mv-card">
+            <h3>Our Mission</h3>
+            <p>To empower individuals, leaders, and organizations through transformative learning experiences that unlock human potential, inspire meaningful growth, and create lasting impact.</p>
+          </div>
+          <div class="mv-card">
+            <h3>Our Vision</h3>
+            <p>To become the leading Human Development Academy in the Middle East and Africa, recognized globally for transforming lives, developing exceptional leaders, and building thriving communities through world-class learning experiences.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The ALA Method -->
+    <section id="ala-method">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">The ALA Method</p>
+          <h2 class="section-heading">Global Thinking. Arab Context. Practical Results.</h2>
+          <p class="section-intro">ALA's learning methodology combines internationally recognized approaches with years of practical implementation, creating experiences designed for real-world application and measurable change.</p>
+        </div>
+        <div class="method-grid">
+          <div class="method-card">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <h3>Global Perspectives</h3>
+            <p>Inspired by American, European, Chinese, and Indian schools of training and coaching.</p>
+          </div>
+          <div class="method-card">
+            <i class="fa-solid fa-handshake" aria-hidden="true"></i>
+            <h3>Culturally Relevant</h3>
+            <p>Adapted to the needs, challenges, and cultural context of individuals and organizations across the Arab world.</p>
+          </div>
+          <div class="method-card">
+            <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+            <h3>Practical Application</h3>
+            <p>Interactive, results-oriented learning that connects knowledge with behavior, implementation, and measurable outcomes.</p>
+          </div>
+        </div>
+        <div class="sectors-block">
+          <h3>Experience Across Sectors</h3>
+          <div class="sector-chips" aria-label="Sectors served">
+            <span class="sector-chip">Corporate Organizations</span>
+            <span class="sector-chip">Universities &amp; Higher Education</span>
+            <span class="sector-chip">Educational Organizations</span>
+            <span class="sector-chip">NGOs</span>
+            <span class="sector-chip">Professional Associations</span>
+            <span class="sector-chip">Healthcare</span>
+            <span class="sector-chip">Sales &amp; Marketing</span>
+            <span class="sector-chip">Entrepreneurship &amp; Startups</span>
+            <span class="sector-chip">Leadership &amp; Human Development</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Programs -->
+    <section id="programs">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Our Programs</p>
+          <h2 class="section-heading">Programs for Every Learner</h2>
+        </div>
+        <div class="programs-grid">
+          <article class="program-card">
+            <div class="program-card-image">
+              <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Live learning session" width="960" height="1024" loading="lazy" decoding="async">
+              <div class="program-icon-badge" aria-hidden="true"><i class="fa-solid fa-video"></i></div>
+            </div>
+            <div class="program-card-body">
+              <h3>Live Courses</h3>
+              <p>Live learning with direct instructor engagement across leadership, coaching, communication, and professional development.</p>
+              <a href="https://link.cashprocess.io/preview/fRaRY5RMY05VbnLSxGoO" class="program-link" target="_top">Explore Live Courses <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+          <article class="program-card">
+            <div class="program-card-image">
+              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Flexible learning experience" width="960" height="1024" loading="lazy" decoding="async">
+              <div class="program-icon-badge" aria-hidden="true"><i class="fa-solid fa-laptop"></i></div>
+            </div>
+            <div class="program-card-body">
+              <h3>Recorded Courses</h3>
+              <p>Flexible access to selected ALA learning experiences designed for continuous development at your own pace.</p>
+              <a href="https://link.cashprocess.io/preview/j67uSKwgeUSNZMm9suAo" class="program-link" target="_top">Explore Recorded Courses <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+          <article class="program-card">
+            <div class="program-card-image">
+              <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Immersive academy camp" width="960" height="1024" loading="lazy" decoding="async">
+              <div class="program-icon-badge" aria-hidden="true"><i class="fa-solid fa-campground"></i></div>
+            </div>
+            <div class="program-card-body">
+              <h3>Camps</h3>
+              <p>Immersive experiences including Silent Camp and Power of Change (POC) Camp for deeper personal change.</p>
+              <a href="https://link.cashprocess.io/preview/0jAQplJCVpLvfAWky1jX" class="program-link" target="_top">Explore Camps <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+          <article class="program-card">
+            <div class="program-card-image">
+              <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Professional workshop" width="960" height="1024" loading="lazy" decoding="async">
+              <div class="program-icon-badge" aria-hidden="true"><i class="fa-solid fa-chalkboard-user"></i></div>
+            </div>
+            <div class="program-card-body">
+              <h3>Workshops</h3>
+              <p>Focused practical learning across communication, NLP, emotional intelligence, coaching, and psychology.</p>
+              <a href="#contact" class="program-link" data-interest="help-choosing">Explore Workshops <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Programs -->
+    <section id="featured-programs">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Featured Programs</p>
+        </div>
+        <div class="featured-grid">
+          <article class="featured-card">
+            <div class="featured-card-image">
+              <span class="featured-badge badge-program">PROGRAM</span>
+              <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Public Speaking and Presentation Skills" width="960" height="1024" loading="lazy" decoding="async">
+            </div>
+            <div class="featured-card-body">
+              <h3>Public Speaking &amp; Presentation Skills</h3>
+              <p>Practical development in presentation skills, confidence, communication, and professional public speaking.</p>
+              <a href="https://link.cashprocess.io/preview/IEr2cr2Ah0zJU9EDSY0w" class="featured-cta" target="_top">Ask About This Program <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+          <article class="featured-card">
+            <div class="featured-card-image">
+              <span class="featured-badge badge-coaching">COACHING</span>
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Certified Coaching Programs ACC and PCC" width="960" height="1024" loading="lazy" decoding="async">
+            </div>
+            <div class="featured-card-body">
+              <h3>Certified Coaching Programs (ACC &amp; PCC)</h3>
+              <p>Professional coaching development designed around internationally recognized coaching standards and practical application.</p>
+              <a href="https://link.cashprocess.io/preview/Fa9s2JUdoKYtXylbluFH" class="featured-cta" target="_top">Ask About This Program <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+          <article class="featured-card">
+            <div class="featured-card-image">
+              <span class="featured-badge badge-camp">CAMP</span>
+              <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Power of Change POC Camp" width="960" height="1024" loading="lazy" decoding="async">
+            </div>
+            <div class="featured-card-body">
+              <h3>Power of Change (POC) Camp</h3>
+              <p>An immersive ALA camp experience combining deep learning and practical application to support meaningful and sustainable change.</p>
+              <a href="https://link.cashprocess.io/preview/vzSbiIs4PB8vSY6FyENV" class="featured-cta" target="_top">Ask About This Program <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why ALA -->
+    <section id="why-us">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Why Choose Us</p>
+          <h2 class="section-heading">Why Learn With ALA?</h2>
+        </div>
+        <div class="why-grid">
+          <div class="why-item">
+            <i class="fa-solid fa-certificate" aria-hidden="true"></i>
+            <h3>International Coaching Standards</h3>
+            <p>Led by an ICF Professional Certified Coach with extensive executive and life coaching experience.</p>
+          </div>
+          <div class="why-item">
+            <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+            <h3>Practical &amp; Results-Oriented</h3>
+            <p>Learning combines business experience, psychology, coaching, and behavioral science with hands-on application.</p>
+          </div>
+          <div class="why-item">
+            <i class="fa-solid fa-earth-africa" aria-hidden="true"></i>
+            <h3>Global + Local Methodology</h3>
+            <p>International approaches refined and adapted to the needs of the Arab world.</p>
+          </div>
+          <div class="why-item">
+            <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+            <h3>Cross-Sector Experience</h3>
+            <p>Experience spanning corporations, universities, NGOs, healthcare, entrepreneurship, and leadership development.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Events & News -->
+    <section id="updates">
+      <div class="container updates-grid">
+        <div class="events-block">
+          <div class="block-header">
+            <div class="block-title">
+              <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+              UPCOMING EVENTS
+            </div>
+          </div>
+          <div class="empty-state-card">
+            <h4>New Experiences Are Coming Soon</h4>
+            <p>Upcoming workshops, live programs, camps, and academy events will be announced here. Need dates, fees, or offers? Our team can help.</p>
+            <a class="btn-register" href="https://wa.me/201010002231?text=You%27re%20just%20one%20step%20away%20from%20joining%20ALA%21%20Contact%20us%20today%2C%20and%20one%20of%20our%20team%20members%20will%20be%20happy%20to%20assist%20you%20with%20the%20next%20available%20course%20date%2C%20course%20fees%2C%20current%20offers%2C%20answer%20all%20your%20questions%2C%20and%20help%20you%20complete%20your%20registration%20with%20ease." target="_blank" rel="noopener noreferrer">Ask on WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="news-block">
+          <div class="block-header">
+            <div class="block-title">
+              <i class="fa-regular fa-newspaper" aria-hidden="true"></i>
+              LATEST NEWS
+            </div>
+          </div>
+          <div class="news-grid">
+            <div class="empty-state-card news-empty">
+              <h4>Latest ALA Updates</h4>
+              <p>Academy news, program announcements, achievements, and learning insights will appear here.</p>
+              <a class="btn-register" href="https://wa.me/201010002231?text=You%27re%20just%20one%20step%20away%20from%20joining%20ALA%21%20Contact%20us%20today%2C%20and%20one%20of%20our%20team%20members%20will%20be%20happy%20to%20assist%20you%20with%20the%20next%20available%20course%20date%2C%20course%20fees%2C%20current%20offers%2C%20answer%20all%20your%20questions%2C%20and%20help%20you%20complete%20your%20registration%20with%20ease." target="_blank" rel="noopener noreferrer">Stay Updated on WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / Lead -->
+    <section id="contact">
+      <div class="container contact-grid">
+        <div class="contact-content">
+          <h2>Start Your Learning Journey</h2>
+          <p>You're one step away from joining ALA. Tell us what you're interested in and our team will help you with the next available dates, fees, current offers, and the right program for your goals.</p>
+          <div class="contact-trust">
+            <div class="contact-trust-item">
+              <i class="fa-solid fa-compass" aria-hidden="true"></i>
+              <span><strong>Program Guidance</strong> — Find the learning experience that best fits your goals.</span>
+            </div>
+            <div class="contact-trust-item">
+              <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+              <span><strong>Dates, Fees &amp; Offers</strong> — Get the latest verified schedule, pricing, and available offers.</span>
+            </div>
+            <div class="contact-trust-item">
+              <i class="fa-solid fa-handshake" aria-hidden="true"></i>
+              <span><strong>Registration Support</strong> — Our team will help you complete your registration with ease.</span>
+            </div>
+          </div>
+          <p>
+            <a class="text-link-cta" href="https://wa.me/201010002231?text=You%27re%20just%20one%20step%20away%20from%20joining%20ALA%21%20Contact%20us%20today%2C%20and%20one%20of%20our%20team%20members%20will%20be%20happy%20to%20assist%20you%20with%20the%20next%20available%20course%20date%2C%20course%20fees%2C%20current%20offers%2C%20answer%20all%20your%20questions%2C%20and%20help%20you%20complete%20your%20registration%20with%20ease." target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Chat on WhatsApp: 01010002231
+            </a>
+          </p>
+          <div class="contact-deco" aria-hidden="true">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+        </div>
+        <form class="lead-form" id="leadForm" action="#" method="post" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" required placeholder="Your full name" autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" required placeholder="01XXXXXXXXX" autocomplete="tel">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required placeholder="you@email.com" autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label for="interest">Interested In</label>
+            <select id="interest" name="interest" required>
+              <option value="">Select a program</option>
+              <option value="help-choosing">I need help choosing</option>
+              <option value="coaching-acc-pcc">Certified Coaching Programs (ACC &amp; PCC)</option>
+              <option value="public-speaking">Public Speaking &amp; Presentation Skills</option>
+              <option value="tot">Professional Training of Trainers (TOT)</option>
+              <option value="nlp">Neuro-Linguistic Programming (NLP)</option>
+              <option value="psychological-genius">Psychological Genius</option>
+              <option value="enneagram">Enneagram</option>
+              <option value="leadership-management">Leadership &amp; Management</option>
+              <option value="emotional-intelligence">Emotional Intelligence</option>
+              <option value="effective-communication">Effective Communication</option>
+              <option value="team-building">Team Building</option>
+              <option value="positive-psychology">Positive Psychology</option>
+              <option value="sales-marketing">Sales &amp; Marketing</option>
+              <option value="business-strategy">Business Strategy</option>
+              <option value="time-productivity">Time Management &amp; Productivity</option>
+              <option value="decision-making">Decision Making</option>
+              <option value="ceo-development">CEO Development Programs</option>
+              <option value="silent-camp">Silent Camp</option>
+              <option value="poc-camp">Power of Change (POC) Camp</option>
+              <option value="general">Other / General Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us about your goals or questions..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Request More Information</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#hero" class="logo">
+            <img class="logo-img" src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a787bb09994d35aa03bbe17.png" alt="Ahmed Latif Academy">
+            <div class="logo-text">
+              <strong>Ahmed Latif</strong>
+              <small>ALA</small>
+            </div>
+          </a>
+          <p>Transformative learning in leadership, coaching, communication, psychology, and personal development.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="#hero">Home</a>
+          <a href="#instructor">About</a>
+          <a href="https://link.cashprocess.io/preview/fRaRY5RMY05VbnLSxGoO" target="_top">Programs</a>
+          <a href="#updates">Events</a>
+          <a href="#updates">News</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <a href="https://link.cashprocess.io/preview/fRaRY5RMY05VbnLSxGoO" data-interest="help-choosing" target="_top">Live Courses</a>
+          <a href="https://link.cashprocess.io/preview/j67uSKwgeUSNZMm9suAo" data-interest="help-choosing" target="_top">Recorded Courses</a>
+          <a href="https://link.cashprocess.io/preview/0jAQplJCVpLvfAWky1jX" data-interest="poc-camp" target="_top">Camps</a>
+          <a href="#contact" data-interest="help-choosing">Workshops</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/ALA.Academy1" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.instagram.com/alaacademy2030/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://wa.me/201010002231" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            </a>
+            <a href="https://ala-eg.com/home" target="_blank" rel="noopener noreferrer" aria-label="Website">
+              <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span id="currentYear">&copy; Ahmed Latif Academy. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/201010002231?text=You%27re%20just%20one%20step%20away%20from%20joining%20ALA%21%20Contact%20us%20today%2C%20and%20one%20of%20our%20team%20members%20will%20be%20happy%20to%20assist%20you%20with%20the%20next%20available%20course%20date%2C%20course%20fees%2C%20current%20offers%2C%20answer%20all%20your%20questions%2C%20and%20help%20you%20complete%20your%20registration%20with%20ease." target="_blank" rel="noopener noreferrer" aria-label="Contact Ahmed Latif Academy on WhatsApp">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <script>
+    (function () {
+      var menuToggle = document.getElementById('menuToggle');
+      var mobileNav = document.getElementById('mobileNav');
+      var icon = menuToggle.querySelector('i');
+      var interestSelect = document.getElementById('interest');
+      var currentYear = document.getElementById('currentYear');
+
+      if (currentYear) {
+        currentYear.textContent = '\u00A9 ' + new Date().getFullYear() + ' Ahmed Latif Academy. All rights reserved.';
+      }
+
+      var siteHeader = document.querySelector('.site-header');
+      function onHeaderScroll() {
+        if (siteHeader) siteHeader.classList.toggle('scrolled', window.scrollY > 12);
+      }
+      onHeaderScroll();
+      window.addEventListener('scroll', onHeaderScroll, { passive: true });
+
+      function tag(selector, cls) {
+        document.querySelectorAll(selector).forEach(function (el) {
+          el.classList.add(cls);
+        });
+      }
+
+      tag([
+        '.announcement-inner',
+        '.section-header',
+        '.instructor-content > .eyebrow',
+        '.instructor-content > .section-heading',
+        '.instructor-content > p',
+        '.credentials-label',
+        '.academy-content > .eyebrow',
+        '.academy-content > .section-heading',
+        '.academy-content > p',
+        '.signature-text',
+        '.impact-group-label',
+        '.sectors-block',
+        '.block-header',
+        '#contact .contact-content > h2',
+        '#contact .contact-content > p',
+        '.contact-trust-item',
+        '.lead-form',
+        '.hero-signature',
+        '.footer-brand',
+        '.footer-col',
+        '.footer-bottom'
+      ].join(', '), 'anim-item');
+      tag('.instructor-photo-wrap', 'anim-left');
+      tag([
+        '.achievement-card',
+        '.impact-item',
+        '.case-block',
+        '.case-metric',
+        '.method-card',
+        '.program-card',
+        '.featured-card',
+        '.why-item',
+        '.event-card',
+        '.news-card',
+        '.mv-card',
+        '.empty-state-card',
+        '.academy-card',
+        '.sector-chip'
+      ].join(', '), 'anim-scale');
+
+      var targets = Array.from(
+        document.querySelectorAll('.anim-item, .anim-left, .anim-right, .anim-scale')
+      );
+
+      function reveal(el, delay) {
+        window.setTimeout(function () { el.classList.add('visible'); }, delay || 0);
+      }
+
+      function siblingDelay(el) {
+        var parent = el.parentElement;
+        if (!parent) return 40;
+        var sibs = Array.prototype.filter.call(parent.children, function (child) {
+          return child.classList.contains('anim-item') ||
+            child.classList.contains('anim-left') ||
+            child.classList.contains('anim-right') ||
+            child.classList.contains('anim-scale');
+        });
+        var i = sibs.indexOf(el);
+        return Math.max(0, i) * 80;
+      }
+
+      var animObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            reveal(entry.target, siblingDelay(entry.target));
+            animObserver.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -10% 0px' }
+      );
+
+      targets.forEach(function (el) {
+        var rect = el.getBoundingClientRect();
+        var inView = rect.top < window.innerHeight * 0.92 && rect.bottom > 0;
+        if (inView) reveal(el, siblingDelay(el));
+        else animObserver.observe(el);
+      });
+
+      menuToggle.addEventListener('click', function () {
+        var isOpen = mobileNav.classList.toggle('open');
+        icon.classList.toggle('fa-bars', !isOpen);
+        icon.classList.toggle('fa-xmark', isOpen);
+        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      mobileNav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          mobileNav.classList.remove('open');
+          icon.classList.add('fa-bars');
+          icon.classList.remove('fa-xmark');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      function preselectInterest(value) {
+        if (!interestSelect || !value) return;
+        var exists = Array.prototype.some.call(interestSelect.options, function (opt) {
+          return opt.value === value;
+        });
+        if (exists) interestSelect.value = value;
+      }
+
+      document.querySelectorAll('[data-interest]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          preselectInterest(el.getAttribute('data-interest'));
+        });
+      });
+
+      var leadForm = document.getElementById('leadForm');
+      if (leadForm) {
+        leadForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (!leadForm.checkValidity()) {
+            leadForm.reportValidity();
+            return;
+          }
+
+          var name = document.getElementById('fullName').value.trim();
+          var phone = document.getElementById('phone').value.trim();
+          var email = document.getElementById('email').value.trim();
+          var interest = interestSelect.options[interestSelect.selectedIndex].text;
+          var message = document.getElementById('message').value.trim();
+          var i18n = window.ALA_I18N;
+          var t = function (s) { return i18n && i18n.tText ? i18n.tText(s) : s; };
+          var composed =
+            t("Hello ALA, I'm interested in: ") + interest +
+            "\n" + t("Name: ") + name +
+            "\n" + t("Phone: ") + phone +
+            "\n" + t("Email: ") + email +
+            (message ? ("\n" + t("Message: ") + message) : "") +
+            "\n\n" + t("Please share the next available course date, fees, and current offers.");
+
+          window.open(
+            'https://wa.me/201010002231?text=' + encodeURIComponent(composed),
+            '_blank',
+            'noopener,noreferrer'
+          );
+        });
+      }
+    })();
+  </script>
+
+<!-- ALA_I18N_START -->
+<script>
+window.ALA_I18N_DICT = {"Transformative learning in leadership, coaching, communication, psychology, and personal development.": "تعلّم يُحدث تحوّلًا في القيادة والكوتشينج والتواصل وعلم النفس والتطوير الشخصي.", "Learn": "تعلّم", "Grow": "انمُ", "Quick Links": "روابط سريعة", "Programs": "البرامج", "Contact": "تواصل معنا", "Home": "الرئيسية", "About": "نبذة", "Events": "الفعاليات", "News": "الأخبار", "Find Your Program": "اعثر على برنامجك", "Ask About This Program": "اسأل عن هذا البرنامج", "Ask on WhatsApp": "اسأل عبر واتساب", "Live Courses": "البرامج المباشرة", "Recorded Courses": "البرامج المسجّلة", "Camps": "المعسكرات", "Workshops": "ورش العمل", "Main navigation": "التنقل الرئيسي", "Open menu": "افتح القائمة", "Mobile navigation": "قائمة التنقل للجوال", "Website": "الموقع الإلكتروني", "Contact Ahmed Latif Academy on WhatsApp": "تواصل مع Ahmed Latif Academy عبر واتساب", "An immersive ALA camp experience combining deep learning and practical application to support meaningful and sustainable change.": "تجربة معسكر غامرة من ALA تجمع بين التعلّم العميق والتطبيق العملي لدعم تغيير حقيقي ومستدام.", "Silent Camp": "معسكر Silent", "Learn. Apply. Lead.": "تعلّم. طبّق. قُد.", "Transformative learning in leadership, coaching, communication, psychology, and personal development — designed to change mindsets, strengthen practical skills, and create lasting impact.": "تعلّم يُحدث تحوّلًا في القيادة والكوتشينج والتواصل وعلم النفس والتطوير الشخصي — مصمّم لتغيير طريقة التفكير، وتقوية المهارات العملية، وإحداث أثر يدوم.", "About Dr. Ahmed Latif": "نبذة عن د. أحمد لطيف", "Ahmed Latif is an internationally certified Life & Executive Coach (ICF-PCC), motivational speaker, business consultant, corporate trainer, and Founder & CEO of Ahmed Latif Academy (ALA). With more than 17 years of professional experience, he has become one of the leading figures in human development, leadership training, and executive coaching across the Middle East.": "أحمد لطيف كوتش حياة وكوتش تنفيذي معتمد دوليًا (ICF-PCC)، ومتحدث تحفيزي، ومستشار أعمال، ومدرّب مؤسسي، ومؤسس ورئيس مجلس إدارة Ahmed Latif Academy (ALA). وبخبرة تتجاوز 17 عامًا، أصبح أحد أبرز الأسماء في مجال التنمية البشرية والتدريب القيادي والكوتشينج التنفيذي في الشرق الأوسط.", "Professional Credentials": "الاعتمادات المهنية", "Credentials & Impact": "الاعتمادات والأثر", "Real-World Experience": "خبرة من الواقع", "Selected Business Transformation": "نموذج مختار لتحوّل مؤسسي", "A selected consulting transformation led through strategic planning, system development, team enablement, and organizational performance improvement.": "حالة استشارية مختارة قادها من خلال التخطيط الاستراتيجي وبناء الأنظمة وتمكين الفرق وتحسين الأداء المؤسسي.", "Selected consulting case. Results are specific to this engagement.": "حالة استشارية مختارة. النتائج خاصة بهذا المشروع.", "About Academy": "نبذة عن الأكاديمية", "Ahmed Latif Academy (ALA) delivers professional training, coaching, consulting, and leadership development experiences for individuals, corporations, educational institutions, and organizations across the Middle East.": "تقدّم Ahmed Latif Academy (ALA) تجارب تدريب وكوتشينج واستشارات وتطوير قيادي للأفراد والشركات والمؤسسات التعليمية والمنظمات في الشرق الأوسط.", "We believe in every individual's ability to learn, grow, and reach their potential.": "نؤمن بقدرة كل فرد على التعلّم والنمو والوصول إلى كامل إمكاناته.", "High standards of quality and professionalism across every learning experience.": "معايير عالية من الجودة والاحترافية في كل تجربة تعلّم.", "A culture of lifelong learning, curiosity, and continuous improvement.": "ثقافة تعلّم مستمر، وشغف بالمعرفة، وتحسين دائم.", "To empower individuals, leaders, and organizations through transformative learning experiences that unlock human potential, inspire meaningful growth, and create lasting impact.": "تمكين الأفراد والقادة والمؤسسات من خلال تجارب تعلّم تُحدث تحوّلًا حقيقيًا، تُطلق الإمكانات الإنسانية، وتُلهم نموًا ذا معنى، وتصنع أثرًا يدوم.", "To become the leading Human Development Academy in the Middle East and Africa, recognized globally for transforming lives, developing exceptional leaders, and building thriving communities through world-class learning experiences.": "أن نصبح الأكاديمية الرائدة في التنمية البشرية في الشرق الأوسط وأفريقيا، ومرجعًا معترفًا به عالميًا في تغيير حياة الناس وإعداد قادة استثنائيين وبناء مجتمعات مزدهرة عبر تجارب تعلّم بمعايير عالمية.", "The ALA Method": "منهجية ALA", "ALA's learning methodology combines internationally recognized approaches with years of practical implementation, creating experiences designed for real-world application and measurable change.": "تجمع منهجية التعلّم في ALA بين المدارس المعترف بها عالميًا وسنوات من التطبيق العملي، لتصنع تجارب مصمّمة للتطبيق في الواقع وإحداث تغيير قابل للقياس.", "Inspired by American, European, Chinese, and Indian schools of training and coaching.": "مستوحاة من المدارس الأمريكية والأوروبية والصينية والهندية في التدريب والكوتشينج.", "Adapted to the needs, challenges, and cultural context of individuals and organizations across the Arab world.": "مُهيّأة لاحتياجات وتحديات الأفراد والمؤسسات في العالم العربي وسياقهم الثقافي.", "Interactive, results-oriented learning that connects knowledge with behavior, implementation, and measurable outcomes.": "تعلّم تفاعلي موجّه للنتائج يربط المعرفة بالسلوك والتطبيق والنتائج القابلة للقياس.", "Our Programs": "برامجنا", "Live learning with direct instructor engagement across leadership, coaching, communication, and professional development.": "تعلّم مباشر بتفاعل مباشر مع المدرّب في مجالات القيادة والكوتشينج والتواصل والتطوير المهني.", "Flexible access to selected ALA learning experiences designed for continuous development at your own pace.": "وصول مرن إلى مجموعة مختارة من تجارب التعلّم في ALA، مصمّمة للتطوير المستمر وفق وتيرتك الخاصة.", "Immersive experiences including Silent Camp and Power of Change (POC) Camp for deeper personal change.": "تجارب غامرة تشمل معسكر Silent ومعسكر Power of Change (POC) لإحداث تغيير شخصي أعمق.", "Focused practical learning across communication, NLP, emotional intelligence, coaching, and psychology.": "تعلّم عملي مركّز في التواصل وNLP والذكاء العاطفي والكوتشينج وعلم النفس.", "Featured Programs": "برامج مميزة", "Practical development in presentation skills, confidence, communication, and professional public speaking.": "تطوير عملي لمهارات العرض والثقة بالنفس والتواصل والتحدث أمام الجمهور باحترافية.", "Professional coaching development designed around internationally recognized coaching standards and practical application.": "تطوير مهني في الكوتشينج مبني على معايير الكوتشينج المعترف بها عالميًا وعلى التطبيق العملي.", "Why Choose Us": "لماذا تختارنا", "Led by an ICF Professional Certified Coach with extensive executive and life coaching experience.": "بقيادة كوتش محترف معتمد من ICF بمستوى PCC، وبخبرة واسعة في الكوتشينج التنفيذي والحياتي.", "Learning combines business experience, psychology, coaching, and behavioral science with hands-on application.": "تعلّم يجمع بين خبرة الأعمال وعلم النفس والكوتشينج وعلوم السلوك، مع تطبيق عملي.", "International approaches refined and adapted to the needs of the Arab world.": "مناهج عالمية مصقولة ومُهيّأة لتلائم احتياجات العالم العربي.", "Experience spanning corporations, universities, NGOs, healthcare, entrepreneurship, and leadership development.": "خبرة تمتد إلى الشركات والجامعات والمنظمات غير الحكومية والقطاع الصحي وريادة الأعمال وتطوير القيادات.", "Upcoming workshops, live programs, camps, and academy events will be announced here. Need dates, fees, or offers? Our team can help.": "سيتم الإعلان هنا عن ورش العمل والبرامج المباشرة والمعسكرات وفعاليات الأكاديمية القادمة. تحتاج إلى المواعيد أو الأسعار أو العروض؟ فريقنا في خدمتك.", "Academy news, program announcements, achievements, and learning insights will appear here.": "ستظهر هنا أخبار الأكاديمية وإعلانات البرامج والإنجازات ورؤى التعلّم.", "You're one step away from joining ALA. Tell us what you're interested in and our team will help you with the next available dates, fees, current offers, and the right program for your goals.": "تفصلك خطوة واحدة عن الانضمام إلى ALA. أخبرنا بما يهمّك، وسيساعدك فريقنا في معرفة أقرب المواعيد المتاحة والأسعار والعروض الحالية والبرنامج الأنسب لأهدافك.", "Learn from Experience. Grow with Purpose.": "تعلّم من الخبرة. وانمُ بهدف.", "Experience That Goes Beyond the Classroom": "خبرة تتجاوز قاعة التدريب", "Learning That Creates Real Transformation": "تعلّم يصنع تحوّلًا حقيقيًا", "Global Thinking. Arab Context. Practical Results.": "فكر عالمي. سياق عربي. نتائج عملية.", "Programs for Every Learner": "برامج تناسب كل متعلّم", "Why Learn With ALA?": "لماذا تتعلّم مع ALA؟", "Start Your Learning Journey": "ابدأ رحلتك في التعلّم", "People First": "الإنسان أولًا", "Excellence": "التميّز", "Continuous Growth": "النمو المستمر", "Our Mission": "رسالتنا", "Our Vision": "رؤيتنا", "Global Perspectives": "رؤى عالمية", "Culturally Relevant": "ملائم ثقافيًا", "Practical Application": "تطبيق عملي", "Experience Across Sectors": "خبرة في قطاعات متعدّدة", "Public Speaking & Presentation Skills": "مهارات التحدث أمام الجمهور والعرض", "Certified Coaching Programs (ACC & PCC)": "برامج الكوتشينج المعتمدة (ACC وPCC)", "Power of Change (POC) Camp": "معسكر Power of Change (POC)", "International Coaching Standards": "معايير كوتشينج عالمية", "Practical & Results-Oriented": "عملي وموجّه للنتائج", "Global + Local Methodology": "منهجية عالمية + محلية", "Cross-Sector Experience": "خبرة عبر القطاعات", "New Experiences Are Coming Soon": "تجارب جديدة قريبًا", "Latest ALA Updates": "آخر أخبار ALA", "Full Name": "الاسم الكامل", "Phone Number": "رقم الهاتف", "Email Address": "البريد الإلكتروني", "Interested In": "مهتم بـ", "Message": "الرسالة", "Select a program": "اختر برنامجًا", "I need help choosing": "أحتاج مساعدة في الاختيار", "Professional Training of Trainers (TOT)": "إعداد المدرّبين المحترفين (TOT)", "Neuro-Linguistic Programming (NLP)": "البرمجة اللغوية العصبية (NLP)", "Leadership & Management": "القيادة والإدارة", "Emotional Intelligence": "الذكاء العاطفي", "Effective Communication": "التواصل الفعّال", "Team Building": "بناء الفريق", "Positive Psychology": "علم النفس الإيجابي", "Sales & Marketing": "البيع والتسويق", "Business Strategy": "استراتيجية الأعمال", "Time Management & Productivity": "إدارة الوقت والإنتاجية", "Decision Making": "اتخاذ القرار", "CEO Development Programs": "برامج تطوير الرؤساء التنفيذيين", "Other / General Inquiry": "أخرى / استفسار عام", "Request More Information": "اطلب مزيدًا من المعلومات", "Explore Programs": "استكشف البرامج", "Meet Dr. Ahmed Latif": "تعرّف على د. أحمد لطيف", "Explore Live Courses": "استكشف البرامج المباشرة", "Explore Recorded Courses": "استكشف البرامج المسجّلة", "Explore Camps": "استكشف المعسكرات", "Explore Workshops": "استكشف ورش العمل", "Stay Updated on WhatsApp": "تابعنا على واتساب", "Chat on WhatsApp: 01010002231": "تواصل عبر واتساب: 01010002231", "Master Skills.": "أتقِن المهارات.", "Create Impact.": "اصنع الأثر.", "ALA PROMISE": "وعد ALA", "We don't simply deliver training. We create transformation.": "نحن لا نقدّم تدريبًا فقط، بل نصنع تحوّلًا.", "View Portfolio": "عرض الملف التعريفي", "Corporate Organizations": "الشركات والمؤسسات", "Universities & Higher Education": "الجامعات والتعليم العالي", "Educational Organizations": "المؤسسات التعليمية", "NGOs": "المنظمات غير الحكومية", "Professional Associations": "النقابات والجمعيات المهنية", "Healthcare": "القطاع الصحي", "Entrepreneurship & Startups": "ريادة الأعمال والشركات الناشئة", "Leadership & Human Development": "القيادة والتنمية البشرية", "PROGRAM": "برنامج", "COACHING": "كوتشينج", "CAMP": "معسكر", "Program Guidance": "إرشاد لاختيار البرنامج", "Dates, Fees & Offers": "المواعيد والأسعار والعروض", "Registration Support": "دعم التسجيل", "Years of Experience": "سنة خبرة", "People Trained": "متدرّب", "Coaching Hours": "ساعة كوتشينج", "Founder & CEO": "المؤسس والرئيس التنفيذي", "Professional Certified Coach": "كوتش محترف معتمد", "International Coaching Federation": "الاتحاد الدولي للكوتشينج (ICF)", "Business Administration": "إدارة الأعمال", "Academic & professional depth": "عمق أكاديمي ومهني", "International TOT Certifications": "شهادات TOT دولية", "Training of Trainers": "إعداد المدرّبين", "Universities Reached": "جامعة", "Higher education delivery": "تدريب في قطاع التعليم العالي", "Employees Trained": "موظف مُدرَّب", "Selected corporate training initiative across Egypt": "مبادرة تدريب مؤسسي مختارة في جميع أنحاء مصر", "Professionals Managed": "محترف تحت إدارته", "Leadership experience in multinational organizations": "خبرة قيادية في مؤسسات متعدّدة الجنسيات", "120K EGP → 33M+ EGP": "120 ألف جنيه → أكثر من 33 مليون جنيه", "Within four years": "خلال أربع سنوات", "Customers": "عميل", "Ahmed Latif Academy | Coaching, Leadership & Personal Development": "Ahmed Latif Academy | الكوتشينج والقيادة والتطوير الشخصي", "Ahmed Latif — Founder & CEO of Ahmed Latif Academy": "أحمد لطيف — المؤسس والرئيس التنفيذي لـ Ahmed Latif Academy", "Ahmed Latif, Founder and CEO of Ahmed Latif Academy": "أحمد لطيف، مؤسس ورئيس مجلس إدارة Ahmed Latif Academy", "Live learning session": "جلسة تعلّم مباشرة", "Flexible learning experience": "تجربة تعلّم مرنة", "Immersive academy camp": "معسكر غامر من الأكاديمية", "Professional workshop": "ورشة عمل احترافية", "Public Speaking and Presentation Skills": "مهارات التحدث أمام الجمهور والعرض", "Certified Coaching Programs ACC and PCC": "برامج الكوتشينج المعتمدة ACC وPCC", "Power of Change POC Camp": "معسكر Power of Change (POC)", "Your full name": "اسمك الكامل", "Tell us about your goals or questions...": "أخبرنا عن أهدافك أو استفساراتك...", "ALA Brand Promise": "وعد علامة ALA", "View Dr. Ahmed Latif portfolio": "عرض الملف التعريفي لـ د. أحمد لطيف", "Sectors served": "القطاعات التي نخدمها", "Transformative learning in coaching, leadership, communication, psychology and personal development with Ahmed Latif — ICF-PCC, 17+ years of experience and 600,000+ people trained.": "تعلّم يُحدث تحوّلًا في الكوتشينج والقيادة والتواصل وعلم النفس والتطوير الشخصي مع أحمد لطيف — ICF-PCC، أكثر من 17 عامًا من الخبرة وأكثر من 600,000 متدرّب.", "Hello ALA, I'm interested in: ": "مرحباً ALA، أنا مهتم/ة بـ: ", "Program": "برنامج", "Training": "تدريب", "Live": "مباشر", "Apply": "طبّق", "Neuro-Linguistic Programming": "البرمجة اللغوية العصبية", "Interactive": "تفاعلي", "Camp": "معسكر", "Manage": "أدِر", "Face": "واجه", "Stand": "اثبت", "POC Camp": "معسكر POC", "Universities": "جامعة", "Impact": "الأثر", "Journey": "المسيرة", "Public Speaking & Presentation": "التحدث أمام الجمهور والعرض", "Public Speaking": "التحدث أمام الجمهور", "Professional Training of Trainers": "إعداد المدرّبين المحترفين", "Why ALA": "لماذا ALA", "Present": "اعرض", "Language": "اللغة", "English": "English", "UPCOMING EVENTS": "الفعاليات القادمة", "LATEST NEWS": "آخر الأخبار", "Revenue Growth": "نمو الإيرادات", "Customer Growth": "نمو العملاء", "— Find the learning experience that best fits your goals.": " — اعثر على التجربة التعليمية الأنسب لأهدافك.", "— Get the latest verified schedule, pricing, and available offers.": " — احصل على أحدث المواعيد المعتمدة والأسعار والعروض المتاحة.", "— Our team will help you complete your registration with ease.": " — سيساعدك فريقنا على إتمام تسجيلك بسهولة.", "ICF-PCC": "ICF-PCC", "PhD + MBA": "PhD + MBA", "PCC": "PCC", "Name: ": "الاسم: ", "Phone: ": "الهاتف: ", "Email: ": "البريد: ", "Message: ": "الرسالة: ", "Please share the next available course date, fees, and current offers.": "يرجى مشاركة أقرب موعد متاح للدورة والرسوم والعروض الحالية.", "Close menu": "أغلق القائمة", "Previous photo": "الصورة السابقة", "Next photo": "الصورة التالية", "Scroll thumbnails left": "تحريك المصغّرات إلى اليسار", "Scroll thumbnails right": "تحريك المصغّرات إلى اليمين", "Gallery thumbnails": "مصغّرات المعرض", "Use the arrows to browse all photos. Click the image to view it larger.": "استخدم الأسهم لتصفّح جميع الصور. اضغط على الصورة لعرضها بحجم أكبر.", "View larger: ": "عرض بحجم أكبر: ", "Show photo ": "عرض الصورة ", "Close gallery": "إغلاق المعرض", "Previous image": "الصورة السابقة", "Next image": "الصورة التالية", "© Ahmed Latif Academy. All rights reserved.": "© Ahmed Latif Academy. جميع الحقوق محفوظة.", "You're just one step away from joining ALA! Contact us today, and one of our team members will be happy to assist you with the next available course date, course fees, current offers, answer all your questions, and help you complete your registration with ease.": "أنت على بُعد خطوة واحدة من الانضمام إلى ALA! تواصل معنا اليوم، وسيسعد أحد أعضاء فريقنا بمساعدتك بموعد الدورة المتاح التالي، والرسوم، والعروض الحالية، والإجابة عن كل أسئلتك، وإتمام تسجيلك بسهولة."};
+</script>
+<script>
+(function (window, document) {
+  "use strict";
+
+  var STORAGE_KEY = "ala-language";
+  var SUPPORTED = { en: true, ar: true };
+
+  function dict() {
+    return window.ALA_I18N_DICT || {};
+  }
+
+  function getQueryLang() {
+    try {
+      var match = window.location.search.match(/[?&]lang=(en|ar)(?:&|#|$)/);
+      return match ? match[1] : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function getStoredLang() {
+    try {
+      var value = window.localStorage.getItem(STORAGE_KEY);
+      return SUPPORTED[value] ? value : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function saveLang(lang) {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, lang);
+    } catch (e) {}
+  }
+
+  function resolveLang() {
+    return getQueryLang() || getStoredLang() || "en";
+  }
+
+  function getLanguage() {
+    var lang = document.documentElement.getAttribute("lang");
+    return SUPPORTED[lang] ? lang : resolveLang();
+  }
+
+  var originalText = typeof WeakMap === "function" ? new WeakMap() : null;
+  var originalAttrs = typeof WeakMap === "function" ? new WeakMap() : null;
+
+  function rememberText(node, value) {
+    if (originalText) {
+      if (!originalText.has(node)) originalText.set(node, value);
+      return originalText.get(node);
+    }
+    if (!node.alaOrigText) node.alaOrigText = value;
+    return node.alaOrigText;
+  }
+
+  function rememberAttr(el, name, value) {
+    var bag = null;
+    if (originalAttrs) {
+      bag = originalAttrs.get(el);
+      if (!bag) {
+        bag = {};
+        originalAttrs.set(el, bag);
+      }
+    } else {
+      el.alaOrigAttrs = el.alaOrigAttrs || {};
+      bag = el.alaOrigAttrs;
+    }
+    if (!(name in bag)) bag[name] = value;
+    return bag[name];
+  }
+
+  function translateString(text, lang) {
+    if (text == null) return text;
+    if (lang === "en") return text;
+
+    var map = dict();
+    if (map[text]) return map[text];
+
+    var trimmed = String(text).trim();
+    if (map[trimmed]) {
+      if (trimmed === String(text)) return map[trimmed];
+      return String(text).replace(trimmed, map[trimmed]);
+    }
+
+    var copy = trimmed.match(/^©\s+(\d{4})\s+Ahmed Latif Academy\.\s+All rights reserved\.$/);
+    if (copy) {
+      return "© " + copy[1] + " Ahmed Latif Academy. جميع الحقوق محفوظة.";
+    }
+
+    var photo = trimmed.match(/^(.*?)(?: program| coaching program)? photo (\d+)$/i);
+    if (photo) {
+      var label = photo[1].replace(/\s+$/, "");
+      var translatedLabel = map[label] || label;
+      return "صورة " + photo[2] + " — " + translatedLabel;
+    }
+
+    var viewLarger = trimmed.match(/^View larger:\s*(.*)$/);
+    if (viewLarger) {
+      var rest = viewLarger[1];
+      return "عرض أكبر: " + translateString(rest, lang);
+    }
+
+    var showPhoto = trimmed.match(/^Show photo (\d+):\s*(.*)$/);
+    if (showPhoto) {
+      return "عرض الصورة " + showPhoto[1] + ": " + translateString(showPhoto[2], lang);
+    }
+
+    return text;
+  }
+
+  function shouldSkip(el) {
+    if (!el || !el.closest) return true;
+    if (el.closest("script, style, noscript, .lang-switcher")) return true;
+    /* Brand lockup + hero signature stay English */
+    if (el.closest(".site-header .logo, .site-header .logo-text, .site-header .logo-academy, .hero-signature")) return true;
+    if (el.isContentEditable) return true;
+    return false;
+  }
+
+  function translateTextNodes(root, lang) {
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+    var node;
+    while ((node = walker.nextNode())) {
+      var parent = node.parentNode;
+      if (!parent || parent.nodeType !== 1) continue;
+      var tag = parent.tagName;
+      if (tag === "SCRIPT" || tag === "STYLE" || tag === "NOSCRIPT") continue;
+      if (shouldSkip(parent)) continue;
+      var raw = node.nodeValue;
+      if (!raw || !raw.trim()) continue;
+      if (!/[A-Za-z]/.test(raw) && lang === "ar") continue;
+      var orig = rememberText(node, raw);
+      var next = lang === "en" ? orig : translateString(orig, lang);
+      if (next !== node.nodeValue) node.nodeValue = next;
+    }
+  }
+
+  var ATTRS = ["placeholder", "aria-label", "alt", "title"];
+
+  function translateAttrs(root, lang) {
+    var selector = ATTRS.map(function (name) { return "[" + name + "]"; }).join(",");
+    var els = root.querySelectorAll(selector);
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      if (shouldSkip(el)) continue;
+      for (var a = 0; a < ATTRS.length; a++) {
+        var name = ATTRS[a];
+        if (!el.hasAttribute(name)) continue;
+        var current = el.getAttribute(name);
+        var orig = rememberAttr(el, name, current);
+        var next = lang === "en" ? orig : translateString(orig, lang);
+        if (next !== current) el.setAttribute(name, next);
+      }
+    }
+  }
+
+  function translateMeta(lang) {
+    var titleEl = document.querySelector("title");
+    if (titleEl) {
+      var origTitle = rememberAttr(titleEl, "text", titleEl.textContent);
+      document.title = lang === "en" ? origTitle : translateString(origTitle, lang);
+    }
+
+    var metas = document.querySelectorAll('meta[name="description"], meta[property="og:title"], meta[property="og:description"]');
+    for (var i = 0; i < metas.length; i++) {
+      var meta = metas[i];
+      if (!meta.hasAttribute("content")) continue;
+      var orig = rememberAttr(meta, "content", meta.getAttribute("content"));
+      meta.setAttribute("content", lang === "en" ? orig : translateString(orig, lang));
+    }
+  }
+
+  function isExternalHref(href) {
+    if (!href) return true;
+    var lower = href.trim().toLowerCase();
+    if (lower.indexOf("mailto:") === 0 || lower.indexOf("tel:") === 0 || lower.indexOf("javascript:") === 0) return true;
+    if (href.charAt(0) === "#") return true;
+
+    var url;
+    try {
+      url = new URL(href, window.location.href);
+    } catch (e) {
+      return false;
+    }
+
+    if (url.protocol !== "http:" && url.protocol !== "https:") return false;
+
+    var host = url.hostname.replace(/^www\./, "");
+    var external = [
+      "wa.me",
+      "whatsapp.com",
+      "api.whatsapp.com",
+      "facebook.com",
+      "instagram.com",
+      "youtube.com",
+      "youtu.be",
+      "ala-eg.com",
+      "unsplash.com",
+      "images.unsplash.com",
+      "cdnjs.cloudflare.com",
+      "fonts.googleapis.com",
+      "fonts.gstatic.com",
+      "filesafe.space",
+      "cashprocess.io"
+    ];
+    for (var i = 0; i < external.length; i++) {
+      if (host === external[i] || host.slice(-(external[i].length + 1)) === "." + external[i]) return true;
+    }
+    return false;
+  }
+
+  function withLangParam(href, lang) {
+    var hash = "";
+    var hashIndex = href.indexOf("#");
+    if (hashIndex >= 0) {
+      hash = href.slice(hashIndex);
+      href = href.slice(0, hashIndex);
+    }
+    if (!href) {
+      var file = (window.location.pathname.split("/").pop() || "index.html");
+      return file + "?lang=" + lang + hash;
+    }
+
+    var isAbs = /^(https?:)?\/\//i.test(href);
+    try {
+      var url = new URL(href, window.location.href);
+      url.searchParams.set("lang", lang);
+      if (isAbs) return url.origin + url.pathname + url.search + hash;
+      return href.split("?")[0] + url.search + hash;
+    } catch (e) {
+      var qIndex = href.indexOf("?");
+      if (qIndex === -1) return href + "?lang=" + lang + hash;
+      var params = href.slice(qIndex + 1).split("&").filter(function (part) {
+        return part && part.indexOf("lang=") !== 0;
+      });
+      params.push("lang=" + lang);
+      return href.slice(0, qIndex) + "?" + params.join("&") + hash;
+    }
+  }
+
+  function updateInternalLinks(lang) {
+    var links = document.querySelectorAll("a[href]");
+    for (var i = 0; i < links.length; i++) {
+      var a = links[i];
+      if (shouldSkip(a)) continue;
+      var href = rememberAttr(a, "href", a.getAttribute("href"));
+      if (isExternalHref(href)) {
+        if (a.getAttribute("href") !== href) a.setAttribute("href", href);
+        continue;
+      }
+      a.setAttribute("href", withLangParam(href, lang));
+    }
+  }
+
+  var WA_GENERIC_EN = "You're just one step away from joining ALA! Contact us today, and one of our team members will be happy to assist you with the next available course date, course fees, current offers, answer all your questions, and help you complete your registration with ease.";
+  var WA_GENERIC_AR = "أنت على بُعد خطوة واحدة من الانضمام إلى ALA! تواصل معنا اليوم، وسيسعد أحد أعضاء فريقنا بمساعدتك بموعد الدورة المتاح التالي، والرسوم، والعروض الحالية، والإجابة عن كل أسئلتك، وإتمام تسجيلك بسهولة.";
+
+  function translateWhatsAppHrefs(lang) {
+    var links = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]');
+    for (var i = 0; i < links.length; i++) {
+      var a = links[i];
+      var href = rememberAttr(a, "href", a.getAttribute("href"));
+      try {
+        var url = new URL(href, window.location.href);
+        var text = url.searchParams.get("text");
+        if (!text) continue;
+        var next = text;
+        if (lang === "ar") {
+          if (text === WA_GENERIC_EN) next = WA_GENERIC_AR;
+          else next = translateString(text, lang);
+          if (next === text) {
+            next = text
+              .replace(/^Hello ALA, I'm interested in:\s*/i, "مرحباً ALA، أنا مهتم/ة بـ: ")
+              .replace(/^Hello ALA, I'm interested in /i, "مرحباً ALA، أنا مهتم/ة بـ ")
+              .replace(/\nName:\s*/g, "\nالاسم: ")
+              .replace(/\nPhone:\s*/g, "\nالهاتف: ")
+              .replace(/\nEmail:\s*/g, "\nالبريد: ")
+              .replace(/\nMessage:\s*/g, "\nالرسالة: ")
+              .replace(/Please share the next available (?:course )?dates?, fees, and current offers\.?/i, "يرجى مشاركة أقرب المواعيد المتاحة والرسوم والعروض الحالية.")
+              .replace(/Please share the next available course date, fees, and current offers\.?/i, "يرجى مشاركة أقرب موعد متاح للدورة والرسوم والعروض الحالية.");
+          }
+        }
+        url.searchParams.set("text", next);
+        a.setAttribute("href", url.toString());
+      } catch (e) {}
+    }
+  }
+
+  function updateDocumentLanguage(lang) {
+    var root = document.documentElement;
+    root.lang = lang;
+    root.dir = lang === "ar" ? "rtl" : "ltr";
+    root.setAttribute("lang", lang);
+    root.setAttribute("dir", root.dir);
+  }
+
+  function updateSwitcher(lang) {
+    var buttons = document.querySelectorAll("[data-lang-switch]");
+    for (var i = 0; i < buttons.length; i++) {
+      var btn = buttons[i];
+      var value = btn.getAttribute("data-lang-switch");
+      var active = value === lang;
+      btn.classList.toggle("is-active", active);
+      if (active) btn.setAttribute("aria-current", "true");
+      else btn.removeAttribute("aria-current");
+    }
+  }
+
+  function apply(lang) {
+    lang = SUPPORTED[lang] ? lang : "en";
+    updateDocumentLanguage(lang);
+    translateMeta(lang);
+    translateTextNodes(document.body || document.documentElement, lang);
+    translateAttrs(document, lang);
+    updateInternalLinks(lang);
+    translateWhatsAppHrefs(lang);
+    updateSwitcher(lang);
+    document.documentElement.classList.remove("ala-i18n-pending");
+    try {
+      document.dispatchEvent(new CustomEvent("ala:languagechange", { detail: { lang: lang } }));
+    } catch (e) {}
+  }
+
+  function setUrlLang(lang) {
+    try {
+      var url = new URL(window.location.href);
+      url.searchParams.set("lang", lang);
+      window.history.replaceState({}, "", url.toString());
+    } catch (e) {}
+  }
+
+  function setLanguage(lang) {
+    lang = SUPPORTED[lang] ? lang : "en";
+    saveLang(lang);
+    setUrlLang(lang);
+    apply(lang);
+    return lang;
+  }
+
+  function bindSwitcher() {
+    document.addEventListener("click", function (event) {
+      var btn = event.target.closest && event.target.closest("[data-lang-switch]");
+      if (!btn) return;
+      event.preventDefault();
+      setLanguage(btn.getAttribute("data-lang-switch"));
+    });
+  }
+
+  function init() {
+    var lang = resolveLang();
+    saveLang(lang);
+    apply(lang);
+    bindSwitcher();
+    window.setTimeout(function () {
+      document.documentElement.classList.remove("ala-i18n-pending");
+    }, 2000);
+  }
+
+  window.ALA_I18N = {
+    setLanguage: setLanguage,
+    getLanguage: getLanguage,
+    apply: apply,
+    tText: function (text) {
+      return translateString(text, getLanguage());
+    },
+    t: function (text) {
+      return translateString(text, getLanguage());
+    }
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})(window, document);
+
+</script>
+<!-- ALA_I18N_END -->
+</body>
+</html>

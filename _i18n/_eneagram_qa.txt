@@ -1,0 +1,8 @@
+gallery=55
+hero=https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8df7e956f37ac03c9261cf.jpg
+Ask About=True
+44 Hours=True
+Leaders=True
+AcademyKey=False
+title has Enneagram=True
+PCC leftover body=False

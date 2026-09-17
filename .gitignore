@@ -1,0 +1,9 @@
+# Keep the GitHub repo lightweight; these stay on the local machine only
+images/
+pictures/
+Docs/
+docs/
+
+# Python cache
+**/__pycache__/
+*.pyc

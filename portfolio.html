@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<!-- ALA_I18N_BOOT -->
+<script>
+(function () {
+  try {
+    var k = "ala-language";
+    var q = (location.search.match(/[?&]lang=(en|ar)(?:&|#|$)/) || [])[1];
+    var s = null;
+    try { s = localStorage.getItem(k); } catch (e) {}
+    var lang = (q === "en" || q === "ar") ? q : (s === "en" || s === "ar") ? s : "en";
+    if (q) { try { localStorage.setItem(k, lang); } catch (e) {} }
+    var d = document.documentElement;
+    d.lang = lang;
+    d.dir = lang === "ar" ? "rtl" : "ltr";
+    d.setAttribute("lang", lang);
+    d.setAttribute("dir", d.dir);
+    if (lang === "ar") d.classList.add("ala-i18n-pending");
+  } catch (e) {}
+})();
+</script>
+<noscript><style>html.ala-i18n-pending body { visibility: visible !important; }</style></noscript>
+<!-- /ALA_I18N_BOOT -->
+<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ahmed Latif Portfolio | ALA</title>
+  <meta name="description" content="Dr. Ahmed Latif — Life Coach, Motivational Speaker, Certified Trainer &amp; Business Consultant. Ahmed Latif Academy (ALA) for Training and Consultancies." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #b8922f;
+      --gold-light: #d4af37;
+      --bg: #fafaf8;
+      --text: #1a1a1a;
+      --text-muted: #555555;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Raleway", system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; background: none; border: none; }
+
+    .font-display { font-family: "Playfair Display", Georgia, serif; }
+
+    .text-hero { font-size: 2.5rem; line-height: 1.1; font-weight: 700; }
+    @media (min-width: 768px) { .text-hero { font-size: 3.75rem; } }
+
+    .text-stat { font-size: 1.875rem; line-height: 1.2; }
+    @media (min-width: 768px) { .text-stat { font-size: 2.25rem; } }
+
+    .text-section { font-size: 1.875rem; line-height: 1.25; font-weight: 700; }
+    @media (min-width: 768px) { .text-section { font-size: 2.25rem; } }
+
+    .text-title { font-size: 1.125rem; line-height: 1.35; font-weight: 600; }
+    .text-body { font-size: 0.875rem; line-height: 1.65; font-weight: 400; }
+    .text-lead { font-size: 1.125rem; line-height: 1.7; }
+    @media (min-width: 768px) { .text-lead { font-size: 1.25rem; } }
+
+    .text-quote { font-size: 1.25rem; line-height: 1.5; }
+    @media (min-width: 768px) { .text-quote { font-size: 1.5rem; } }
+
+    .card-hover {
+      transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
+    }
+    .card-hover:hover,
+    .card-hover.visible:hover,
+    .anim-item.card-hover:hover,
+    .anim-scale.card-hover:hover,
+    .anim-left.card-hover:hover,
+    .anim-right.card-hover:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 16px 48px rgba(184, 146, 47, 0.18);
+      border-color: rgba(184, 146, 47, 0.45);
+    }
+
+    section { scroll-margin-top: 80px; }
+
+    .anim-item, .anim-left, .anim-right, .anim-scale {
+      opacity: 0;
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .anim-item { transform: translateY(40px); }
+    .anim-left { transform: translateX(-50px); }
+    .anim-right { transform: translateX(50px); }
+    .anim-scale { transform: scale(0.9); }
+    .anim-item.visible,
+    .anim-left.visible,
+    .anim-right.visible,
+    .anim-scale.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .anim-item.visible.card-hover:hover,
+    .anim-scale.visible.card-hover:hover,
+    .anim-left.visible.card-hover:hover,
+    .anim-right.visible.card-hover:hover {
+      transform: translateY(-6px) scale(1.02);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .anim-item, .anim-left, .anim-right, .anim-scale {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .float-anim { animation: float 3s ease-in-out infinite; }
+
+    .btn-gold { background: var(--gold); color: #fff; }
+    .btn-gold:hover { background: var(--gold-light); }
+    .text-gold { color: var(--gold); }
+
+    .icon { display: inline-block; flex-shrink: 0; }
+
+    /* Navbar */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      z-index: 50;
+      transition: all 0.3s;
+      border-bottom: 1px solid rgba(184, 146, 47, 0.15);
+      background: rgba(250, 250, 248, 0.8);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    .nav.scrolled {
+      background: rgba(250, 250, 248, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom-color: rgba(184, 146, 47, 0.3);
+      box-shadow: 0 4px 24px rgba(184, 146, 47, 0.12);
+    }
+    .nav-inner {
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 0.625rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .nav-logo { flex-shrink: 0; transition: opacity 0.3s; }
+    .nav-logo:hover { opacity: 0.8; }
+    .nav-logo img { height: 2.75rem; width: auto; object-fit: contain; }
+    @media (min-width: 640px) { .nav-logo img { height: 3rem; } }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #555;
+    }
+    @media (min-width: 1024px) { .nav-links { display: flex; } }
+
+    .nav-links a {
+      position: relative;
+      padding: 0.375rem 0.625rem;
+      border-radius: 0.375rem;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: #b8922f; }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0.625rem; right: 0.625rem; bottom: 0.125rem;
+      height: 1px;
+      background: #b8922f;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+
+    .nav-contact {
+      display: none;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: #b8922f;
+      color: #fff;
+      transition: all 0.3s;
+    }
+    @media (min-width: 768px) { .nav-contact { display: inline-flex; } }
+    .nav-contact:hover {
+      background: #d4af37;
+      box-shadow: 0 6px 20px rgba(184, 146, 47, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .nav-toggle {
+      display: flex;
+      height: 2.5rem; width: 2.5rem;
+      align-items: center; justify-content: center;
+      border-radius: 9999px;
+      border: 1px solid rgba(184, 146, 47, 0.3);
+      background: rgba(184, 146, 47, 0.1);
+      color: #b8922f;
+      transition: all 0.3s;
+    }
+    @media (min-width: 1024px) { .nav-toggle { display: none; } }
+    .nav-toggle:hover { background: #b8922f; color: #fff; }
+
+    .nav-mobile {
+      display: block;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      border-top: 0;
+      background: rgba(250, 250, 248, 0.98);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all 0.3s ease-out;
+    }
+    @media (min-width: 1024px) { .nav-mobile { display: none; } }
+    .nav-mobile.open {
+      max-height: 70vh;
+      opacity: 1;
+      border-top: 1px solid rgba(184, 146, 47, 0.15);
+    }
+    .nav-mobile-inner {
+      padding: 1rem;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+    .nav-mobile a {
+      display: block;
+      border-radius: 0.5rem;
+      padding: 0.625rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #333;
+      transition: all 0.3s;
+    }
+    .nav-mobile a:hover { background: rgba(184, 146, 47, 0.1); color: #b8922f; }
+    .nav-mobile-cta {
+      margin-top: 0.75rem;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px !important;
+      background: #b8922f !important;
+      padding: 0.75rem 1rem !important;
+      font-weight: 600 !important;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #fff !important;
+    }
+    .nav-mobile-cta:hover { background: #d4af37 !important; color: #fff !important; }
+
+    /* Shared */
+    .wrap-7xl { max-width: 80rem; margin: 0 auto; }
+    .wrap-5xl { max-width: 64rem; margin: 0 auto; }
+    .wrap-4xl { max-width: 56rem; margin: 0 auto; }
+    .section { width: 100%; padding: 6rem 1rem; }
+    .section-alt { background: #f9fafb; }
+    .center { text-align: center; }
+    .mb-16 { margin-bottom: 4rem; }
+    .mb-12 { margin-bottom: 3rem; }
+    .mb-10 { margin-bottom: 2.5rem; }
+    .mb-8 { margin-bottom: 2rem; }
+    .mb-6 { margin-bottom: 1.5rem; }
+    .mb-4 { margin-bottom: 1rem; }
+    .mb-3 { margin-bottom: 0.75rem; }
+    .mb-2 { margin-bottom: 0.5rem; }
+    .mb-1 { margin-bottom: 0.25rem; }
+    .mt-12 { margin-top: 3rem; }
+    .mt-10 { margin-top: 2.5rem; }
+    .mt-2 { margin-top: 0.5rem; }
+
+    .card {
+      background: #fff;
+      border: 1px solid rgba(184, 146, 47, 0.1);
+      box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    }
+    .rounded-xl { border-radius: 0.75rem; }
+    .rounded-2xl { border-radius: 1rem; }
+    .p-4 { padding: 1rem; }
+    .p-5 { padding: 1.25rem; }
+    .p-6 { padding: 1.5rem; }
+    .p-8 { padding: 2rem; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.2s;
+    }
+    .btn:hover { transform: scale(1.05); }
+    .btn-outline {
+      border: 1px solid #b8922f;
+      color: #b8922f;
+    }
+    .btn-outline:hover { background: rgba(184, 146, 47, 0.1); }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: 5rem;
+    }
+    .bg-cover {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-img { opacity: 0.25; }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.4), rgba(255,255,255,0.9));
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 0 1rem;
+      max-width: 64rem;
+      margin: 0 auto;
+    }
+    .hero-name { color: #1a1a1a; margin-bottom: 1rem; }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-tag {
+      padding: 0.375rem 1rem;
+      border: 1px solid rgba(184, 146, 47, 0.4);
+      border-radius: 9999px;
+      color: #333;
+    }
+    .hero-sub { margin-bottom: 2rem; max-width: 48rem; margin-left: auto; margin-right: auto; color: #333; }
+    .hero-sub2 { line-height: 1.625; margin-bottom: 2.5rem; max-width: 48rem; margin-left: auto; margin-right: auto; color: #555; }
+    .hero-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      gap: 4rem;
+      align-items: center;
+    }
+    @media (min-width: 768px) { .about-grid { grid-template-columns: 1fr 1fr; } }
+    .about-photo {
+      position: relative;
+      width: 100%;
+      max-width: 28rem;
+      margin: 0 auto;
+      aspect-ratio: 4 / 5;
+    }
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      border-radius: 1rem;
+      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+      object-fit: cover;
+      object-position: center 18%;
+    }
+    .about-frame {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      width: 100%;
+      height: 100%;
+      border: 2px solid rgba(184, 146, 47, 0.3);
+      border-radius: 1rem;
+      z-index: -1;
+    }
+    .about-sub { color: #b8922f; }
+    .about-p { line-height: 1.625; color: #444; }
+
+    /* Philosophy / CTA backgrounds */
+    .rel-section { position: relative; overflow: hidden; }
+    .philo-img { opacity: 0.15; }
+    .philo-overlay { position: absolute; inset: 0; background: rgba(255,255,255,0.8); }
+    .cta-img { opacity: 0.2; }
+    .cta-overlay { position: absolute; inset: 0; background: rgba(255,255,255,0.85); }
+    .rel-inner { position: relative; z-index: 10; }
+    .philo-p { color: #444; }
+
+    /* Impact */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    @media (min-width: 768px) { .stats-grid { grid-template-columns: 1fr 1fr 1fr; } }
+    .stat-card { text-align: center; }
+    .stat-value { font-weight: 700; color: #b8922f; }
+    .muted { color: #555; }
+    .muted-2 { color: #444; }
+    .muted-3 { color: #666; }
+    .muted-4 { color: #333; }
+
+    /* Education */
+    .edu-grid { display: grid; gap: 2rem; }
+    @media (min-width: 768px) { .edu-grid { grid-template-columns: 1fr 1fr; } }
+    .tot-title { color: #b8922f; text-align: center; }
+    .tot-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+    .tot-chip {
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      background: #f9fafb;
+      border: 1px solid rgba(184, 146, 47, 0.2);
+      color: #333;
+      cursor: default;
+      transition: all 0.3s ease-out;
+    }
+    .tot-chip:hover {
+      transform: translateY(-4px) scale(1.05);
+      border-color: #b8922f;
+      background: rgba(184, 146, 47, 0.1);
+      color: #b8922f;
+      box-shadow: 0 8px 24px rgba(184, 146, 47, 0.2);
+    }
+
+    /* Topics */
+    .topics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 768px) { .topics-grid { grid-template-columns: 1fr 1fr 1fr; } }
+    @media (min-width: 1024px) { .topics-grid { grid-template-columns: 1fr 1fr 1fr 1fr; } }
+    .topic-card { text-align: center; }
+    .topic-card span { font-weight: 500; color: #333; }
+
+    /* Expertise */
+    .exp-grid { display: grid; gap: 2rem; }
+    @media (min-width: 768px) { .exp-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .exp-grid { grid-template-columns: 1fr 1fr 1fr; } }
+    .exp-icon {
+      width: 3rem; height: 3rem;
+      border-radius: 9999px;
+      background: rgba(184, 146, 47, 0.1);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    /* Achievement */
+    .achieve { background: #1a1a1a; color: #fff; }
+    .achieve-title { color: #d4af37; }
+    .achieve-sub { color: #e0e0e0; }
+    .achieve-grid {
+      display: grid;
+      gap: 2rem;
+      align-items: center;
+    }
+    @media (min-width: 768px) { .achieve-grid { grid-template-columns: 1fr 1fr 1fr; } }
+    .achieve-card {
+      border: 1px solid rgba(184, 146, 47, 0.3);
+      text-align: center;
+    }
+    .achieve-card.arrow-card {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .achieve-val { font-weight: 700; color: #d4af37; margin-bottom: 0.5rem; }
+    .achieve-label { color: #ccc; }
+    .achieve-detail { color: #e0e0e0; line-height: 1.625; max-width: 48rem; margin-left: auto; margin-right: auto; }
+
+    /* Journey */
+    .journey-list { display: flex; flex-direction: column; gap: 2.5rem; }
+    .journey-item {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      border: 1px solid transparent;
+    }
+    .journey-item:hover {
+      border-color: rgba(184, 146, 47, 0.2);
+      background: #fff;
+    }
+    .journey-dot {
+      width: 0.75rem; height: 0.75rem;
+      margin-top: 0.5rem;
+      border-radius: 9999px;
+      background: #b8922f;
+      flex-shrink: 0;
+    }
+
+    /* Positions */
+    .pos-grid { display: grid; gap: 2rem; }
+    @media (min-width: 768px) { .pos-grid { grid-template-columns: 1fr 1fr; } }
+
+    /* Engagements */
+    .engage-grid { display: grid; gap: 1.5rem; }
+    @media (min-width: 768px) { .engage-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .engage-grid { grid-template-columns: 1fr 1fr 1fr; } }
+    .engage-grid h4 { font-weight: 500; color: #333; }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 768px) { .gallery-grid { grid-template-columns: 1fr 1fr 1fr 1fr; } }
+    .gallery-item {
+      position: relative;
+      height: 12rem;
+      overflow: hidden;
+      box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      border: 1px solid rgba(184, 146, 47, 0.1);
+    }
+    @media (min-width: 768px) { .gallery-item { height: 16rem; } }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .gallery-item:hover img { transform: scale(1.1); }
+
+    /* Services */
+    .svc-grid { display: grid; gap: 2rem; }
+    @media (min-width: 768px) { .svc-grid { grid-template-columns: 1fr 1fr; } }
+    .svc-card {
+      position: relative;
+      overflow: hidden;
+      height: 16rem;
+      border: 1px solid rgba(184, 146, 47, 0.1);
+      box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    }
+    .svc-card img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .svc-card:hover img { transform: scale(1.1); }
+    .svc-cap {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.3), transparent);
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+    }
+    .svc-cap h3 { color: #fff; margin-bottom: 0.5rem; }
+    .svc-cap p { color: rgba(255,255,255,0.9); }
+
+    /* Partners */
+    .partners-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 640px) { .partners-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (min-width: 768px) { .partners-grid { grid-template-columns: repeat(5, 1fr); } }
+    @media (min-width: 1024px) { .partners-grid { grid-template-columns: repeat(6, 1fr); } }
+    .partner-card {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 1;
+    }
+    .partner-card:hover,
+    .partner-card.visible:hover,
+    .partner-card.card-hover:hover,
+    .partner-card.anim-scale.visible.card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: none;
+      border-color: transparent;
+    }
+    .partner-card img { width: 100%; height: 100%; object-fit: contain; }
+
+    /* Contact */
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .contact-row a, .contact-row span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #333;
+    }
+    .contact-row a:hover { color: #b8922f; }
+
+    /* Footer */
+    footer {
+      width: 100%;
+      padding: 4rem 1rem;
+      border-top: 1px solid rgba(184, 146, 47, 0.1);
+    }
+    footer blockquote { font-style: italic; color: #1a1a1a; margin-bottom: 1rem; }
+    footer cite { font-style: normal; color: #666; }
+  /* ALA_I18N_CSS_START */
+html.ala-i18n-pending body {
+  visibility: hidden;
+}
+
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.1rem;
+  flex-shrink: 0;
+}
+
+.lang-switcher button {
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #888;
+  padding: 0.3rem 0.4rem;
+  border-radius: 0.25rem;
+  line-height: 1;
+  min-width: 1.75rem;
+}
+
+.lang-switcher button:hover {
+  color: #b8922f;
+}
+
+.lang-switcher button.is-active,
+.lang-switcher button[aria-current="true"] {
+  color: #b8922f;
+}
+
+.lang-sep {
+  color: #c8c8c8;
+  font-size: 0.75rem;
+  font-weight: 500;
+  user-select: none;
+}
+
+html[lang="ar"] body,
+html[lang="ar"] button,
+html[lang="ar"] input,
+html[lang="ar"] select,
+html[lang="ar"] textarea {
+  font-family: "Cairo", "Tahoma", sans-serif;
+}
+
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] h4 {
+  font-family: "Cairo", "Tahoma", sans-serif;
+  letter-spacing: 0;
+}
+
+html[lang="ar"] .logo-text strong,
+html[lang="ar"] .signature-text {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+html[lang="ar"] .hero-name {
+  font-family: "Cairo", "Tahoma", sans-serif;
+  letter-spacing: 0;
+}
+
+html[lang="ar"] .eyebrow,
+html[lang="ar"] .header-cta,
+html[lang="ar"] .mobile-nav .header-cta,
+html[lang="ar"] .nav-contact,
+html[lang="ar"] .block-title,
+html[lang="ar"] .featured-badge {
+  text-transform: none;
+  letter-spacing: 0.04em;
+}
+
+html[dir="rtl"] input,
+html[dir="rtl"] textarea,
+html[dir="rtl"] select {
+  direction: rtl;
+  text-align: start;
+}
+
+html[dir="rtl"] input[type="tel"],
+html[dir="rtl"] input[type="email"] {
+  direction: ltr;
+  unicode-bidi: plaintext;
+  text-align: start;
+}
+
+html[dir="rtl"] .fa-arrow-right,
+html[dir="rtl"] .fa-arrow-left,
+html[dir="rtl"] .fa-chevron-right,
+html[dir="rtl"] .fa-chevron-left {
+  transform: scaleX(-1);
+}
+
+html[dir="rtl"] .anim-left:not(.visible) {
+  transform: translateX(50px);
+}
+
+html[dir="rtl"] .anim-right:not(.visible) {
+  transform: translateX(-50px);
+}
+
+html[dir="rtl"] .main-nav a::after,
+html[dir="rtl"] .nav-links a::after {
+  transform-origin: right;
+}
+
+html[dir="rtl"] .whatsapp-float {
+  right: auto;
+  left: 20px;
+}
+
+html[dir="rtl"] .program-card-content,
+html[dir="rtl"] .program-card-body,
+html[dir="rtl"] .about-p,
+html[dir="rtl"] .page-header .section-intro {
+  text-align: start;
+}
+
+html[dir="rtl"] .stat-value,
+html[dir="rtl"] .stat-counter,
+html[dir="rtl"] .stat-number {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+@media (max-width: 768px) {
+  html[dir="rtl"] .whatsapp-float {
+    left: 14px;
+    right: auto;
+  }
+}
+
+/* Portfolio-specific RTL (do not reuse Home hero composition) */
+html[lang="ar"] .font-display:not(.hero-name):not(.stat-value) {
+  font-family: "Cairo", "Tahoma", sans-serif;
+  letter-spacing: 0;
+}
+
+html[lang="ar"] .stat-value {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+html[dir="rtl"] .about-p,
+html[dir="rtl"] .philo-p,
+html[dir="rtl"] .hero-sub,
+html[dir="rtl"] .hero-sub2,
+html[dir="rtl"] .muted,
+html[dir="rtl"] .muted-2,
+html[dir="rtl"] .muted-3,
+html[dir="rtl"] .muted-4,
+html[dir="rtl"] .achieve-detail {
+  text-align: start;
+}
+
+html[dir="rtl"] .journey-item {
+  text-align: start;
+}
+
+/* Keep photo | text physical composition; only text direction flips */
+html[dir="rtl"] .about-grid {
+  direction: ltr;
+}
+
+html[dir="rtl"] .about-grid > .anim-right {
+  direction: rtl;
+}
+
+html[dir="rtl"] .hero-inner {
+  text-align: center;
+}
+
+html[dir="rtl"] .hero-tags {
+  justify-content: center;
+}
+
+html[dir="rtl"] .hero-ctas {
+  justify-content: center;
+}
+
+/* ALA_I18N_CSS_END */
+
+  </style>
+</head>
+<body>
+  <div id="__page-root">
+    <nav id="navbar" class="nav">
+      <div class="nav-inner">
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u" class="nav-logo" aria-label="Ahmed Latif — Home" id="nav-home" target="_top">
+          <img src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe01cdd4b797a315e016.png" alt="Ahmed Latif" width="160" height="72" />
+        </a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#impact">Impact</a>
+          <a href="#expertise">Expertise</a>
+          <a href="#topics">Topics</a>
+          <a href="#achievement">Achievement</a>
+          <a href="#journey">Journey</a>
+          <a href="#positions">Positions</a>
+          <a href="#engagements">Engagements</a>
+          <a href="#partners">Partners</a>
+        </div>
+        <div class="nav-actions">
+          <a href="#contact" class="nav-contact">Contact</a>
+          <div class="lang-switcher" role="group" aria-label="Language">
+            <button type="button" data-lang-switch="en" lang="en" aria-label="English">EN</button>
+            <span class="lang-sep" aria-hidden="true">/</span>
+            <button type="button" data-lang-switch="ar" lang="ar" aria-label="العربية">AR</button>
+          </div>
+          <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <svg id="icon-menu" class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+            <svg id="icon-close" class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="nav-mobile" id="nav-mobile">
+        <div class="nav-mobile-inner">
+          <a href="#about">About</a>
+          <a href="#impact">Impact</a>
+          <a href="#expertise">Expertise</a>
+          <a href="#topics">Topics</a>
+          <a href="#achievement">Achievement</a>
+          <a href="#journey">Journey</a>
+          <a href="#positions">Positions</a>
+          <a href="#engagements">Engagements</a>
+          <a href="#partners">Partners</a>
+          <a href="#contact" class="nav-mobile-cta">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <img class="bg-cover hero-img" src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe09ad59e6cfed1ef31a.jpg" alt="An empty conference room setup with podium and rows of chairs" />
+      <div class="hero-overlay"></div>
+      <div class="hero-inner">
+        <h1 class="font-display text-hero hero-name anim-item">Dr.Ahmed Latif</h1>
+        <div class="hero-tags">
+          <span class="hero-tag text-body anim-scale">Life Coach</span>
+          <span class="hero-tag text-body anim-scale">Motivational Speaker</span>
+          <span class="hero-tag text-body anim-scale">Certified Trainer</span>
+          <span class="hero-tag text-body anim-scale">Business Consultant</span>
+        </div>
+        <p class="text-lead hero-sub anim-item">One of the most recognized names in human development across the Middle East. Over 16 years of experience, 600,000+ individuals trained, ICF Professional Certified Coach (PCC), and CEO of Ahmed Latif Academy (ALA) for Training and Consultancies.</p>
+        <p class="text-body hero-sub2 anim-item">PhD in Business Administration | MBA | B.Sc. in Management Information Systems | Certified by 5 international TOT institutions | Special coach for VIP clients in business, entrepreneurship, and public life.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-gold anim-scale" href="https://www.instagram.com/c_ahmed_latif?igsh=eHNkNWZjM3dmc3Rt" target="_blank" rel="noopener noreferrer">Follow on Instagram</a>
+          <a class="btn btn-outline anim-scale" href="https://www.facebook.com/AhmedLatifOfficial" target="_blank" rel="noopener noreferrer">Follow on Facebook</a>
+        </div>
+      </div>
+    </header>
+
+    <section id="about" class="section">
+      <div class="wrap-7xl about-grid">
+        <div class="about-photo anim-left">
+          <img src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe0138d3e2add0033d44.jpg" alt="Professional man in a black suit" width="800" height="1000" />
+          <div class="about-frame"></div>
+        </div>
+        <div class="anim-right">
+          <h2 class="font-display text-section mb-6">Dr.Ahmed Latif</h2>
+          <h3 class="text-title about-sub mb-4">Who He Is</h3>
+          <p class="text-body about-p mb-4">Born on September 25, 1988, in Cairo, Egypt, Dr. Ahmed Latif Mohamed Hassan has built a remarkable career spanning corporate leadership, academic excellence, and large-scale public training. He holds a PhD in Business Administration from Docklands Academy London, an MBA from Docklands Academy London, and a B.Sc. in Management Information Systems from Al-Madina Academy, Al-Haram.</p>
+          <p class="text-body about-p mb-4">His professional journey includes leadership at United Company of Pharmacists (UCP) as Team Leader for Helwan &amp; Embaba Branches, Marketing Manager at Logic Advertising Agency, and Supervisor at Tiens Tianshi Corp — a multinational Chinese giant with 190 branches in 110 countries — where he was responsible for 900 individuals and selected by the Chinese Board of Directors to train 3,000 employees across Egypt.</p>
+          <p class="text-body about-p mb-4">He founded Ahmed Latif Academy (ALA) for Training and Consultancies, delivering a distinctive methodology that draws from Chinese, Indian, American, and European schools of thought — refined through years of practical application and interactive training.</p>
+          <p class="text-body about-p">Dr. Latif is an ICF Professional Certified Coach (PCC) with over 6,000 hours of coaching experience. He is a special coach for VIP clients in business, entrepreneurship, and public life, combining academic depth, corporate experience, and genuine human connection in every engagement.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section rel-section">
+      <img class="bg-cover philo-img" src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe0acdd4b797a315e0b2.jpg" alt="Abstract depiction of golden sun rays creating a warm glowing effect" />
+      <div class="philo-overlay"></div>
+      <div class="rel-inner wrap-4xl center">
+        <h2 class="font-display text-section mb-8 anim-item">His Philosophy</h2>
+        <p class="text-lead philo-p mb-6 anim-item">"Man has gigantic energies that enable him to change the world — as soon as he discovers them and directs them in the right direction." Every human being possesses immense potential that, once discovered and directed correctly, can transform lives and communities.</p>
+        <p class="text-lead philo-p mb-6 anim-item">His training approach combines deep psychological insight with practical, interactive applications designed to produce real, measurable change. He integrates principles from positive psychology, self-persuasion, belief systems, and emotional intelligence into every program.</p>
+        <p class="text-lead philo-p anim-item">As a special coach for VIP clients in business, entrepreneurship, and public life, Dr. Latif brings a rare combination of academic depth, corporate experience, and genuine human connection to every engagement — whether addressing 850 students or coaching a single executive.</p>
+      </div>
+    </section>
+
+    <section id="impact" class="section section-alt">
+      <div class="wrap-7xl center mb-16">
+        <h2 class="font-display text-section mb-4 anim-item">Impact by the Numbers</h2>
+        <p class="text-body muted anim-item" style="max-width:42rem;margin-left:auto;margin-right:auto">Real people — students, professionals, and leaders — whose trajectories were changed through training, coaching, and mentorship over 16 years of dedicated service.</p>
+      </div>
+      <div class="wrap-7xl stats-grid" id="stats-grid">
+        <div class="stat-card p-6 rounded-xl card card-hover anim-scale">
+          <div class="text-stat font-display stat-value stat-counter" data-target="600000">600K+</div>
+          <p class="mt-2 text-body muted">People Trained</p>
+        </div>
+        <div class="stat-card p-6 rounded-xl card card-hover anim-scale">
+          <div class="text-stat font-display stat-value stat-counter" data-target="30000">30K+</div>
+          <p class="mt-2 text-body muted">"Make Yourself" Program Trainees</p>
+        </div>
+        <div class="stat-card p-6 rounded-xl card card-hover anim-scale">
+          <div class="text-stat font-display stat-value stat-counter" data-target="15">15+</div>
+          <p class="mt-2 text-body muted">Universities</p>
+        </div>
+        <div class="stat-card p-6 rounded-xl card card-hover anim-scale">
+          <div class="text-stat font-display stat-value stat-counter" data-target="16">16+</div>
+          <p class="mt-2 text-body muted">Years of Experience</p>
+        </div>
+        <div class="stat-card p-6 rounded-xl card card-hover anim-scale">
+          <div class="text-stat font-display stat-value stat-counter" data-target="30000">30K+</div>
+          <p class="mt-2 text-body muted">Students Reached</p>
+        </div>
+        <div class="stat-card p-6 rounded-xl card card-hover anim-scale">
+          <div class="text-stat font-display stat-value stat-counter" data-target="33000000">33M</div>
+          <p class="mt-2 text-body muted">LE Revenue Growth (Hayah Co.)</p>
+        </div>
+        <div class="stat-card p-6 rounded-xl card card-hover anim-scale">
+          <div class="text-stat font-display stat-value stat-counter" data-target="850">850+</div>
+          <p class="mt-2 text-body muted">Largest Single Audience</p>
+        </div>
+        <div class="stat-card p-6 rounded-xl card card-hover anim-scale">
+          <div class="text-stat font-display stat-value stat-counter" data-target="6000">6K+</div>
+          <p class="mt-2 text-body muted">Coaching Hours (ICF PCC)</p>
+        </div>
+        <div class="stat-card p-6 rounded-xl card card-hover anim-scale">
+          <div class="text-stat font-display stat-value stat-counter" data-target="900">900+</div>
+          <p class="mt-2 text-body muted">Individuals Supervised (Tiens)</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap-5xl">
+        <h2 class="font-display text-section center mb-16 anim-item">Education &amp; Certifications</h2>
+        <div class="edu-grid">
+          <div class="p-6 rounded-xl card card-hover anim-item">
+            <h3 class="text-title mb-1">B.Sc. — Management Information Systems</h3>
+            <p class="text-body muted-3">Al-Madina Academy, Al-Haram</p>
+          </div>
+          <div class="p-6 rounded-xl card card-hover anim-item">
+            <h3 class="text-title mb-1">ICF Professional Certified Coach (PCC)</h3>
+            <p class="text-body muted-3">International Coach Federation, 2021 — 2,000+ coaching hours</p>
+          </div>
+        </div>
+        <div class="mt-12 anim-item">
+          <h3 class="font-display text-title tot-title mb-6">Training of Trainers (TOT) — 5 International Certifications</h3>
+          <div class="tot-row">
+            <span class="tot-chip text-body">Cambridge College of Technology</span>
+            <span class="tot-chip text-body">Tiens Tianshi Corp.</span>
+            <span class="tot-chip text-body">Cairo University</span>
+            <span class="tot-chip text-body">Manchester British Academy</span>
+            <span class="tot-chip text-body">HD Trainers Association</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="topics" class="section section-alt">
+      <div class="wrap-7xl">
+        <h2 class="font-display text-section center mb-16 anim-item">Training Topics &amp; Programs</h2>
+        <div class="topics-grid">
+          <div class="p-4 rounded-xl card card-hover anim-scale topic-card"><span class="text-body">Leadership &amp; Management</span></div>
+          <div class="p-4 rounded-xl card card-hover anim-scale topic-card"><span class="text-body">Emotional Intelligence</span></div>
+          <div class="p-4 rounded-xl card card-hover anim-scale topic-card"><span class="text-body">Communication Skills</span></div>
+          <div class="p-4 rounded-xl card card-hover anim-scale topic-card"><span class="text-body">Team Building</span></div>
+          <div class="p-4 rounded-xl card card-hover anim-scale topic-card"><span class="text-body">Self-Development &amp; Motivation</span></div>
+          <div class="p-4 rounded-xl card card-hover anim-scale topic-card"><span class="text-body">Public Speaking &amp; Presentation</span></div>
+          <div class="p-4 rounded-xl card card-hover anim-scale topic-card"><span class="text-body">Positive Psychology</span></div>
+          <div class="p-4 rounded-xl card card-hover anim-scale topic-card"><span class="text-body">Self-Persuasion &amp; Belief Systems</span></div>
+          <div class="p-4 rounded-xl card card-hover anim-scale topic-card"><span class="text-body">Business Consulting &amp; Strategy</span></div>
+          <div class="p-4 rounded-xl card card-hover anim-scale topic-card"><span class="text-body">Sales &amp; Marketing</span></div>
+          <div class="p-4 rounded-xl card card-hover anim-scale topic-card"><span class="text-body">Time Management &amp; Productivity</span></div>
+          <div class="p-4 rounded-xl card card-hover anim-scale topic-card"><span class="text-body">Decision Making</span></div>
+          <div class="p-4 rounded-xl card card-hover anim-scale topic-card"><span class="text-body">Certified Coaching Program (ACC)</span></div>
+          <div class="p-4 rounded-xl card card-hover anim-scale topic-card"><span class="text-body">Certified Coaching Program (PCC)</span></div>
+          <div class="p-4 rounded-xl card card-hover anim-scale topic-card"><span class="text-body">Neuro-Linguistic Programming (NLP)</span></div>
+          <div class="p-4 rounded-xl card card-hover anim-scale topic-card"><span class="text-body">Psychological Genius</span></div>
+          <div class="p-4 rounded-xl card card-hover anim-scale topic-card"><span class="text-body">Enneagram</span></div>
+          <div class="p-4 rounded-xl card card-hover anim-scale topic-card"><span class="text-body">CEO Trainings</span></div>
+          <div class="p-4 rounded-xl card card-hover anim-scale topic-card"><span class="text-body">Silent Camp</span></div>
+          <div class="p-4 rounded-xl card card-hover anim-scale topic-card"><span class="text-body">Power of Change Camp (POC)</span></div>
+          <div class="p-4 rounded-xl card card-hover anim-scale topic-card"><span class="text-body">Self-confidence</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="expertise" class="section">
+      <div class="wrap-7xl">
+        <h2 class="font-display text-section center mb-16 anim-item">Core Areas of Expertise</h2>
+        <div class="exp-grid">
+          <div class="p-8 rounded-2xl card card-hover anim-item">
+            <div class="exp-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b8922f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </div>
+            <h3 class="font-display text-title mb-3">Life &amp; Executive Coaching</h3>
+            <p class="text-body muted" style="line-height:1.625">ICF-certified Professional Coach (PCC) with over 6,000 hours of coaching experience. Specializes in unlocking hidden potential and driving measurable personal transformation for VIP clients in business, entrepreneurship, and public life.</p>
+          </div>
+          <div class="p-8 rounded-2xl card card-hover anim-item">
+            <div class="exp-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b8922f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+            </div>
+            <h3 class="font-display text-title mb-3">Motivational Speaking</h3>
+            <p class="text-body muted" style="line-height:1.625">Dynamic keynote speaker who has addressed audiences of up to 850 students in a single session. Known for electrifying stage presence and the ability to inspire immediate action across corporate events, university conferences, and public seminars.</p>
+          </div>
+          <div class="p-8 rounded-2xl card card-hover anim-item">
+            <div class="exp-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b8922f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="font-display text-title mb-3">Team Building &amp; Leadership</h3>
+            <p class="text-body muted" style="line-height:1.625">Expert in developing high-performing teams and cultivating innovative leadership. Programs cover emotional intelligence, communication, decision-making, and management — refined through leading 900 individuals at Tiens Tianshi Corp.</p>
+          </div>
+          <div class="p-8 rounded-2xl card card-hover anim-item">
+            <div class="exp-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b8922f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+            </div>
+            <h3 class="font-display text-title mb-3">Business Consulting</h3>
+            <p class="text-body muted" style="line-height:1.625">Proven track record — grew Hayah Co.'s revenue from 120,000 LE to 33 million LE in four years while expanding the client base from 120 to 30,000. Strategic consulting in brand development, sales growth, and organizational transformation.</p>
+          </div>
+          <div class="p-8 rounded-2xl card card-hover anim-item">
+            <div class="exp-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b8922f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            </div>
+            <h3 class="font-display text-title mb-3">Training of Trainers</h3>
+            <p class="text-body muted" style="line-height:1.625">Certified by five international institutions. Has trained hundreds of trainers in public speaking, facilitation, curriculum design, and interactive training methodologies.</p>
+          </div>
+          <div class="p-8 rounded-2xl card card-hover anim-item">
+            <div class="exp-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b8922f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18V5"/><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"/><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"/><path d="M18 18a4 4 0 0 0 2-7.464"/><path d="M19.967 17.514A4 4 0 0 1 12 18a4 4 0 0 1-7.967-.486A4 4 0 0 1 12 18"/><path d="M6 18a4 4 0 0 1-2-7.464"/><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"/></svg>
+            </div>
+            <h3 class="font-display text-title mb-3">Emotional Intelligence &amp; Psychology</h3>
+            <p class="text-body muted" style="line-height:1.625">Specialist in positive psychology, self-persuasion, and belief systems. Helps individuals overcome limiting beliefs and build psychological resilience through scientifically-grounded techniques.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="achievement" class="section achieve">
+      <div class="wrap-5xl center">
+        <h2 class="font-display text-section achieve-title mb-8 anim-item">Notable Business Achievement</h2>
+        <p class="text-body achieve-sub mb-12 anim-item">As Business Consultant for Hayah Company, Dr. Latif achieved extraordinary growth in just 4 years:</p>
+        <div class="achieve-grid">
+          <div class="p-6 rounded-xl achieve-card card-hover anim-scale">
+            <div class="text-stat font-display achieve-val">120K LE</div>
+            <p class="text-body achieve-label">Starting Revenue — 120 Clients</p>
+          </div>
+          <div class="p-6 rounded-xl achieve-card arrow-card card-hover anim-scale">
+            <svg class="float-anim" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </div>
+          <div class="p-6 rounded-xl achieve-card card-hover anim-scale">
+            <div class="text-stat font-display achieve-val">33M LE</div>
+            <p class="text-body achieve-label">Final Revenue — 30,000 Clients</p>
+          </div>
+        </div>
+        <p class="text-body achieve-detail mt-10 anim-item">Through strategic consulting, brand development, sales optimization, and team training, Dr. Latif transformed Hayah Company from a small operation into a market leader — growing revenue by 275x and expanding the client base by 250x in four years.</p>
+      </div>
+    </section>
+
+    <section id="journey" class="section">
+      <div class="wrap-5xl">
+        <h2 class="font-display text-section center mb-16 anim-item">Professional Journey</h2>
+        <div class="journey-list">
+          <div class="journey-item p-5 rounded-xl card-hover anim-left">
+            <div class="journey-dot"></div>
+            <div>
+              <h3 class="text-title mb-1">United Company of Pharmacists (UCP)</h3>
+              <p class="text-body muted">Team Leader — Helwan &amp; Embaba Branches. Led field teams in pharmaceutical distribution, developing foundational leadership and team management skills.</p>
+            </div>
+          </div>
+          <div class="journey-item p-5 rounded-xl card-hover anim-left">
+            <div class="journey-dot"></div>
+            <div>
+              <h3 class="text-title mb-1">Logic Advertising Agency</h3>
+              <p class="text-body muted">Marketing Manager — Managed campaigns and client relationships, gaining deep expertise in brand strategy, consumer psychology, and market positioning.</p>
+            </div>
+          </div>
+          <div class="journey-item p-5 rounded-xl card-hover anim-left">
+            <div class="journey-dot"></div>
+            <div>
+              <h3 class="text-title mb-1">Tiens Tianshi Corp.</h3>
+              <p class="text-body muted">Supervisor — Multinational Chinese giant with 190 branches in 110 countries. Responsible for 900 individuals. Selected by the Chinese Board of Directors to train 3,000 employees across Egypt.</p>
+            </div>
+          </div>
+          <div class="journey-item p-5 rounded-xl card-hover anim-left">
+            <div class="journey-dot"></div>
+            <div>
+              <h3 class="text-title mb-1">Freelance &amp; Non-Profit Sector</h3>
+              <p class="text-body muted">Independent Trainer — Partnered with NGOs, syndicates, sports clubs, and universities. Delivered programs for Resala Charity, Life Makers Foundation, and Anwar Resala.</p>
+            </div>
+          </div>
+          <div class="journey-item p-5 rounded-xl card-hover anim-left">
+            <div class="journey-dot"></div>
+            <div>
+              <h3 class="text-title mb-1">Hayah Company — Business Consultant</h3>
+              <p class="text-body muted">Grew revenue from 120,000 LE to 33 million LE in 4 years. Expanded client base from 120 to 30,000 through strategic consulting and team development.</p>
+            </div>
+          </div>
+          <div class="journey-item p-5 rounded-xl card-hover anim-left">
+            <div class="journey-dot"></div>
+            <div>
+              <h3 class="text-title mb-1">Ahmed Latif Academy (ALA) — Founder &amp; CEO</h3>
+              <p class="text-body muted">Founded ALA for Training and Consultancies. Established a proprietary methodology integrating Chinese, Indian, American, and European schools of thought. Delivering training, coaching, and consulting to corporations, universities, and individuals across the Middle East.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="positions" class="section section-alt">
+      <div class="wrap-5xl">
+        <h2 class="font-display text-section center mb-16 anim-item">Current Positions</h2>
+        <div class="pos-grid">
+          <div class="p-6 rounded-xl card card-hover anim-item">
+            <h3 class="text-title mb-1">CEO — Ahmed Latif Academy (ALA)</h3>
+            <p class="text-body muted">Leading ALA for Training and Consultancies, delivering programs across the Middle East in leadership, coaching, and human development.</p>
+          </div>
+          <div class="p-6 rounded-xl card card-hover anim-item">
+            <h3 class="text-title mb-1">ICF Professional Certified Coach (PCC)</h3>
+            <p class="text-body muted">Active executive and life coach for VIP clients in business, entrepreneurship, and public life with 2,000+ certified coaching hours.</p>
+          </div>
+          <div class="p-6 rounded-xl card card-hover anim-item">
+            <h3 class="text-title mb-1">International Keynote Speaker</h3>
+            <p class="text-body muted">Delivering motivational speeches and training sessions at corporate events, university conferences, and public seminars across the region.</p>
+          </div>
+          <div class="p-6 rounded-xl card card-hover anim-item">
+            <h3 class="text-title mb-1">Business Consultant</h3>
+            <p class="text-body muted">Strategic consulting for companies seeking growth in revenue, team performance, brand development, and organizational transformation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="engagements" class="section">
+      <div class="wrap-7xl">
+        <h2 class="font-display text-section center mb-16 anim-item">Notable Engagements &amp; Collaborations</h2>
+        <div class="engage-grid">
+          <div class="p-5 rounded-xl card card-hover anim-scale"><h4 class="text-body">Cairo University — Guest Lecturer &amp; Trainer</h4></div>
+          <div class="p-5 rounded-xl card card-hover anim-scale"><h4 class="text-body">Ain Shams University — Training Programs</h4></div>
+          <div class="p-5 rounded-xl card card-hover anim-scale"><h4 class="text-body">Zagazig University — Student Development</h4></div>
+          <div class="p-5 rounded-xl card card-hover anim-scale"><h4 class="text-body">Helwan University — Leadership Workshops</h4></div>
+          <div class="p-5 rounded-xl card card-hover anim-scale"><h4 class="text-body">Assiut University — Motivation Seminars</h4></div>
+          <div class="p-5 rounded-xl card card-hover anim-scale"><h4 class="text-body">Resala Charity — Volunteer Training</h4></div>
+          <div class="p-5 rounded-xl card card-hover anim-scale"><h4 class="text-body">Life Makers Foundation — Youth Programs</h4></div>
+          <div class="p-5 rounded-xl card card-hover anim-scale"><h4 class="text-body">Anwar Resala — Community Development</h4></div>
+          <div class="p-5 rounded-xl card card-hover anim-scale"><h4 class="text-body">Sports Clubs — Team Building Programs</h4></div>
+          <div class="p-5 rounded-xl card card-hover anim-scale"><h4 class="text-body">Professional Syndicates — Career Development</h4></div>
+          <div class="p-5 rounded-xl card card-hover anim-scale"><h4 class="text-body">Tiens Tianshi — 3,000 Employee Training (Egypt-wide)</h4></div>
+          <div class="p-5 rounded-xl card card-hover anim-scale"><h4 class="text-body">Hayah Company — Full Business Transformation</h4></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="wrap-7xl">
+        <h2 class="font-display text-section center mb-12 anim-item">In Action</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item rounded-xl card-hover anim-scale">
+            <img src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe09ad59e6cfed1eecec.jpg" alt="Dr. Ahmed Latif conducting an interactive coaching seminar with participants standing in a circle" />
+          </div>
+          <div class="gallery-item rounded-xl card-hover anim-scale">
+            <img src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe09ad59e6cfed1eecf9.jpg" alt="Dr. Ahmed Latif with open arms on stage with fire sparks effects in a large crowded auditorium" />
+          </div>
+          <div class="gallery-item rounded-xl card-hover anim-scale">
+            <img src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe09ad59e6cfed1ef208.jpg" alt="Dr. Ahmed Latif addressing a huge outdoor crowd with arms raised during a public event" />
+          </div>
+          <div class="gallery-item rounded-xl card-hover anim-scale">
+            <img src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe08cdd4b797a315e09e.jpg" alt="Dynamic outdoor team building activity with diverse group" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap-7xl">
+        <h2 class="font-display text-section center mb-16 anim-item">Highlights &amp; Events</h2>
+        <div class="svc-grid">
+          <div class="svc-card rounded-2xl card-hover anim-item">
+            <img src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe0167bb7ac3511c9ae0.jpg" alt="A speaker in a gray suit captivates a large crowd on stage" />
+            <div class="svc-cap">
+              <div>
+                <h3 class="font-display text-title">In Colors 2025 </h3>
+                <p class="text-body">Signature motivational and development event</p>
+              </div>
+            </div>
+          </div>
+          <div class="svc-card rounded-2xl card-hover anim-item">
+            <img src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe0138d3e2add0033d49.jpg" alt="Diverse group of business professionals attending a conference session" />
+            <div class="svc-cap">
+              <div>
+                <h3 class="font-display text-title">Code 2026</h3>
+                <p class="text-body">Leadership and transformation program</p>
+              </div>
+            </div>
+          </div>
+          <div class="svc-card rounded-2xl card-hover anim-item">
+            <img src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe0167bb7ac3511c9ae9.jpg" alt="Two professionals engaged in a discussion in a modern office" />
+            <div class="svc-cap">
+              <div>
+                <h3 class="font-display text-title">Volt Day</h3>
+                <p class="text-body">High-energy training experience</p>
+              </div>
+            </div>
+          </div>
+          <div class="svc-card rounded-2xl card-hover anim-item">
+            <img src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe0167bb7ac3511c9ae4.jpg" alt="Students of various backgrounds attentively listening in a university lecture hall" />
+            <div class="svc-cap">
+              <div>
+                <h3 class="font-display text-title">Coaches Graduation</h3>
+                <p class="text-body">Celebrating certified coaching graduates</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="partners" class="section section-alt">
+      <div class="wrap-7xl">
+        <h2 class="font-display text-section center mb-4 anim-item">Trusted Partners &amp; Collaborators</h2>
+        <p class="center text-body muted mb-12 anim-item" style="max-width:42rem;margin-left:auto;margin-right:auto">Proud to have partnered with leading corporations, universities, NGOs, sports clubs, syndicates, and institutions across the Middle East.</p>
+        <div class="partners-grid" id="partners-grid"></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section rel-section">
+      <img class="bg-cover cta-img" src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe0967ecc8731d3fe3a0.jpg" alt="Elegant abstract design featuring golden flowing lines" />
+      <div class="cta-overlay"></div>
+      <div class="rel-inner wrap-4xl center">
+        <h2 class="font-display text-section mb-6 anim-item">Ready to Transform?</h2>
+        <p class="text-lead muted-2 mb-10 anim-item" style="max-width:42rem;margin-left:auto;margin-right:auto">Whether you're an organization, a community, or an individual striving for growth, Ahmed Latif Academy is your trusted partner in transformation—empowering people, developing leaders, and creating lasting impact.</p>
+        <div class="contact-row anim-item">
+          <a class="text-body" href="tel:+201010002231">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b8922f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +20 1010002231
+          </a>
+          <a class="text-body" href="mailto:trainer.latif@gmail.com">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b8922f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            trainer.latif@gmail.com
+          </a>
+          <span class="text-body">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b8922f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            Maadi, Cairo — Egypt
+          </span>
+        </div>
+        <div class="hero-ctas anim-scale">
+          <a class="btn btn-gold" href="https://maps.app.goo.gl/Wxybs5sJKQAFMCSF6" target="_blank" rel="noopener noreferrer">ALA Location</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap-4xl center anim-item">
+        <blockquote class="font-display text-quote">"Man has gigantic energies that enable him to change the world — as soon as he discovers them and directs them in the right direction."</blockquote>
+        <cite class="text-body">— Dr. Ahmed Latif Mohamed Hassan, CEO, Ahmed Latif Academy (ALA) for Training and Consultancies</cite>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var partners = [
+        "Cairo University", "Al-Azhar University", "Ain Shams University", "Zagazig University",
+        "Helwan University", "Assiut University", "Tiens Tianshi Corp.", "Resala Charity",
+        "Life Makers Foundation", "Cambridge College of Technology", "Manchester British Academy",
+        "Docklands Academy London", "International Coach Federation (ICF)", "HD Trainers Association",
+        "United Company of Pharmacists", "Anwar Resala", "Logic Advertising Agency", "Hayah Company",
+        "Al-Madina Academy", "Professional Syndicates", "Sports Clubs", "Youth Organizations",
+        "Government Institutions", "Corporate Partners", "Training Partners", "NGO Collaborators",
+        "Education Partners", "Federation Partners", "Development Organizations",
+        "Professional Associations", "Industry Partners"
+      ];
+      var partnerLogos = [
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe0867ecc8731d3fe37c.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe0867ecc8731d3fe372.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe08cdd4b797a315e094.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe07ad59e6cfed1ee4c2.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe07cdd4b797a315e078.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe0767bb7ac3511c9b4f.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe07cdd4b797a315e072.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe07cdd4b797a315e07e.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe0767ecc8731d3fe348.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe0667ecc8731d3fe325.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe0667ecc8731d3fe320.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe06cdd4b797a315e068.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe06cdd4b797a315e062.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe0667ecc8731d3fe316.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe0567ecc8731d3fe304.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe0538d3e2add0033db2.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe05cdd4b797a315e04c.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe05ad59e6cfed1ed44c.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe05ad59e6cfed1ed469.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe0538d3e2add0033da4.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe04cdd4b797a315e042.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe0467ecc8731d3fe2ee.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe0438d3e2add0033d82.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe04ad59e6cfed1ecbba.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe04ad59e6cfed1ecb1f.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe0367bb7ac3511c9b15.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe03cdd4b797a315e02e.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe03cdd4b797a315e028.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe0338d3e2add0033d58.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe0367bb7ac3511c9b0f.jpg",
+        "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8abe0367bb7ac3511c9b05.jpg"
+      ];
+      var grid = document.getElementById("partners-grid");
+      partners.forEach(function (name, i) {
+        var el = document.createElement("div");
+        el.className = "partner-card card-hover anim-scale";
+        el.innerHTML = '<img src="' + partnerLogos[i] + '" alt="' + name + '" width="160" height="160" />';
+        grid.appendChild(el);
+      });
+
+      var nav = document.getElementById("navbar");
+      var toggle = document.getElementById("nav-toggle");
+      var mobile = document.getElementById("nav-mobile");
+      var iconMenu = document.getElementById("icon-menu");
+      var iconClose = document.getElementById("icon-close");
+      var open = false;
+
+      function setOpen(v) {
+        open = v;
+        mobile.classList.toggle("open", open);
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        iconMenu.style.display = open ? "none" : "block";
+        iconClose.style.display = open ? "block" : "none";
+      }
+
+      function onScroll() {
+        nav.classList.toggle("scrolled", window.scrollY > 12);
+      }
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+
+      toggle.addEventListener("click", function () { setOpen(!open); });
+      document.getElementById("nav-home").addEventListener("click", function () { setOpen(false); });
+      mobile.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () { setOpen(false); });
+      });
+
+      var targets = Array.from(
+        document.querySelectorAll(".anim-item, .anim-left, .anim-right, .anim-scale")
+      );
+
+      function reveal(el, delay) {
+        window.setTimeout(function () { el.classList.add("visible"); }, delay || 0);
+      }
+
+      function siblingDelay(el) {
+        var parent = el.parentElement;
+        if (!parent) return 40;
+        var sibs = Array.prototype.filter.call(parent.children, function (child) {
+          return child.classList.contains("anim-item") ||
+            child.classList.contains("anim-left") ||
+            child.classList.contains("anim-right") ||
+            child.classList.contains("anim-scale");
+        });
+        var i = sibs.indexOf(el);
+        return Math.max(0, i) * 80;
+      }
+
+      var animObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            reveal(entry.target, siblingDelay(entry.target));
+            animObserver.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -10% 0px" }
+      );
+
+      targets.forEach(function (el) {
+        var rect = el.getBoundingClientRect();
+        var inView = rect.top < window.innerHeight * 0.92 && rect.bottom > 0;
+        if (inView) reveal(el, siblingDelay(el));
+        else animObserver.observe(el);
+      });
+
+      var counters = document.querySelectorAll(".stat-counter");
+      var counted = false;
+
+      function formatNum(n) {
+        if (n >= 1000000) return Math.floor(n / 1000000) + "M+";
+        if (n >= 1000) return Math.floor(n / 1000) + "K+";
+        return n + "+";
+      }
+
+      function animateCounters() {
+        counters.forEach(function (el) {
+          var target = parseInt(el.dataset.target || "0", 10);
+          var start = performance.now();
+          function tick(now) {
+            var progress = Math.min((now - start) / 2000, 1);
+            var eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = formatNum(Math.floor(target * eased));
+            if (progress < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        });
+      }
+
+      var statsGrid = document.getElementById("stats-grid");
+      var statsObserver = new IntersectionObserver(
+        function (entries) {
+          if (entries[0] && entries[0].isIntersecting && !counted) {
+            counted = true;
+            animateCounters();
+          }
+        },
+        { threshold: 0.2 }
+      );
+      if (statsGrid) statsObserver.observe(statsGrid);
+    })();
+  </script>
+<!-- ALA_I18N_START -->
+<script>
+window.ALA_I18N_DICT = {"Grow": "انمُ", "Programs": "البرامج", "Contact": "تواصل معنا", "Home": "الرئيسية", "About": "نبذة", "Events": "الفعاليات", "Workshops": "ورش العمل", "Silent Camp": "معسكر Silent", "Elegant abstract design featuring golden flowing lines": "تصميم تجريدي أنيق بخطوط ذهبية متدفّقة", "Neuro-Linguistic Programming (NLP)": "البرمجة اللغوية العصبية (NLP)", "Leadership & Management": "القيادة والإدارة", "Emotional Intelligence": "الذكاء العاطفي", "Team Building": "بناء الفريق", "Positive Psychology": "علم النفس الإيجابي", "Sales & Marketing": "البيع والتسويق", "Time Management & Productivity": "إدارة الوقت والإنتاجية", "Decision Making": "اتخاذ القرار", "NGOs": "المنظمات غير الحكومية", "Professional Associations": "النقابات والجمعيات المهنية", "Years of Experience": "سنة خبرة", "People Trained": "متدرّب", "Coaching Hours": "ساعة كوتشينج", "Founder & CEO": "المؤسس والرئيس التنفيذي", "Professional Certified Coach": "كوتش محترف معتمد", "Business Administration": "إدارة الأعمال", "Training of Trainers": "إعداد المدرّبين", "Program": "برنامج", "Training": "تدريب", "Neuro-Linguistic Programming": "البرمجة اللغوية العصبية", "Coaches": "الكوتشز", "Keynote": "الخطاب الرئيسي", "Camp": "معسكر", "Specialize": "تخصّص", "Manage": "أدِر", "Face": "واجه", "One of the most recognized names in human development across the Middle East. Over 16 years of experience, 600,000+ individuals trained, ICF Professional Certified Coach (PCC), and CEO of Ahmed Latif Academy (ALA) for Training and Consultancies.": "أحد أبرز الأسماء في التنمية البشرية في الشرق الأوسط. أكثر من 16 عامًا من الخبرة، وأكثر من 600,000 متدرّب، وكوتش محترف معتمد من ICF بمستوى PCC، والرئيس التنفيذي لـ Ahmed Latif Academy (ALA) للتدريب والاستشارات.", "PhD in Business Administration | MBA | B.Sc. in Management Information Systems | Certified by 5 international TOT institutions | Special coach for VIP clients in business, entrepreneurship, and public life.": "دكتوراه في إدارة الأعمال | ماجستير إدارة الأعمال (MBA) | بكالوريوس نظم المعلومات الإدارية | معتمد من 5 مؤسسات TOT دولية | كوتش خاص لعملاء VIP في عالم الأعمال وريادة الأعمال والحياة العامة.", "Born on September 25, 1988, in Cairo, Egypt, Dr. Ahmed Latif Mohamed Hassan has built a remarkable career spanning corporate leadership, academic excellence, and large-scale public training. He holds a PhD in Business Administration from Docklands Academy London, an MBA from Docklands Academy London, and a B.Sc. in Management Information Systems from Al-Madina Academy, Al-Haram.": "وُلد في 25 سبتمبر 1988 في القاهرة بمصر، وبنى د. أحمد لطيف محمد حسن مسيرة استثنائية تمتد بين القيادة المؤسسية والتميّز الأكاديمي والتدريب الجماهيري واسع النطاق. يحمل دكتوراه في إدارة الأعمال من Docklands Academy London، وماجستير إدارة الأعمال (MBA) من Docklands Academy London، وبكالوريوس نظم المعلومات الإدارية من أكاديمية المدينة بالهرم.", "His professional journey includes leadership at United Company of Pharmacists (UCP) as Team Leader for Helwan & Embaba Branches, Marketing Manager at Logic Advertising Agency, and Supervisor at Tiens Tianshi Corp — a multinational Chinese giant with 190 branches in 110 countries — where he was responsible for 900 individuals and selected by the Chinese Board of Directors to train 3,000 employees across Egypt.": "تشمل مسيرته المهنية قيادته في United Company of Pharmacists (UCP) كقائد فريق لفرعَي حلوان وإمبابة، ومديرًا للتسويق في Logic Advertising Agency، ومشرفًا في Tiens Tianshi Corp — العملاق الصيني متعدد الجنسيات الذي يمتلك 190 فرعًا في 110 دول — حيث كان مسؤولًا عن 900 فرد، واختاره مجلس الإدارة الصيني لتدريب 3,000 موظف في جميع أنحاء مصر.", "He founded Ahmed Latif Academy (ALA) for Training and Consultancies, delivering a distinctive methodology that draws from Chinese, Indian, American, and European schools of thought — refined through years of practical application and interactive training.": "أسّس Ahmed Latif Academy (ALA) للتدريب والاستشارات، ليقدّم منهجية مميزة تستلهم من المدارس الصينية والهندية والأمريكية والأوروبية — صُقلت عبر سنوات من التطبيق العملي والتدريب التفاعلي.", "Dr. Latif is an ICF Professional Certified Coach (PCC) with over 6,000 hours of coaching experience. He is a special coach for VIP clients in business, entrepreneurship, and public life, combining academic depth, corporate experience, and genuine human connection in every engagement.": "د. لطيف كوتش محترف معتمد من ICF بمستوى PCC، بخبرة تتجاوز 6,000 ساعة كوتشينج. وهو كوتش خاص لعملاء VIP في عالم الأعمال وريادة الأعمال والحياة العامة، يجمع في كل تجربة بين العمق الأكاديمي والخبرة المؤسسية والتواصل الإنساني الحقيقي.", "\"Man has gigantic energies that enable him to change the world — as soon as he discovers them and directs them in the right direction.\" Every human being possesses immense potential that, once discovered and directed correctly, can transform lives and communities.": "«يمتلك الإنسان طاقات جبّارة تمكّنه من تغيير العالم — بمجرد أن يكتشفها ويوجّهها في الاتجاه الصحيح.» كل إنسان يمتلك إمكانات هائلة، إذا اكتشفها ووجّهها بشكل صحيح، فبإمكانها أن تغيّر حياة الأفراد والمجتمعات.", "His training approach combines deep psychological insight with practical, interactive applications designed to produce real, measurable change. He integrates principles from positive psychology, self-persuasion, belief systems, and emotional intelligence into every program.": "يجمع أسلوبه في التدريب بين العمق النفسي والتطبيقات العملية التفاعلية المصمّمة لإحداث تغيير حقيقي وقابل للقياس. ويدمج مبادئ علم النفس الإيجابي وإقناع الذات وأنظمة المعتقدات والذكاء العاطفي في كل برنامج.", "As a special coach for VIP clients in business, entrepreneurship, and public life, Dr. Latif brings a rare combination of academic depth, corporate experience, and genuine human connection to every engagement — whether addressing 850 students or coaching a single executive.": "بصفته كوتشًا خاصًا لعملاء VIP في عالم الأعمال وريادة الأعمال والحياة العامة، يجمع د. لطيف بين العمق الأكاديمي والخبرة المؤسسية والتواصل الإنساني الحقيقي في كل تجربة — سواء كان يتحدث أمام 850 طالبًا أو يقدّم الكوتشينج لمسؤول تنفيذي واحد.", "Real people — students, professionals, and leaders — whose trajectories were changed through training, coaching, and mentorship over 16 years of dedicated service.": "أشخاص حقيقيون — طلاب ومحترفون وقادة — تغيّرت مساراتهم عبر التدريب والكوتشينج والإرشاد على مدى 16 عامًا من العمل المتواصل.", "\"Make Yourself\" Program Trainees": "متدرّبو برنامج «Make Yourself»", "Universities": "جامعة", "Students Reached": "طالب", "LE Revenue Growth (Hayah Co.)": "نمو الإيرادات بالجنيه (Hayah Co.)", "Largest Single Audience": "أكبر جمهور في جلسة واحدة", "Coaching Hours (ICF PCC)": "ساعة كوتشينج (ICF PCC)", "Individuals Supervised (Tiens)": "فرد تحت إشرافه (Tiens)", "Al-Madina Academy, Al-Haram": "أكاديمية المدينة، الهرم", "International Coach Federation, 2021 — 2,000+ coaching hours": "الاتحاد الدولي للكوتشينج (ICF)، 2021 — أكثر من 2,000 ساعة كوتشينج", "ICF-certified Professional Coach (PCC) with over 6,000 hours of coaching experience. Specializes in unlocking hidden potential and driving measurable personal transformation for VIP clients in business, entrepreneurship, and public life.": "كوتش محترف معتمد من ICF بمستوى PCC، بخبرة تتجاوز 6,000 ساعة كوتشينج. متخصّص في إطلاق الطاقات الكامنة وإحداث تحوّل شخصي قابل للقياس لعملاء VIP في عالم الأعمال وريادة الأعمال والحياة العامة.", "Dynamic keynote speaker who has addressed audiences of up to 850 students in a single session. Known for electrifying stage presence and the ability to inspire immediate action across corporate events, university conferences, and public seminars.": "متحدث تحفيزي مؤثّر خطب أمام جماهير وصلت إلى 850 طالبًا في جلسة واحدة. معروف بحضوره القوي على المسرح وقدرته على إلهام الحضور للتحرّك الفوري في فعاليات الشركات ومؤتمرات الجامعات والندوات العامة.", "Expert in developing high-performing teams and cultivating innovative leadership. Programs cover emotional intelligence, communication, decision-making, and management — refined through leading 900 individuals at Tiens Tianshi Corp.": "خبير في بناء فرق عالية الأداء وتنمية القيادة المبتكرة. تغطي برامجه الذكاء العاطفي والتواصل واتخاذ القرار والإدارة — مصقولة عبر قيادته 900 فرد في Tiens Tianshi Corp.", "Proven track record — grew Hayah Co.'s revenue from 120,000 LE to 33 million LE in four years while expanding the client base from 120 to 30,000. Strategic consulting in brand development, sales growth, and organizational transformation.": "سجل مُثبت — نمّى إيرادات Hayah Co. من 120,000 جنيه إلى 33 مليون جنيه في أربع سنوات، مع توسيع قاعدة العملاء من 120 إلى 30,000 عميل. استشارات استراتيجية في بناء العلامة ونمو المبيعات والتحوّل المؤسسي.", "Certified by five international institutions. Has trained hundreds of trainers in public speaking, facilitation, curriculum design, and interactive training methodologies.": "معتمد من خمس مؤسسات دولية. درّب مئات المدرّبين في التحدث أمام الجمهور وإدارة الجلسات وتصميم المناهج ومنهجيات التدريب التفاعلي.", "Specialist in positive psychology, self-persuasion, and belief systems. Helps individuals overcome limiting beliefs and build psychological resilience through scientifically-grounded techniques.": "متخصّص في علم النفس الإيجابي وإقناع الذات وأنظمة المعتقدات. يساعد الأفراد على تجاوز المعتقدات المحدِّدة وبناء مرونة نفسية عبر تقنيات قائمة على أسس علمية.", "As Business Consultant for Hayah Company, Dr. Latif achieved extraordinary growth in just 4 years:": "بصفته مستشار أعمال لشركة Hayah Company، حقّق د. لطيف نموًا استثنائيًا في 4 سنوات فقط:", "Starting Revenue — 120 Clients": "الإيرادات في البداية — 120 عميلًا", "Final Revenue — 30,000 Clients": "الإيرادات في النهاية — 30,000 عميل", "Through strategic consulting, brand development, sales optimization, and team training, Dr. Latif transformed Hayah Company from a small operation into a market leader — growing revenue by 275x and expanding the client base by 250x in four years.": "من خلال الاستشارات الاستراتيجية وبناء العلامة وتحسين المبيعات وتدريب الفرق، حوّل د. لطيف Hayah Company من عمل صغير إلى شركة رائدة في سوقها — بنمو الإيرادات 275 ضعفًا وتوسّع قاعدة العملاء 250 ضعفًا في أربع سنوات.", "Team Leader — Helwan & Embaba Branches. Led field teams in pharmaceutical distribution, developing foundational leadership and team management skills.": "قائد فريق — فرعا حلوان وإمبابة. قاد الفرق الميدانية في توزيع الأدوية، وبنى أساسيات القيادة وإدارة الفرق.", "Marketing Manager — Managed campaigns and client relationships, gaining deep expertise in brand strategy, consumer psychology, and market positioning.": "مدير تسويق — أدار الحملات وعلاقات العملاء، واكتسب خبرة عميقة في استراتيجية العلامة وسلوك المستهلك والتمركز في السوق.", "Supervisor — Multinational Chinese giant with 190 branches in 110 countries. Responsible for 900 individuals. Selected by the Chinese Board of Directors to train 3,000 employees across Egypt.": "مشرف — عملاق صيني متعدد الجنسيات بـ 190 فرعًا في 110 دول. مسؤول عن 900 فرد. اختاره مجلس الإدارة الصيني لتدريب 3,000 موظف في جميع أنحاء مصر.", "Independent Trainer — Partnered with NGOs, syndicates, sports clubs, and universities. Delivered programs for Resala Charity, Life Makers Foundation, and Anwar Resala.": "مدرّب مستقل — تعاون مع منظمات غير حكومية ونقابات وأندية رياضية وجامعات. وقدّم برامج لجمعية رسالة ومؤسسة صنّاع الحياة وأنوار رسالة.", "Grew revenue from 120,000 LE to 33 million LE in 4 years. Expanded client base from 120 to 30,000 through strategic consulting and team development.": "نمّى الإيرادات من 120,000 جنيه إلى 33 مليون جنيه في 4 سنوات. ووسّع قاعدة العملاء من 120 إلى 30,000 عميل عبر الاستشارات الاستراتيجية وتطوير الفرق.", "Founded ALA for Training and Consultancies. Established a proprietary methodology integrating Chinese, Indian, American, and European schools of thought. Delivering training, coaching, and consulting to corporations, universities, and individuals across the Middle East.": "أسّس ALA للتدريب والاستشارات. وأرسى منهجية خاصة تدمج المدارس الصينية والهندية والأمريكية والأوروبية. ويقدّم التدريب والكوتشينج والاستشارات للشركات والجامعات والأفراد في الشرق الأوسط.", "Leading ALA for Training and Consultancies, delivering programs across the Middle East in leadership, coaching, and human development.": "يقود ALA للتدريب والاستشارات، ويقدّم برامج في القيادة والكوتشينج والتنمية البشرية في الشرق الأوسط.", "Active executive and life coach for VIP clients in business, entrepreneurship, and public life with 2,000+ certified coaching hours.": "كوتش تنفيذي وحياتي فعّال لعملاء VIP في عالم الأعمال وريادة الأعمال والحياة العامة، بأكثر من 2,000 ساعة كوتشينج معتمدة.", "Delivering motivational speeches and training sessions at corporate events, university conferences, and public seminars across the region.": "يقدّم كلمات تحفيزية وجلسات تدريبية في فعاليات الشركات ومؤتمرات الجامعات والندوات العامة في المنطقة.", "Strategic consulting for companies seeking growth in revenue, team performance, brand development, and organizational transformation.": "استشارات استراتيجية للشركات الساعية إلى نمو الإيرادات وأداء الفرق وبناء العلامة والتحوّل المؤسسي.", "Signature motivational and development event": "فعالية تحفيزية وتطويرية مميزة", "Leadership and transformation program": "برنامج قيادة وتحوّل", "High-energy training experience": "تجربة تدريبية عالية الطاقة", "Celebrating certified coaching graduates": "احتفال بمتخرّجي برامج الكوتشينج المعتمدة", "Proud to have partnered with leading corporations, universities, NGOs, sports clubs, syndicates, and institutions across the Middle East.": "نفتخر بشراكتنا مع شركات وجامعات ومنظمات غير حكومية وأندية رياضية ونقابات ومؤسسات رائدة في الشرق الأوسط.", "Whether you're an organization, a community, or an individual striving for growth, Ahmed Latif Academy is your trusted partner in transformation—empowering people, developing leaders, and creating lasting impact.": "سواء كنت مؤسسة أو مجتمعًا أو فردًا يسعى للنمو، فإن Ahmed Latif Academy شريكك الموثوق في التحوّل — نمكّن الناس، ونُعِدّ القادة، ونصنع أثرًا يدوم.", "Dr.Ahmed Latif": "د. احمد لطيف", "His Philosophy": "فلسفته", "Impact by the Numbers": "الأثر بالأرقام", "Education & Certifications": "التعليم والشهادات", "Training Topics & Programs": "موضوعات التدريب والبرامج", "Core Areas of Expertise": "مجالات الخبرة الأساسية", "Notable Business Achievement": "إنجاز مؤسسي بارز", "Professional Journey": "المسيرة المهنية", "Current Positions": "المناصب الحالية", "Notable Engagements & Collaborations": "أبرز المشاركات والتعاونات", "In Action": "على أرض الواقع", "Highlights & Events": "لمحات وفعاليات", "Trusted Partners & Collaborators": "شركاء وجهات تعاون موثوقة", "Ready to Transform?": "هل أنت مستعد للتحوّل؟", "Who He Is": "من هو", "B.Sc. — Management Information Systems": "بكالوريوس — نظم المعلومات الإدارية", "ICF Professional Certified Coach (PCC)": "كوتش محترف معتمد من ICF (PCC)", "Training of Trainers (TOT) — 5 International Certifications": "إعداد المدرّبين (TOT) — 5 شهادات دولية", "Life & Executive Coaching": "الكوتشينج الحياتي والتنفيذي", "Motivational Speaking": "التحدث التحفيزي", "Team Building & Leadership": "بناء الفريق والقيادة", "Business Consulting": "استشارات الأعمال", "Emotional Intelligence & Psychology": "الذكاء العاطفي وعلم النفس", "Freelance & Non-Profit Sector": "العمل المستقل والقطاع غير الربحي", "Hayah Company — Business Consultant": "Hayah Company — مستشار أعمال", "Ahmed Latif Academy (ALA) — Founder & CEO": "Ahmed Latif Academy (ALA) — المؤسس والرئيس التنفيذي", "CEO — Ahmed Latif Academy (ALA)": "الرئيس التنفيذي — Ahmed Latif Academy (ALA)", "International Keynote Speaker": "متحدث رئيسي دولي", "Business Consultant": "مستشار أعمال", "Coaches Graduation": "تخريج الكوتشز", "Cairo University — Guest Lecturer & Trainer": "جامعة القاهرة — محاضر ومدرّب زائر", "Ain Shams University — Training Programs": "جامعة عين شمس — برامج تدريبية", "Zagazig University — Student Development": "جامعة الزقازيق — تطوير الطلاب", "Helwan University — Leadership Workshops": "جامعة حلوان — ورش عمل قيادية", "Assiut University — Motivation Seminars": "جامعة أسيوط — ندوات تحفيزية", "Resala Charity — Volunteer Training": "جمعية رسالة — تدريب المتطوعين", "Life Makers Foundation — Youth Programs": "مؤسسة صنّاع الحياة — برامج الشباب", "Anwar Resala — Community Development": "أنوار رسالة — تنمية المجتمع", "Sports Clubs — Team Building Programs": "الأندية الرياضية — برامج بناء الفريق", "Professional Syndicates — Career Development": "النقابات المهنية — التطوير المهني", "Tiens Tianshi — 3,000 Employee Training (Egypt-wide)": "Tiens Tianshi — تدريب 3,000 موظف (على مستوى مصر)", "Hayah Company — Full Business Transformation": "Hayah Company — تحوّل مؤسسي كامل", "Impact": "الأثر", "Expertise": "الخبرة", "Topics": "الموضوعات", "Achievement": "الإنجاز", "Journey": "المسيرة", "Positions": "المناصب", "Engagements": "المشاركات", "Partners": "الشركاء", "Follow on Instagram": "تابعنا على إنستجرام", "Follow on Facebook": "تابعنا على فيسبوك", "ALA Location": "موقع ALA", "Life Coach": "كوتش حياة", "Motivational Speaker": "متحدث تحفيزي", "Certified Trainer": "مدرّب معتمد", "Cairo University": "جامعة القاهرة", "Communication Skills": "مهارات التواصل", "Self-Development & Motivation": "تطوير الذات والتحفيز", "Public Speaking & Presentation": "التحدث أمام الجمهور والعرض", "Self-Persuasion & Belief Systems": "إقناع الذات وأنظمة المعتقدات", "Business Consulting & Strategy": "استشارات الأعمال والاستراتيجية", "Certified Coaching Program (ACC)": "برنامج الكوتشينج المعتمد (ACC)", "Certified Coaching Program (PCC)": "برنامج الكوتشينج المعتمد (PCC)", "CEO Trainings": "تدريبات الرؤساء التنفيذيين", "Power of Change Camp (POC)": "معسكر Power of Change (POC)", "Self-confidence": "الثقة بالنفس", "\"Man has gigantic energies that enable him to change the world — as soon as he discovers them and directs them in the right direction.\"": "«يمتلك الإنسان طاقات جبّارة تمكّنه من تغيير العالم — بمجرد أن يكتشفها ويوجّهها في الاتجاه الصحيح.»", "Ahmed Latif Portfolio | ALA": "الملف التعريفي لأحمد لطيف | ALA", "An empty conference room setup with podium and rows of chairs": "قاعة مؤتمرات فارغة بمنصة وصفوف من الكراسي", "Professional man in a black suit": "رجل بمظهر احترافي ببدلة سوداء", "Abstract depiction of golden sun rays creating a warm glowing effect": "تجسيد تجريدي لأشعة شمس ذهبية تصنع توهّجًا دافئًا", "Dr. Ahmed Latif conducting an interactive coaching seminar with participants standing in a circle": "د. أحمد لطيف يقود ندوة كوتشينج تفاعلية مع مشاركين واقفين في دائرة", "Dr. Ahmed Latif with open arms on stage with fire sparks effects in a large crowded auditorium": "د. أحمد لطيف بذراعين مفتوحتين على المسرح مع مؤثرات شرارات نارية في قاعة كبيرة مزدحمة", "Dr. Ahmed Latif addressing a huge outdoor crowd with arms raised during a public event": "د. أحمد لطيف يخاطب جمهورًا ضخمًا في الهواء الطلق رافعًا ذراعيه خلال فعالية عامة", "Dynamic outdoor team building activity with diverse group": "نشاط بناء فريق حيوي في الهواء الطلق مع مجموعة متنوعة", "A speaker in a gray suit captivates a large crowd on stage": "متحدث ببدلة رمادية يأسر جمهورًا كبيرًا على المسرح", "Diverse group of business professionals attending a conference session": "مجموعة متنوعة من المحترفين تحضر جلسة في مؤتمر", "Two professionals engaged in a discussion in a modern office": "محترفان في حوار داخل مكتب حديث", "Students of various backgrounds attentively listening in a university lecture hall": "طلاب من خلفيات متنوعة يستمعون بانتباه في قاعة محاضرات جامعية", "Ahmed Latif — Home": "أحمد لطيف — الرئيسية", "Toggle menu": "إظهار/إخفاء القائمة", "Dr. Ahmed Latif — Life Coach, Motivational Speaker, Certified Trainer & Business Consultant. Ahmed Latif Academy (ALA) for Training and Consultancies.": "د. أحمد لطيف — كوتش حياة، ومتحدث تحفيزي، ومدرّب معتمد، ومستشار أعمال. Ahmed Latif Academy (ALA) للتدريب والاستشارات.", "Public Speaking": "التحدث أمام الجمهور", "Present": "اعرض", "Board": "الصعود", "Language": "اللغة", "English": "English", "Revenue Growth": "نمو الإيرادات", "Maadi, Cairo — Egypt": "المعادي، القاهرة — مصر", "— Dr. Ahmed Latif Mohamed Hassan, CEO, Ahmed Latif Academy (ALA) for Training and Consultancies": " — د. أحمد لطيف محمد حسن، الرئيس التنفيذي، Ahmed Latif Academy (ALA) للتدريب والاستشارات", "PCC": "PCC", "120K LE": "120 ألف جنيه", "33M LE": "33 مليون جنيه", "News": "الأخبار", "Find Your Program": "اعثر على برنامجك", "See More": "اعرف المزيد", "Open menu": "افتح القائمة", "Close menu": "أغلق القائمة", "Main navigation": "التنقل الرئيسي", "Mobile navigation": "قائمة التنقل للجوال", "© Ahmed Latif Academy. All rights reserved.": "© Ahmed Latif Academy. جميع الحقوق محفوظة.", "You're just one step away from joining ALA! Contact us today, and one of our team members will be happy to assist you with the next available course date, course fees, current offers, answer all your questions, and help you complete your registration with ease.": "أنت على بُعد خطوة واحدة من الانضمام إلى ALA! تواصل معنا اليوم، وسيسعد أحد أعضاء فريقنا بمساعدتك بموعد الدورة المتاح التالي، والرسوم، والعروض الحالية، والإجابة عن كل أسئلتك، وإتمام تسجيلك بسهولة."};
+</script>
+<script>
+(function (window, document) {
+  "use strict";
+
+  var STORAGE_KEY = "ala-language";
+  var SUPPORTED = { en: true, ar: true };
+
+  function dict() {
+    return window.ALA_I18N_DICT || {};
+  }
+
+  function getQueryLang() {
+    try {
+      var match = window.location.search.match(/[?&]lang=(en|ar)(?:&|#|$)/);
+      return match ? match[1] : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function getStoredLang() {
+    try {
+      var value = window.localStorage.getItem(STORAGE_KEY);
+      return SUPPORTED[value] ? value : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function saveLang(lang) {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, lang);
+    } catch (e) {}
+  }
+
+  function resolveLang() {
+    return getQueryLang() || getStoredLang() || "en";
+  }
+
+  function getLanguage() {
+    var lang = document.documentElement.getAttribute("lang");
+    return SUPPORTED[lang] ? lang : resolveLang();
+  }
+
+  var originalText = typeof WeakMap === "function" ? new WeakMap() : null;
+  var originalAttrs = typeof WeakMap === "function" ? new WeakMap() : null;
+
+  function rememberText(node, value) {
+    if (originalText) {
+      if (!originalText.has(node)) originalText.set(node, value);
+      return originalText.get(node);
+    }
+    if (!node.alaOrigText) node.alaOrigText = value;
+    return node.alaOrigText;
+  }
+
+  function rememberAttr(el, name, value) {
+    var bag = null;
+    if (originalAttrs) {
+      bag = originalAttrs.get(el);
+      if (!bag) {
+        bag = {};
+        originalAttrs.set(el, bag);
+      }
+    } else {
+      el.alaOrigAttrs = el.alaOrigAttrs || {};
+      bag = el.alaOrigAttrs;
+    }
+    if (!(name in bag)) bag[name] = value;
+    return bag[name];
+  }
+
+  function translateString(text, lang) {
+    if (text == null) return text;
+    if (lang === "en") return text;
+
+    var map = dict();
+    if (map[text]) return map[text];
+
+    var trimmed = String(text).trim();
+    if (map[trimmed]) {
+      if (trimmed === String(text)) return map[trimmed];
+      return String(text).replace(trimmed, map[trimmed]);
+    }
+
+    var copy = trimmed.match(/^©\s+(\d{4})\s+Ahmed Latif Academy\.\s+All rights reserved\.$/);
+    if (copy) {
+      return "© " + copy[1] + " Ahmed Latif Academy. جميع الحقوق محفوظة.";
+    }
+
+    var photo = trimmed.match(/^(.*?)(?: program| coaching program)? photo (\d+)$/i);
+    if (photo) {
+      var label = photo[1].replace(/\s+$/, "");
+      var translatedLabel = map[label] || label;
+      return "صورة " + photo[2] + " — " + translatedLabel;
+    }
+
+    var viewLarger = trimmed.match(/^View larger:\s*(.*)$/);
+    if (viewLarger) {
+      var rest = viewLarger[1];
+      return "عرض أكبر: " + translateString(rest, lang);
+    }
+
+    var showPhoto = trimmed.match(/^Show photo (\d+):\s*(.*)$/);
+    if (showPhoto) {
+      return "عرض الصورة " + showPhoto[1] + ": " + translateString(showPhoto[2], lang);
+    }
+
+    return text;
+  }
+
+  function shouldSkip(el) {
+    if (!el || !el.closest) return true;
+    if (el.closest("script, style, noscript, .lang-switcher")) return true;
+    /* Brand lockup + hero name stay English */
+    if (el.closest(".site-header .logo, .site-header .logo-text, .site-header .logo-academy, .nav-logo")) return true;
+    if (el.isContentEditable) return true;
+    return false;
+  }
+
+  function translateTextNodes(root, lang) {
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+    var node;
+    while ((node = walker.nextNode())) {
+      var parent = node.parentNode;
+      if (!parent || parent.nodeType !== 1) continue;
+      var tag = parent.tagName;
+      if (tag === "SCRIPT" || tag === "STYLE" || tag === "NOSCRIPT") continue;
+      if (shouldSkip(parent)) continue;
+      var raw = node.nodeValue;
+      if (!raw || !raw.trim()) continue;
+      if (!/[A-Za-z]/.test(raw) && lang === "ar") continue;
+      var orig = rememberText(node, raw);
+      var next = lang === "en" ? orig : translateString(orig, lang);
+      if (next !== node.nodeValue) node.nodeValue = next;
+    }
+  }
+
+  var ATTRS = ["placeholder", "aria-label", "alt", "title"];
+
+  function translateAttrs(root, lang) {
+    var selector = ATTRS.map(function (name) { return "[" + name + "]"; }).join(",");
+    var els = root.querySelectorAll(selector);
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      if (shouldSkip(el)) continue;
+      for (var a = 0; a < ATTRS.length; a++) {
+        var name = ATTRS[a];
+        if (!el.hasAttribute(name)) continue;
+        var current = el.getAttribute(name);
+        var orig = rememberAttr(el, name, current);
+        var next = lang === "en" ? orig : translateString(orig, lang);
+        if (next !== current) el.setAttribute(name, next);
+      }
+    }
+  }
+
+  function translateMeta(lang) {
+    var titleEl = document.querySelector("title");
+    if (titleEl) {
+      var origTitle = rememberAttr(titleEl, "text", titleEl.textContent);
+      document.title = lang === "en" ? origTitle : translateString(origTitle, lang);
+    }
+
+    var metas = document.querySelectorAll('meta[name="description"], meta[property="og:title"], meta[property="og:description"]');
+    for (var i = 0; i < metas.length; i++) {
+      var meta = metas[i];
+      if (!meta.hasAttribute("content")) continue;
+      var orig = rememberAttr(meta, "content", meta.getAttribute("content"));
+      meta.setAttribute("content", lang === "en" ? orig : translateString(orig, lang));
+    }
+  }
+
+  function isExternalHref(href) {
+    if (!href) return true;
+    var lower = href.trim().toLowerCase();
+    if (lower.indexOf("mailto:") === 0 || lower.indexOf("tel:") === 0 || lower.indexOf("javascript:") === 0) return true;
+    if (href.charAt(0) === "#") return true;
+
+    var url;
+    try {
+      url = new URL(href, window.location.href);
+    } catch (e) {
+      return false;
+    }
+
+    if (url.protocol !== "http:" && url.protocol !== "https:") return false;
+
+    var host = url.hostname.replace(/^www\./, "");
+    var external = [
+      "wa.me",
+      "whatsapp.com",
+      "api.whatsapp.com",
+      "facebook.com",
+      "instagram.com",
+      "youtube.com",
+      "youtu.be",
+      "ala-eg.com",
+      "unsplash.com",
+      "images.unsplash.com",
+      "cdnjs.cloudflare.com",
+      "fonts.googleapis.com",
+      "fonts.gstatic.com",
+      "filesafe.space",
+      "cashprocess.io"
+    ];
+    for (var i = 0; i < external.length; i++) {
+      if (host === external[i] || host.slice(-(external[i].length + 1)) === "." + external[i]) return true;
+    }
+    return false;
+  }
+
+  function withLangParam(href, lang) {
+    var hash = "";
+    var hashIndex = href.indexOf("#");
+    if (hashIndex >= 0) {
+      hash = href.slice(hashIndex);
+      href = href.slice(0, hashIndex);
+    }
+    if (!href) {
+      var file = (window.location.pathname.split("/").pop() || "index.html");
+      return file + "?lang=" + lang + hash;
+    }
+
+    var isAbs = /^(https?:)?\/\//i.test(href);
+    try {
+      var url = new URL(href, window.location.href);
+      url.searchParams.set("lang", lang);
+      if (isAbs) return url.origin + url.pathname + url.search + hash;
+      return href.split("?")[0] + url.search + hash;
+    } catch (e) {
+      var qIndex = href.indexOf("?");
+      if (qIndex === -1) return href + "?lang=" + lang + hash;
+      var params = href.slice(qIndex + 1).split("&").filter(function (part) {
+        return part && part.indexOf("lang=") !== 0;
+      });
+      params.push("lang=" + lang);
+      return href.slice(0, qIndex) + "?" + params.join("&") + hash;
+    }
+  }
+
+  function updateInternalLinks(lang) {
+    var links = document.querySelectorAll("a[href]");
+    for (var i = 0; i < links.length; i++) {
+      var a = links[i];
+      if (shouldSkip(a)) continue;
+      var href = rememberAttr(a, "href", a.getAttribute("href"));
+      if (isExternalHref(href)) {
+        if (a.getAttribute("href") !== href) a.setAttribute("href", href);
+        continue;
+      }
+      a.setAttribute("href", withLangParam(href, lang));
+    }
+  }
+
+  var WA_GENERIC_EN = "You're just one step away from joining ALA! Contact us today, and one of our team members will be happy to assist you with the next available course date, course fees, current offers, answer all your questions, and help you complete your registration with ease.";
+  var WA_GENERIC_AR = "أنت على بُعد خطوة واحدة من الانضمام إلى ALA! تواصل معنا اليوم، وسيسعد أحد أعضاء فريقنا بمساعدتك بموعد الدورة المتاح التالي، والرسوم، والعروض الحالية، والإجابة عن كل أسئلتك، وإتمام تسجيلك بسهولة.";
+
+  function translateWhatsAppHrefs(lang) {
+    var links = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]');
+    for (var i = 0; i < links.length; i++) {
+      var a = links[i];
+      var href = rememberAttr(a, "href", a.getAttribute("href"));
+      try {
+        var url = new URL(href, window.location.href);
+        var text = url.searchParams.get("text");
+        if (!text) continue;
+        var next = text;
+        if (lang === "ar") {
+          if (text === WA_GENERIC_EN) next = WA_GENERIC_AR;
+          else next = translateString(text, lang);
+          if (next === text) {
+            next = text
+              .replace(/^Hello ALA, I'm interested in:\s*/i, "مرحباً ALA، أنا مهتم/ة بـ: ")
+              .replace(/^Hello ALA, I'm interested in /i, "مرحباً ALA، أنا مهتم/ة بـ ")
+              .replace(/\nName:\s*/g, "\nالاسم: ")
+              .replace(/\nPhone:\s*/g, "\nالهاتف: ")
+              .replace(/\nEmail:\s*/g, "\nالبريد: ")
+              .replace(/\nMessage:\s*/g, "\nالرسالة: ")
+              .replace(/Please share the next available (?:course )?dates?, fees, and current offers\.?/i, "يرجى مشاركة أقرب المواعيد المتاحة والرسوم والعروض الحالية.")
+              .replace(/Please share the next available course date, fees, and current offers\.?/i, "يرجى مشاركة أقرب موعد متاح للدورة والرسوم والعروض الحالية.");
+          }
+        }
+        url.searchParams.set("text", next);
+        a.setAttribute("href", url.toString());
+      } catch (e) {}
+    }
+  }
+
+  function updateDocumentLanguage(lang) {
+    var root = document.documentElement;
+    root.lang = lang;
+    root.dir = lang === "ar" ? "rtl" : "ltr";
+    root.setAttribute("lang", lang);
+    root.setAttribute("dir", root.dir);
+  }
+
+  function updateSwitcher(lang) {
+    var buttons = document.querySelectorAll("[data-lang-switch]");
+    for (var i = 0; i < buttons.length; i++) {
+      var btn = buttons[i];
+      var value = btn.getAttribute("data-lang-switch");
+      var active = value === lang;
+      btn.classList.toggle("is-active", active);
+      if (active) btn.setAttribute("aria-current", "true");
+      else btn.removeAttribute("aria-current");
+    }
+  }
+
+  function apply(lang) {
+    lang = SUPPORTED[lang] ? lang : "en";
+    updateDocumentLanguage(lang);
+    translateMeta(lang);
+    translateTextNodes(document.body || document.documentElement, lang);
+    translateAttrs(document, lang);
+    updateInternalLinks(lang);
+    translateWhatsAppHrefs(lang);
+    updateSwitcher(lang);
+    document.documentElement.classList.remove("ala-i18n-pending");
+    try {
+      document.dispatchEvent(new CustomEvent("ala:languagechange", { detail: { lang: lang } }));
+    } catch (e) {}
+  }
+
+  function setUrlLang(lang) {
+    try {
+      var url = new URL(window.location.href);
+      url.searchParams.set("lang", lang);
+      window.history.replaceState({}, "", url.toString());
+    } catch (e) {}
+  }
+
+  function setLanguage(lang) {
+    lang = SUPPORTED[lang] ? lang : "en";
+    saveLang(lang);
+    setUrlLang(lang);
+    apply(lang);
+    return lang;
+  }
+
+  function bindSwitcher() {
+    document.addEventListener("click", function (event) {
+      var btn = event.target.closest && event.target.closest("[data-lang-switch]");
+      if (!btn) return;
+      event.preventDefault();
+      setLanguage(btn.getAttribute("data-lang-switch"));
+    });
+  }
+
+  function init() {
+    var lang = resolveLang();
+    saveLang(lang);
+    apply(lang);
+    bindSwitcher();
+    window.setTimeout(function () {
+      document.documentElement.classList.remove("ala-i18n-pending");
+    }, 2000);
+  }
+
+  window.ALA_I18N = {
+    setLanguage: setLanguage,
+    getLanguage: getLanguage,
+    apply: apply,
+    tText: function (text) {
+      return translateString(text, getLanguage());
+    },
+    t: function (text) {
+      return translateString(text, getLanguage());
+    }
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})(window, document);
+</script>
+<!-- ALA_I18N_END -->
+</body>
+</html>

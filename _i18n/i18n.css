@@ -1,0 +1,349 @@
+/* ALA_I18N_CSS_START */
+html.ala-i18n-pending body {
+  visibility: hidden;
+}
+
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.1rem;
+  flex-shrink: 0;
+}
+
+.lang-switcher button {
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #888;
+  padding: 0.3rem 0.4rem;
+  border-radius: 0.25rem;
+  line-height: 1;
+  min-width: 1.75rem;
+}
+
+.lang-switcher button:hover {
+  color: #b8922f;
+}
+
+.lang-switcher button.is-active,
+.lang-switcher button[aria-current="true"] {
+  color: #b8922f;
+}
+
+.lang-sep {
+  color: #c8c8c8;
+  font-size: 0.75rem;
+  font-weight: 500;
+  user-select: none;
+}
+
+html[lang="ar"] body,
+html[lang="ar"] button,
+html[lang="ar"] input,
+html[lang="ar"] select,
+html[lang="ar"] textarea {
+  font-family: "Cairo", "Tahoma", sans-serif;
+}
+
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] h4 {
+  font-family: "Cairo", "Tahoma", sans-serif;
+  letter-spacing: 0;
+}
+
+html[lang="ar"] .logo-text strong,
+html[lang="ar"] .hero-signature .name,
+html[lang="ar"] .signature-text,
+html[lang="ar"] .hero-name {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+html[lang="ar"] .eyebrow,
+html[lang="ar"] .header-cta,
+html[lang="ar"] .mobile-nav .header-cta,
+html[lang="ar"] .nav-contact,
+html[lang="ar"] .block-title,
+html[lang="ar"] .featured-badge {
+  text-transform: none;
+  letter-spacing: 0.04em;
+}
+
+html[dir="rtl"] input,
+html[dir="rtl"] textarea,
+html[dir="rtl"] select {
+  direction: rtl;
+  text-align: start;
+}
+
+html[dir="rtl"] input[type="tel"],
+html[dir="rtl"] input[type="email"] {
+  direction: ltr;
+  unicode-bidi: plaintext;
+  text-align: start;
+}
+
+html[dir="rtl"] .fa-arrow-right,
+html[dir="rtl"] .fa-arrow-left,
+html[dir="rtl"] .fa-chevron-right,
+html[dir="rtl"] .fa-chevron-left {
+  transform: scaleX(-1);
+}
+
+html[dir="rtl"] .anim-left:not(.visible) {
+  transform: translateX(50px);
+}
+
+html[dir="rtl"] .anim-right:not(.visible) {
+  transform: translateX(-50px);
+}
+
+html[dir="rtl"] .main-nav a::after,
+html[dir="rtl"] .nav-links a::after {
+  transform-origin: right;
+}
+
+html[dir="rtl"] .whatsapp-float {
+  right: auto;
+  left: 20px;
+}
+
+html[dir="rtl"] .program-icon-badge {
+  left: auto;
+  right: 20px;
+}
+
+/* Hero stats — logical spacing so Arabic labels never collide */
+html[dir="rtl"] .hero-stats {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+html[dir="rtl"] .hero-stats .stat-item {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0;
+  padding-inline: 18px;
+  align-items: flex-start;
+}
+
+html[dir="rtl"] .hero-stats .stat-item:first-child {
+  padding-inline-start: 0;
+}
+
+html[dir="rtl"] .hero-stats .stat-item:last-child {
+  padding-inline-end: 0;
+}
+
+html[dir="rtl"] .hero-stats .stat-item:not(:last-child)::after {
+  left: auto;
+  right: auto;
+  inset-inline-end: 0;
+}
+
+html[dir="rtl"] .hero-stats .stat-label {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* =========================================================
+   Home hero — intentional RTL composition
+   Desired: [ visual LEFT ] [ Arabic content RIGHT ]
+   EN absolute hero (min-width: 1100px) is unchanged.
+   ========================================================= */
+html[dir="rtl"] #hero .hero-content {
+  text-align: start;
+}
+
+html[dir="rtl"] #hero .hero-desc {
+  margin-inline-end: 0;
+}
+
+html[dir="rtl"] #hero .hero-actions {
+  justify-content: flex-start;
+}
+
+html[dir="rtl"] #hero .btn-primary,
+html[dir="rtl"] #hero .btn-secondary {
+  flex-direction: row;
+}
+
+@media (min-width: 1100px) {
+  html[dir="rtl"] #hero .hero-content {
+    width: 50%;
+    max-width: 520px;
+    margin-inline-start: 0;
+    margin-inline-end: auto;
+    padding-inline-start: 12px;
+    z-index: 4;
+  }
+
+  html[dir="rtl"] #hero .hero-desc {
+    max-width: 100%;
+  }
+
+  /* Move person/visual to the LEFT half */
+  html[dir="rtl"] #hero .hero-visual {
+    left: -3%;
+    right: 40%;
+  }
+
+  /* Lean person toward content (center) without flipping the photo */
+  html[dir="rtl"] #hero .hero-instructor {
+    left: 50%;
+    transform: translateX(calc(-32% - 52px)) translateY(-20px) scale(1.06);
+    transform-origin: bottom center;
+  }
+
+  /* Keep signature inside the visual column, away from stats */
+  html[dir="rtl"] #hero .hero-signature {
+    left: auto;
+    right: 6%;
+    bottom: 112px;
+    text-align: right;
+    z-index: 3;
+  }
+
+  /* Outer decorative edge of the left visual */
+  html[dir="rtl"] #hero .hero-dots {
+    left: 2%;
+    right: auto;
+    top: 6px;
+  }
+
+  html[dir="rtl"] #hero .hero-waves {
+    left: -6px;
+    right: auto;
+  }
+
+  /* Circles stay relative to visual; nudge toward content side */
+  html[dir="rtl"] #hero .hero-circle--lg {
+    left: auto;
+    right: 8%;
+  }
+
+  html[dir="rtl"] #hero .hero-circle--sm {
+    left: auto;
+    right: 22%;
+  }
+}
+
+/* Mid desktop / tablet: 2-col grid already flips with dir=rtl.
+   Keep image from spilling into the text column. */
+@media (min-width: 769px) and (max-width: 1099px) {
+  html[dir="rtl"] #hero .hero-grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: center;
+  }
+
+  html[dir="rtl"] #hero .hero-content {
+    max-width: none;
+    width: auto;
+  }
+
+  html[dir="rtl"] #hero .hero-visual {
+    overflow: hidden;
+  }
+
+  html[dir="rtl"] #hero .hero-instructor {
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 100%;
+  }
+
+  html[dir="rtl"] #hero .hero-signature {
+    right: 8px;
+    left: auto;
+    text-align: right;
+  }
+
+  html[dir="rtl"] #hero .hero-dots {
+    left: -80px;
+    right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  html[dir="rtl"] #hero .hero-stats {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  html[dir="rtl"] #hero .hero-stats .stat-item {
+    flex: 1 1 calc(50% - 12px);
+    min-width: 140px;
+    padding-inline: 0;
+  }
+
+  html[dir="rtl"] #hero .hero-stats .stat-item:not(:last-child)::after {
+    display: none;
+  }
+
+  html[dir="rtl"] #hero .hero-signature {
+    right: 8px;
+    left: auto;
+    text-align: right;
+  }
+
+  html[dir="rtl"] #hero .hero-dots {
+    left: -60px;
+    right: auto;
+  }
+}
+
+html[dir="rtl"] .gallery-nav-prev,
+html[dir="rtl"] .lightbox-prev {
+  left: auto;
+  right: 14px;
+}
+
+html[dir="rtl"] .gallery-nav-next,
+html[dir="rtl"] .lightbox-next {
+  right: auto;
+  left: 14px;
+}
+
+html[dir="rtl"] .lightbox-close {
+  right: auto;
+  left: 0;
+}
+
+html[dir="rtl"] .outcomes-section .section-header,
+html[dir="rtl"] .case-block .eyebrow,
+html[dir="rtl"] .case-block,
+html[dir="rtl"] .program-card-body,
+html[dir="rtl"] .program-card-content,
+html[dir="rtl"] .instructor-content,
+html[dir="rtl"] .hero-content,
+html[dir="rtl"] .contact-content,
+html[dir="rtl"] .lead-form,
+html[dir="rtl"] .about-p,
+html[dir="rtl"] .audience-card,
+html[dir="rtl"] .learning-card,
+html[dir="rtl"] .why-card,
+html[dir="rtl"] .delivery-card {
+  text-align: start;
+}
+
+html[dir="rtl"] .breadcrumb-list {
+  flex-direction: row;
+}
+
+html[dir="rtl"] .breadcrumb-list li:not(:last-child)::after {
+  content: "‹";
+}
+
+@media (max-width: 768px) {
+  html[dir="rtl"] .whatsapp-float {
+    left: 14px;
+    right: auto;
+  }
+}
+/* ALA_I18N_CSS_END */

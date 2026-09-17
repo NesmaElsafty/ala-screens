@@ -1,0 +1,2965 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<!-- ALA_I18N_BOOT -->
+<script>
+(function () {
+  try {
+    var k = "ala-language";
+    var q = (location.search.match(/[?&]lang=(en|ar)(?:&|#|$)/) || [])[1];
+    var s = null;
+    try { s = localStorage.getItem(k); } catch (e) {}
+    var lang = (q === "en" || q === "ar") ? q : (s === "en" || s === "ar") ? s : "en";
+    if (q) { try { localStorage.setItem(k, lang); } catch (e) {} }
+    var d = document.documentElement;
+    d.lang = lang;
+    d.dir = lang === "ar" ? "rtl" : "ltr";
+    d.setAttribute("lang", lang);
+    d.setAttribute("dir", d.dir);
+    if (lang === "ar") d.classList.add("ala-i18n-pending");
+  } catch (e) {}
+})();
+</script>
+<noscript><style>html.ala-i18n-pending body { visibility: visible !important; }</style></noscript>
+<!-- /ALA_I18N_BOOT -->
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shift Camp | Ahmed Latif Academy</title>
+  <meta name="description" content="Explore Ahmed Latif Academy's Shift Camp — 120 hours to pull you out of routine and charge a real shift in thinking, awareness, and energy. First edition: Dynamo Camp.">
+  <meta property="og:title" content="Shift Camp | Ahmed Latif Academy">
+  <meta property="og:description" content="Explore Ahmed Latif Academy's Shift Camp — 120 hours to pull you out of routine and charge a real shift in thinking, awareness, and energy. First edition: Dynamo Camp.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#b8922f">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Allura&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    .anim-item, .anim-left, .anim-right, .anim-scale {
+      opacity: 0;
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .anim-item { transform: translateY(40px); }
+    .anim-left { transform: translateX(-50px); }
+    .anim-right { transform: translateX(50px); }
+    .anim-scale { transform: scale(0.9); }
+    .anim-item.visible,
+    .anim-left.visible,
+    .anim-right.visible,
+    .anim-scale.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .anim-item, .anim-left, .anim-right, .anim-scale {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    :root {
+      --gold: #b8922f;
+      --gold-hover: #d4af37;
+      --gold-light: #d4af37;
+      --charcoal: #1a1a1a;
+      --soft-black: #1a1a1a;
+      --warm-white: #fafaf8;
+      --program-warm: #F8F6F1;
+      --white: #fff;
+      --light-gray: #f9fafb;
+      --muted-text: #555555;
+      --border: rgba(184, 146, 47, 0.15);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+      --transition: 0.25s ease;
+      --whatsapp: #25D366;
+    }
+
+    body {
+      font-family: "Raleway", system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--charcoal);
+      background: var(--warm-white);
+      overflow-x: hidden;
+      padding-top: 4.75rem;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body.lightbox-open {
+      overflow: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .eyebrow {
+      font-family: "Raleway", system-ui, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .section-heading {
+      font-size: clamp(28px, 3.2vw, 40px);
+      color: var(--charcoal);
+      margin-bottom: 16px;
+    }
+
+    .section-intro {
+      font-size: 15px;
+      color: var(--muted-text);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    .container {
+      width: min(1240px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .section-header .section-intro {
+      margin: 0 auto;
+    }
+
+    /* Header — copied from Home */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.3s;
+      border-bottom: 1px solid rgba(184, 146, 47, 0.15);
+      background: rgba(250, 250, 248, 0.8);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    .site-header.scrolled {
+      background: rgba(250, 250, 248, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom-color: rgba(184, 146, 47, 0.3);
+      box-shadow: 0 4px 24px rgba(184, 146, 47, 0.12);
+    }
+
+    .header-inner {
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 0.625rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      height: auto;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      transition: opacity 0.3s;
+    }
+
+    .site-header .logo:hover {
+      opacity: 0.8;
+    }
+
+    .logo-img {
+      width: auto;
+      height: 2.75rem;
+      object-fit: contain;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    @media (min-width: 640px) {
+      .site-header .logo-img { height: 3rem; }
+    }
+
+    .footer-brand .logo-img {
+      height: 44px;
+    }
+
+    .logo-text strong {
+      display: block;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+    }
+
+    .logo-text .logo-academy {
+      color: var(--gold);
+    }
+
+    .logo-text small {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: var(--muted-text);
+    }
+
+    .main-nav {
+      display: none;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #555;
+    }
+
+    @media (min-width: 1024px) {
+      .main-nav { display: flex; }
+    }
+
+    .main-nav a {
+      position: relative;
+      padding: 0.375rem 0.625rem;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #555;
+      transition: color 0.3s;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: #b8922f;
+    }
+
+    .main-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0.625rem;
+      right: 0.625rem;
+      bottom: 0.125rem;
+      height: 1px;
+      background: #b8922f;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .main-nav a:hover::after,
+    .main-nav a.active::after {
+      transform: scaleX(1);
+    }
+
+    .nav-dropdown {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .nav-dropdown i {
+      font-size: 10px;
+      color: #888;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .header-cta {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: #b8922f;
+      color: #fff;
+      transition: all 0.3s;
+    }
+
+    @media (min-width: 768px) {
+      .header-inner > .header-cta,
+      .nav-actions > .header-cta { display: inline-flex; }
+    }
+
+    .header-cta:hover {
+      background: #d4af37;
+      box-shadow: 0 6px 20px rgba(184, 146, 47, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .header-cta i {
+      font-size: 13px;
+    }
+
+    .menu-toggle {
+      display: flex;
+      width: 2.5rem;
+      height: 2.5rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      border: 1px solid rgba(184, 146, 47, 0.3);
+      background: rgba(184, 146, 47, 0.1);
+      color: #b8922f;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+
+    @media (min-width: 1024px) {
+      .menu-toggle { display: none; }
+    }
+
+    .menu-toggle:hover {
+      background: #b8922f;
+      color: #fff;
+    }
+
+    .mobile-nav {
+      display: block;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      border-top: 0;
+      background: rgba(250, 250, 248, 0.98);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all 0.3s ease-out;
+    }
+
+    @media (min-width: 1024px) {
+      .mobile-nav { display: none; }
+    }
+
+    .mobile-nav.open {
+      max-height: 70vh;
+      opacity: 1;
+      border-top: 1px solid rgba(184, 146, 47, 0.15);
+    }
+
+    .mobile-nav-inner {
+      padding: 1rem;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+
+    .mobile-nav a {
+      display: block;
+      border-radius: 0.5rem;
+      padding: 0.625rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #333;
+      border-bottom: 0;
+      transition: all 0.3s;
+    }
+
+    .mobile-nav a:hover,
+    .mobile-nav a.active {
+      background: rgba(184, 146, 47, 0.1);
+      color: #b8922f;
+    }
+
+    .mobile-nav .header-cta {
+      display: flex;
+      margin-top: 0.75rem;
+      width: auto;
+      justify-content: center;
+      border-radius: 9999px;
+      background: #b8922f;
+      padding: 0.75rem 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #fff;
+    }
+
+    .mobile-nav .header-cta:hover {
+      background: #d4af37;
+      color: #fff;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 24px;
+      border-radius: 5px;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--white);
+      color: var(--charcoal);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 22px;
+      border: 1.5px solid var(--charcoal);
+      border-radius: 5px;
+      transition: background var(--transition), transform var(--transition), color var(--transition), border-color var(--transition);
+    }
+
+    .btn-secondary:hover {
+      background: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      background: var(--program-warm);
+      padding: 18px 0 0;
+    }
+
+    .breadcrumb-list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted-text);
+    }
+
+    .breadcrumb-list li {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .breadcrumb-list li:not(:last-child)::after {
+      content: "›";
+      color: var(--gold);
+      margin: 0 8px;
+      font-size: 13px;
+      opacity: 0.85;
+    }
+
+    .breadcrumb-list a {
+      color: var(--muted-text);
+      transition: color var(--transition);
+    }
+
+    .breadcrumb-list a:hover {
+      color: var(--gold);
+    }
+
+    .breadcrumb-current {
+      color: #6F6F6F;
+    }
+
+    /* Program Hero */
+    .program-hero {
+      background: var(--program-warm);
+      padding: 28px 0 64px;
+    }
+
+    .program-hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.95fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .program-hero-content .eyebrow {
+      margin-bottom: 12px;
+    }
+
+    .program-hero-title {
+      font-size: clamp(34px, 4.2vw, 52px);
+      margin-bottom: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    .program-hero-title .line-dark {
+      display: block;
+      color: var(--charcoal);
+    }
+
+    .program-hero-title .line-gold {
+      display: block;
+      color: var(--gold);
+    }
+
+    .program-hero-desc {
+      font-size: 15px;
+      color: var(--muted-text);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 22px;
+    }
+
+    .program-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .program-meta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 12px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    .program-meta-badge i {
+      color: var(--gold);
+      font-size: 12px;
+    }
+
+    .program-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .program-hero-visual {
+      position: relative;
+      min-height: 420px;
+    }
+
+    .hero-deco {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(184, 146, 47, 0.14);
+    }
+
+    .hero-circle--lg {
+      width: 340px;
+      height: 340px;
+      bottom: 8px;
+      right: 8px;
+    }
+
+    .hero-circle--sm {
+      width: 160px;
+      height: 160px;
+      top: 18px;
+      left: -18px;
+      background: rgba(184, 146, 47, 0.08);
+    }
+
+    .hero-dot-detail {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      top: 36px;
+      right: 28px;
+    }
+
+    .program-hero-frame {
+      position: relative;
+      z-index: 1;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      aspect-ratio: 4 / 5;
+      max-height: 520px;
+      margin-left: auto;
+      width: 92%;
+    }
+
+    .program-hero-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Quick Facts */
+    .quick-facts {
+      background: #171717;
+      padding: 42px 0;
+    }
+
+    .quick-facts-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .quick-fact {
+      text-align: center;
+      padding: 8px 10px;
+    }
+
+    .quick-fact i {
+      color: var(--gold);
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .quick-fact strong {
+      display: block;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .quick-fact span {
+      display: block;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.62);
+      line-height: 1.4;
+    }
+
+    /* Audience */
+    .audience-section {
+      background: var(--white);
+      padding: 88px 0;
+    }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .audience-card,
+    .learning-card,
+    .why-card,
+    .delivery-card {
+      background: #FFFFFF;
+      border: 1px solid #EFEDE8;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .audience-card:hover,
+    .learning-card:hover,
+    .why-card:hover,
+    .delivery-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .audience-card {
+      padding: 28px 26px;
+    }
+
+    .audience-card .icon-wrap,
+    .learning-card .icon-wrap,
+    .why-card .icon-wrap,
+    .delivery-card .icon-wrap {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      color: var(--gold);
+      font-size: 22px;
+    }
+
+    .audience-card h3,
+    .learning-card h3,
+    .why-card h3,
+    .delivery-card h3 {
+      font-family: "Raleway", system-ui, sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--charcoal);
+    }
+
+    .audience-card p,
+    .learning-card p,
+    .why-card p,
+    .delivery-card p {
+      font-size: 14px;
+      color: var(--muted-text);
+      line-height: 1.7;
+    }
+
+    /* Learning */
+    .learning-section {
+      background: var(--program-warm);
+      padding: 88px 0;
+    }
+
+    .learning-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .learning-card {
+      padding: 22px 20px;
+    }
+
+    /* Outcomes */
+    .outcomes-section {
+      background: #171717;
+      padding: 88px 0;
+    }
+
+    .outcomes-section .eyebrow,
+    .outcomes-section .section-heading {
+      color: var(--white);
+    }
+
+    .outcomes-section .section-header {
+      text-align: left;
+      margin-bottom: 32px;
+    }
+
+    .outcomes-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 40px;
+    }
+
+    .outcomes-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .outcomes-list i {
+      color: var(--gold);
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    /* Why this program */
+    .why-program {
+      background: var(--white);
+      padding: 88px 0;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .why-card {
+      padding: 26px 22px;
+    }
+
+    /* Proven track record */
+    .program-proof {
+      background: var(--program-warm);
+      padding: 80px 0;
+    }
+
+    .proof-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 900px;
+      margin: 0 auto 22px;
+    }
+
+    .proof-stat {
+      background: var(--white);
+      border: 1px solid #EFEDE8;
+      border-radius: 10px;
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .proof-stat .number {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(40px, 5vw, 56px);
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .proof-stat .label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    .program-proof .section-intro {
+      text-align: center;
+    }
+
+    /* Timeline */
+    .program-timeline {
+      background: var(--white);
+      padding: 88px 0;
+    }
+
+    .timeline-track {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      position: relative;
+    }
+
+    .timeline-track::before {
+      content: "";
+      position: absolute;
+      top: 27px;
+      left: 8%;
+      right: 8%;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.35;
+    }
+
+    .timeline-step {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      padding: 0 8px;
+    }
+
+    .timeline-num {
+      width: 54px;
+      height: 54px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    .timeline-step h3 {
+      font-family: "Raleway", system-ui, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .timeline-step p {
+      font-size: 13px;
+      color: var(--muted-text);
+      line-height: 1.6;
+    }
+
+    /* Delivery */
+    .delivery-options {
+      background: var(--program-warm);
+      padding: 80px 0;
+    }
+
+    .delivery-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      max-width: 640px;
+    }
+
+    .delivery-card {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 22px 24px;
+      min-height: 110px;
+    }
+
+    .delivery-card .icon-wrap {
+      margin-bottom: 0;
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: var(--white);
+    }
+
+    /* Gallery slider */
+    .program-gallery {
+      background: var(--white);
+      padding: 88px 0;
+    }
+
+    .gallery-slider {
+      position: relative;
+    }
+
+    .gallery-stage {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #EFEDE8;
+      background: #171717;
+      aspect-ratio: 16 / 10;
+    }
+
+    .gallery-stage-btn {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      cursor: zoom-in;
+    }
+
+    .gallery-stage-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--charcoal);
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .gallery-nav:hover {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    .gallery-nav-prev { left: 14px; }
+    .gallery-nav-next { right: 14px; }
+
+    .gallery-counter {
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      z-index: 2;
+      background: rgba(23, 23, 23, 0.72);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    .gallery-thumbs-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .gallery-thumbs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      flex: 1;
+      padding: 4px 2px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .gallery-thumbs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .gallery-thumbs-btn {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: var(--charcoal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition), color var(--transition), border-color var(--transition);
+    }
+
+    .gallery-thumbs-btn:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--white);
+    }
+
+    .gallery-thumb {
+      flex: 0 0 96px;
+      width: 96px;
+      height: 68px;
+      padding: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      background: var(--light-gray);
+      opacity: 0.62;
+      transition: opacity var(--transition), border-color var(--transition);
+    }
+
+    .gallery-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-thumb:hover,
+    .gallery-thumb.is-active {
+      opacity: 1;
+    }
+
+    .gallery-thumb.is-active {
+      border-color: var(--gold);
+    }
+
+    .gallery-hint {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--muted-text);
+      text-align: center;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(23, 23, 23, 0.92);
+      padding: 24px;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      position: relative;
+      width: min(1100px, 100%);
+      max-height: 90vh;
+    }
+
+    .lightbox-inner img {
+      width: 100%;
+      max-height: 82vh;
+      object-fit: contain;
+      border-radius: 8px;
+      margin: 0 auto;
+    }
+
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      font-size: 18px;
+      transition: background var(--transition);
+    }
+
+    .lightbox-close:hover,
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+      background: var(--gold);
+    }
+
+    .lightbox-close {
+      top: -8px;
+      right: -8px;
+    }
+
+    .lightbox-prev {
+      left: -8px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-next {
+      right: -8px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-status {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -28px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 12px;
+    }
+
+    /* Final CTA */
+    .program-cta {
+      background: var(--program-warm);
+      padding: 72px 0;
+      scroll-margin-top: 96px;
+    }
+
+    .program-cta-card {
+      background: var(--white);
+      border: 1px solid #EFEDE8;
+      border-radius: 10px;
+      padding: 40px 36px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .program-cta-card h2 {
+      font-size: clamp(26px, 3vw, 36px);
+      margin-bottom: 12px;
+    }
+
+    .program-cta-card p {
+      font-size: 15px;
+      color: var(--muted-text);
+      max-width: 560px;
+      margin: 0 auto 24px;
+      line-height: 1.7;
+    }
+
+    .program-cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    /* Footer — copied from Home */
+    .site-footer {
+      background: var(--soft-black);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 56px 0 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-top: 16px;
+      max-width: 280px;
+    }
+
+    .footer-brand .logo-text strong {
+      color: var(--white);
+    }
+
+    .footer-col h4 {
+      font-family: "Raleway", system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 18px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 10px;
+      transition: color var(--transition);
+    }
+
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+      transition: border-color var(--transition), color var(--transition);
+    }
+
+    .footer-social a:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .footer-col .footer-social {
+      margin-top: 0;
+      flex-wrap: wrap;
+    }
+
+    .footer-col .footer-social a {
+      display: flex;
+      margin-bottom: 0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 1200;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #25D366;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+      color: #fff;
+    }
+
+    @media (max-width: 1024px) {
+      .program-hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+
+      .program-hero-frame {
+        width: 100%;
+        max-height: 460px;
+      }
+
+      .quick-facts-grid {
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 22px;
+      }
+
+      .learning-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .program-hero {
+        padding: 12px 0 48px;
+      }
+
+      .program-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .program-hero-content {
+        order: 1;
+      }
+
+      .program-hero-visual {
+        order: 2;
+        min-height: 0;
+      }
+
+      .program-hero-frame {
+        aspect-ratio: 4 / 3;
+        max-height: none;
+      }
+
+      .program-hero-actions .btn-primary,
+      .program-hero-actions .btn-secondary,
+      .program-cta-actions .btn-primary,
+      .program-cta-actions .btn-secondary {
+        width: 100%;
+      }
+
+      .quick-facts-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .audience-section,
+      .learning-section,
+      .outcomes-section,
+      .why-program,
+      .program-timeline,
+      .delivery-options,
+      .program-gallery {
+        padding: 64px 0;
+      }
+
+      .audience-grid,
+      .learning-grid,
+      .outcomes-list,
+      .proof-stats,
+      .delivery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-track {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding-left: 8px;
+      }
+
+      .timeline-track::before {
+        top: 0;
+        bottom: 0;
+        left: 26px;
+        right: auto;
+        width: 1px;
+        height: auto;
+      }
+
+      .timeline-step {
+        display: grid;
+        grid-template-columns: 54px 1fr;
+        grid-template-rows: auto auto;
+        column-gap: 16px;
+        text-align: left;
+        padding: 0 0 28px;
+      }
+
+      .timeline-num {
+        grid-row: 1 / span 2;
+        margin: 0;
+      }
+
+      .program-cta-card {
+        padding: 28px 20px;
+      }
+
+      .whatsapp-float {
+        right: 14px;
+        bottom: 18px;
+        width: 48px;
+        height: 48px;
+        font-size: 24px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: calc(100% - 32px);
+      }
+
+      .quick-facts-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .audience-card:hover,
+      .learning-card:hover,
+      .why-card:hover,
+      .delivery-card:hover,
+      .btn-primary:hover,
+      .btn-secondary:hover,
+      .header-cta:hover,
+      .whatsapp-float:hover {
+        transform: none;
+      }
+    }
+  /* ALA_I18N_CSS_START */
+html.ala-i18n-pending body {
+  visibility: hidden;
+}
+
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.1rem;
+  flex-shrink: 0;
+}
+
+.lang-switcher button {
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #888;
+  padding: 0.3rem 0.4rem;
+  border-radius: 0.25rem;
+  line-height: 1;
+  min-width: 1.75rem;
+}
+
+.lang-switcher button:hover {
+  color: #b8922f;
+}
+
+.lang-switcher button.is-active,
+.lang-switcher button[aria-current="true"] {
+  color: #b8922f;
+}
+
+.lang-sep {
+  color: #c8c8c8;
+  font-size: 0.75rem;
+  font-weight: 500;
+  user-select: none;
+}
+
+html[lang="ar"] body,
+html[lang="ar"] button,
+html[lang="ar"] input,
+html[lang="ar"] select,
+html[lang="ar"] textarea {
+  font-family: "Cairo", "Tahoma", sans-serif;
+}
+
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] h4 {
+  font-family: "Cairo", "Tahoma", sans-serif;
+  letter-spacing: 0;
+}
+
+html[lang="ar"] .logo-text strong,
+html[lang="ar"] .signature-text {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+html[lang="ar"] .eyebrow,
+html[lang="ar"] .header-cta,
+html[lang="ar"] .mobile-nav .header-cta,
+html[lang="ar"] .nav-contact,
+html[lang="ar"] .block-title,
+html[lang="ar"] .featured-badge,
+html[lang="ar"] .program-meta-badge {
+  text-transform: none;
+  letter-spacing: 0.04em;
+}
+
+html[dir="rtl"] input,
+html[dir="rtl"] textarea,
+html[dir="rtl"] select {
+  direction: rtl;
+  text-align: start;
+}
+
+html[dir="rtl"] input[type="tel"],
+html[dir="rtl"] input[type="email"] {
+  direction: ltr;
+  unicode-bidi: plaintext;
+  text-align: start;
+}
+
+html[dir="rtl"] .fa-arrow-right,
+html[dir="rtl"] .fa-arrow-left,
+html[dir="rtl"] .fa-chevron-right,
+html[dir="rtl"] .fa-chevron-left {
+  transform: scaleX(-1);
+}
+
+html[dir="rtl"] .program-card:hover .program-card-link i.fa-arrow-right,
+html[dir="rtl"] .program-card:hover .program-card-link i.fa-arrow-left {
+  transform: scaleX(-1) translateX(-4px);
+}
+
+html[dir="rtl"] .anim-left:not(.visible) {
+  transform: translateX(50px);
+}
+
+html[dir="rtl"] .anim-right:not(.visible) {
+  transform: translateX(-50px);
+}
+
+html[dir="rtl"] .main-nav a::after,
+html[dir="rtl"] .nav-links a::after {
+  transform-origin: right;
+}
+
+html[dir="rtl"] .whatsapp-float {
+  right: auto;
+  left: 20px;
+}
+
+html[dir="rtl"] .program-icon-badge {
+  left: auto;
+  inset-inline-end: 20px;
+}
+
+/* Program detail content — logical alignment (not Home hero) */
+html[dir="rtl"] .program-hero-content,
+html[dir="rtl"] .program-hero-desc,
+html[dir="rtl"] .section-header,
+html[dir="rtl"] .outcomes-section .section-header,
+html[dir="rtl"] .case-block .eyebrow,
+html[dir="rtl"] .case-block,
+html[dir="rtl"] .program-card-body,
+html[dir="rtl"] .program-card-content,
+html[dir="rtl"] .instructor-content,
+html[dir="rtl"] .contact-content,
+html[dir="rtl"] .lead-form,
+html[dir="rtl"] .about-p,
+html[dir="rtl"] .audience-card,
+html[dir="rtl"] .learning-card,
+html[dir="rtl"] .why-card,
+html[dir="rtl"] .delivery-card,
+html[dir="rtl"] .timeline-step,
+html[dir="rtl"] .program-cta-card,
+html[dir="rtl"] .quick-fact {
+  text-align: start;
+}
+
+html[dir="rtl"] .program-hero-actions,
+html[dir="rtl"] .program-meta {
+  justify-content: flex-start;
+}
+
+html[dir="rtl"] .outcomes-list li,
+html[dir="rtl"] .feature-list li,
+html[dir="rtl"] .checklist li,
+html[dir="rtl"] .audience-list li {
+  text-align: start;
+}
+
+/* Numeric / code-like values stay LTR visually */
+html[dir="rtl"] .timeline-num,
+html[dir="rtl"] .stat-value,
+html[dir="rtl"] .stat-number,
+html[dir="rtl"] .stat-counter,
+html[dir="rtl"] .gallery-counter,
+html[dir="rtl"] .proof-stat strong,
+html[dir="rtl"] .quick-fact strong {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+html[dir="rtl"] .stat-item:first-child {
+  padding-inline-end: 30px;
+  padding-inline-start: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+html[dir="rtl"] .stat-item:last-child {
+  padding-inline-start: 30px;
+  padding-inline-end: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+html[dir="rtl"] .stat-item:not(:last-child)::after {
+  right: auto;
+  left: 0;
+}
+
+html[dir="rtl"] .gallery-nav-prev,
+html[dir="rtl"] .lightbox-prev {
+  left: auto;
+  right: 14px;
+}
+
+html[dir="rtl"] .gallery-nav-next,
+html[dir="rtl"] .lightbox-next {
+  right: auto;
+  left: 14px;
+}
+
+html[dir="rtl"] .lightbox-close {
+  right: auto;
+  left: 0;
+}
+
+html[dir="rtl"] .breadcrumb-list {
+  flex-direction: row;
+}
+
+html[dir="rtl"] .breadcrumb-list li:not(:last-child)::after {
+  content: "‹";
+}
+
+/* Mobile timeline: keep number on inline-start without physical left lock */
+@media (max-width: 900px) {
+  html[dir="rtl"] .timeline-track {
+    padding-inline-start: 8px;
+    padding-left: 0;
+  }
+
+  html[dir="rtl"] .timeline-track::before {
+    left: auto;
+    inset-inline-start: 26px;
+  }
+
+  html[dir="rtl"] .timeline-step {
+    text-align: start;
+  }
+}
+
+@media (max-width: 768px) {
+  html[dir="rtl"] .whatsapp-float {
+    left: 14px;
+    right: auto;
+  }
+
+  html[dir="rtl"] .gallery-nav-prev,
+  html[dir="rtl"] .lightbox-prev {
+    right: 8px;
+  }
+
+  html[dir="rtl"] .gallery-nav-next,
+  html[dir="rtl"] .lightbox-next {
+    left: 8px;
+  }
+}
+
+/* ALA_I18N_CSS_END */
+
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u" class="logo" target="_top">
+        <img class="logo-img" src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a787bb09994d35aa03bbe17.png" alt="Ahmed Latif Academy">
+        <div class="logo-text">
+          <strong>Ahmed Latif <span class="logo-academy">Academy</span></strong>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u" target="_top">Home</a>
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#instructor" target="_top">About</a>
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#programs" class="nav-dropdown active" target="_top">Programs <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#updates" target="_top">Events</a>
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#updates" target="_top">News</a>
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#contact" target="_top">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#contact" class="header-cta" target="_top">
+          <i class="fa-regular fa-compass" aria-hidden="true"></i>
+          Find Your Program
+        </a>
+        <div class="lang-switcher" role="group" aria-label="Language">
+          <button type="button" data-lang-switch="en" lang="en" aria-label="English">EN</button>
+          <span class="lang-sep" aria-hidden="true">/</span>
+          <button type="button" data-lang-switch="ar" lang="ar" aria-label="العربية">AR</button>
+        </div>
+
+
+
+
+
+
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <div class="mobile-nav-inner">
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u" target="_top">Home</a>
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#instructor" target="_top">About</a>
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#programs" class="active" target="_top">Programs</a>
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#updates" target="_top">Events</a>
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#updates" target="_top">News</a>
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#contact" target="_top">Contact</a>
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#contact" class="header-cta" target="_top">
+          <i class="fa-regular fa-compass" aria-hidden="true"></i>
+          Find Your Program
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <div class="container">
+        <ol class="breadcrumb-list">
+          <li><a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u" target="_top">Home</a></li>
+          <li><a href="https://link.cashprocess.io/preview/0jAQplJCVpLvfAWky1jX" target="_top">Camps</a></li>
+          <li class="breadcrumb-current" aria-current="page">Shift Camp</li>
+        </ol>
+      </div>
+    </nav>
+
+    <section class="program-hero" id="program-hero">
+      <div class="container program-hero-grid">
+        <div class="program-hero-content">
+          <p class="eyebrow anim-item">Live Camp</p>
+          <h1 class="program-hero-title anim-item">
+            <span class="line-dark">Shift Camp</span>
+            <span class="line-gold">Dynamo Camp</span>
+          </h1>
+          <p class="program-hero-desc anim-item">There's a moment in every life we never forget... a moment that changed us at our core, a real turning point, a fresh beginning... or a brave step that opened up possibilities we never imagined were even there. But here's the real question: do we sit and wait for that moment to happen by chance... or do we go looking for it? Shift Camp isn't a relaxing getaway. It's a complete strategy built to pull you out of your routine — away from the noise, speed, and pressure of daily life — away from the voice inside you that keeps whispering "I'm just living" toward "I actually want to live."</p>
+          <div class="program-meta anim-item" aria-label="Program facts">
+            <span class="program-meta-badge"><i class="fa-regular fa-circle-dot" aria-hidden="true"></i> Live Camp</span>
+            <span class="program-meta-badge"><i class="fa-regular fa-clock" aria-hidden="true"></i> 120 Hours</span>
+            <span class="program-meta-badge"><i class="fa-solid fa-fire" aria-hidden="true"></i> First Edition: Dynamo</span>
+          </div>
+          <div class="program-hero-actions">
+            <a href="#program-cta" class="btn-primary anim-scale">Ask About This Program</a>
+            <a class="btn-secondary anim-scale" id="heroWhatsApp" href="https://wa.me/201010002231?text=You%27re%20just%20one%20step%20away%20from%20joining%20ALA%21%20Contact%20us%20today%2C%20and%20one%20of%20our%20team%20members%20will%20be%20happy%20to%20assist%20you%20with%20the%20next%20available%20course%20date%2C%20course%20fees%2C%20current%20offers%2C%20answer%20all%20your%20questions%2C%20and%20help%20you%20complete%20your%20registration%20with%20ease." target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Ask on WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="program-hero-visual anim-right">
+          <div class="hero-deco" aria-hidden="true">
+            <div class="hero-circle hero-circle--lg"></div>
+            <div class="hero-circle hero-circle--sm"></div>
+            <span class="hero-dot-detail"></span>
+          </div>
+          <div class="program-hero-frame">
+            <img
+              id="programHeroImage"
+              src="images/shiftcamp/hero.jpg"
+              alt="Participants together during an Ahmed Latif Academy camp"
+              width="1600"
+              height="2000"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-facts" id="quick-facts" aria-label="Program quick facts">
+      <div class="container">
+        <div class="quick-facts-grid">
+          <div class="quick-fact anim-scale">
+            <i class="fa-regular fa-circle-dot" aria-hidden="true"></i>
+            <strong>Live</strong>
+            <span>Camp</span>
+          </div>
+          <div class="quick-fact anim-scale">
+            <i class="fa-regular fa-clock" aria-hidden="true"></i>
+            <strong>120 Hours</strong>
+            <span>Extended Camp</span>
+          </div>
+          <div class="quick-fact anim-scale">
+            <i class="fa-solid fa-fire" aria-hidden="true"></i>
+            <strong>Dynamo Camp</strong>
+            <span>First Edition</span>
+          </div>
+          <div class="quick-fact anim-scale">
+            <i class="fa-regular fa-user" aria-hidden="true"></i>
+            <strong>Ahmed Latif</strong>
+            <span>With a Full Team</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="audience-section" id="audience">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow anim-item">Who Is This Camp For?</p>
+          <h2 class="section-heading anim-item">Stuck. Restless. Running on Empty.</h2>
+        </div>
+        <div class="audience-grid">
+          <article class="audience-card anim-scale">
+            <div class="icon-wrap" aria-hidden="true"><i class="fa-regular fa-compass"></i></div>
+            <h3>Waiting for the Moment</h3>
+            <p>Do we sit and wait for that turning point to happen by chance... or do we go looking for it?</p>
+          </article>
+          <article class="audience-card anim-scale">
+            <div class="icon-wrap" aria-hidden="true"><i class="fa-regular fa-clock"></i></div>
+            <h3>Stuck in Place</h3>
+            <p>If you feel like something's been broken in you for a while... stuck, not moving... bored and restless... lost, like you've lost your direction... nothing tastes the way it used to... this camp is exactly for you.</p>
+          </article>
+          <article class="audience-card anim-scale">
+            <div class="icon-wrap" aria-hidden="true"><i class="fa-solid fa-bolt"></i></div>
+            <h3>Energy Drained</h3>
+            <p>When energy runs low, we stall halfway through — ambitions close enough to touch, yet somehow out of reach. This camp is about charging that energy, and seeing what has been quietly draining it.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="learning-section" id="learning">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow anim-item">What You'll Work On</p>
+          <h2 class="section-heading anim-item">Fuel / Charge the Shift. Wake the Fire.</h2>
+        </div>
+        <div class="learning-grid">
+          <article class="learning-card anim-scale">
+            <div class="icon-wrap" aria-hidden="true"><i class="fa-solid fa-ban"></i></div>
+            <h3>Disruptive Patterns</h3>
+            <p>Eliminating the disruptive behaviors and repetitive negative patterns holding you back.</p>
+          </article>
+          <article class="learning-card anim-scale">
+            <div class="icon-wrap" aria-hidden="true"><i class="fa-solid fa-key"></i></div>
+            <h3>Keys to Energy</h3>
+            <p>Understanding the keys to energy and its different types, and how to actually recharge instead of running on empty.</p>
+          </article>
+          <article class="learning-card anim-scale">
+            <div class="icon-wrap" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>The Internal Enemy</h3>
+            <p>Confronting the biggest internal enemy standing between you and your productivity and achievements.</p>
+          </article>
+          <article class="learning-card anim-scale">
+            <div class="icon-wrap" aria-hidden="true"><i class="fa-solid fa-droplet"></i></div>
+            <h3>Energy Leaks</h3>
+            <p>Identifying the energy leaks that drain you without you even noticing.</p>
+          </article>
+          <article class="learning-card anim-scale">
+            <div class="icon-wrap" aria-hidden="true"><i class="fa-regular fa-compass"></i></div>
+            <h3>Energy Blockers</h3>
+            <p>Handling energy blockers like boredom, frustration, and disorientation.</p>
+          </article>
+          <article class="learning-card anim-scale">
+            <div class="icon-wrap" aria-hidden="true"><i class="fa-regular fa-user"></i></div>
+            <h3>Real Self and False Self</h3>
+            <p>Distinguishing your real self from your false self, and understanding how each relates to the energy that drives real action.</p>
+          </article>
+          <article class="learning-card anim-scale">
+            <div class="icon-wrap" aria-hidden="true"><i class="fa-regular fa-flag"></i></div>
+            <h3>Major Milestones</h3>
+            <p>The dynamics of achieving major milestones, and how to genuinely celebrate them.</p>
+          </article>
+          <article class="learning-card anim-scale">
+            <div class="icon-wrap" aria-hidden="true"><i class="fa-regular fa-heart"></i></div>
+            <h3>Positive Detachment</h3>
+            <p>Achieving real, positive detachment, and learning practical ways to handle pressure.</p>
+          </article>
+          <article class="learning-card anim-scale">
+            <div class="icon-wrap" aria-hidden="true"><i class="fa-regular fa-pen-to-square"></i></div>
+            <h3>A New Success Story</h3>
+            <p>Rebuilding the ability to write a new success story, and reclaiming a passion lost in life's difficulties.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="outcomes-section" id="outcomes">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow anim-item">By the End of the Camp</p>
+          <h2 class="section-heading anim-item">You'll Achieve:</h2>
+        </div>
+        <ul class="outcomes-list">
+          <li class="anim-item"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Breaking free from that recurring state of numbness, laziness, boredom, and being lost</span></li>
+          <li class="anim-item"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Eliminating the negative behaviors and patterns that were holding you back</span></li>
+          <li class="anim-item"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Building real connections between your goals and the inner drive that moves you</span></li>
+          <li class="anim-item"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Reconnecting with the strength you once had, and building a brand-new kind of strength you've never had before</span></li>
+          <li class="anim-item"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Making peace with the image you've carried of yourself your whole life</span></li>
+          <li class="anim-item"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Discovering your own unique keys to productivity — which might look nothing like everyone else's</span></li>
+          <li class="anim-item"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Charging your physical, mental, emotional, and spiritual energy, and learning how to maintain and renew it</span></li>
+          <li class="anim-item"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Disconnecting from life's burdens and giving yourself space to discover the version of you that you haven't reached yet</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="why-program" id="why-program">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow anim-item">Why This Camp?</p>
+          <h2 class="section-heading anim-item">Not a Relaxing Getaway. A Complete Strategy.</h2>
+        </div>
+        <div class="why-grid">
+          <article class="why-card anim-scale">
+            <div class="icon-wrap" aria-hidden="true"><i class="fa-regular fa-lightbulb"></i></div>
+            <h3>What a Real Shift Means</h3>
+            <p>You'll learn what a real shift truly means: in your thinking, your awareness, your emotions, and your relationship with yourself and with everyone around you.</p>
+          </article>
+          <article class="why-card anim-scale">
+            <div class="icon-wrap" aria-hidden="true"><i class="fa-regular fa-comments"></i></div>
+            <h3>Learning and Open Space</h3>
+            <p>An extended, carefully designed camp that blends deep learning spaces with open spaces for fun. A warm, uplifting atmosphere with supportive company, motivating energy from the first moment to the last, playfulness, spontaneity, and reflective sessions for inner clarity.</p>
+          </article>
+          <article class="why-card anim-scale">
+            <div class="icon-wrap" aria-hidden="true"><i class="fa-regular fa-user"></i></div>
+            <h3>Led by Ahmed Latif</h3>
+            <p>Ahmed Latif leads the journey, with a full team of qualified people by your side every step of the way.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="program-proof" id="program-proof">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow anim-item">The First Edition</p>
+          <h2 class="section-heading anim-item">Dynamo Camp. Wake the Fire.</h2>
+        </div>
+        <div class="proof-stats">
+          <div class="proof-stat anim-scale">
+            <div class="number">120h</div>
+            <div class="label">Live Camp Training</div>
+          </div>
+          <div class="proof-stat anim-scale">
+            <div class="number">Dynamo</div>
+            <div class="label">First Edition of Shift Camp</div>
+          </div>
+          <div class="proof-stat anim-scale">
+            <div class="number">ALA</div>
+            <div class="label">Led by Ahmed Latif</div>
+          </div>
+        </div>
+        <p class="section-intro anim-item">Energy is the source of life that fuels the drive inside us. The point of this camp is understanding how to charge your energy, and recognizing who — or what — has been quietly draining it.</p>
+      </div>
+    </section>
+
+    <section class="program-timeline" id="program-timeline">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow anim-item">How the Camp Works</p>
+          <h2 class="section-heading anim-item">From "I'm Just Living" to "I Actually Want to Live"</h2>
+        </div>
+        <div class="timeline-track">
+          <article class="timeline-step anim-item">
+            <div class="timeline-num">01</div>
+            <h3>Leave Routine</h3>
+            <p>Pulled out of the noise, speed, and pressure of daily life</p>
+          </article>
+          <article class="timeline-step anim-item">
+            <div class="timeline-num">02</div>
+            <h3>Charge</h3>
+            <p>Energy keys, leaks, blockers — and how to recharge</p>
+          </article>
+          <article class="timeline-step anim-item">
+            <div class="timeline-num">03</div>
+            <h3>Shift</h3>
+            <p>Thinking, awareness, emotions, and your relationship with yourself</p>
+          </article>
+          <article class="timeline-step anim-item">
+            <div class="timeline-num">04</div>
+            <h3>Look Inward</h3>
+            <p>Reflective sessions, inner clarity, and the version of you that you haven't reached yet</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="delivery-options" id="delivery">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow anim-item">Camp Atmosphere &amp; Guidelines</p>
+          <h2 class="section-heading anim-item">Come Ready. Follow the Journey.</h2>
+        </div>
+        <div class="delivery-grid">
+          <article class="delivery-card anim-scale">
+            <div class="icon-wrap" aria-hidden="true"><i class="fa-solid fa-campground"></i></div>
+            <div>
+              <h3>Extended Live Camp</h3>
+              <p>Come ready to empty your heart and mind, so there's real mental and practical space for what's coming. Be ready for shocks that push you to rise above and create. You'll be asked to follow camp instructions without debate.</p>
+            </div>
+          </article>
+          <article class="delivery-card anim-scale">
+            <div class="icon-wrap" aria-hidden="true"><i class="fa-solid fa-mobile-screen"></i></div>
+            <div>
+              <h3>Phones and Companions</h3>
+              <p>Phones are collected at certain times and returned to you later. Companions are allowed to join the trip (though they won't attend camp sessions, under specific guidelines).</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="program-gallery" id="program-gallery">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow anim-item">Camp Experience</p>
+          <h2 class="section-heading anim-item">Inside the Shift Camp Experience</h2>
+          <p class="section-intro anim-item">Explore highlights from previous Shift Camp groups.</p>
+        </div>
+        <div class="gallery-slider" id="galleryRoot" aria-roledescription="carousel" aria-label="Shift Camp photo gallery"></div>
+      </div>
+    </section>
+
+    <section class="program-cta" id="program-cta">
+      <div class="container">
+        <div class="program-cta-card anim-item">
+          <h2>Go Looking for the Shift</h2>
+          <p>Real transformation happens when the world around you goes quiet, and you finally look inward — and ask the questions you've always been putting off. Ask about the next Shift Camp dates, fees, and current offers.</p>
+          <div class="program-cta-actions">
+            <a class="btn-primary" id="ctaAskProgram" href="https://wa.me/201010002231?text=Hello%20ALA%2C%20I%27m%20interested%20in%20Shift%20Camp%20%28Dynamo%20Camp%29.%20Please%20share%20the%20next%20available%20dates%2C%20fees%2C%20and%20current%20offers." target="_blank" rel="noopener noreferrer">Ask About This Program</a>
+            <a class="btn-secondary" href="https://wa.me/201010002231?text=You%27re%20just%20one%20step%20away%20from%20joining%20ALA%21%20Contact%20us%20today%2C%20and%20one%20of%20our%20team%20members%20will%20be%20happy%20to%20assist%20you%20with%20the%20next%20available%20course%20date%2C%20course%20fees%2C%20current%20offers%2C%20answer%20all%20your%20questions%2C%20and%20help%20you%20complete%20your%20registration%20with%20ease." target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Ask on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u" class="logo" target="_top">
+            <img class="logo-img" src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a787bb09994d35aa03bbe17.png" alt="Ahmed Latif Academy">
+            <div class="logo-text">
+              <strong>Ahmed Latif</strong>
+              <small>ALA</small>
+            </div>
+          </a>
+          <p>Transformative learning in leadership, coaching, communication, psychology, and personal development.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u" target="_top">Home</a>
+          <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#instructor" target="_top">About</a>
+          <a href="https://link.cashprocess.io/preview/fRaRY5RMY05VbnLSxGoO" target="_top">Programs</a>
+          <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#updates" target="_top">Events</a>
+          <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#updates" target="_top">News</a>
+          <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#contact" target="_top">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <a href="https://link.cashprocess.io/preview/fRaRY5RMY05VbnLSxGoO" data-interest="help-choosing" target="_top">Live Courses</a>
+          <a href="https://link.cashprocess.io/preview/j67uSKwgeUSNZMm9suAo" data-interest="help-choosing" target="_top">Recorded Courses</a>
+          <a href="https://link.cashprocess.io/preview/0jAQplJCVpLvfAWky1jX" data-interest="poc-camp" target="_top">Camps</a>
+          <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#contact" data-interest="help-choosing" target="_top">Workshops</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/ALA.Academy1" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.instagram.com/alaacademy2030/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://wa.me/201010002231" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            </a>
+            <a href="https://ala-eg.com/home" target="_blank" rel="noopener noreferrer" aria-label="Website">
+              <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span id="currentYear">&copy; Ahmed Latif Academy. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/201010002231?text=You%27re%20just%20one%20step%20away%20from%20joining%20ALA%21%20Contact%20us%20today%2C%20and%20one%20of%20our%20team%20members%20will%20be%20happy%20to%20assist%20you%20with%20the%20next%20available%20course%20date%2C%20course%20fees%2C%20current%20offers%2C%20answer%20all%20your%20questions%2C%20and%20help%20you%20complete%20your%20registration%20with%20ease." target="_blank" rel="noopener noreferrer" aria-label="Contact Ahmed Latif Academy on WhatsApp">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxStatus" hidden>
+    <div class="lightbox-inner">
+      <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close gallery">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+      <button type="button" class="lightbox-prev" id="lightboxPrev" aria-label="Previous image">
+        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+      </button>
+      <img id="lightboxImage" src="" alt="">
+      <button type="button" class="lightbox-next" id="lightboxNext" aria-label="Next image">
+        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      </button>
+      <p class="lightbox-status" id="lightboxStatus"></p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      /* ============================================================
+         PROGRAM MEDIA CONFIG
+         ============================================================ */
+      var galleryImages = [
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee72369b8551ef385bba8.jpg", alt: "Shift Camp photo 1" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee7213f2ee4d9841a7e5a.jpg", alt: "Shift Camp photo 2" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee71869b8551ef385ba47.jpg", alt: "Shift Camp photo 3" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee7053f2ee4d9841a7baa.jpg", alt: "Shift Camp photo 4" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee70729d98aab1e7b1db8.jpg", alt: "Shift Camp photo 5" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee705b122d777d37c599f.jpg", alt: "Shift Camp photo 6" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee70869b8551ef385b8c2.jpg", alt: "Shift Camp photo 7" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee6ec849b07a432e8a68b.jpg", alt: "Shift Camp photo 8" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee6e1b38afc8df5886642.jpg", alt: "Shift Camp photo 9" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee6e0849b07a432e8a567.jpg", alt: "Shift Camp photo 10" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee6ddc9a467994fd6f17a.jpg", alt: "Shift Camp photo 11" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee6e399f6178240e33d47.jpg", alt: "Shift Camp photo 12" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee6deb38afc8df58862cd.jpg", alt: "Shift Camp photo 13" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee6cd358af4862cbb9c5c.jpg", alt: "Shift Camp photo 14" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee6b6f12f019859a5466b.jpg", alt: "Shift Camp photo 15" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee6b1c9a467994fd6ecee.jpg", alt: "Shift Camp photo 16" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee6aff12f019859a52d9c.jpg", alt: "Shift Camp photo 17" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee6bf99f6178240e2dd62.jpg", alt: "Shift Camp photo 18" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee6acb38afc8df5883e18.jpg", alt: "Shift Camp photo 19" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee6aeb122d777d37bb4d3.jpg", alt: "Shift Camp photo 20" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee69c358af4862cbb915d.jpg", alt: "Shift Camp photo 21" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee68cb122d777d37ba9ad.jpg", alt: "Shift Camp photo 22" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee68c3ec365c815e4b8a6.jpg", alt: "Shift Camp photo 23" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee688b122d777d37ba95d.jpg", alt: "Shift Camp photo 24" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee67e849b07a432e7d881.jpg", alt: "Shift Camp photo 25" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee67c37ece9b31e226922.jpg", alt: "Shift Camp photo 26" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee66f849b07a432e7d34e.jpg", alt: "Shift Camp photo 27" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee66eb122d777d37b76a5.jpg", alt: "Shift Camp photo 28" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee66ef12f019859a4cfd4.jpg", alt: "Shift Camp photo 29" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee66b92ff94e3700d9bbe.jpg", alt: "Shift Camp photo 30" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee658358af4862cbb699d.jpg", alt: "Shift Camp photo 31" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee65b99f6178240e23d70.jpg", alt: "Shift Camp photo 32" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee63eb122d777d37b6151.jpg", alt: "Shift Camp photo 33" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee644f12f019859a44c41.jpg", alt: "Shift Camp photo 34" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee64af12f019859a46702.jpg", alt: "Shift Camp photo 35" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee64bb38afc8df587f6bd.jpg", alt: "Shift Camp photo 36" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee621b38afc8df587e3f2.jpg", alt: "Shift Camp photo 37" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee62fb38afc8df587f406.jpg", alt: "Shift Camp photo 38" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee61f99f6178240e1d22c.jpg", alt: "Shift Camp photo 39" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee61e358af4862cb9dba5.jpg", alt: "Shift Camp photo 40" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee61af12f019859a41596.jpg", alt: "Shift Camp photo 41" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee612358af4862cb95977.jpg", alt: "Shift Camp photo 42" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee607f12f019859a40434.jpg", alt: "Shift Camp photo 43" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee604358af4862cb8d8ee.jpg", alt: "Shift Camp photo 44" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee5fb358af4862cb891a2.jpg", alt: "Shift Camp photo 45" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee5f6b122d777d378f978.jpg", alt: "Shift Camp photo 46" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee5e8f12f019859a3ed3f.jpg", alt: "Shift Camp photo 47" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee5ecb38afc8df58778fb.jpg", alt: "Shift Camp photo 48" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee5cb99f6178240e18cc4.jpg", alt: "Shift Camp photo 49" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee5c9b38afc8df5875a8c.jpg", alt: "Shift Camp photo 50" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee5d0b9d7f7e1866f40a6.jpg", alt: "Shift Camp photo 51" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee5d2358af4862cb7ab65.jpg", alt: "Shift Camp photo 52" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee5c7678941fa99d631bf.jpg", alt: "Shift Camp photo 53" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee5c9f12f019859a3ca37.jpg", alt: "Shift Camp photo 54" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee5a7849b07a432e44215.jpg", alt: "Shift Camp photo 55" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee5a7849b07a432e4421a.jpg", alt: "Shift Camp photo 56" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee5a7cf2140985b64b9d6.jpg", alt: "Shift Camp photo 57" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee5a7b38afc8df5873983.jpg", alt: "Shift Camp photo 58" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee5a7f12f019859a3c558.jpg", alt: "Shift Camp photo 59" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a8ee5a7f12f019859a3c553.jpg", alt: "Shift Camp photo 60" }
+      ];
+
+      var galleryRoot = document.getElementById("galleryRoot");
+      var lightbox = document.getElementById("lightbox");
+      var lightboxImage = document.getElementById("lightboxImage");
+      var lightboxStatus = document.getElementById("lightboxStatus");
+      var lightboxClose = document.getElementById("lightboxClose");
+      var lightboxPrev = document.getElementById("lightboxPrev");
+      var lightboxNext = document.getElementById("lightboxNext");
+      var currentIndex = 0;
+      var lastFocused = null;
+      var stageImg = null;
+      var stageBtn = null;
+      var counterEl = null;
+      var thumbsEl = null;
+      var thumbButtons = [];
+
+      function setSlide(index, options) {
+        if (!galleryImages.length) return;
+        currentIndex = (index + galleryImages.length) % galleryImages.length;
+        var image = galleryImages[currentIndex];
+        if (stageImg) {
+          stageImg.src = image.src;
+          stageImg.alt = image.alt;
+        }
+        if (stageBtn) {
+          stageBtn.setAttribute("aria-label", "View larger: " + image.alt);
+        }
+        if (counterEl) {
+          counterEl.textContent = (currentIndex + 1) + " / " + galleryImages.length;
+        }
+        thumbButtons.forEach(function (btn, i) {
+          btn.classList.toggle("is-active", i === currentIndex);
+          btn.setAttribute("aria-current", i === currentIndex ? "true" : "false");
+        });
+        if (thumbsEl && thumbButtons[currentIndex] && (!options || options.scroll !== false)) {
+          thumbButtons[currentIndex].scrollIntoView({
+            behavior: options && options.instant ? "auto" : "smooth",
+            inline: "center",
+            block: "nearest"
+          });
+        }
+        preloadNeighbor(currentIndex + 1);
+        preloadNeighbor(currentIndex - 1);
+      }
+
+      function preloadNeighbor(index) {
+        var i = (index + galleryImages.length) % galleryImages.length;
+        var img = new Image();
+        img.src = galleryImages[i].src;
+      }
+
+      function renderGallery() {
+        if (!galleryRoot || !galleryImages.length) return;
+        galleryRoot.innerHTML = "";
+        galleryRoot.tabIndex = 0;
+
+        var stage = document.createElement("div");
+        stage.className = "gallery-stage";
+
+        stageBtn = document.createElement("button");
+        stageBtn.type = "button";
+        stageBtn.className = "gallery-stage-btn";
+        stageImg = document.createElement("img");
+        stageImg.width = 1600;
+        stageImg.height = 1000;
+        stageImg.decoding = "async";
+        stageBtn.appendChild(stageImg);
+        stageBtn.addEventListener("click", function () {
+          openLightbox(currentIndex);
+        });
+        stage.appendChild(stageBtn);
+
+        var prevBtn = document.createElement("button");
+        prevBtn.type = "button";
+        prevBtn.className = "gallery-nav gallery-nav-prev";
+        prevBtn.setAttribute("aria-label", "Previous photo");
+        prevBtn.innerHTML = '<i class="fa-solid fa-chevron-left" aria-hidden="true"></i>';
+        prevBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          setSlide(currentIndex - 1);
+        });
+
+        var nextBtn = document.createElement("button");
+        nextBtn.type = "button";
+        nextBtn.className = "gallery-nav gallery-nav-next";
+        nextBtn.setAttribute("aria-label", "Next photo");
+        nextBtn.innerHTML = '<i class="fa-solid fa-chevron-right" aria-hidden="true"></i>';
+        nextBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          setSlide(currentIndex + 1);
+        });
+
+        counterEl = document.createElement("div");
+        counterEl.className = "gallery-counter";
+        counterEl.setAttribute("aria-live", "polite");
+
+        stage.appendChild(prevBtn);
+        stage.appendChild(nextBtn);
+        stage.appendChild(counterEl);
+        galleryRoot.appendChild(stage);
+
+        var thumbsWrap = document.createElement("div");
+        thumbsWrap.className = "gallery-thumbs-wrap";
+
+        var thumbsPrev = document.createElement("button");
+        thumbsPrev.type = "button";
+        thumbsPrev.className = "gallery-thumbs-btn";
+        thumbsPrev.setAttribute("aria-label", "Scroll thumbnails left");
+        thumbsPrev.innerHTML = '<i class="fa-solid fa-chevron-left" aria-hidden="true"></i>';
+
+        thumbsEl = document.createElement("div");
+        thumbsEl.className = "gallery-thumbs";
+        thumbsEl.setAttribute("role", "tablist");
+        thumbsEl.setAttribute("aria-label", "Gallery thumbnails");
+
+        var thumbsNext = document.createElement("button");
+        thumbsNext.type = "button";
+        thumbsNext.className = "gallery-thumbs-btn";
+        thumbsNext.setAttribute("aria-label", "Scroll thumbnails right");
+        thumbsNext.innerHTML = '<i class="fa-solid fa-chevron-right" aria-hidden="true"></i>';
+
+        thumbButtons = galleryImages.map(function (image, index) {
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "gallery-thumb";
+          btn.setAttribute("role", "tab");
+          btn.setAttribute("aria-label", "Show photo " + (index + 1) + ": " + image.alt);
+          btn.innerHTML =
+            '<img src="' + image.src + '" alt="" width="192" height="136" loading="lazy" decoding="async">';
+          btn.addEventListener("click", function () {
+            setSlide(index);
+          });
+          thumbsEl.appendChild(btn);
+          return btn;
+        });
+
+        thumbsPrev.addEventListener("click", function () {
+          thumbsEl.scrollBy({ left: (document.documentElement.dir === "rtl" ? 280 : -280), behavior: "smooth" });
+        });
+        thumbsNext.addEventListener("click", function () {
+          thumbsEl.scrollBy({ left: (document.documentElement.dir === "rtl" ? -280 : 280), behavior: "smooth" });
+        });
+
+        thumbsWrap.appendChild(thumbsPrev);
+        thumbsWrap.appendChild(thumbsEl);
+        thumbsWrap.appendChild(thumbsNext);
+        galleryRoot.appendChild(thumbsWrap);
+
+        var hint = document.createElement("p");
+        hint.className = "gallery-hint";
+        hint.textContent = "Use the arrows to browse all photos. Click the image to view it larger.";
+        galleryRoot.appendChild(hint);
+
+        var startX = 0;
+        stage.addEventListener("touchstart", function (e) {
+          startX = e.changedTouches[0].clientX;
+        }, { passive: true });
+        stage.addEventListener("touchend", function (e) {
+          var dx = e.changedTouches[0].clientX - startX;
+          if (Math.abs(dx) < 40) return;
+          setSlide(currentIndex + (dx < 0 ? 1 : -1));
+        }, { passive: true });
+
+        galleryRoot.addEventListener("keydown", function (e) {
+          if (lightbox.classList.contains("is-open")) return;
+          if (e.key === "ArrowRight") {
+            e.preventDefault();
+            setSlide(currentIndex + 1);
+          } else if (e.key === "ArrowLeft") {
+            e.preventDefault();
+            setSlide(currentIndex - 1);
+          }
+        });
+
+        setSlide(0, { instant: true, scroll: false });
+      }
+
+      function updateLightbox() {
+        var image = galleryImages[currentIndex];
+        if (!image) return;
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt;
+        lightboxStatus.textContent = (currentIndex + 1) + " / " + galleryImages.length;
+      }
+
+      function openLightbox(index) {
+        currentIndex = index;
+        lastFocused = document.activeElement;
+        updateLightbox();
+        lightbox.hidden = false;
+        lightbox.classList.add("is-open");
+        document.body.classList.add("lightbox-open");
+        lightboxClose.focus();
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove("is-open");
+        lightbox.hidden = true;
+        document.body.classList.remove("lightbox-open");
+        if (lastFocused && typeof lastFocused.focus === "function") {
+          lastFocused.focus();
+        }
+      }
+
+      function showNext(step) {
+        setSlide(currentIndex + step);
+        updateLightbox();
+      }
+
+      renderGallery();
+
+      lightboxClose.addEventListener("click", closeLightbox);
+      lightboxPrev.addEventListener("click", function () { showNext(-1); });
+      lightboxNext.addEventListener("click", function () { showNext(1); });
+      lightbox.addEventListener("click", function (e) {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (!lightbox.classList.contains("is-open")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowRight") showNext(1);
+        if (e.key === "ArrowLeft") showNext(-1);
+      });
+
+      var menuToggle = document.getElementById("menuToggle");
+      var mobileNav = document.getElementById("mobileNav");
+      var icon = menuToggle.querySelector("i");
+      var currentYear = document.getElementById("currentYear");
+
+      if (currentYear) {
+        currentYear.textContent = "\u00A9 " + new Date().getFullYear() + " Ahmed Latif Academy. All rights reserved.";
+      }
+
+      var siteHeader = document.querySelector(".site-header");
+      function onHeaderScroll() {
+        if (siteHeader) siteHeader.classList.toggle("scrolled", window.scrollY > 12);
+      }
+      onHeaderScroll();
+      window.addEventListener("scroll", onHeaderScroll, { passive: true });
+
+      function tag(selector, cls) {
+        document.querySelectorAll(selector).forEach(function (el) {
+          el.classList.add(cls);
+        });
+      }
+
+      tag([
+        ".breadcrumb",
+        ".footer-brand",
+        ".footer-col",
+        ".footer-bottom"
+      ].join(", "), "anim-item");
+
+      var targets = Array.from(
+        document.querySelectorAll(".anim-item, .anim-left, .anim-right, .anim-scale")
+      );
+
+      function reveal(el, delay) {
+        window.setTimeout(function () { el.classList.add("visible"); }, delay || 0);
+      }
+
+      function siblingDelay(el) {
+        var parent = el.parentElement;
+        if (!parent) return 40;
+        var sibs = Array.prototype.filter.call(parent.children, function (child) {
+          return child.classList.contains("anim-item") ||
+            child.classList.contains("anim-left") ||
+            child.classList.contains("anim-right") ||
+            child.classList.contains("anim-scale");
+        });
+        var i = sibs.indexOf(el);
+        return Math.max(0, i) * 80;
+      }
+
+      var animObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            reveal(entry.target, siblingDelay(entry.target));
+            animObserver.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -10% 0px" }
+      );
+
+      targets.forEach(function (el) {
+        var rect = el.getBoundingClientRect();
+        var inView = rect.top < window.innerHeight * 0.92 && rect.bottom > 0;
+        if (inView) reveal(el, siblingDelay(el));
+        else animObserver.observe(el);
+      });
+
+      menuToggle.addEventListener("click", function () {
+        var isOpen = mobileNav.classList.toggle("open");
+        icon.classList.toggle("fa-bars", !isOpen);
+        icon.classList.toggle("fa-xmark", isOpen);
+        menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+
+      mobileNav.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          mobileNav.classList.remove("open");
+          icon.classList.add("fa-bars");
+          icon.classList.remove("fa-xmark");
+          menuToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+    })();
+  </script>
+
+<!-- ALA_I18N_START -->
+<script>
+window.ALA_I18N_DICT = {"Transformative learning in leadership, coaching, communication, psychology, and personal development.": "تعلّم يُحدث تحوّلًا في القيادة والكوتشينج والتواصل وعلم النفس والتطوير الشخصي.", "Learn": "تعلّم", "Quick Links": "روابط سريعة", "Programs": "البرامج", "Contact": "تواصل معنا", "Home": "الرئيسية", "About": "نبذة", "Events": "الفعاليات", "News": "الأخبار", "Find Your Program": "اعثر على برنامجك", "Ask About This Program": "اسأل عن هذا البرنامج", "Ask on WhatsApp": "اسأل عبر واتساب", "Live Courses": "البرامج المباشرة", "Recorded Courses": "البرامج المسجّلة", "Camps": "المعسكرات", "Workshops": "ورش العمل", "Main navigation": "التنقل الرئيسي", "Open menu": "افتح القائمة", "Mobile navigation": "قائمة التنقل للجوال", "Breadcrumb": "مسار التنقل", "Program facts": "معلومات البرنامج", "Program quick facts": "معلومات سريعة عن البرنامج", "Website": "الموقع الإلكتروني", "Contact Ahmed Latif Academy on WhatsApp": "تواصل مع Ahmed Latif Academy عبر واتساب", "Close gallery": "إغلاق المعرض", "Previous image": "الصورة السابقة", "Next image": "الصورة التالية", "Explore Ahmed Latif Academy": "استكشف Ahmed Latif Academy", "View larger: ": "عرض بحجم أكبر: ", "Previous photo": "الصورة السابقة", "Next photo": "الصورة التالية", "Scroll thumbnails left": "تحريك المصغّرات إلى اليسار", "Gallery thumbnails": "مصغّرات المعرض", "Scroll thumbnails right": "تحريك المصغّرات إلى اليمين", "Show photo ": "عرض الصورة ", "Use the arrows to browse all photos. Click the image to view it larger.": "استخدم الأسهم لتصفّح جميع الصور. اضغط على الصورة لعرضها بحجم أكبر.", "Shift Camp": "معسكر Shift", "PROGRAM": "برنامج", "Program": "برنامج", "Training": "تدريب", "Live": "مباشر", "Understand": "افهم", "Rebuild": "أعد البناء", "Delivery": "التقديم", "Camp": "معسكر", "Live Camp": "معسكر مباشر", "Who Is This Camp For?": "لمن هذا المعسكر؟", "Why This Camp?": "لماذا هذا المعسكر؟", "How the Camp Works": "كيف يسير المعسكر", "Leave": "انطلق", "Face": "واجه", "Participants together during an Ahmed Latif Academy camp": "مشاركون معًا خلال أحد معسكرات Ahmed Latif Academy", "Journey": "المسيرة", "There's a moment in every life we never forget... a moment that changed us at our core, a real turning point, a fresh beginning... or a brave step that opened up possibilities we never imagined were even there. But here's the real question: do we sit and wait for that moment to happen by chance... or do we go looking for it? Shift Camp isn't a relaxing getaway. It's a complete strategy built to pull you out of your routine — away from the noise, speed, and pressure of daily life — away from the voice inside you that keeps whispering \"I'm just living\" toward \"I actually want to live.\"": "هناك لحظة في كل حياة لا ننساها أبدًا... لحظة غيّرتنا من الداخل، أو نقطة تحوّل حقيقية، أو بداية جديدة... أو خطوة جريئة فتحت أمامنا احتمالات لم نتخيّل يومًا أنها موجودة. لكن السؤال الحقيقي: هل نجلس وننتظر أن تأتي هذه اللحظة بالمصادفة... أم نذهب للبحث عنها؟ معسكر Shift ليس رحلة استجمام، بل استراتيجية كاملة مبنية لتخرجك من روتينك — بعيدًا عن ضجيج الحياة اليومية وسرعتها وضغوطها — بعيدًا عن الصوت داخلك الذي يهمس «أنا فقط أعيش» نحو «أنا أريد أن أعيش فعلًا».", "Do we sit and wait for that turning point to happen by chance... or do we go looking for it?": "هل نجلس وننتظر أن تأتي نقطة التحوّل بالمصادفة... أم نذهب للبحث عنها؟", "If you feel like something's been broken in you for a while... stuck, not moving... bored and restless... lost, like you've lost your direction... nothing tastes the way it used to... this camp is exactly for you.": "إذا كنت تشعر أن شيئًا ما مكسور فيك منذ فترة... واقفًا لا تتحرّك... مللًا وقلقًا... تائهًا كأنك فقدت اتجاهك... ولا شيء له طعم كما كان... فهذا المعسكر لك تمامًا.", "When energy runs low, we stall halfway through — ambitions close enough to touch, yet somehow out of reach. This camp is about charging that energy, and seeing what has been quietly draining it.": "عندما تنخفض الطاقة، نتوقف في منتصف الطريق — وطموحاتنا قريبة بما يكفي لنلمسها، لكنها بعيدة عن المتناول. وهذا المعسكر عن شحن هذه الطاقة، ورؤية ما كان يستنزفها في صمت.", "What You'll Work On": "ما ستعمل عليه", "Eliminating the disruptive behaviors and repetitive negative patterns holding you back.": "التخلّص من السلوكيات المشوّشة والأنماط السلبية المتكرّرة التي تعيقك.", "Understanding the keys to energy and its different types, and how to actually recharge instead of running on empty.": "فهم مفاتيح الطاقة وأنواعها المختلفة، وكيف تشحنها فعلًا بدلًا من العمل على الفراغ.", "Confronting the biggest internal enemy standing between you and your productivity and achievements.": "مواجهة أكبر عدو داخلي يقف بينك وبين إنتاجيتك وإنجازاتك.", "Identifying the energy leaks that drain you without you even noticing.": "تحديد منافذ تسريب الطاقة التي تستنزفك دون أن تلاحظ.", "Handling energy blockers like boredom, frustration, and disorientation.": "التعامل مع معوّقات الطاقة كالملل والإحباط والتشتت.", "Distinguishing your real self from your false self, and understanding how each relates to the energy that drives real action.": "التمييز بين ذاتك الحقيقية وذاتك الزائفة، وفهم علاقة كل منهما بالطاقة التي تدفع للعمل الحقيقي.", "The dynamics of achieving major milestones, and how to genuinely celebrate them.": "ديناميكيات تحقيق الإنجازات الكبرى، وكيف تحتفل بها بصدق.", "Achieving real, positive detachment, and learning practical ways to handle pressure.": "تحقيق انفصال إيجابي حقيقي، وتعلّم طرق عملية للتعامل مع الضغوط.", "Rebuilding the ability to write a new success story, and reclaiming a passion lost in life's difficulties.": "إعادة بناء القدرة على كتابة قصة نجاح جديدة، واستعادة شغف فقدته في مصاعب الحياة.", "By the End of the Camp": "في نهاية المعسكر", "You'll learn what a real shift truly means: in your thinking, your awareness, your emotions, and your relationship with yourself and with everyone around you.": "ستتعلّم ما يعنيه التحوّل الحقيقي: في تفكيرك، ووعيك، ومشاعرك، وعلاقتك بنفسك وبكل من حولك.", "An extended, carefully designed camp that blends deep learning spaces with open spaces for fun. A warm, uplifting atmosphere with supportive company, motivating energy from the first moment to the last, playfulness, spontaneity, and reflective sessions for inner clarity.": "معسكر ممتد مصمّم بعناية يمزج بين مساحات التعلّم العميق ومساحات مفتوحة للمتعة. جو دافئ ومُلهم برفقة داعمة، وطاقة محفّزة من اللحظة الأولى إلى الأخيرة، ومرح وعفوية، وجلسات تأمّل للصفاء الداخلي.", "Ahmed Latif leads the journey, with a full team of qualified people by your side every step of the way.": "يقود أحمد لطيف الرحلة، مع فريق كامل من المؤهّلين إلى جانبك في كل خطوة.", "The First Edition": "النسخة الأولى", "Energy is the source of life that fuels the drive inside us. The point of this camp is understanding how to charge your energy, and recognizing who — or what — has been quietly draining it.": "الطاقة هي منبع الحياة الذي يغذّي الدافع داخلنا. والهدف من هذا المعسكر هو فهم كيف تشحن طاقتك، وإدراك مَن — أو ما — كان يستنزفها في صمت.", "Pulled out of the noise, speed, and pressure of daily life": "بعيدًا عن ضجيج الحياة اليومية وسرعتها وضغوطها", "Energy keys, leaks, blockers — and how to recharge": "مفاتيح الطاقة ومنافذ تسريبها ومعوّقاتها — وكيف تشحنها", "Thinking, awareness, emotions, and your relationship with yourself": "التفكير والوعي والمشاعر وعلاقتك بنفسك", "Reflective sessions, inner clarity, and the version of you that you haven't reached yet": "جلسات تأمّل وصفاء داخلي والنسخة منك التي لم تصل إليها بعد", "Camp Atmosphere & Guidelines": "جو المعسكر وتعليماته", "Come ready to empty your heart and mind, so there's real mental and practical space for what's coming. Be ready for shocks that push you to rise above and create. You'll be asked to follow camp instructions without debate.": "تعال مستعدًا لتفريغ قلبك وعقلك، ليكون هناك مساحة ذهنية وعملية حقيقية لما هو قادم. وكن مستعدًا لصدمات تدفعك للارتفاع والإبداع. وسيُطلب منك اتباع تعليمات المعسكر دون جدال.", "Phones are collected at certain times and returned to you later. Companions are allowed to join the trip (though they won't attend camp sessions, under specific guidelines).": "تُجمع الهواتف في أوقات معينة وتُعاد إليك لاحقًا. ويُسمح للمرافقين بالانضمام إلى الرحلة (دون حضور جلسات المعسكر، ووفق تعليمات محدّدة).", "Real transformation happens when the world around you goes quiet, and you finally look inward — and ask the questions you've always been putting off. Ask about the next Shift Camp dates, fees, and current offers.": "التحوّل الحقيقي يحدث عندما يهدأ العالم حولك، وتنظر أخيرًا إلى داخلك — وتسأل الأسئلة التي كنت تؤجّلها دائمًا. اسأل عن أقرب مواعيد معسكر Shift والأسعار والعروض الحالية.", "Stuck. Restless. Running on Empty.": "واقف. قلق. بلا طاقة.", "Fuel / Charge the Shift. Wake the Fire.": "اشحن التحوّل. أيقظ النار.", "You'll Achieve:": "ستحقّق:", "Not a Relaxing Getaway. A Complete Strategy.": "ليس رحلة استجمام. بل استراتيجية كاملة.", "Dynamo Camp. Wake the Fire.": "معسكر Dynamo. أيقظ النار.", "From \"I'm Just Living\" to \"I Actually Want to Live\"": "من «أنا فقط أعيش» إلى «أنا أريد أن أعيش فعلًا»", "Come Ready. Follow the Journey.": "تعال مستعدًا. واتبع الرحلة.", "Go Looking for the Shift": "ابحث عن التحوّل", "Waiting for the Moment": "انتظار اللحظة", "Stuck in Place": "واقف في المكان", "Energy Drained": "طاقة مستنزفة", "Disruptive Patterns": "الأنماط المشوّشة", "Keys to Energy": "مفاتيح الطاقة", "The Internal Enemy": "العدو الداخلي", "Energy Leaks": "تسريب الطاقة", "Energy Blockers": "معوّقات الطاقة", "Real Self and False Self": "الذات الحقيقية والذات الزائفة", "Major Milestones": "الإنجازات الكبرى", "Positive Detachment": "الانفصال الإيجابي", "A New Success Story": "قصة نجاح جديدة", "What a Real Shift Means": "ما يعنيه التحوّل الحقيقي", "Learning and Open Space": "تعلّم ومساحة مفتوحة", "Led by Ahmed Latif": "بقيادة أحمد لطيف", "Leave Routine": "اترك الروتين", "Charge": "اشحن", "Shift": "تحوّل", "Look Inward": "انظر للداخل", "Extended Live Camp": "معسكر مباشر ممتد", "Phones and Companions": "الهواتف والمرافقون", "Dynamo Camp": "معسكر Dynamo", "120 Hours": "120 ساعة", "First Edition: Dynamo": "النسخة الأولى: Dynamo", "Extended Camp": "معسكر ممتد", "First Edition": "النسخة الأولى", "With a Full Team": "مع فريق كامل", "Breaking free from that recurring state of numbness, laziness, boredom, and being lost": "التحرّر من حالة الفتور والخمول والملل والتيه المتكرّرة", "Eliminating the negative behaviors and patterns that were holding you back": "التخلّص من السلوكيات والأنماط السلبية التي كانت تعيقك", "Building real connections between your goals and the inner drive that moves you": "بناء روابط حقيقية بين أهدافك والدافع الداخلي الذي يحرّكك", "Reconnecting with the strength you once had, and building a brand-new kind of strength you've never had before": "إعادة الاتصال بالقوة التي كانت لديك يومًا، وبناء نوع جديد تمامًا من القوة لم تعرفه قبل", "Making peace with the image you've carried of yourself your whole life": "مصالحة الصورة التي حملتها عن نفسك طوال حياتك", "Discovering your own unique keys to productivity — which might look nothing like everyone else's": "اكتشاف مفاتيحك الخاصة للإنتاجية — التي قد لا تشبه مفاتيح أي شخص آخر", "Charging your physical, mental, emotional, and spiritual energy, and learning how to maintain and renew it": "شحن طاقتك الجسدية والذهنية والعاطفية والروحية، وتعلّم كيف تحافظ عليها وتجدّدها", "Disconnecting from life's burdens and giving yourself space to discover the version of you that you haven't reached yet": "الانفصال عن أثقال الحياة ومنح نفسك مساحة لاكتشاف النسخة منك التي لم تصل إليها بعد", "Live Camp Training": "تدريب في معسكر مباشر", "First Edition of Shift Camp": "النسخة الأولى من معسكر Shift", "Shift Camp | Ahmed Latif Academy": "معسكر Shift | Ahmed Latif Academy", "Language": "اللغة", "English": "English", "Dynamo": "Dynamo", "Camp Experience": "تجربة المعسكر", "Inside the Shift Camp Experience": "من داخل تجربة Shift Camp", "Explore highlights from previous Shift Camp groups.": "استعرض لمحات من مجموعات Shift Camp السابقة.", "Shift Camp photo gallery": "معرض صور معسكر Shift", "See More": "اعرف المزيد", "Explore Programs": "استكشف البرامج", "Close menu": "أغلق القائمة", "Toggle menu": "إظهار/إخفاء القائمة", "© Ahmed Latif Academy. All rights reserved.": "© Ahmed Latif Academy. جميع الحقوق محفوظة.", "You're just one step away from joining ALA! Contact us today, and one of our team members will be happy to assist you with the next available course date, course fees, current offers, answer all your questions, and help you complete your registration with ease.": "أنت على بُعد خطوة واحدة من الانضمام إلى ALA! تواصل معنا اليوم، وسيسعد أحد أعضاء فريقنا بمساعدتك بموعد الدورة المتاح التالي، والرسوم، والعروض الحالية، والإجابة عن كل أسئلتك، وإتمام تسجيلك بسهولة."};
+</script>
+<script>
+(function (window, document) {
+  "use strict";
+
+  var STORAGE_KEY = "ala-language";
+  var SUPPORTED = { en: true, ar: true };
+
+  function dict() {
+    return window.ALA_I18N_DICT || {};
+  }
+
+  function getQueryLang() {
+    try {
+      var match = window.location.search.match(/[?&]lang=(en|ar)(?:&|#|$)/);
+      return match ? match[1] : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function getStoredLang() {
+    try {
+      var value = window.localStorage.getItem(STORAGE_KEY);
+      return SUPPORTED[value] ? value : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function saveLang(lang) {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, lang);
+    } catch (e) {}
+  }
+
+  function resolveLang() {
+    return getQueryLang() || getStoredLang() || "en";
+  }
+
+  function getLanguage() {
+    var lang = document.documentElement.getAttribute("lang");
+    return SUPPORTED[lang] ? lang : resolveLang();
+  }
+
+  var originalText = typeof WeakMap === "function" ? new WeakMap() : null;
+  var originalAttrs = typeof WeakMap === "function" ? new WeakMap() : null;
+
+  function rememberText(node, value) {
+    if (originalText) {
+      if (!originalText.has(node)) originalText.set(node, value);
+      return originalText.get(node);
+    }
+    if (!node.alaOrigText) node.alaOrigText = value;
+    return node.alaOrigText;
+  }
+
+  function rememberAttr(el, name, value) {
+    var bag = null;
+    if (originalAttrs) {
+      bag = originalAttrs.get(el);
+      if (!bag) {
+        bag = {};
+        originalAttrs.set(el, bag);
+      }
+    } else {
+      el.alaOrigAttrs = el.alaOrigAttrs || {};
+      bag = el.alaOrigAttrs;
+    }
+    if (!(name in bag)) bag[name] = value;
+    return bag[name];
+  }
+
+  function translateString(text, lang) {
+    if (text == null) return text;
+    if (lang === "en") return text;
+
+    var map = dict();
+    if (map[text]) return map[text];
+
+    var trimmed = String(text).trim();
+    if (map[trimmed]) {
+      if (trimmed === String(text)) return map[trimmed];
+      return String(text).replace(trimmed, map[trimmed]);
+    }
+
+    var copy = trimmed.match(/^©\s+(\d{4})\s+Ahmed Latif Academy\.\s+All rights reserved\.$/);
+    if (copy) {
+      return "© " + copy[1] + " Ahmed Latif Academy. جميع الحقوق محفوظة.";
+    }
+
+    var photo = trimmed.match(/^(.*?)(?: program| coaching program)? photo (\d+)$/i);
+    if (photo) {
+      var label = photo[1].replace(/\s+$/, "");
+      var translatedLabel = map[label] || label;
+      return "صورة " + photo[2] + " — " + translatedLabel;
+    }
+
+    var viewLarger = trimmed.match(/^View larger:\s*(.*)$/);
+    if (viewLarger) {
+      var rest = viewLarger[1];
+      return "عرض أكبر: " + translateString(rest, lang);
+    }
+
+    var showPhoto = trimmed.match(/^Show photo (\d+):\s*(.*)$/);
+    if (showPhoto) {
+      return "عرض الصورة " + showPhoto[1] + ": " + translateString(showPhoto[2], lang);
+    }
+
+    return text;
+  }
+
+  function shouldSkip(el) {
+    if (!el || !el.closest) return true;
+    if (el.closest("script, style, noscript, .lang-switcher")) return true;
+    /* Brand lockup stays English: Ahmed Latif Academy */
+    if (el.closest(".site-header .logo, .site-header .logo-text, .site-header .logo-academy")) return true;
+    if (el.isContentEditable) return true;
+    return false;
+  }
+
+  function translateTextNodes(root, lang) {
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+    var node;
+    while ((node = walker.nextNode())) {
+      var parent = node.parentNode;
+      if (!parent || parent.nodeType !== 1) continue;
+      var tag = parent.tagName;
+      if (tag === "SCRIPT" || tag === "STYLE" || tag === "NOSCRIPT") continue;
+      if (shouldSkip(parent)) continue;
+      var raw = node.nodeValue;
+      if (!raw || !raw.trim()) continue;
+      if (!/[A-Za-z]/.test(raw) && lang === "ar") continue;
+      var orig = rememberText(node, raw);
+      var next = lang === "en" ? orig : translateString(orig, lang);
+      if (next !== node.nodeValue) node.nodeValue = next;
+    }
+  }
+
+  var ATTRS = ["placeholder", "aria-label", "alt", "title"];
+
+  function translateAttrs(root, lang) {
+    var selector = ATTRS.map(function (name) { return "[" + name + "]"; }).join(",");
+    var els = root.querySelectorAll(selector);
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      if (shouldSkip(el)) continue;
+      for (var a = 0; a < ATTRS.length; a++) {
+        var name = ATTRS[a];
+        if (!el.hasAttribute(name)) continue;
+        var current = el.getAttribute(name);
+        var orig = rememberAttr(el, name, current);
+        var next = lang === "en" ? orig : translateString(orig, lang);
+        if (next !== current) el.setAttribute(name, next);
+      }
+    }
+  }
+
+  function translateMeta(lang) {
+    var titleEl = document.querySelector("title");
+    if (titleEl) {
+      var origTitle = rememberAttr(titleEl, "text", titleEl.textContent);
+      document.title = lang === "en" ? origTitle : translateString(origTitle, lang);
+    }
+
+    var metas = document.querySelectorAll('meta[name="description"], meta[property="og:title"], meta[property="og:description"]');
+    for (var i = 0; i < metas.length; i++) {
+      var meta = metas[i];
+      if (!meta.hasAttribute("content")) continue;
+      var orig = rememberAttr(meta, "content", meta.getAttribute("content"));
+      meta.setAttribute("content", lang === "en" ? orig : translateString(orig, lang));
+    }
+  }
+
+  function isExternalHref(href) {
+    if (!href) return true;
+    var lower = href.trim().toLowerCase();
+    if (lower.indexOf("mailto:") === 0 || lower.indexOf("tel:") === 0 || lower.indexOf("javascript:") === 0) return true;
+    if (href.charAt(0) === "#") return true;
+
+    var url;
+    try {
+      url = new URL(href, window.location.href);
+    } catch (e) {
+      return false;
+    }
+
+    if (url.protocol !== "http:" && url.protocol !== "https:") return false;
+
+    var host = url.hostname.replace(/^www\./, "");
+    var external = [
+      "wa.me",
+      "whatsapp.com",
+      "api.whatsapp.com",
+      "facebook.com",
+      "instagram.com",
+      "youtube.com",
+      "youtu.be",
+      "ala-eg.com",
+      "unsplash.com",
+      "images.unsplash.com",
+      "cdnjs.cloudflare.com",
+      "fonts.googleapis.com",
+      "fonts.gstatic.com",
+      "filesafe.space",
+      "cashprocess.io"
+    ];
+    for (var i = 0; i < external.length; i++) {
+      if (host === external[i] || host.slice(-(external[i].length + 1)) === "." + external[i]) return true;
+    }
+    return false;
+  }
+
+  function withLangParam(href, lang) {
+    var hash = "";
+    var hashIndex = href.indexOf("#");
+    if (hashIndex >= 0) {
+      hash = href.slice(hashIndex);
+      href = href.slice(0, hashIndex);
+    }
+    if (!href) {
+      var file = (window.location.pathname.split("/").pop() || "index.html");
+      return file + "?lang=" + lang + hash;
+    }
+
+    var isAbs = /^(https?:)?\/\//i.test(href);
+    try {
+      var url = new URL(href, window.location.href);
+      url.searchParams.set("lang", lang);
+      if (isAbs) return url.origin + url.pathname + url.search + hash;
+      return href.split("?")[0] + url.search + hash;
+    } catch (e) {
+      var qIndex = href.indexOf("?");
+      if (qIndex === -1) return href + "?lang=" + lang + hash;
+      var params = href.slice(qIndex + 1).split("&").filter(function (part) {
+        return part && part.indexOf("lang=") !== 0;
+      });
+      params.push("lang=" + lang);
+      return href.slice(0, qIndex) + "?" + params.join("&") + hash;
+    }
+  }
+
+  function updateInternalLinks(lang) {
+    var links = document.querySelectorAll("a[href]");
+    for (var i = 0; i < links.length; i++) {
+      var a = links[i];
+      if (shouldSkip(a)) continue;
+      var href = rememberAttr(a, "href", a.getAttribute("href"));
+      if (isExternalHref(href)) {
+        if (a.getAttribute("href") !== href) a.setAttribute("href", href);
+        continue;
+      }
+      a.setAttribute("href", withLangParam(href, lang));
+    }
+  }
+
+  var WA_GENERIC_EN = "You're just one step away from joining ALA! Contact us today, and one of our team members will be happy to assist you with the next available course date, course fees, current offers, answer all your questions, and help you complete your registration with ease.";
+  var WA_GENERIC_AR = "أنت على بُعد خطوة واحدة من الانضمام إلى ALA! تواصل معنا اليوم، وسيسعد أحد أعضاء فريقنا بمساعدتك بموعد الدورة المتاح التالي، والرسوم، والعروض الحالية، والإجابة عن كل أسئلتك، وإتمام تسجيلك بسهولة.";
+
+  function translateWhatsAppHrefs(lang) {
+    var links = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]');
+    for (var i = 0; i < links.length; i++) {
+      var a = links[i];
+      var href = rememberAttr(a, "href", a.getAttribute("href"));
+      try {
+        var url = new URL(href, window.location.href);
+        var text = url.searchParams.get("text");
+        if (!text) continue;
+        var next = text;
+        if (lang === "ar") {
+          if (text === WA_GENERIC_EN) next = WA_GENERIC_AR;
+          else next = translateString(text, lang);
+          if (next === text) {
+            next = text
+              .replace(/^Hello ALA, I'm interested in:\s*/i, "مرحباً ALA، أنا مهتم/ة بـ: ")
+              .replace(/^Hello ALA, I'm interested in /i, "مرحباً ALA، أنا مهتم/ة بـ ")
+              .replace(/\nName:\s*/g, "\nالاسم: ")
+              .replace(/\nPhone:\s*/g, "\nالهاتف: ")
+              .replace(/\nEmail:\s*/g, "\nالبريد: ")
+              .replace(/\nMessage:\s*/g, "\nالرسالة: ")
+              .replace(/Please share the next available (?:course )?dates?, fees, and current offers\.?/i, "يرجى مشاركة أقرب المواعيد المتاحة والرسوم والعروض الحالية.")
+              .replace(/Please share the next available course date, fees, and current offers\.?/i, "يرجى مشاركة أقرب موعد متاح للدورة والرسوم والعروض الحالية.");
+          }
+        }
+        url.searchParams.set("text", next);
+        a.setAttribute("href", url.toString());
+      } catch (e) {}
+    }
+  }
+
+  function updateDocumentLanguage(lang) {
+    var root = document.documentElement;
+    root.lang = lang;
+    root.dir = lang === "ar" ? "rtl" : "ltr";
+    root.setAttribute("lang", lang);
+    root.setAttribute("dir", root.dir);
+  }
+
+  function updateSwitcher(lang) {
+    var buttons = document.querySelectorAll("[data-lang-switch]");
+    for (var i = 0; i < buttons.length; i++) {
+      var btn = buttons[i];
+      var value = btn.getAttribute("data-lang-switch");
+      var active = value === lang;
+      btn.classList.toggle("is-active", active);
+      if (active) btn.setAttribute("aria-current", "true");
+      else btn.removeAttribute("aria-current");
+    }
+  }
+
+  function apply(lang) {
+    lang = SUPPORTED[lang] ? lang : "en";
+    updateDocumentLanguage(lang);
+    translateMeta(lang);
+    translateTextNodes(document.body || document.documentElement, lang);
+    translateAttrs(document, lang);
+    updateInternalLinks(lang);
+    translateWhatsAppHrefs(lang);
+    updateSwitcher(lang);
+    document.documentElement.classList.remove("ala-i18n-pending");
+    try {
+      document.dispatchEvent(new CustomEvent("ala:languagechange", { detail: { lang: lang } }));
+    } catch (e) {}
+  }
+
+  function setUrlLang(lang) {
+    try {
+      var url = new URL(window.location.href);
+      url.searchParams.set("lang", lang);
+      window.history.replaceState({}, "", url.toString());
+    } catch (e) {}
+  }
+
+  function setLanguage(lang) {
+    lang = SUPPORTED[lang] ? lang : "en";
+    saveLang(lang);
+    setUrlLang(lang);
+    apply(lang);
+    return lang;
+  }
+
+  function bindSwitcher() {
+    document.addEventListener("click", function (event) {
+      var btn = event.target.closest && event.target.closest("[data-lang-switch]");
+      if (!btn) return;
+      event.preventDefault();
+      setLanguage(btn.getAttribute("data-lang-switch"));
+    });
+  }
+
+  function init() {
+    var lang = resolveLang();
+    saveLang(lang);
+    apply(lang);
+    bindSwitcher();
+    window.setTimeout(function () {
+      document.documentElement.classList.remove("ala-i18n-pending");
+    }, 2000);
+  }
+
+  window.ALA_I18N = {
+    setLanguage: setLanguage,
+    getLanguage: getLanguage,
+    apply: apply,
+    tText: function (text) {
+      return translateString(text, getLanguage());
+    },
+    t: function (text) {
+      return translateString(text, getLanguage());
+    }
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})(window, document);
+</script>
+<!-- ALA_I18N_END -->
+</body>
+</html>
