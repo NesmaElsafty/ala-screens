@@ -1,0 +1,61 @@
+ok=True body=True dict=True :: Some people speak beautifully
+ok=True body=True dict=True :: Not everyone who can speak well
+ok=True body=True dict=True :: The truth is, training isn't just talking
+ok=True body=True dict=True :: Professional TOT is built to move you
+ok=True body=True dict=True :: What you'll learn:
+ok=True body=True dict=True :: Speaking with confidence in front of an audience
+ok=True body=True dict=True :: Using pauses professionally
+ok=True body=True dict=True :: Commanding the room and engaging
+ok=True body=True dict=True :: Managing discussions and creating effective spaces
+ok=True body=True dict=True :: Advanced persuasion techniques
+ok=True body=True dict=True :: Using humor professionally
+ok=True body=True dict=True :: Improvisation at different levels
+ok=True body=True dict=True :: Releasing nervous tension
+ok=True body=True dict=True :: Preparing and structuring a speech
+ok=True body=True dict=True :: The art of theatrical delivery and storytelling
+ok=True body=True dict=True :: Powerful opening and closing techniques
+ok=True body=True dict=True :: Building a professional presentation even under time pressur
+ok=True body=True dict=True :: By the end of the program, you'll be able to:
+ok=True body=True dict=True :: Stand confidently in front of any audience
+ok=True body=True dict=True :: Design and deliver a complete training program from scratch
+ok=True body=True dict=True :: Genuinely influence trainees
+ok=True body=True dict=True :: Build a strong presence as a professional Trainer
+ok=True body=True dict=True :: And this isn't just skill development
+ok=True body=True dict=True :: Why is this program different?
+ok=True body=True dict=True :: Because you won't just learn
+ok=True body=True dict=True :: After the course, we don't leave you on your own:
+ok=True body=True dict=True :: A TOT Community for continuous skill practice
+ok=True body=True dict=True :: Hands-on training opportunities before major events
+ok=True body=True dict=True :: A supportive community that helps you grow
+ok=True body=True dict=True :: Program led by: Dr. Ahmed Latif
+ok=True body=True dict=True :: An internationally ICF-certified coach
+ok=True body=True dict=True :: Duration: 32 training hours
+ok=True body=True dict=True :: Watch photos and videos from past batches
+ok=True body=True dict=True :: Start your journey as a professional trainer.
+ok=True body=True dict=True :: Book your seat now.
+--- leftovers ---
+Public Speaking: False
+Every Saturday: False
+93%: False
+Who Is This Program For: False
+Level 1: False
+Level 2: False
+images/ps/: False
+Enneagram: False
+--- main leftovers ---
+Public Speaking in main: False
+Every Saturday in main: False
+93% in main: False
+Who Is This Program For in main: False
+Level 1 in main: False
+Level 2 in main: False
+images/ps/ in main: False
+Enneagram in main: False
+gallery=4
+missing=[]
+folder=images/tot/
+sections=program-hero,quick-facts,program-story,outcomes-section,goal-section,program-story,after-section,leader-section,program-gallery,program-cta
+title=Professional TOT - Training of Trainers | Ahmed Latif Academy
+EN 5000 in dict=True
+AR 6000 mapped=True
+MISS=[]

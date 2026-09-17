@@ -27,8 +27,10 @@ DETAIL_PAGES = (
     "ps.html",
     "psKids.html",
     "tot.html",
+    "toastmaster.html",
     "ps-recorded.html",
     "eneagram1.html",
+    "eneagram2.html",
 )
 
 BOOT = """<!-- ALA_I18N_BOOT -->

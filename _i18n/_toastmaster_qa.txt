@@ -1,0 +1,30 @@
+ok=True :: Where Leaders Are Made
+ok=True :: In collaboration with Toastmasters International
+ok=True :: Founded in 1924
+ok=True :: Through the Toastmasters Pathways
+ok=True :: What Happens at ALA Toastmasters Club?
+ok=True :: ALA Toastmasters Club meetings are more than traditiona
+ok=True :: Members get the opportunity to:
+ok=True :: Practice and deliver prepared speeches and presentation
+ok=True :: Develop their impromptu speaking skills.
+ok=True :: Receive constructive feedback to accelerate their growt
+ok=True :: Take on different roles and responsibilities during mee
+ok=True :: Develop leadership and teamwork skills.
+ok=True :: Progress through the Toastmasters Pathways learning exp
+ok=True :: Build confidence and connect with a community of like-m
+ok=True :: ALA Toastmasters Club Gatherings
+ok=True :: ALA Toastmasters Club meetings take place on the second
+ok=True :: 2nd and 4th Wednesday of each month
+ok=True :: Come practice, speak, learn, lead, and grow,one meeting
+--- leftovers ---
+ChatGPT: False
+Enneagram: False
+Professional TOT: False
+Level 2: False
+Watch photos and videos from past batches: False
+gallery=57
+missing=0 chatgpt_in_gallery=False
+folder=images/toastmaster/
+sections=program-hero,quick-facts,program-story,outcomes-section,gather-section,program-gallery,program-cta
+title=ALA Toastmasters Club | Ahmed Latif Academy
+MISS=[]

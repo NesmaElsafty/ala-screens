@@ -1,0 +1,50 @@
+body=True dict=True ar_ok=True :: Ever felt like you finally understood someone
+  جربت قبل كده إنك تحس إنك فاهم حد... وبعدين يتصرف بطريقة مفاجئة تماماً،
+body=True dict=True ar_ok=True :: The truth is, knowing someone
+  الحقيقة إن معرفة نمط حد هي بس أول باب. الأنماط التسعة بتقولك "مين هو".
+body=True dict=True ar_ok=True :: Once you understand the basics
+  بعد ما فهمت الأساسيات وإن كل شخص له نمط أساسي بيحركه، جه وقت تفتح طبقة
+body=True dict=True ar_ok=True :: Subtypes reveal that the same type
+  الـ Subtypes بتوضح إن نفس النمط ممكن يبان بأشكال مختلفة جداً... شخص بي
+body=True dict=True ar_ok=True :: At this level, you'll start to understand:
+  في المستوى ده هتبدأ تفهم:
+body=True dict=True ar_ok=True :: Subtypes and their real influence on behavior
+  الـ Subtypes وتأثيرها الحقيقي على السلوك
+body=True dict=True ar_ok=True :: How each type shifts under stress versus in states of s
+  إزاي كل نمط بيتغير تحت الضغط أو تحت الراحة
+body=True dict=True ar_ok=True :: Reading deeper motivations, not just surface actions
+  قراءة أعمق للدوافع، مش بس الأفعال الظاهرة
+body=True dict=True ar_ok=True :: How to approach each personality in the way that genuin
+  إزاي تتعامل مع كل شخصية بالطريقة اللي تناسبها هي بالظبط
+body=True dict=True ar_ok=True :: Improving communication and reducing conflict in relati
+  تحسين التواصل وتقليل الصدام في العلاقات
+body=True dict=True ar_ok=True :: Understanding personality dynamics at work and in every
+  فهم ديناميكية الشخصيات في الشغل والحياة اليومية
+body=True dict=True ar_ok=True :: The goal here isn't to label people even more...
+  الهدف هنا مش تصنّف الناس أكتر...
+body=True dict=True ar_ok=True :: It's to reach a deeper understanding
+  لكن إنك توصل لفهم أعمق يخليك تتعامل بمرونة ووعي، بدل ردود الفعل السريع
+body=True dict=True ar_ok=True :: Once you reach Level 2
+  لما توصل لـ Level 2، إنت مش بس "بتفهم الشخصيات"... إنت بقى عندك قدرة ت
+body=True dict=True ar_ok=True :: Watch photos and videos from past batches
+  اتفرج على صور وفيديوهات الدفعات اللي فاتت وشوف بنفسك الفرق اللي حصل مع
+body=True dict=True ar_ok=True :: What you see on the surface never tells the whole story
+  السلوك اللي بتشوفه مش دايماً بيحكي القصة كلها...
+body=True dict=True ar_ok=True :: Book your seat in Level 2 and start seeing what's behin
+  احجز مكانك في Level 2 وابدأ تشوف اللي وراه.
+body=True dict=True ar_ok=True :: A Deeper Understanding of Personalities, and How to Han
+  Enneagram المستوى 2 | فهم أعمق للشخصيات والتعامل معها بوعي أعلى — مباش
+--- leftovers in main ---
+Who Is This Program For: False
+Leaders & Teams: False
+Why This Program: False
+Proven Track Record: False
+How You'll Learn: False
+Level 1: False
+9 Types: False
+3 Centers: False
+gallery=33
+missing images=[]
+galleryFolder ok=True
+hero%20 ok=True
+sections=program-hero,quick-facts,program-story,outcomes-section,goal-section,program-gallery,program-cta
