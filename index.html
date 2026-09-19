@@ -92,6 +92,7 @@
 
     #hero,
     #instructor,
+    #toastmasters,
     #impact,
     #academy,
     #ala-method,
@@ -1015,6 +1016,247 @@
       font-size: 11px;
       color: var(--muted-text);
       margin-top: 2px;
+    }
+
+
+    /* ALA Toastmasters Club */
+    #toastmasters {
+      --tm-maroon: #772432;
+      background: var(--white);
+      padding: 72px 0;
+      border-block-start: 1px solid var(--border);
+    }
+
+    .toastmasters-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
+      gap: 56px;
+      align-items: center;
+    }
+
+    .toastmasters-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      max-width: 100%;
+      padding-block: 6px;
+      padding-inline: 12px 14px;
+      margin-bottom: 18px;
+      border-radius: 999px;
+      background: rgba(119, 36, 50, 0.08);
+      color: var(--tm-maroon);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      line-height: 1.45;
+    }
+
+    html[dir="ltr"] .toastmasters-badge {
+      text-transform: uppercase;
+    }
+
+    html[dir="rtl"] .toastmasters-badge {
+      letter-spacing: 0;
+      font-weight: 700;
+    }
+
+    .toastmasters-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--tm-maroon);
+      flex-shrink: 0;
+    }
+
+    .toastmasters-title {
+      font-size: clamp(28px, 3.2vw, 40px);
+      color: var(--charcoal);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .toastmasters-title-accent {
+      display: block;
+      color: var(--gold);
+      margin-top: 4px;
+    }
+
+    .toastmasters-summary {
+      font-size: 15px;
+      color: var(--muted-text);
+      line-height: 1.75;
+      margin-bottom: 28px;
+      max-width: 38em;
+      text-align: start;
+    }
+
+    .toastmasters-benefits {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .toastmasters-benefit {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 10px;
+      text-align: start;
+    }
+
+    .toastmasters-benefit-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(184, 146, 47, 0.12);
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .toastmasters-benefit strong {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1.4;
+    }
+
+    .toastmasters-schedule {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      margin-bottom: 24px;
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--charcoal);
+      text-align: start;
+    }
+
+    .toastmasters-schedule i {
+      color: var(--gold);
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .toastmasters-cta {
+      margin-bottom: 16px;
+    }
+
+    .toastmasters-proof {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--muted-text);
+      text-align: start;
+    }
+
+    .toastmasters-proof i {
+      color: var(--tm-maroon);
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .toastmasters-visual {
+      position: relative;
+    }
+
+    .toastmasters-frame {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      aspect-ratio: 4 / 5;
+      max-height: 560px;
+    }
+
+    .toastmasters-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      pointer-events: none;
+      box-shadow:
+        inset 0 0 0 1px rgba(184, 146, 47, 0.38),
+        inset 0 0 0 3px rgba(119, 36, 50, 0.12);
+    }
+
+    .toastmasters-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .toastmasters-micro {
+      margin-top: 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      text-align: center;
+    }
+
+    html[dir="ltr"] .toastmasters-micro {
+      text-transform: uppercase;
+    }
+
+    html[dir="rtl"] .toastmasters-micro {
+      letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 980px) {
+      .toastmasters-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .toastmasters-content {
+        order: 1;
+      }
+
+      .toastmasters-visual {
+        order: 2;
+      }
+
+      .toastmasters-frame {
+        aspect-ratio: 16 / 10;
+        max-height: 420px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .toastmasters-benefits {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .toastmasters-benefit {
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .toastmasters-cta .btn-primary {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .toastmasters-schedule {
+        align-items: flex-start;
+      }
+
+      .toastmasters-title {
+        font-size: clamp(26px, 7vw, 34px);
+      }
     }
 
     /* Academy */
@@ -2599,6 +2841,14 @@ html[dir="rtl"] .fa-chevron-left {
   transform: scaleX(-1);
 }
 
+html[dir="rtl"] .toastmasters-badge,
+html[dir="rtl"] .toastmasters-summary,
+html[dir="rtl"] .toastmasters-benefit,
+html[dir="rtl"] .toastmasters-schedule,
+html[dir="rtl"] .toastmasters-proof {
+  text-align: start;
+}
+
 html[dir="rtl"] .anim-left:not(.visible) {
   transform: translateX(50px);
 }
@@ -3132,6 +3382,62 @@ html[dir="rtl"] .breadcrumb-list li:not(:last-child)::after {
               <div class="sub">Higher education delivery</div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ALA Toastmasters Club -->
+    <section id="toastmasters" aria-labelledby="toastmasters-heading">
+      <div class="container toastmasters-grid">
+        <div class="toastmasters-content anim-left">
+          <p class="toastmasters-badge">
+            <span class="toastmasters-badge-dot" aria-hidden="true"></span>
+            NEW AT ALA · IN COLLABORATION WITH TOASTMASTERS INTERNATIONAL
+          </p>
+          <h2 class="toastmasters-title" id="toastmasters-heading">
+            ALA Toastmasters Club
+            <span class="toastmasters-title-accent">Where Leaders Are Made</span>
+          </h2>
+          <p class="toastmasters-summary">A practical, supportive community where you build confidence through real practice — speaking, communicating, leading, receiving constructive feedback, and growing one meeting at a time.</p>
+          <ul class="toastmasters-benefits">
+            <li class="toastmasters-benefit anim-item">
+              <span class="toastmasters-benefit-icon" aria-hidden="true"><i class="fa-solid fa-microphone"></i></span>
+              <strong>Public Speaking &amp; Confidence</strong>
+            </li>
+            <li class="toastmasters-benefit anim-item">
+              <span class="toastmasters-benefit-icon" aria-hidden="true"><i class="fa-solid fa-people-group"></i></span>
+              <strong>Leadership &amp; Teamwork</strong>
+            </li>
+            <li class="toastmasters-benefit anim-item">
+              <span class="toastmasters-benefit-icon" aria-hidden="true"><i class="fa-solid fa-comment-dots"></i></span>
+              <strong>Practice + Constructive Feedback</strong>
+            </li>
+          </ul>
+          <p class="toastmasters-schedule">
+            <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+            <span>2nd &amp; 4th Wednesday of every month · ALA Academy</span>
+          </p>
+          <div class="toastmasters-cta">
+            <a href="toastmaster.html" class="btn-primary anim-scale" target="_top">Discover ALA Toastmasters Club <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+          <p class="toastmasters-proof">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span>260,000+ members · 13,800+ clubs worldwide</span>
+          </p>
+        </div>
+        <div class="toastmasters-visual anim-right">
+          <div class="toastmasters-frame">
+            <img
+              src="images/toastmaster/Copy%20of%202026_08_26_20_43_IMG_3071.JPG"
+              alt="ALA Toastmasters Club meeting with a member practicing public speaking"
+              width="960"
+              height="1200"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+          <p class="toastmasters-micro">SPEAK · LEARN · LEAD · GROW</p>
         </div>
       </div>
     </section>
@@ -3742,7 +4048,7 @@ html[dir="rtl"] .breadcrumb-list li:not(:last-child)::after {
 
 <!-- ALA_I18N_START -->
 <script>
-window.ALA_I18N_DICT = {"Transformative learning in leadership, coaching, communication, psychology, and personal development.": "تعلّم يُحدث تحوّلًا في القيادة والكوتشينج والتواصل وعلم النفس والتطوير الشخصي.", "Learn": "تعلّم", "Grow": "انمُ", "Quick Links": "روابط سريعة", "Programs": "البرامج", "Contact": "تواصل معنا", "Home": "الرئيسية", "About": "نبذة", "Events": "الفعاليات", "News": "الأخبار", "Find Your Program": "اعثر على برنامجك", "Ask About This Program": "اسأل عن هذا البرنامج", "Ask on WhatsApp": "اسأل عبر واتساب", "Live Courses": "البرامج المباشرة", "Recorded Courses": "البرامج المسجّلة", "Camps": "المعسكرات", "Workshops": "ورش العمل", "Main navigation": "التنقل الرئيسي", "Open menu": "افتح القائمة", "Mobile navigation": "قائمة التنقل للجوال", "Website": "الموقع الإلكتروني", "Contact Ahmed Latif Academy on WhatsApp": "تواصل مع Ahmed Latif Academy عبر واتساب", "An immersive ALA camp experience combining deep learning and practical application to support meaningful and sustainable change.": "تجربة معسكر غامرة من ALA تجمع بين التعلّم العميق والتطبيق العملي لدعم تغيير حقيقي ومستدام.", "Silent Camp": "معسكر Silent", "Learn. Apply. Lead.": "تعلّم. طبّق. قُد.", "Transformative learning in leadership, coaching, communication, psychology, and personal development — designed to change mindsets, strengthen practical skills, and create lasting impact.": "تعلّم يُحدث تحوّلًا في القيادة والكوتشينج والتواصل وعلم النفس والتطوير الشخصي — مصمّم لتغيير طريقة التفكير، وتقوية المهارات العملية، وإحداث أثر يدوم.", "About Dr. Ahmed Latif": "نبذة عن د. أحمد لطيف", "Ahmed Latif is an internationally certified Life & Executive Coach (ICF-PCC), motivational speaker, business consultant, corporate trainer, and Founder & CEO of Ahmed Latif Academy (ALA). With more than 17 years of professional experience, he has become one of the leading figures in human development, leadership training, and executive coaching across the Middle East.": "أحمد لطيف كوتش حياة وكوتش تنفيذي معتمد دوليًا (ICF-PCC)، ومتحدث تحفيزي، ومستشار أعمال، ومدرّب مؤسسي، ومؤسس ورئيس مجلس إدارة Ahmed Latif Academy (ALA). وبخبرة تتجاوز 17 عامًا، أصبح أحد أبرز الأسماء في مجال التنمية البشرية والتدريب القيادي والكوتشينج التنفيذي في الشرق الأوسط.", "Professional Credentials": "الاعتمادات المهنية", "Credentials & Impact": "الاعتمادات والأثر", "Real-World Experience": "خبرة من الواقع", "Selected Business Transformation": "نموذج مختار لتحوّل مؤسسي", "A selected consulting transformation led through strategic planning, system development, team enablement, and organizational performance improvement.": "حالة استشارية مختارة قادها من خلال التخطيط الاستراتيجي وبناء الأنظمة وتمكين الفرق وتحسين الأداء المؤسسي.", "Selected consulting case. Results are specific to this engagement.": "حالة استشارية مختارة. النتائج خاصة بهذا المشروع.", "About Academy": "نبذة عن الأكاديمية", "Ahmed Latif Academy (ALA) delivers professional training, coaching, consulting, and leadership development experiences for individuals, corporations, educational institutions, and organizations across the Middle East.": "تقدّم Ahmed Latif Academy (ALA) تجارب تدريب وكوتشينج واستشارات وتطوير قيادي للأفراد والشركات والمؤسسات التعليمية والمنظمات في الشرق الأوسط.", "We believe in every individual's ability to learn, grow, and reach their potential.": "نؤمن بقدرة كل فرد على التعلّم والنمو والوصول إلى كامل إمكاناته.", "High standards of quality and professionalism across every learning experience.": "معايير عالية من الجودة والاحترافية في كل تجربة تعلّم.", "A culture of lifelong learning, curiosity, and continuous improvement.": "ثقافة تعلّم مستمر، وشغف بالمعرفة، وتحسين دائم.", "To empower individuals, leaders, and organizations through transformative learning experiences that unlock human potential, inspire meaningful growth, and create lasting impact.": "تمكين الأفراد والقادة والمؤسسات من خلال تجارب تعلّم تُحدث تحوّلًا حقيقيًا، تُطلق الإمكانات الإنسانية، وتُلهم نموًا ذا معنى، وتصنع أثرًا يدوم.", "To become the leading Human Development Academy in the Middle East and Africa, recognized globally for transforming lives, developing exceptional leaders, and building thriving communities through world-class learning experiences.": "أن نصبح الأكاديمية الرائدة في التنمية البشرية في الشرق الأوسط وأفريقيا، ومرجعًا معترفًا به عالميًا في تغيير حياة الناس وإعداد قادة استثنائيين وبناء مجتمعات مزدهرة عبر تجارب تعلّم بمعايير عالمية.", "The ALA Method": "منهجية ALA", "ALA's learning methodology combines internationally recognized approaches with years of practical implementation, creating experiences designed for real-world application and measurable change.": "تجمع منهجية التعلّم في ALA بين المدارس المعترف بها عالميًا وسنوات من التطبيق العملي، لتصنع تجارب مصمّمة للتطبيق في الواقع وإحداث تغيير قابل للقياس.", "Inspired by American, European, Chinese, and Indian schools of training and coaching.": "مستوحاة من المدارس الأمريكية والأوروبية والصينية والهندية في التدريب والكوتشينج.", "Adapted to the needs, challenges, and cultural context of individuals and organizations across the Arab world.": "مُهيّأة لاحتياجات وتحديات الأفراد والمؤسسات في العالم العربي وسياقهم الثقافي.", "Interactive, results-oriented learning that connects knowledge with behavior, implementation, and measurable outcomes.": "تعلّم تفاعلي موجّه للنتائج يربط المعرفة بالسلوك والتطبيق والنتائج القابلة للقياس.", "Our Programs": "برامجنا", "Live learning with direct instructor engagement across leadership, coaching, communication, and professional development.": "تعلّم مباشر بتفاعل مباشر مع المدرّب في مجالات القيادة والكوتشينج والتواصل والتطوير المهني.", "Flexible access to selected ALA learning experiences designed for continuous development at your own pace.": "وصول مرن إلى مجموعة مختارة من تجارب التعلّم في ALA، مصمّمة للتطوير المستمر وفق وتيرتك الخاصة.", "Immersive experiences including Silent Camp and Power of Change (POC) Camp for deeper personal change.": "تجارب غامرة تشمل معسكر Silent ومعسكر Power of Change (POC) لإحداث تغيير شخصي أعمق.", "Focused practical learning across communication, NLP, emotional intelligence, coaching, and psychology.": "تعلّم عملي مركّز في التواصل وNLP والذكاء العاطفي والكوتشينج وعلم النفس.", "Featured Programs": "برامج مميزة", "Practical development in presentation skills, confidence, communication, and professional public speaking.": "تطوير عملي لمهارات العرض والثقة بالنفس والتواصل والتحدث أمام الجمهور باحترافية.", "Professional coaching development designed around internationally recognized coaching standards and practical application.": "تطوير مهني في الكوتشينج مبني على معايير الكوتشينج المعترف بها عالميًا وعلى التطبيق العملي.", "Why Choose Us": "لماذا تختارنا", "Led by an ICF Professional Certified Coach with extensive executive and life coaching experience.": "بقيادة كوتش محترف معتمد من ICF بمستوى PCC، وبخبرة واسعة في الكوتشينج التنفيذي والحياتي.", "Learning combines business experience, psychology, coaching, and behavioral science with hands-on application.": "تعلّم يجمع بين خبرة الأعمال وعلم النفس والكوتشينج وعلوم السلوك، مع تطبيق عملي.", "International approaches refined and adapted to the needs of the Arab world.": "مناهج عالمية مصقولة ومُهيّأة لتلائم احتياجات العالم العربي.", "Experience spanning corporations, universities, NGOs, healthcare, entrepreneurship, and leadership development.": "خبرة تمتد إلى الشركات والجامعات والمنظمات غير الحكومية والقطاع الصحي وريادة الأعمال وتطوير القيادات.", "Upcoming workshops, live programs, camps, and academy events will be announced here. Need dates, fees, or offers? Our team can help.": "سيتم الإعلان هنا عن ورش العمل والبرامج المباشرة والمعسكرات وفعاليات الأكاديمية القادمة. تحتاج إلى المواعيد أو الأسعار أو العروض؟ فريقنا في خدمتك.", "Academy news, program announcements, achievements, and learning insights will appear here.": "ستظهر هنا أخبار الأكاديمية وإعلانات البرامج والإنجازات ورؤى التعلّم.", "You're one step away from joining ALA. Tell us what you're interested in and our team will help you with the next available dates, fees, current offers, and the right program for your goals.": "تفصلك خطوة واحدة عن الانضمام إلى ALA. أخبرنا بما يهمّك، وسيساعدك فريقنا في معرفة أقرب المواعيد المتاحة والأسعار والعروض الحالية والبرنامج الأنسب لأهدافك.", "Learn from Experience. Grow with Purpose.": "تعلّم من الخبرة. وانمُ بهدف.", "Experience That Goes Beyond the Classroom": "خبرة تتجاوز قاعة التدريب", "Learning That Creates Real Transformation": "تعلّم يصنع تحوّلًا حقيقيًا", "Global Thinking. Arab Context. Practical Results.": "فكر عالمي. سياق عربي. نتائج عملية.", "Programs for Every Learner": "برامج تناسب كل متعلّم", "Why Learn With ALA?": "لماذا تتعلّم مع ALA؟", "Start Your Learning Journey": "ابدأ رحلتك في التعلّم", "People First": "الإنسان أولًا", "Excellence": "التميّز", "Continuous Growth": "النمو المستمر", "Our Mission": "رسالتنا", "Our Vision": "رؤيتنا", "Global Perspectives": "رؤى عالمية", "Culturally Relevant": "ملائم ثقافيًا", "Practical Application": "تطبيق عملي", "Experience Across Sectors": "خبرة في قطاعات متعدّدة", "Public Speaking & Presentation Skills": "مهارات التحدث أمام الجمهور والعرض", "Certified Coaching Programs (ACC & PCC)": "برامج الكوتشينج المعتمدة (ACC وPCC)", "Power of Change (POC) Camp": "معسكر Power of Change (POC)", "International Coaching Standards": "معايير كوتشينج عالمية", "Practical & Results-Oriented": "عملي وموجّه للنتائج", "Global + Local Methodology": "منهجية عالمية + محلية", "Cross-Sector Experience": "خبرة عبر القطاعات", "New Experiences Are Coming Soon": "تجارب جديدة قريبًا", "Latest ALA Updates": "آخر أخبار ALA", "Full Name": "الاسم الكامل", "Phone Number": "رقم الهاتف", "Email Address": "البريد الإلكتروني", "Interested In": "مهتم بـ", "Message": "الرسالة", "Select a program": "اختر برنامجًا", "I need help choosing": "أحتاج مساعدة في الاختيار", "Professional Training of Trainers (TOT)": "إعداد المدرّبين المحترفين (TOT)", "Neuro-Linguistic Programming (NLP)": "البرمجة اللغوية العصبية (NLP)", "Leadership & Management": "القيادة والإدارة", "Emotional Intelligence": "الذكاء العاطفي", "Effective Communication": "التواصل الفعّال", "Team Building": "بناء الفريق", "Positive Psychology": "علم النفس الإيجابي", "Sales & Marketing": "البيع والتسويق", "Business Strategy": "استراتيجية الأعمال", "Time Management & Productivity": "إدارة الوقت والإنتاجية", "Decision Making": "اتخاذ القرار", "CEO Development Programs": "برامج تطوير الرؤساء التنفيذيين", "Other / General Inquiry": "أخرى / استفسار عام", "Request More Information": "اطلب مزيدًا من المعلومات", "Explore Programs": "استكشف البرامج", "Meet Dr. Ahmed Latif": "تعرّف على د. أحمد لطيف", "Explore Live Courses": "استكشف البرامج المباشرة", "Explore Recorded Courses": "استكشف البرامج المسجّلة", "Explore Camps": "استكشف المعسكرات", "Explore Workshops": "استكشف ورش العمل", "Stay Updated on WhatsApp": "تابعنا على واتساب", "Chat on WhatsApp: 01010002231": "تواصل عبر واتساب: 01010002231", "Master Skills.": "أتقِن المهارات.", "Create Impact.": "اصنع الأثر.", "ALA PROMISE": "وعد ALA", "We don't simply deliver training. We create transformation.": "نحن لا نقدّم تدريبًا فقط، بل نصنع تحوّلًا.", "View Portfolio": "عرض الملف التعريفي", "Corporate Organizations": "الشركات والمؤسسات", "Universities & Higher Education": "الجامعات والتعليم العالي", "Educational Organizations": "المؤسسات التعليمية", "NGOs": "المنظمات غير الحكومية", "Professional Associations": "النقابات والجمعيات المهنية", "Healthcare": "القطاع الصحي", "Entrepreneurship & Startups": "ريادة الأعمال والشركات الناشئة", "Leadership & Human Development": "القيادة والتنمية البشرية", "PROGRAM": "برنامج", "COACHING": "كوتشينج", "CAMP": "معسكر", "Program Guidance": "إرشاد لاختيار البرنامج", "Dates, Fees & Offers": "المواعيد والأسعار والعروض", "Registration Support": "دعم التسجيل", "Years of Experience": "سنة خبرة", "People Trained": "متدرّب", "Coaching Hours": "ساعة كوتشينج", "Founder & CEO": "المؤسس والرئيس التنفيذي", "Professional Certified Coach": "كوتش محترف معتمد", "International Coaching Federation": "الاتحاد الدولي للكوتشينج (ICF)", "Business Administration": "إدارة الأعمال", "Academic & professional depth": "عمق أكاديمي ومهني", "International TOT Certifications": "شهادات TOT دولية", "Training of Trainers": "إعداد المدرّبين", "Universities Reached": "جامعة", "Higher education delivery": "تدريب في قطاع التعليم العالي", "Employees Trained": "موظف مُدرَّب", "Selected corporate training initiative across Egypt": "مبادرة تدريب مؤسسي مختارة في جميع أنحاء مصر", "Professionals Managed": "محترف تحت إدارته", "Leadership experience in multinational organizations": "خبرة قيادية في مؤسسات متعدّدة الجنسيات", "120K EGP → 33M+ EGP": "120 ألف جنيه → أكثر من 33 مليون جنيه", "Within four years": "خلال أربع سنوات", "Customers": "عميل", "Ahmed Latif Academy | Coaching, Leadership & Personal Development": "Ahmed Latif Academy | الكوتشينج والقيادة والتطوير الشخصي", "Ahmed Latif — Founder & CEO of Ahmed Latif Academy": "أحمد لطيف — المؤسس والرئيس التنفيذي لـ Ahmed Latif Academy", "Ahmed Latif, Founder and CEO of Ahmed Latif Academy": "أحمد لطيف، مؤسس ورئيس مجلس إدارة Ahmed Latif Academy", "Live learning session": "جلسة تعلّم مباشرة", "Flexible learning experience": "تجربة تعلّم مرنة", "Immersive academy camp": "معسكر غامر من الأكاديمية", "Professional workshop": "ورشة عمل احترافية", "Public Speaking and Presentation Skills": "مهارات التحدث أمام الجمهور والعرض", "Certified Coaching Programs ACC and PCC": "برامج الكوتشينج المعتمدة ACC وPCC", "Power of Change POC Camp": "معسكر Power of Change (POC)", "Your full name": "اسمك الكامل", "Tell us about your goals or questions...": "أخبرنا عن أهدافك أو استفساراتك...", "ALA Brand Promise": "وعد علامة ALA", "View Dr. Ahmed Latif portfolio": "عرض الملف التعريفي لـ د. أحمد لطيف", "Sectors served": "القطاعات التي نخدمها", "Transformative learning in coaching, leadership, communication, psychology and personal development with Ahmed Latif — ICF-PCC, 17+ years of experience and 600,000+ people trained.": "تعلّم يُحدث تحوّلًا في الكوتشينج والقيادة والتواصل وعلم النفس والتطوير الشخصي مع أحمد لطيف — ICF-PCC، أكثر من 17 عامًا من الخبرة وأكثر من 600,000 متدرّب.", "Hello ALA, I'm interested in: ": "مرحباً ALA، أنا مهتم/ة بـ: ", "Program": "برنامج", "Training": "تدريب", "Live": "مباشر", "Apply": "طبّق", "Neuro-Linguistic Programming": "البرمجة اللغوية العصبية", "Interactive": "تفاعلي", "Camp": "معسكر", "Manage": "أدِر", "Face": "واجه", "Stand": "اثبت", "POC Camp": "معسكر POC", "Universities": "جامعة", "Impact": "الأثر", "Journey": "المسيرة", "Public Speaking & Presentation": "التحدث أمام الجمهور والعرض", "Public Speaking": "التحدث أمام الجمهور", "Professional Training of Trainers": "إعداد المدرّبين المحترفين", "Why ALA": "لماذا ALA", "Present": "اعرض", "Language": "اللغة", "English": "English", "UPCOMING EVENTS": "الفعاليات القادمة", "LATEST NEWS": "آخر الأخبار", "Revenue Growth": "نمو الإيرادات", "Customer Growth": "نمو العملاء", "— Find the learning experience that best fits your goals.": " — اعثر على التجربة التعليمية الأنسب لأهدافك.", "— Get the latest verified schedule, pricing, and available offers.": " — احصل على أحدث المواعيد المعتمدة والأسعار والعروض المتاحة.", "— Our team will help you complete your registration with ease.": " — سيساعدك فريقنا على إتمام تسجيلك بسهولة.", "ICF-PCC": "ICF-PCC", "PhD + MBA": "PhD + MBA", "PCC": "PCC", "Name: ": "الاسم: ", "Phone: ": "الهاتف: ", "Email: ": "البريد: ", "Message: ": "الرسالة: ", "Please share the next available course date, fees, and current offers.": "يرجى مشاركة أقرب موعد متاح للدورة والرسوم والعروض الحالية.", "Close menu": "أغلق القائمة", "Previous photo": "الصورة السابقة", "Next photo": "الصورة التالية", "Scroll thumbnails left": "تحريك المصغّرات إلى اليسار", "Scroll thumbnails right": "تحريك المصغّرات إلى اليمين", "Gallery thumbnails": "مصغّرات المعرض", "Use the arrows to browse all photos. Click the image to view it larger.": "استخدم الأسهم لتصفّح جميع الصور. اضغط على الصورة لعرضها بحجم أكبر.", "View larger: ": "عرض بحجم أكبر: ", "Show photo ": "عرض الصورة ", "Close gallery": "إغلاق المعرض", "Previous image": "الصورة السابقة", "Next image": "الصورة التالية", "© Ahmed Latif Academy. All rights reserved.": "© Ahmed Latif Academy. جميع الحقوق محفوظة.", "You're just one step away from joining ALA! Contact us today, and one of our team members will be happy to assist you with the next available course date, course fees, current offers, answer all your questions, and help you complete your registration with ease.": "أنت على بُعد خطوة واحدة من الانضمام إلى ALA! تواصل معنا اليوم، وسيسعد أحد أعضاء فريقنا بمساعدتك بموعد الدورة المتاح التالي، والرسوم، والعروض الحالية، والإجابة عن كل أسئلتك، وإتمام تسجيلك بسهولة."};
+window.ALA_I18N_DICT = {"Transformative learning in leadership, coaching, communication, psychology, and personal development.": "تعلّم يُحدث تحوّلًا في القيادة والكوتشينج والتواصل وعلم النفس والتطوير الشخصي.", "Learn": "تعلّم", "Grow": "انمُ", "Quick Links": "روابط سريعة", "Programs": "البرامج", "Contact": "تواصل معنا", "Home": "الرئيسية", "About": "نبذة", "Events": "الفعاليات", "News": "الأخبار", "Find Your Program": "اعثر على برنامجك", "Ask About This Program": "اسأل عن هذا البرنامج", "Ask on WhatsApp": "اسأل عبر واتساب", "Live Courses": "البرامج المباشرة", "Recorded Courses": "البرامج المسجّلة", "Camps": "المعسكرات", "Workshops": "ورش العمل", "Main navigation": "التنقل الرئيسي", "Open menu": "افتح القائمة", "Mobile navigation": "قائمة التنقل للجوال", "Website": "الموقع الإلكتروني", "Contact Ahmed Latif Academy on WhatsApp": "تواصل مع Ahmed Latif Academy عبر واتساب", "An immersive ALA camp experience combining deep learning and practical application to support meaningful and sustainable change.": "تجربة معسكر غامرة من ALA تجمع بين التعلّم العميق والتطبيق العملي لدعم تغيير حقيقي ومستدام.", "Silent Camp": "معسكر Silent", "Learn. Apply. Lead.": "تعلّم. طبّق. قُد.", "Transformative learning in leadership, coaching, communication, psychology, and personal development — designed to change mindsets, strengthen practical skills, and create lasting impact.": "تعلّم يُحدث تحوّلًا في القيادة والكوتشينج والتواصل وعلم النفس والتطوير الشخصي — مصمّم لتغيير طريقة التفكير، وتقوية المهارات العملية، وإحداث أثر يدوم.", "About Dr. Ahmed Latif": "نبذة عن د. أحمد لطيف", "Ahmed Latif is an internationally certified Life & Executive Coach (ICF-PCC), motivational speaker, business consultant, corporate trainer, and Founder & CEO of Ahmed Latif Academy (ALA). With more than 17 years of professional experience, he has become one of the leading figures in human development, leadership training, and executive coaching across the Middle East.": "أحمد لطيف كوتش حياة وكوتش تنفيذي معتمد دوليًا (ICF-PCC)، ومتحدث تحفيزي، ومستشار أعمال، ومدرّب مؤسسي، ومؤسس ورئيس مجلس إدارة Ahmed Latif Academy (ALA). وبخبرة تتجاوز 17 عامًا، أصبح أحد أبرز الأسماء في مجال التنمية البشرية والتدريب القيادي والكوتشينج التنفيذي في الشرق الأوسط.", "Professional Credentials": "الاعتمادات المهنية", "Credentials & Impact": "الاعتمادات والأثر", "Real-World Experience": "خبرة من الواقع", "Selected Business Transformation": "نموذج مختار لتحوّل مؤسسي", "A selected consulting transformation led through strategic planning, system development, team enablement, and organizational performance improvement.": "حالة استشارية مختارة قادها من خلال التخطيط الاستراتيجي وبناء الأنظمة وتمكين الفرق وتحسين الأداء المؤسسي.", "Selected consulting case. Results are specific to this engagement.": "حالة استشارية مختارة. النتائج خاصة بهذا المشروع.", "About Academy": "نبذة عن الأكاديمية", "Ahmed Latif Academy (ALA) delivers professional training, coaching, consulting, and leadership development experiences for individuals, corporations, educational institutions, and organizations across the Middle East.": "تقدّم Ahmed Latif Academy (ALA) تجارب تدريب وكوتشينج واستشارات وتطوير قيادي للأفراد والشركات والمؤسسات التعليمية والمنظمات في الشرق الأوسط.", "We believe in every individual's ability to learn, grow, and reach their potential.": "نؤمن بقدرة كل فرد على التعلّم والنمو والوصول إلى كامل إمكاناته.", "High standards of quality and professionalism across every learning experience.": "معايير عالية من الجودة والاحترافية في كل تجربة تعلّم.", "A culture of lifelong learning, curiosity, and continuous improvement.": "ثقافة تعلّم مستمر، وشغف بالمعرفة، وتحسين دائم.", "To empower individuals, leaders, and organizations through transformative learning experiences that unlock human potential, inspire meaningful growth, and create lasting impact.": "تمكين الأفراد والقادة والمؤسسات من خلال تجارب تعلّم تُحدث تحوّلًا حقيقيًا، تُطلق الإمكانات الإنسانية، وتُلهم نموًا ذا معنى، وتصنع أثرًا يدوم.", "To become the leading Human Development Academy in the Middle East and Africa, recognized globally for transforming lives, developing exceptional leaders, and building thriving communities through world-class learning experiences.": "أن نصبح الأكاديمية الرائدة في التنمية البشرية في الشرق الأوسط وأفريقيا، ومرجعًا معترفًا به عالميًا في تغيير حياة الناس وإعداد قادة استثنائيين وبناء مجتمعات مزدهرة عبر تجارب تعلّم بمعايير عالمية.", "The ALA Method": "منهجية ALA", "ALA's learning methodology combines internationally recognized approaches with years of practical implementation, creating experiences designed for real-world application and measurable change.": "تجمع منهجية التعلّم في ALA بين المدارس المعترف بها عالميًا وسنوات من التطبيق العملي، لتصنع تجارب مصمّمة للتطبيق في الواقع وإحداث تغيير قابل للقياس.", "Inspired by American, European, Chinese, and Indian schools of training and coaching.": "مستوحاة من المدارس الأمريكية والأوروبية والصينية والهندية في التدريب والكوتشينج.", "Adapted to the needs, challenges, and cultural context of individuals and organizations across the Arab world.": "مُهيّأة لاحتياجات وتحديات الأفراد والمؤسسات في العالم العربي وسياقهم الثقافي.", "Interactive, results-oriented learning that connects knowledge with behavior, implementation, and measurable outcomes.": "تعلّم تفاعلي موجّه للنتائج يربط المعرفة بالسلوك والتطبيق والنتائج القابلة للقياس.", "Our Programs": "برامجنا", "Live learning with direct instructor engagement across leadership, coaching, communication, and professional development.": "تعلّم مباشر بتفاعل مباشر مع المدرّب في مجالات القيادة والكوتشينج والتواصل والتطوير المهني.", "Flexible access to selected ALA learning experiences designed for continuous development at your own pace.": "وصول مرن إلى مجموعة مختارة من تجارب التعلّم في ALA، مصمّمة للتطوير المستمر وفق وتيرتك الخاصة.", "Immersive experiences including Silent Camp and Power of Change (POC) Camp for deeper personal change.": "تجارب غامرة تشمل معسكر Silent ومعسكر Power of Change (POC) لإحداث تغيير شخصي أعمق.", "Focused practical learning across communication, NLP, emotional intelligence, coaching, and psychology.": "تعلّم عملي مركّز في التواصل وNLP والذكاء العاطفي والكوتشينج وعلم النفس.", "Featured Programs": "برامج مميزة", "Practical development in presentation skills, confidence, communication, and professional public speaking.": "تطوير عملي لمهارات العرض والثقة بالنفس والتواصل والتحدث أمام الجمهور باحترافية.", "Professional coaching development designed around internationally recognized coaching standards and practical application.": "تطوير مهني في الكوتشينج مبني على معايير الكوتشينج المعترف بها عالميًا وعلى التطبيق العملي.", "Why Choose Us": "لماذا تختارنا", "Led by an ICF Professional Certified Coach with extensive executive and life coaching experience.": "بقيادة كوتش محترف معتمد من ICF بمستوى PCC، وبخبرة واسعة في الكوتشينج التنفيذي والحياتي.", "Learning combines business experience, psychology, coaching, and behavioral science with hands-on application.": "تعلّم يجمع بين خبرة الأعمال وعلم النفس والكوتشينج وعلوم السلوك، مع تطبيق عملي.", "International approaches refined and adapted to the needs of the Arab world.": "مناهج عالمية مصقولة ومُهيّأة لتلائم احتياجات العالم العربي.", "Experience spanning corporations, universities, NGOs, healthcare, entrepreneurship, and leadership development.": "خبرة تمتد إلى الشركات والجامعات والمنظمات غير الحكومية والقطاع الصحي وريادة الأعمال وتطوير القيادات.", "Upcoming workshops, live programs, camps, and academy events will be announced here. Need dates, fees, or offers? Our team can help.": "سيتم الإعلان هنا عن ورش العمل والبرامج المباشرة والمعسكرات وفعاليات الأكاديمية القادمة. تحتاج إلى المواعيد أو الأسعار أو العروض؟ فريقنا في خدمتك.", "Academy news, program announcements, achievements, and learning insights will appear here.": "ستظهر هنا أخبار الأكاديمية وإعلانات البرامج والإنجازات ورؤى التعلّم.", "You're one step away from joining ALA. Tell us what you're interested in and our team will help you with the next available dates, fees, current offers, and the right program for your goals.": "تفصلك خطوة واحدة عن الانضمام إلى ALA. أخبرنا بما يهمّك، وسيساعدك فريقنا في معرفة أقرب المواعيد المتاحة والأسعار والعروض الحالية والبرنامج الأنسب لأهدافك.", "Learn from Experience. Grow with Purpose.": "تعلّم من الخبرة. وانمُ بهدف.", "Experience That Goes Beyond the Classroom": "خبرة تتجاوز قاعة التدريب", "Learning That Creates Real Transformation": "تعلّم يصنع تحوّلًا حقيقيًا", "Global Thinking. Arab Context. Practical Results.": "فكر عالمي. سياق عربي. نتائج عملية.", "Programs for Every Learner": "برامج تناسب كل متعلّم", "Why Learn With ALA?": "لماذا تتعلّم مع ALA؟", "Start Your Learning Journey": "ابدأ رحلتك في التعلّم", "People First": "الإنسان أولًا", "Excellence": "التميّز", "Continuous Growth": "النمو المستمر", "Our Mission": "رسالتنا", "Our Vision": "رؤيتنا", "Global Perspectives": "رؤى عالمية", "Culturally Relevant": "ملائم ثقافيًا", "Practical Application": "تطبيق عملي", "Experience Across Sectors": "خبرة في قطاعات متعدّدة", "Public Speaking & Presentation Skills": "مهارات التحدث أمام الجمهور والعرض", "Certified Coaching Programs (ACC & PCC)": "برامج الكوتشينج المعتمدة (ACC وPCC)", "Power of Change (POC) Camp": "معسكر Power of Change (POC)", "International Coaching Standards": "معايير كوتشينج عالمية", "Practical & Results-Oriented": "عملي وموجّه للنتائج", "Global + Local Methodology": "منهجية عالمية + محلية", "Cross-Sector Experience": "خبرة عبر القطاعات", "New Experiences Are Coming Soon": "تجارب جديدة قريبًا", "Latest ALA Updates": "آخر أخبار ALA", "Full Name": "الاسم الكامل", "Phone Number": "رقم الهاتف", "Email Address": "البريد الإلكتروني", "Interested In": "مهتم بـ", "Message": "الرسالة", "Select a program": "اختر برنامجًا", "I need help choosing": "أحتاج مساعدة في الاختيار", "Professional Training of Trainers (TOT)": "إعداد المدرّبين المحترفين (TOT)", "Neuro-Linguistic Programming (NLP)": "البرمجة اللغوية العصبية (NLP)", "Leadership & Management": "القيادة والإدارة", "Emotional Intelligence": "الذكاء العاطفي", "Effective Communication": "التواصل الفعّال", "Team Building": "بناء الفريق", "Positive Psychology": "علم النفس الإيجابي", "Sales & Marketing": "البيع والتسويق", "Business Strategy": "استراتيجية الأعمال", "Time Management & Productivity": "إدارة الوقت والإنتاجية", "Decision Making": "اتخاذ القرار", "CEO Development Programs": "برامج تطوير الرؤساء التنفيذيين", "Other / General Inquiry": "أخرى / استفسار عام", "Request More Information": "اطلب مزيدًا من المعلومات", "Explore Programs": "استكشف البرامج", "Meet Dr. Ahmed Latif": "تعرّف على د. أحمد لطيف", "Explore Live Courses": "استكشف البرامج المباشرة", "Explore Recorded Courses": "استكشف البرامج المسجّلة", "Explore Camps": "استكشف المعسكرات", "Explore Workshops": "استكشف ورش العمل", "Stay Updated on WhatsApp": "تابعنا على واتساب", "Chat on WhatsApp: 01010002231": "تواصل عبر واتساب: 01010002231", "Master Skills.": "أتقِن المهارات.", "Create Impact.": "اصنع الأثر.", "ALA PROMISE": "وعد ALA", "We don't simply deliver training. We create transformation.": "نحن لا نقدّم تدريبًا فقط، بل نصنع تحوّلًا.", "View Portfolio": "عرض الملف التعريفي", "Corporate Organizations": "الشركات والمؤسسات", "Universities & Higher Education": "الجامعات والتعليم العالي", "Educational Organizations": "المؤسسات التعليمية", "NGOs": "المنظمات غير الحكومية", "Professional Associations": "النقابات والجمعيات المهنية", "Healthcare": "القطاع الصحي", "Entrepreneurship & Startups": "ريادة الأعمال والشركات الناشئة", "Leadership & Human Development": "القيادة والتنمية البشرية", "PROGRAM": "برنامج", "COACHING": "كوتشينج", "CAMP": "معسكر", "Program Guidance": "إرشاد لاختيار البرنامج", "Dates, Fees & Offers": "المواعيد والأسعار والعروض", "Registration Support": "دعم التسجيل", "Years of Experience": "سنة خبرة", "People Trained": "متدرّب", "Coaching Hours": "ساعة كوتشينج", "Founder & CEO": "المؤسس والرئيس التنفيذي", "Professional Certified Coach": "كوتش محترف معتمد", "International Coaching Federation": "الاتحاد الدولي للكوتشينج (ICF)", "Business Administration": "إدارة الأعمال", "Academic & professional depth": "عمق أكاديمي ومهني", "International TOT Certifications": "شهادات TOT دولية", "Training of Trainers": "إعداد المدرّبين", "Universities Reached": "جامعة", "Higher education delivery": "تدريب في قطاع التعليم العالي", "Employees Trained": "موظف مُدرَّب", "Selected corporate training initiative across Egypt": "مبادرة تدريب مؤسسي مختارة في جميع أنحاء مصر", "Professionals Managed": "محترف تحت إدارته", "Leadership experience in multinational organizations": "خبرة قيادية في مؤسسات متعدّدة الجنسيات", "120K EGP → 33M+ EGP": "120 ألف جنيه → أكثر من 33 مليون جنيه", "Within four years": "خلال أربع سنوات", "Customers": "عميل", "Ahmed Latif Academy | Coaching, Leadership & Personal Development": "Ahmed Latif Academy | الكوتشينج والقيادة والتطوير الشخصي", "Ahmed Latif — Founder & CEO of Ahmed Latif Academy": "أحمد لطيف — المؤسس والرئيس التنفيذي لـ Ahmed Latif Academy", "Ahmed Latif, Founder and CEO of Ahmed Latif Academy": "أحمد لطيف، مؤسس ورئيس مجلس إدارة Ahmed Latif Academy", "Live learning session": "جلسة تعلّم مباشرة", "Flexible learning experience": "تجربة تعلّم مرنة", "Immersive academy camp": "معسكر غامر من الأكاديمية", "Professional workshop": "ورشة عمل احترافية", "Public Speaking and Presentation Skills": "مهارات التحدث أمام الجمهور والعرض", "Certified Coaching Programs ACC and PCC": "برامج الكوتشينج المعتمدة ACC وPCC", "Power of Change POC Camp": "معسكر Power of Change (POC)", "Your full name": "اسمك الكامل", "Tell us about your goals or questions...": "أخبرنا عن أهدافك أو استفساراتك...", "ALA Brand Promise": "وعد علامة ALA", "View Dr. Ahmed Latif portfolio": "عرض الملف التعريفي لـ د. أحمد لطيف", "Sectors served": "القطاعات التي نخدمها", "Transformative learning in coaching, leadership, communication, psychology and personal development with Ahmed Latif — ICF-PCC, 17+ years of experience and 600,000+ people trained.": "تعلّم يُحدث تحوّلًا في الكوتشينج والقيادة والتواصل وعلم النفس والتطوير الشخصي مع أحمد لطيف — ICF-PCC، أكثر من 17 عامًا من الخبرة وأكثر من 600,000 متدرّب.", "Hello ALA, I'm interested in: ": "مرحباً ALA، أنا مهتم/ة بـ: ", "Program": "برنامج", "Training": "تدريب", "Live": "مباشر", "Apply": "طبّق", "Neuro-Linguistic Programming": "البرمجة اللغوية العصبية", "Interactive": "تفاعلي", "Camp": "معسكر", "Manage": "أدِر", "Face": "واجه", "Stand": "اثبت", "POC Camp": "معسكر POC", "Universities": "جامعة", "Impact": "الأثر", "Journey": "المسيرة", "Public Speaking & Presentation": "التحدث أمام الجمهور والعرض", "Public Speaking": "التحدث أمام الجمهور", "Professional Training of Trainers": "إعداد المدرّبين المحترفين", "Why ALA": "لماذا ALA", "Present": "اعرض", "Language": "اللغة", "English": "English", "UPCOMING EVENTS": "الفعاليات القادمة", "LATEST NEWS": "آخر الأخبار", "Revenue Growth": "نمو الإيرادات", "Customer Growth": "نمو العملاء", "— Find the learning experience that best fits your goals.": " — اعثر على التجربة التعليمية الأنسب لأهدافك.", "— Get the latest verified schedule, pricing, and available offers.": " — احصل على أحدث المواعيد المعتمدة والأسعار والعروض المتاحة.", "— Our team will help you complete your registration with ease.": " — سيساعدك فريقنا على إتمام تسجيلك بسهولة.", "ICF-PCC": "ICF-PCC", "PhD + MBA": "PhD + MBA", "PCC": "PCC", "Name: ": "الاسم: ", "Phone: ": "الهاتف: ", "Email: ": "البريد: ", "Message: ": "الرسالة: ", "Please share the next available course date, fees, and current offers.": "يرجى مشاركة أقرب موعد متاح للدورة والرسوم والعروض الحالية.", "Close menu": "أغلق القائمة", "Previous photo": "الصورة السابقة", "Next photo": "الصورة التالية", "Scroll thumbnails left": "تحريك المصغّرات إلى اليسار", "Scroll thumbnails right": "تحريك المصغّرات إلى اليمين", "Gallery thumbnails": "مصغّرات المعرض", "Use the arrows to browse all photos. Click the image to view it larger.": "استخدم الأسهم لتصفّح جميع الصور. اضغط على الصورة لعرضها بحجم أكبر.", "View larger: ": "عرض بحجم أكبر: ", "Show photo ": "عرض الصورة ", "Close gallery": "إغلاق المعرض", "Previous image": "الصورة السابقة", "Next image": "الصورة التالية", "© Ahmed Latif Academy. All rights reserved.": "© Ahmed Latif Academy. جميع الحقوق محفوظة.", "You're just one step away from joining ALA! Contact us today, and one of our team members will be happy to assist you with the next available course date, course fees, current offers, answer all your questions, and help you complete your registration with ease.": "أنت على بُعد خطوة واحدة من الانضمام إلى ALA! تواصل معنا اليوم، وسيسعد أحد أعضاء فريقنا بمساعدتك بموعد الدورة المتاح التالي، والرسوم، والعروض الحالية، والإجابة عن كل أسئلتك، وإتمام تسجيلك بسهولة.", "NEW AT ALA · IN COLLABORATION WITH TOASTMASTERS INTERNATIONAL": "جديد في ALA · بالتعاون مع Toastmasters International", "ALA Toastmasters Club": "نادي ALA Toastmasters", "Where Leaders Are Made": "حيث تُصنع القيادات", "A practical, supportive community where you build confidence through real practice — speaking, communicating, leading, receiving constructive feedback, and growing one meeting at a time.": "مجتمع عملي وداعم يساعدك على بناء الثقة من خلال الممارسة الحقيقية — تتحدث، وتتواصل، وتقود، وتحصل على تقييم بنّاء، وتتطور خطوة بخطوة مع كل لقاء.", "Public Speaking & Confidence": "التحدث أمام الجمهور وبناء الثقة", "Leadership & Teamwork": "القيادة والعمل الجماعي", "Practice + Constructive Feedback": "الممارسة والتقييم البنّاء", "2nd & 4th Wednesday of every month · ALA Academy": "الأربعاء الثاني والرابع من كل شهر · مقر ALA Academy", "Discover ALA Toastmasters Club": "اكتشف نادي ALA Toastmasters", "260,000+ members · 13,800+ clubs worldwide": "أكثر من 260,000 عضو · أكثر من 13,800 نادٍ حول العالم", "SPEAK · LEARN · LEAD · GROW": "تحدث · تعلم · قد · تطور", "ALA Toastmasters Club meeting with a member practicing public speaking": "لقاء نادي ALA Toastmasters مع عضو يتدرب على التحدث أمام الجمهور"};
 </script>
 <script>
 (function (window, document) {

@@ -257,10 +257,7 @@ def main() -> None:
             <span class="program-meta-badge"><i class="fa-regular fa-clock" aria-hidden="true"></i> 44 Hours</span>
           </div>
           <div class="program-hero-actions">
-            <a href="#program-cta" class="btn-primary anim-scale">Ask About This Program</a>
-            <a class="btn-secondary anim-scale" id="heroWhatsApp" href="https://wa.me/201010002231?text={quote(WA_GENERIC)}" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Ask on WhatsApp
-            </a>
+            <a href="#program-cta" class="btn-primary anim-scale">Start Your Journey Now</a>
           </div>
         </div>
 
@@ -359,10 +356,7 @@ def main() -> None:
           <h2>{EN_CTA_HEAD}</h2>
           <p>{EN_CTA_BODY}</p>
           <div class="program-cta-actions">
-            <a class="btn-primary" id="ctaAskProgram" href="https://wa.me/201010002231?text={quote(WA_INTEREST_EN)}" target="_blank" rel="noopener noreferrer">Ask About This Program</a>
-            <a class="btn-secondary" href="https://wa.me/201010002231?text={quote(WA_GENERIC)}" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Ask on WhatsApp
-            </a>
+            <a class="btn-primary" id="ctaAskProgram" href="https://wa.me/201010002231?text={quote(WA_INTEREST_EN)}" target="_blank" rel="noopener noreferrer">Start Your Journey Now</a>
           </div>
         </div>
       </div>
