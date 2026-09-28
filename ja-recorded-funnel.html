@@ -1,28 +1,36 @@
 <style>
+  @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Raleway:wght@300;400;500;600;700&display=swap");
+
   /* =========================================================
      ALA JOURNEY OF AWARENESS LANDING PAGE
      MASTER CODE
      ========================================================= */
   
   :root {
-    --ala-gold: #C79B25;
-    --ala-gold-hover: #B88B1E;
-    --ala-gold-dark: #A57917;
+    --ala-gold: #b8922f;
+    --ala-gold-hover: #d4af37;
+    --ala-gold-dark: #9a7a28;
     --ala-gold-soft: #F3E8C7;
-  
-    --ala-charcoal: #292929;
-    --ala-text: #343434;
-    --ala-muted: #6F6F6F;
-  
-    --ala-white: #FFFFFF;
-    --ala-warm: #F8F6F1;
+
+    --ala-charcoal: #1a1a1a;
+    --ala-text: #1a1a1a;
+    --ala-muted: #555555;
+
+    --ala-white: #ffffff;
+    --ala-warm: #fafaf8;
     --ala-cream: #FBF7EB;
     --ala-gray: #EFEDE8;
-  
-    --ala-border: #E2DED4;
-  
-    --ala-radius: 14px;
+
+    --ala-border: rgba(184, 146, 47, 0.15);
+
+    --ala-radius-sm: 6px;
+    --ala-radius: 10px;
+    --ala-radius-lg: 14px;
+
+    --ala-shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.06);
+    --ala-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
   }
+
   
   
   html,
@@ -174,29 +182,85 @@
   }
   
   
+
+  /* =========================================================
+     ALA SITE TYPOGRAPHY ALIGNMENT
+     ========================================================= */
+
+  #ala-page[dir="ltr"] {
+    font-family:
+      "Raleway",
+      system-ui,
+      sans-serif;
+  }
+
+  #ala-page[dir="rtl"] {
+    font-family:
+      "Cairo",
+      "Tahoma",
+      sans-serif;
+  }
+
+  #ala-page[dir="ltr"]
+  .ala-section-title,
+  #ala-page[dir="ltr"]
+  .ala-hero-title,
+  #ala-page[dir="ltr"]
+  h1,
+  #ala-page[dir="ltr"]
+  h2 {
+    font-family:
+      "Playfair Display",
+      Georgia,
+      serif;
+
+    font-weight: 600;
+
+    letter-spacing: -0.01em;
+  }
+
+  #ala-page[dir="rtl"]
+  .ala-section-title,
+  #ala-page[dir="rtl"]
+  .ala-hero-title,
+  #ala-page[dir="rtl"]
+  h1,
+  #ala-page[dir="rtl"]
+  h2 {
+    font-family:
+      "Cairo",
+      "Tahoma",
+      sans-serif;
+
+    font-weight: 700;
+
+    letter-spacing: 0;
+  }
+
   /* =========================================================
      GLOBAL BUTTONS
      ========================================================= */
   
   .ala-btn {
-    min-height: 48px;
-  
+    min-height: 46px;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
-  
+    gap: 8px;
+
     padding:
-      11px 23px;
-  
-    border-radius: 8px;
-  
+      13px 24px;
+
+    border-radius: 5px;
+
     text-decoration: none;
-  
+
     font-size: 14px;
-    font-weight: 800;
-  
+    font-weight: 600;
+
     cursor: pointer;
-  
+
     transition:
       background .2s ease,
       border-color .2s ease,
@@ -204,49 +268,48 @@
       transform .2s ease,
       box-shadow .2s ease;
   }
-  
-  
+
+
   .ala-btn-primary {
     border:
       1px solid var(--ala-gold);
-  
+
     background: var(--ala-gold);
-  
+
     color: #FFFFFF;
-  
-    box-shadow:
-      0 7px 18px
-      rgba(184, 139, 30, .17);
+
+    box-shadow: var(--ala-shadow-sm);
   }
-  
-  
+
+
   .ala-btn-primary:hover {
     background: var(--ala-gold-hover);
-  
+
     border-color:
       var(--ala-gold-hover);
-  
+
     transform:
       translateY(-2px);
   }
-  
-  
+
+
   .ala-btn-secondary {
     border:
-      1px solid #D7D2C7;
-  
-    background: rgba(255,255,255,.7);
-  
+      1.5px solid var(--ala-charcoal);
+
+    background: var(--ala-white);
+
     color: var(--ala-charcoal);
   }
-  
-  
+
+
   .ala-btn-secondary:hover {
-    border-color:
-      rgba(199,155,37,.55);
-  
-    background: #FFFFFF;
+    background: var(--ala-warm);
+
+    transform:
+      translateY(-2px);
   }
+
   
   
   /* =========================================================
@@ -373,35 +436,6 @@
   }
   
   
-  /* Soft floating pulse on pain cards after reveal */
-  @keyframes ala-card-float {
-    0%,
-    100% {
-      transform:
-        translateY(0)
-        scale(1);
-    }
-  
-    50% {
-      transform:
-        translateY(-4px)
-        scale(1);
-    }
-  }
-  
-  
-  .ala-pain-card.ala-reveal.is-visible {
-    animation:
-      ala-card-float 4.5s ease-in-out infinite;
-  
-    animation-delay:
-      calc(var(--ala-delay, 0ms) + 900ms);
-  }
-  
-  
-  .ala-pain-card.ala-reveal.is-visible:hover {
-    animation: none;
-  }
   
   
   /* Shared card hover shine */
@@ -467,8 +501,7 @@
   
     .ala-pain-card:hover {
       transform:
-        translateY(-10px)
-        scale(1.035);
+        translateY(-4px);
   
       border-color:
         rgba(199,155,37,.55);
@@ -493,15 +526,13 @@
   
     .ala-pain-card.ala-reveal.is-visible:hover {
       transform:
-        translateY(-10px)
-        scale(1.035);
+        translateY(-4px);
     }
   
   
     .ala-feature:hover {
       transform:
-        translateY(-10px)
-        scale(1.035);
+        translateY(-4px);
   
       background:
         rgba(255,255,255,.09);
@@ -3850,6 +3881,7 @@
   
         <a
 href="#lead-form"
+data-ala-open-form
 class="
   ala-btn
   ala-btn-primary
@@ -3905,6 +3937,9 @@ class="
             class="ala-hero-image"
             src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6aba018ec13d4373c2d52605.jpg"
             alt="Ahmed Latif"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
           >
   
         </div>
@@ -4049,6 +4084,7 @@ class="
   
           <a
 href="#lead-form"
+data-ala-open-form
 class="
   ala-btn
   ala-btn-primary
@@ -5504,8 +5540,10 @@ class="
   
           <img
             class="ala-instructor-image"
-            src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a7a651e888087201921caae.png"
+            src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6aba058cb4d207ff9d0f7eb7.jpg"
             alt="Ahmed Latif"
+            loading="lazy"
+            decoding="async"
           >
   
         </div>
@@ -5839,6 +5877,7 @@ class="
   
           <a
 href="#lead-form"
+data-ala-open-form
 class="
   ala-btn
   ala-btn-primary
@@ -6191,7 +6230,7 @@ class="
       <div class="ala-form-iframe-wrap">
 
         <iframe
-          src="https://link.cashprocess.io/widget/form/OyFUSwF9vmzQa0tNucDm"
+          data-src="https://link.cashprocess.io/widget/form/OyFUSwF9vmzQa0tNucDm"
           class="ala-form-iframe"
           id="inline-OyFUSwF9vmzQa0tNucDm"
           data-layout="{'id':'INLINE'}"
@@ -6358,7 +6397,7 @@ class="
   
         try {
   
-          sessionStorage.setItem(
+          localStorage.setItem(
             "ala-language",
             lang
           );
@@ -6387,277 +6426,52 @@ class="
   
   
       let savedLanguage = "ar";
-  
-  
+
+
       try {
-  
-        savedLanguage =
-          sessionStorage.getItem(
+
+        var queryLang =
+          (location.search.match(
+            /[?&]lang=(en|ar)(?:&|#|$)/
+          ) || [])[1];
+
+        var storedLang =
+          localStorage.getItem(
             "ala-language"
-          ) || "ar";
-  
+          );
+
+        if (
+          queryLang === "en" ||
+          queryLang === "ar"
+        ) {
+          savedLanguage = queryLang;
+          try {
+            localStorage.setItem(
+              "ala-language",
+              savedLanguage
+            );
+          } catch (e) {}
+        } else if (
+          storedLang === "en" ||
+          storedLang === "ar"
+        ) {
+          savedLanguage = storedLang;
+        }
+
       } catch (error) {}
-  
-  
+
+
       setLanguage(
         savedLanguage === "en"
           ? "en"
           : "ar"
       );
-  
-  
-  
-      /* =====================================================
-         FORM POPUP
-         ===================================================== */
 
-      const formModal =
-        page.querySelector(
-          "#ala-form-modal"
-        );
 
 
-      const formOpenButtons =
-        page.querySelectorAll(
-          "[data-ala-open-form]"
-        );
+      /* Form popup + internal scroll handled by delegated CTA script */
 
 
-      const formCloseButtons =
-        page.querySelectorAll(
-          "[data-ala-close-form]"
-        );
-
-
-      let lastFocusedElement =
-        null;
-
-
-      function openFormModal() {
-
-        if (!formModal) {
-          return;
-        }
-
-
-        lastFocusedElement =
-          document.activeElement;
-
-
-        formModal.classList.add(
-          "is-open"
-        );
-
-
-        formModal.setAttribute(
-          "aria-hidden",
-          "false"
-        );
-
-
-        document.documentElement
-          .classList.add(
-            "ala-modal-open"
-          );
-
-
-        document.body
-          .classList.add(
-            "ala-modal-open"
-          );
-
-
-        const closeButton =
-          formModal.querySelector(
-            "[data-ala-close-form]"
-          );
-
-
-        if (closeButton) {
-
-          window.setTimeout(
-            function () {
-              closeButton.focus();
-            },
-            50
-          );
-
-        }
-
-      }
-
-
-      function closeFormModal() {
-
-        if (!formModal) {
-          return;
-        }
-
-
-        formModal.classList.remove(
-          "is-open"
-        );
-
-
-        formModal.setAttribute(
-          "aria-hidden",
-          "true"
-        );
-
-
-        document.documentElement
-          .classList.remove(
-            "ala-modal-open"
-          );
-
-
-        document.body
-          .classList.remove(
-            "ala-modal-open"
-          );
-
-
-        if (
-          lastFocusedElement &&
-          typeof lastFocusedElement.focus
-          === "function"
-        ) {
-          lastFocusedElement.focus();
-        }
-
-      }
-
-
-      formOpenButtons.forEach(
-        function (button) {
-
-          button.addEventListener(
-            "click",
-            function (event) {
-
-              event.preventDefault();
-              openFormModal();
-
-            }
-          );
-
-        }
-      );
-
-
-      formCloseButtons.forEach(
-        function (button) {
-
-          button.addEventListener(
-            "click",
-            closeFormModal
-          );
-
-        }
-      );
-
-
-      if (formModal) {
-
-        formModal.addEventListener(
-          "click",
-          function (event) {
-
-            if (
-              event.target
-              === formModal
-            ) {
-              closeFormModal();
-            }
-
-          }
-        );
-
-      }
-
-
-      document.addEventListener(
-        "keydown",
-        function (event) {
-
-          if (
-            event.key === "Escape" &&
-            formModal &&
-            formModal.classList.contains(
-              "is-open"
-            )
-          ) {
-            closeFormModal();
-          }
-
-        }
-      );
-
-
-
-      /* =====================================================
-         SMOOTH SCROLL
-         ===================================================== */
-  
-      page
-        .querySelectorAll(
-          'a[href^="#"]'
-        )
-        .forEach(
-          function (link) {
-  
-            link.addEventListener(
-              "click",
-              function (event) {
-  
-                const id =
-                  link.getAttribute(
-                    "href"
-                  );
-  
-  
-                if (
-                  !id ||
-                  id === "#"
-                ) {
-                  return;
-                }
-  
-  
-                const target =
-                  document.querySelector(
-                    id
-                  );
-  
-  
-                if (!target) {
-                  return;
-                }
-  
-  
-                event.preventDefault();
-  
-  
-                target.scrollIntoView({
-                  behavior:
-                    window.matchMedia(
-                      "(prefers-reduced-motion: reduce)"
-                    ).matches
-                      ? "auto"
-                      : "smooth",
-  
-                  block:
-                    "start"
-                });
-  
-              }
-            );
-  
-          }
-        );
-  
-  
-  
       /* =====================================================
          SCROLL / START REVEAL
          ===================================================== */
@@ -6883,9 +6697,8 @@ class="
 
 <script>
 /* =============================================================
- ALA CTA + FORM POPUP — ROBUST DELEGATED INTERACTIONS
- Uses capture-phase delegation so buttons still work if
- CashProcess re-renders/hydrates the Custom HTML block.
+ ALA CTA + FORM POPUP — single delegated interaction layer
+ Capture-phase so CashProcess re-hydration cannot break CTAs.
  ============================================================= */
 (function () {
 'use strict';
@@ -6919,11 +6732,32 @@ function scrollToTarget(target) {
   }
 }
 
+function getFocusable(container) {
+  if (!container) return [];
+  var nodes = container.querySelectorAll(
+    'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+  );
+  return Array.prototype.filter.call(nodes, function (el) {
+    return !el.hasAttribute('disabled') && el.getAttribute('aria-hidden') !== 'true';
+  });
+}
+
+function ensureFormLoaded() {
+  var iframe = document.querySelector('#ala-page .ala-form-iframe');
+  if (!iframe) return;
+  if (iframe.getAttribute('src')) return;
+  var url = iframe.getAttribute('data-src');
+  if (!url) return;
+  iframe.setAttribute('src', url);
+}
+
 function openFormModal(trigger) {
   var modal = getModal();
   if (!modal) return;
 
   window.__alaLastFormTrigger = trigger || document.activeElement;
+
+  ensureFormLoaded();
 
   modal.classList.add('is-open');
   modal.setAttribute('aria-hidden', 'false');
@@ -6931,10 +6765,13 @@ function openFormModal(trigger) {
   document.documentElement.classList.add('ala-modal-open');
   document.body.classList.add('ala-modal-open');
 
+  var dialog = modal.querySelector('.ala-form-modal-dialog');
   var close = modal.querySelector('[data-ala-close-form]');
-  if (close) {
+  var focusTarget = close || (dialog && getFocusable(dialog)[0]);
+
+  if (focusTarget) {
     window.setTimeout(function () {
-      try { close.focus(); } catch (e) {}
+      try { focusTarget.focus(); } catch (e) {}
     }, 30);
   }
 }
@@ -6957,7 +6794,6 @@ function closeFormModal() {
   }
 }
 
-// Expose safe fallbacks in case CashProcess invokes inline actions.
 window.alaOpenForm = openFormModal;
 window.alaCloseForm = closeFormModal;
 
@@ -6971,7 +6807,6 @@ document.addEventListener('click', function (event) {
 
   if (!clicked || !clicked.closest) return;
 
-  // 1) Final CTA -> open CashProcess form popup.
   var openTrigger = clicked.closest('[data-ala-open-form]');
   if (openTrigger && page.contains(openTrigger)) {
     event.preventDefault();
@@ -6979,7 +6814,6 @@ document.addEventListener('click', function (event) {
     return;
   }
 
-  // 2) Popup close button.
   var closeTrigger = clicked.closest('[data-ala-close-form]');
   if (closeTrigger) {
     var modalForClose = getModal();
@@ -6990,9 +6824,10 @@ document.addEventListener('click', function (event) {
     }
   }
 
-  // 3) Any internal CTA/anchor -> explicit smooth scroll.
   var anchor = clicked.closest('a[href^="#"]');
   if (anchor && page.contains(anchor)) {
+    if (anchor.hasAttribute('data-ala-open-form')) return;
+
     var href = anchor.getAttribute('href');
     if (!href || href === '#') return;
 
@@ -7010,7 +6845,6 @@ document.addEventListener('click', function (event) {
   }
 }, true);
 
-// Close when clicking the dark backdrop itself.
 document.addEventListener('click', function (event) {
   var modal = getModal();
   if (modal && modal.classList.contains('is-open') && event.target === modal) {
@@ -7019,11 +6853,31 @@ document.addEventListener('click', function (event) {
 }, false);
 
 document.addEventListener('keydown', function (event) {
+  var modal = getModal();
+  if (!modal || !modal.classList.contains('is-open')) return;
+
   if (event.key === 'Escape') {
-    var modal = getModal();
-    if (modal && modal.classList.contains('is-open')) {
-      closeFormModal();
+    closeFormModal();
+    return;
+  }
+
+  if (event.key !== 'Tab') return;
+
+  var dialog = modal.querySelector('.ala-form-modal-dialog') || modal;
+  var focusables = getFocusable(dialog);
+  if (!focusables.length) return;
+
+  var first = focusables[0];
+  var last = focusables[focusables.length - 1];
+
+  if (event.shiftKey) {
+    if (document.activeElement === first || !dialog.contains(document.activeElement)) {
+      event.preventDefault();
+      last.focus();
     }
+  } else if (document.activeElement === last || !dialog.contains(document.activeElement)) {
+    event.preventDefault();
+    first.focus();
   }
 });
 })();
