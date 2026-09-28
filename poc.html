@@ -1201,6 +1201,154 @@
       font-size: 12px;
     }
 
+
+    /* Video Feedback */
+    .video-feedback {
+      background: var(--warm-white);
+      padding: 88px 0;
+      scroll-margin-top: 96px;
+    }
+
+    .video-feedback-inner {
+      text-align: center;
+    }
+
+    .video-feedback-header {
+      max-width: 720px;
+      margin: 0 auto 36px;
+    }
+
+    .video-feedback-header .eyebrow {
+      margin-bottom: 14px;
+    }
+
+    .video-feedback-title {
+      margin-bottom: 16px;
+    }
+
+    .video-feedback-description {
+      font-size: 15px;
+      color: var(--muted-text);
+      line-height: 1.75;
+      margin: 0 auto;
+      max-width: 38em;
+      text-align: center;
+    }
+
+    .video-feedback-player {
+      width: min(100%, 960px);
+      margin-inline: auto;
+    }
+
+    .video-feedback-stage {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #171717;
+      border: 1px solid rgba(184, 146, 47, 0.35);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .video-feedback-poster {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-feedback-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(26, 26, 26, 0.22);
+      transition: background var(--transition);
+    }
+
+    .video-feedback-player:hover .video-feedback-overlay {
+      background: rgba(26, 26, 26, 0.32);
+    }
+
+    .video-feedback-play {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      padding-inline-start: 4px;
+      transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+    }
+
+    .video-feedback-play:hover {
+      background: var(--gold-hover);
+      transform: scale(1.06) translateY(-1px);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+    }
+
+    html[dir="rtl"] .video-feedback-play i.fa-play,
+    html[dir="rtl"] .video-feedback-play:hover i.fa-play {
+      transform: none;
+    }
+
+    .video-feedback-video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: 0;
+      background: #000;
+      object-fit: contain;
+    }
+
+    .video-feedback-player.is-playing .video-feedback-video {
+      position: absolute;
+      inset: 0;
+    }
+
+    .video-feedback-player.is-playing .video-feedback-overlay,
+    .video-feedback-player.is-playing .video-feedback-poster {
+      display: none;
+    }
+
+    .video-feedback-footer {
+      margin: 22px auto 0;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--muted-text);
+      opacity: 0.88;
+    }
+
+    html[dir="rtl"] .video-feedback-footer {
+      letter-spacing: 0;
+    }
+
+    @media (max-width: 768px) {
+      .video-feedback {
+        padding: 64px 0;
+      }
+
+      .video-feedback-header {
+        margin-bottom: 28px;
+      }
+
+      .video-feedback-play {
+        width: 60px;
+        height: 60px;
+        font-size: 20px;
+      }
+
+      .video-feedback-stage {
+        border-radius: 14px;
+      }
+    }
+
     /* Final CTA */
     .program-cta {
       background: var(--program-warm);
@@ -2077,6 +2225,37 @@ html[dir="rtl"] .breadcrumb-list li:not(:last-child)::after {
       </div>
     </section>
 
+    
+    <section class="video-feedback" id="video-feedback" aria-labelledby="video-feedback-heading">
+      <div class="container video-feedback-inner">
+        <div class="video-feedback-header">
+          <p class="eyebrow video-feedback-eyebrow anim-item">REAL STORIES</p>
+          <h2 class="section-heading video-feedback-title anim-item" id="video-feedback-heading">Hear It From Those Who Lived It.</h2>
+          <p class="video-feedback-description anim-item">Real experiences, honest reflections, and moments from people who have been part of the journey.</p>
+        </div>
+        <div class="video-feedback-player anim-scale" data-video-src="POC_VIDEO_URL">
+          <!-- TODO: replace POC_VIDEO_URL and POC_VIDEO_POSTER with the real program video and poster URLs -->
+          <div class="video-feedback-stage">
+            <img
+              class="video-feedback-poster"
+              src="POC_VIDEO_POSTER"
+              alt="POC Camp participant feedback"
+              width="1600"
+              height="900"
+              loading="lazy"
+              decoding="async"
+            >
+            <div class="video-feedback-overlay">
+              <button type="button" class="video-feedback-play" aria-label="Play participant feedback video">
+                <i class="fa-solid fa-play" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <p class="video-feedback-footer anim-item">Real experiences. Real voices. One shared journey.</p>
+      </div>
+    </section>
+
     <section class="program-cta" id="program-cta">
       <div class="container">
         <div class="program-cta-card anim-item">
@@ -2548,9 +2727,81 @@ html[dir="rtl"] .breadcrumb-list li:not(:last-child)::after {
     })();
   </script>
 
+
+<script>
+(function () {
+  var player = document.querySelector("#video-feedback .video-feedback-player");
+  if (!player) return;
+  var playBtn = player.querySelector(".video-feedback-play");
+  var stage = player.querySelector(".video-feedback-stage");
+  if (!playBtn || !stage) return;
+
+  function youtubeId(url) {
+    var m = String(url).match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{6,})/);
+    return m ? m[1] : null;
+  }
+
+  function vimeoId(url) {
+    var m = String(url).match(/vimeo\.com\/(?:video\/)?(\d+)/);
+    return m ? m[1] : null;
+  }
+
+  function activate() {
+    if (player.classList.contains("is-playing")) return;
+    var src = player.getAttribute("data-video-src") || "";
+    var label = playBtn.getAttribute("aria-label") || "Video";
+    var yt = youtubeId(src);
+    var vm = vimeoId(src);
+    player.classList.add("is-playing");
+
+    if (yt) {
+      var iframe = document.createElement("iframe");
+      iframe.className = "video-feedback-video";
+      iframe.src = "https://www.youtube.com/embed/" + encodeURIComponent(yt) + "?autoplay=1&rel=0";
+      iframe.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture");
+      iframe.setAttribute("allowfullscreen", "");
+      iframe.setAttribute("title", label);
+      iframe.setAttribute("loading", "lazy");
+      stage.appendChild(iframe);
+      return;
+    }
+
+    if (vm) {
+      var vimeo = document.createElement("iframe");
+      vimeo.className = "video-feedback-video";
+      vimeo.src = "https://player.vimeo.com/video/" + encodeURIComponent(vm) + "?autoplay=1";
+      vimeo.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
+      vimeo.setAttribute("allowfullscreen", "");
+      vimeo.setAttribute("title", label);
+      vimeo.setAttribute("loading", "lazy");
+      stage.appendChild(vimeo);
+      return;
+    }
+
+    var video = document.createElement("video");
+    video.className = "video-feedback-video";
+    video.setAttribute("controls", "");
+    video.setAttribute("playsinline", "");
+    video.playsInline = true;
+    video.preload = "metadata";
+    var source = document.createElement("source");
+    source.src = src;
+    source.type = "video/mp4";
+    video.appendChild(source);
+    stage.appendChild(video);
+    var playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(function () {});
+    }
+  }
+
+  playBtn.addEventListener("click", activate);
+})();
+</script>
+
 <!-- ALA_I18N_START -->
 <script>
-window.ALA_I18N_DICT = {"Transformative learning in leadership, coaching, communication, psychology, and personal development.": "تعلّم يُحدث تحوّلًا في القيادة والكوتشينج والتواصل وعلم النفس والتطوير الشخصي.", "Learn": "تعلّم", "Quick Links": "روابط سريعة", "Programs": "البرامج", "Contact": "تواصل معنا", "Home": "الرئيسية", "About": "نبذة", "Events": "الفعاليات", "News": "الأخبار", "Find Your Program": "اعثر على برنامجك", "Ask About This Program": "ابدأ رحلتك الآن", "Ask on WhatsApp": "اسأل عبر واتساب", "Live Courses": "البرامج المباشرة", "Recorded Courses": "البرامج المسجّلة", "Camps": "المعسكرات", "Workshops": "ورش العمل", "Main navigation": "التنقل الرئيسي", "Open menu": "افتح القائمة", "Mobile navigation": "قائمة التنقل للجوال", "Breadcrumb": "مسار التنقل", "Program facts": "معلومات البرنامج", "Program quick facts": "معلومات سريعة عن البرنامج", "Website": "الموقع الإلكتروني", "Contact Ahmed Latif Academy on WhatsApp": "تواصل مع Ahmed Latif Academy عبر واتساب", "Close gallery": "إغلاق المعرض", "Previous image": "الصورة السابقة", "Next image": "الصورة التالية", "Explore Ahmed Latif Academy": "استكشف Ahmed Latif Academy", "View larger: ": "عرض بحجم أكبر: ", "Previous photo": "الصورة السابقة", "Next photo": "الصورة التالية", "Scroll thumbnails left": "تحريك المصغّرات إلى اليسار", "Gallery thumbnails": "مصغّرات المعرض", "Scroll thumbnails right": "تحريك المصغّرات إلى اليمين", "Show photo ": "عرض الصورة ", "Use the arrows to browse all photos. Click the image to view it larger.": "استخدم الأسهم لتصفّح جميع الصور. اضغط على الصورة لعرضها بحجم أكبر.", "PROGRAM": "برنامج", "Program": "برنامج", "Live": "مباشر", "Understand": "افهم", "Delivery": "التقديم", "Camp": "معسكر", "Live Camp": "معسكر مباشر", "There's a moment in everyone's life when you know exactly what you need to do... and you still don't do it. You know you need to change, but you stay exactly where you are. And sometimes, life itself gets uncomfortable on purpose — it hits you with pain, not to break you, but to wake you up. If you've become someone who \"knows but doesn't act\"... if you need something that shakes you from the inside instead of more theory... POC isn't a program. It's a real test where you'll meet a version of yourself you've never met before.": "هناك لحظة في حياة كل إنسان يعرف فيها تمامًا ما يجب أن يفعله... ومع ذلك لا يفعله. تعرف أنك تحتاج إلى التغيير، لكنك تبقى في مكانك. وأحيانًا تصبح الحياة نفسها قاسية عن قصد — تضربك بالألم، لا لتكسرك، بل لتوقظك. إذا أصبحت شخصًا «يعرف ولا يتحرّك»... وإذا كنت تحتاج شيئًا يهزّك من الداخل بدلًا من مزيد من النظريات... فـ POC ليس برنامجًا، بل اختبار حقيقي ستقابل فيه نسخة من نفسك لم تقابلها من قبل.", "Who Is This Camp For?": "لمن هذا المعسكر؟", "You know you need to change, but you stay exactly where you are. You know what you need to do... and you still don't do it.": "تعرف أنك تحتاج إلى التغيير، لكنك تبقى في مكانك تمامًا. تعرف ما يجب أن تفعله... ومع ذلك لا تفعله.", "If you need something that shakes you from the inside instead of more theory — this is a real test, not another program.": "إذا كنت تحتاج شيئًا يهزّك من الداخل بدلًا من مزيد من النظريات — فهذا اختبار حقيقي، لا برنامج آخر.", "Sometimes life itself gets uncomfortable on purpose — it hits you with pain, not to break you, but to wake you up.": "أحيانًا تصبح الحياة نفسها قاسية عن قصد — تضربك بالألم، لا لتكسرك، بل لتوقظك.", "What You'll Face": "ما ستواجهه", "Mental and physical challenges that reveal your real limits — and who said those were your limits anyway.": "تحديات ذهنية وجسدية تكشف حدودك الحقيقية — ومن قال إن تلك كانت حدودك أصلًا.", "Breaking the routine and laziness that's been quietly controlling you.": "كسر الروتين والخمول الذي كان يتحكّم بك في صمت.", "Building real discipline and commitment, not a decision you make and forget the next day.": "بناء انضباط والتزام حقيقيين، لا قرارًا تتخذه وتنساه في اليوم التالي.", "Discovering capabilities within you that you never knew existed.": "اكتشاف قدرات داخلك لم تعرف بوجودها.", "Handling pressure and challenge by standing your ground, not by running.": "التعامل مع الضغط والتحدي بالثبات، لا بالهروب.", "After These 3 Days": "بعد هذه الأيام الثلاثة", "Why This Camp?": "لماذا هذا المعسكر؟", "POC isn't a program. It's a real test where you'll meet a version of yourself you've never met before.": "POC ليس برنامجًا، بل اختبار حقيقي ستقابل فيه نسخة من نفسك لم تقابلها من قبل.", "3 days. 30 hours. Far from everything you're used to. The camp is built with real military-style discipline — real challenge, real structure, and moments where things get genuinely hard for you.": "3 أيام. 30 ساعة. بعيدًا عن كل ما اعتدت عليه. المعسكر مبني على انضباط عسكري حقيقي — تحدٍّ حقيقي، ونظام حقيقي، ولحظات تصبح فيها الأمور صعبة عليك بالفعل.", "The camp takes place at a hotel, giving you a fully immersive experience — real challenge, in a fully equipped environment.": "يُعقد المعسكر في فندق، ليمنحك تجربة غامرة بالكامل — تحدٍّ حقيقي في بيئة مجهّزة تجهيزًا كاملًا.", "What This Camp Is": "ما هذا المعسكر", "The pain that wakes you up is far better than the comfort that keeps you stuck. No excuses, no comfort, no room for laziness to hide in.": "الألم الذي يوقظك أفضل بكثير من الراحة التي تُبقيك في مكانك. لا أعذار، ولا راحة، ولا مكان يختبئ فيه الخمول.", "How the Camp Works": "كيف يسير المعسكر", "Step far from everything you're used to — no excuses, no comfort": "اخرج بعيدًا عن كل ما اعتدت عليه — لا أعذار ولا راحة", "Mental and physical challenges that reveal your real limits": "تحديات ذهنية وجسدية تكشف حدودك الحقيقية", "Handle pressure with discipline — standing your ground, not running": "تعامل مع الضغط بانضباط — بالثبات، لا بالهروب", "A stronger, more disciplined version of yourself": "نسخة أقوى وأكثر انضباطًا من نفسك", "Where You Join": "مكان الانضمام", "The pain that wakes you up is far better than the comfort that keeps you stuck. Ask about the next POC camp dates, fees, and current offers.": "الألم الذي يوقظك أفضل بكثير من الراحة التي تُبقيك في مكانك. اسأل عن أقرب مواعيد معسكر POC والأسعار والعروض الحالية.", "When You Know — But Don't Act": "عندما تعرف — ولا تتحرّك", "No Excuses. No Comfort. No Place for Laziness to Hide.": "لا أعذار. لا راحة. ولا مكان يختبئ فيه الخمول.", "You'll Walk Away:": "ستخرج:", "It's a Real Test. That's Exactly the Point.": "إنه اختبار حقيقي. وهذا هو المقصود تمامًا.", "The Pain That Wakes You Up": "الألم الذي يوقظك", "3 Days. 30 Hours. Far From Everything You're Used To.": "3 أيام. 30 ساعة. بعيدًا عن كل ما اعتدت عليه.", "At a Hotel. Fully Immersive.": "في فندق. تجربة غامرة بالكامل.", "Meet a Version of Yourself You've Never Met": "قابل نسخة من نفسك لم تقابلها من قبل", "Stuck Where You Are": "واقف في مكانك", "Done With More Theory": "اكتفيت من النظريات", "When Life Gets Uncomfortable": "عندما تصبح الحياة قاسية", "Mental and Physical Challenges": "تحديات ذهنية وجسدية", "Break Routine and Laziness": "كسر الروتين والخمول", "Real Discipline and Commitment": "انضباط والتزام حقيقيان", "Capabilities You Never Knew": "قدرات لم تعرفها", "Stand Your Ground": "الثبات في مكانك", "Not a Program. A Test.": "ليس برنامجًا. بل اختبار.", "Military-Style Discipline": "انضباط بأسلوب عسكري", "Fully Immersive": "غامر بالكامل", "Leave": "انطلق", "Face": "واجه", "Stand": "اثبت", "Walk Away": "اخرج متغيّرًا", "Hotel Camp": "معسكر في فندق", "POC Camp": "معسكر POC", "30 Hours": "30 ساعة", "3 Days": "3 أيام", "Over 3 Days": "على مدى 3 أيام", "Far From Routine": "بعيدًا عن الروتين", "Fully Equipped": "مجهّز بالكامل", "Understanding exactly what you're capable of — not just what you hope for": "تفهم تمامًا ما أنت قادر عليه — لا ما تتمنّاه فقط", "Free from the laziness that stood between you and what you want": "متحرّرًا من الخمول الذي كان يقف بينك وبين ما تريد", "Able to handle pressure and challenge with composure, not avoidance": "قادرًا على التعامل مع الضغط والتحدي برباطة جأش، لا بالتجنّب", "Having discovered abilities inside you that once felt impossible": "بعد أن اكتشفت داخلك قدرات كانت تبدو مستحيلة", "Days Far From Routine": "أيام بعيدًا عن الروتين", "Fully Equipped Camp": "معسكر مجهّز بالكامل", "POC | Power of Change Camp | Ahmed Latif Academy": "POC | معسكر Power of Change | Ahmed Latif Academy", "Participants together during an Ahmed Latif Academy camp": "مشاركون معًا خلال أحد معسكرات Ahmed Latif Academy", "Language": "اللغة", "English": "English", "Hotel": "فندق", "See More": "اعرف المزيد", "Explore Programs": "استكشف البرامج", "Close menu": "أغلق القائمة", "Toggle menu": "إظهار/إخفاء القائمة", "© Ahmed Latif Academy. All rights reserved.": "© Ahmed Latif Academy. جميع الحقوق محفوظة.", "You're just one step away from joining ALA! Contact us today, and one of our team members will be happy to assist you with the next available course date, course fees, current offers, answer all your questions, and help you complete your registration with ease.": "أنت على بُعد خطوة واحدة من الانضمام إلى ALA! تواصل معنا اليوم، وسيسعد أحد أعضاء فريقنا بمساعدتك بموعد الدورة المتاح التالي، والرسوم، والعروض الحالية، والإجابة عن كل أسئلتك، وإتمام تسجيلك بسهولة.", "Start Your Journey Now": "ابدأ رحلتك الآن"};
+window.ALA_I18N_DICT = {"Transformative learning in leadership, coaching, communication, psychology, and personal development.": "تعلّم يُحدث تحوّلًا في القيادة والكوتشينج والتواصل وعلم النفس والتطوير الشخصي.", "Learn": "تعلّم", "Quick Links": "روابط سريعة", "Programs": "البرامج", "Contact": "تواصل معنا", "Home": "الرئيسية", "About": "نبذة", "Events": "الفعاليات", "News": "الأخبار", "Find Your Program": "اعثر على برنامجك", "Ask About This Program": "ابدأ رحلتك الآن", "Ask on WhatsApp": "اسأل عبر واتساب", "Live Courses": "البرامج المباشرة", "Recorded Courses": "البرامج المسجّلة", "Camps": "المعسكرات", "Workshops": "ورش العمل", "Main navigation": "التنقل الرئيسي", "Open menu": "افتح القائمة", "Mobile navigation": "قائمة التنقل للجوال", "Breadcrumb": "مسار التنقل", "Program facts": "معلومات البرنامج", "Program quick facts": "معلومات سريعة عن البرنامج", "Website": "الموقع الإلكتروني", "Contact Ahmed Latif Academy on WhatsApp": "تواصل مع Ahmed Latif Academy عبر واتساب", "Close gallery": "إغلاق المعرض", "Previous image": "الصورة السابقة", "Next image": "الصورة التالية", "Explore Ahmed Latif Academy": "استكشف Ahmed Latif Academy", "View larger: ": "عرض بحجم أكبر: ", "Previous photo": "الصورة السابقة", "Next photo": "الصورة التالية", "Scroll thumbnails left": "تحريك المصغّرات إلى اليسار", "Gallery thumbnails": "مصغّرات المعرض", "Scroll thumbnails right": "تحريك المصغّرات إلى اليمين", "Show photo ": "عرض الصورة ", "Use the arrows to browse all photos. Click the image to view it larger.": "استخدم الأسهم لتصفّح جميع الصور. اضغط على الصورة لعرضها بحجم أكبر.", "PROGRAM": "برنامج", "Program": "برنامج", "Live": "مباشر", "Understand": "افهم", "Delivery": "التقديم", "Camp": "معسكر", "Live Camp": "معسكر مباشر", "There's a moment in everyone's life when you know exactly what you need to do... and you still don't do it. You know you need to change, but you stay exactly where you are. And sometimes, life itself gets uncomfortable on purpose — it hits you with pain, not to break you, but to wake you up. If you've become someone who \"knows but doesn't act\"... if you need something that shakes you from the inside instead of more theory... POC isn't a program. It's a real test where you'll meet a version of yourself you've never met before.": "هناك لحظة في حياة كل إنسان يعرف فيها تمامًا ما يجب أن يفعله... ومع ذلك لا يفعله. تعرف أنك تحتاج إلى التغيير، لكنك تبقى في مكانك. وأحيانًا تصبح الحياة نفسها قاسية عن قصد — تضربك بالألم، لا لتكسرك، بل لتوقظك. إذا أصبحت شخصًا «يعرف ولا يتحرّك»... وإذا كنت تحتاج شيئًا يهزّك من الداخل بدلًا من مزيد من النظريات... فـ POC ليس برنامجًا، بل اختبار حقيقي ستقابل فيه نسخة من نفسك لم تقابلها من قبل.", "Who Is This Camp For?": "لمن هذا المعسكر؟", "You know you need to change, but you stay exactly where you are. You know what you need to do... and you still don't do it.": "تعرف أنك تحتاج إلى التغيير، لكنك تبقى في مكانك تمامًا. تعرف ما يجب أن تفعله... ومع ذلك لا تفعله.", "If you need something that shakes you from the inside instead of more theory — this is a real test, not another program.": "إذا كنت تحتاج شيئًا يهزّك من الداخل بدلًا من مزيد من النظريات — فهذا اختبار حقيقي، لا برنامج آخر.", "Sometimes life itself gets uncomfortable on purpose — it hits you with pain, not to break you, but to wake you up.": "أحيانًا تصبح الحياة نفسها قاسية عن قصد — تضربك بالألم، لا لتكسرك، بل لتوقظك.", "What You'll Face": "ما ستواجهه", "Mental and physical challenges that reveal your real limits — and who said those were your limits anyway.": "تحديات ذهنية وجسدية تكشف حدودك الحقيقية — ومن قال إن تلك كانت حدودك أصلًا.", "Breaking the routine and laziness that's been quietly controlling you.": "كسر الروتين والخمول الذي كان يتحكّم بك في صمت.", "Building real discipline and commitment, not a decision you make and forget the next day.": "بناء انضباط والتزام حقيقيين، لا قرارًا تتخذه وتنساه في اليوم التالي.", "Discovering capabilities within you that you never knew existed.": "اكتشاف قدرات داخلك لم تعرف بوجودها.", "Handling pressure and challenge by standing your ground, not by running.": "التعامل مع الضغط والتحدي بالثبات، لا بالهروب.", "After These 3 Days": "بعد هذه الأيام الثلاثة", "Why This Camp?": "لماذا هذا المعسكر؟", "POC isn't a program. It's a real test where you'll meet a version of yourself you've never met before.": "POC ليس برنامجًا، بل اختبار حقيقي ستقابل فيه نسخة من نفسك لم تقابلها من قبل.", "3 days. 30 hours. Far from everything you're used to. The camp is built with real military-style discipline — real challenge, real structure, and moments where things get genuinely hard for you.": "3 أيام. 30 ساعة. بعيدًا عن كل ما اعتدت عليه. المعسكر مبني على انضباط عسكري حقيقي — تحدٍّ حقيقي، ونظام حقيقي، ولحظات تصبح فيها الأمور صعبة عليك بالفعل.", "The camp takes place at a hotel, giving you a fully immersive experience — real challenge, in a fully equipped environment.": "يُعقد المعسكر في فندق، ليمنحك تجربة غامرة بالكامل — تحدٍّ حقيقي في بيئة مجهّزة تجهيزًا كاملًا.", "What This Camp Is": "ما هذا المعسكر", "The pain that wakes you up is far better than the comfort that keeps you stuck. No excuses, no comfort, no room for laziness to hide in.": "الألم الذي يوقظك أفضل بكثير من الراحة التي تُبقيك في مكانك. لا أعذار، ولا راحة، ولا مكان يختبئ فيه الخمول.", "How the Camp Works": "كيف يسير المعسكر", "Step far from everything you're used to — no excuses, no comfort": "اخرج بعيدًا عن كل ما اعتدت عليه — لا أعذار ولا راحة", "Mental and physical challenges that reveal your real limits": "تحديات ذهنية وجسدية تكشف حدودك الحقيقية", "Handle pressure with discipline — standing your ground, not running": "تعامل مع الضغط بانضباط — بالثبات، لا بالهروب", "A stronger, more disciplined version of yourself": "نسخة أقوى وأكثر انضباطًا من نفسك", "Where You Join": "مكان الانضمام", "The pain that wakes you up is far better than the comfort that keeps you stuck. Ask about the next POC camp dates, fees, and current offers.": "الألم الذي يوقظك أفضل بكثير من الراحة التي تُبقيك في مكانك. اسأل عن أقرب مواعيد معسكر POC والأسعار والعروض الحالية.", "When You Know — But Don't Act": "عندما تعرف — ولا تتحرّك", "No Excuses. No Comfort. No Place for Laziness to Hide.": "لا أعذار. لا راحة. ولا مكان يختبئ فيه الخمول.", "You'll Walk Away:": "ستخرج:", "It's a Real Test. That's Exactly the Point.": "إنه اختبار حقيقي. وهذا هو المقصود تمامًا.", "The Pain That Wakes You Up": "الألم الذي يوقظك", "3 Days. 30 Hours. Far From Everything You're Used To.": "3 أيام. 30 ساعة. بعيدًا عن كل ما اعتدت عليه.", "At a Hotel. Fully Immersive.": "في فندق. تجربة غامرة بالكامل.", "Meet a Version of Yourself You've Never Met": "قابل نسخة من نفسك لم تقابلها من قبل", "Stuck Where You Are": "واقف في مكانك", "Done With More Theory": "اكتفيت من النظريات", "When Life Gets Uncomfortable": "عندما تصبح الحياة قاسية", "Mental and Physical Challenges": "تحديات ذهنية وجسدية", "Break Routine and Laziness": "كسر الروتين والخمول", "Real Discipline and Commitment": "انضباط والتزام حقيقيان", "Capabilities You Never Knew": "قدرات لم تعرفها", "Stand Your Ground": "الثبات في مكانك", "Not a Program. A Test.": "ليس برنامجًا. بل اختبار.", "Military-Style Discipline": "انضباط بأسلوب عسكري", "Fully Immersive": "غامر بالكامل", "Leave": "انطلق", "Face": "واجه", "Stand": "اثبت", "Walk Away": "اخرج متغيّرًا", "Hotel Camp": "معسكر في فندق", "POC Camp": "معسكر POC", "30 Hours": "30 ساعة", "3 Days": "3 أيام", "Over 3 Days": "على مدى 3 أيام", "Far From Routine": "بعيدًا عن الروتين", "Fully Equipped": "مجهّز بالكامل", "Understanding exactly what you're capable of — not just what you hope for": "تفهم تمامًا ما أنت قادر عليه — لا ما تتمنّاه فقط", "Free from the laziness that stood between you and what you want": "متحرّرًا من الخمول الذي كان يقف بينك وبين ما تريد", "Able to handle pressure and challenge with composure, not avoidance": "قادرًا على التعامل مع الضغط والتحدي برباطة جأش، لا بالتجنّب", "Having discovered abilities inside you that once felt impossible": "بعد أن اكتشفت داخلك قدرات كانت تبدو مستحيلة", "Days Far From Routine": "أيام بعيدًا عن الروتين", "Fully Equipped Camp": "معسكر مجهّز بالكامل", "POC | Power of Change Camp | Ahmed Latif Academy": "POC | معسكر Power of Change | Ahmed Latif Academy", "Participants together during an Ahmed Latif Academy camp": "مشاركون معًا خلال أحد معسكرات Ahmed Latif Academy", "Language": "اللغة", "English": "English", "Hotel": "فندق", "See More": "اعرف المزيد", "Explore Programs": "استكشف البرامج", "Close menu": "أغلق القائمة", "Toggle menu": "إظهار/إخفاء القائمة", "© Ahmed Latif Academy. All rights reserved.": "© Ahmed Latif Academy. جميع الحقوق محفوظة.", "You're just one step away from joining ALA! Contact us today, and one of our team members will be happy to assist you with the next available course date, course fees, current offers, answer all your questions, and help you complete your registration with ease.": "أنت على بُعد خطوة واحدة من الانضمام إلى ALA! تواصل معنا اليوم، وسيسعد أحد أعضاء فريقنا بمساعدتك بموعد الدورة المتاح التالي، والرسوم، والعروض الحالية، والإجابة عن كل أسئلتك، وإتمام تسجيلك بسهولة.", "Start Your Journey Now": "ابدأ رحلتك الآن", "REAL STORIES": "تجارب حقيقية", "Hear It From Those Who Lived It.": "اسمع التجربة من الناس اللي عاشوها.", "Real experiences, honest reflections, and moments from people who have been part of the journey.": "تجارب حقيقية وانطباعات صادقة من أشخاص كانوا جزءًا من الرحلة.", "Real experiences. Real voices. One shared journey.": "تجارب حقيقية. أصوات حقيقية. رحلة واحدة جمعتهم.", "Play participant feedback video": "تشغيل فيديو تجارب المشاركين", "ACC program participant feedback": "تجارب مشاركين في برنامج ACC", "POC Camp participant feedback": "تجارب مشاركين في معسكر POC", "Silent Camp participant feedback": "تجارب مشاركين في معسكر Silent", "Shift Camp participant feedback": "تجارب مشاركين في معسكر Shift", "Public Speaking program participant feedback": "تجارب مشاركين في برنامج التحدث أمام الجمهور"};
 </script>
 <script>
 (function (window, document) {

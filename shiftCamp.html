@@ -1201,6 +1201,154 @@
       font-size: 12px;
     }
 
+
+    /* Video Feedback */
+    .video-feedback {
+      background: var(--warm-white);
+      padding: 88px 0;
+      scroll-margin-top: 96px;
+    }
+
+    .video-feedback-inner {
+      text-align: center;
+    }
+
+    .video-feedback-header {
+      max-width: 720px;
+      margin: 0 auto 36px;
+    }
+
+    .video-feedback-header .eyebrow {
+      margin-bottom: 14px;
+    }
+
+    .video-feedback-title {
+      margin-bottom: 16px;
+    }
+
+    .video-feedback-description {
+      font-size: 15px;
+      color: var(--muted-text);
+      line-height: 1.75;
+      margin: 0 auto;
+      max-width: 38em;
+      text-align: center;
+    }
+
+    .video-feedback-player {
+      width: min(100%, 960px);
+      margin-inline: auto;
+    }
+
+    .video-feedback-stage {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #171717;
+      border: 1px solid rgba(184, 146, 47, 0.35);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .video-feedback-poster {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-feedback-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(26, 26, 26, 0.22);
+      transition: background var(--transition);
+    }
+
+    .video-feedback-player:hover .video-feedback-overlay {
+      background: rgba(26, 26, 26, 0.32);
+    }
+
+    .video-feedback-play {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      padding-inline-start: 4px;
+      transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+    }
+
+    .video-feedback-play:hover {
+      background: var(--gold-hover);
+      transform: scale(1.06) translateY(-1px);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+    }
+
+    html[dir="rtl"] .video-feedback-play i.fa-play,
+    html[dir="rtl"] .video-feedback-play:hover i.fa-play {
+      transform: none;
+    }
+
+    .video-feedback-video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: 0;
+      background: #000;
+      object-fit: contain;
+    }
+
+    .video-feedback-player.is-playing .video-feedback-video {
+      position: absolute;
+      inset: 0;
+    }
+
+    .video-feedback-player.is-playing .video-feedback-overlay,
+    .video-feedback-player.is-playing .video-feedback-poster {
+      display: none;
+    }
+
+    .video-feedback-footer {
+      margin: 22px auto 0;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--muted-text);
+      opacity: 0.88;
+    }
+
+    html[dir="rtl"] .video-feedback-footer {
+      letter-spacing: 0;
+    }
+
+    @media (max-width: 768px) {
+      .video-feedback {
+        padding: 64px 0;
+      }
+
+      .video-feedback-header {
+        margin-bottom: 28px;
+      }
+
+      .video-feedback-play {
+        width: 60px;
+        height: 60px;
+        font-size: 20px;
+      }
+
+      .video-feedback-stage {
+        border-radius: 14px;
+      }
+    }
+
     /* Final CTA */
     .program-cta {
       background: var(--program-warm);
@@ -2107,6 +2255,37 @@ html[dir="rtl"] .breadcrumb-list li:not(:last-child)::after {
       </div>
     </section>
 
+    
+    <section class="video-feedback" id="video-feedback" aria-labelledby="video-feedback-heading">
+      <div class="container video-feedback-inner">
+        <div class="video-feedback-header">
+          <p class="eyebrow video-feedback-eyebrow anim-item">REAL STORIES</p>
+          <h2 class="section-heading video-feedback-title anim-item" id="video-feedback-heading">Hear It From Those Who Lived It.</h2>
+          <p class="video-feedback-description anim-item">Real experiences, honest reflections, and moments from people who have been part of the journey.</p>
+        </div>
+        <div class="video-feedback-player anim-scale" data-video-src="SHIFT_CAMP_VIDEO_URL">
+          <!-- TODO: replace SHIFT_CAMP_VIDEO_URL and SHIFT_CAMP_VIDEO_POSTER with the real program video and poster URLs -->
+          <div class="video-feedback-stage">
+            <img
+              class="video-feedback-poster"
+              src="SHIFT_CAMP_VIDEO_POSTER"
+              alt="Shift Camp participant feedback"
+              width="1600"
+              height="900"
+              loading="lazy"
+              decoding="async"
+            >
+            <div class="video-feedback-overlay">
+              <button type="button" class="video-feedback-play" aria-label="Play participant feedback video">
+                <i class="fa-solid fa-play" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <p class="video-feedback-footer anim-item">Real experiences. Real voices. One shared journey.</p>
+      </div>
+    </section>
+
     <section class="program-cta" id="program-cta">
       <div class="container">
         <div class="program-cta-card anim-item">
@@ -2572,9 +2751,81 @@ html[dir="rtl"] .breadcrumb-list li:not(:last-child)::after {
     })();
   </script>
 
+
+<script>
+(function () {
+  var player = document.querySelector("#video-feedback .video-feedback-player");
+  if (!player) return;
+  var playBtn = player.querySelector(".video-feedback-play");
+  var stage = player.querySelector(".video-feedback-stage");
+  if (!playBtn || !stage) return;
+
+  function youtubeId(url) {
+    var m = String(url).match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{6,})/);
+    return m ? m[1] : null;
+  }
+
+  function vimeoId(url) {
+    var m = String(url).match(/vimeo\.com\/(?:video\/)?(\d+)/);
+    return m ? m[1] : null;
+  }
+
+  function activate() {
+    if (player.classList.contains("is-playing")) return;
+    var src = player.getAttribute("data-video-src") || "";
+    var label = playBtn.getAttribute("aria-label") || "Video";
+    var yt = youtubeId(src);
+    var vm = vimeoId(src);
+    player.classList.add("is-playing");
+
+    if (yt) {
+      var iframe = document.createElement("iframe");
+      iframe.className = "video-feedback-video";
+      iframe.src = "https://www.youtube.com/embed/" + encodeURIComponent(yt) + "?autoplay=1&rel=0";
+      iframe.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture");
+      iframe.setAttribute("allowfullscreen", "");
+      iframe.setAttribute("title", label);
+      iframe.setAttribute("loading", "lazy");
+      stage.appendChild(iframe);
+      return;
+    }
+
+    if (vm) {
+      var vimeo = document.createElement("iframe");
+      vimeo.className = "video-feedback-video";
+      vimeo.src = "https://player.vimeo.com/video/" + encodeURIComponent(vm) + "?autoplay=1";
+      vimeo.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
+      vimeo.setAttribute("allowfullscreen", "");
+      vimeo.setAttribute("title", label);
+      vimeo.setAttribute("loading", "lazy");
+      stage.appendChild(vimeo);
+      return;
+    }
+
+    var video = document.createElement("video");
+    video.className = "video-feedback-video";
+    video.setAttribute("controls", "");
+    video.setAttribute("playsinline", "");
+    video.playsInline = true;
+    video.preload = "metadata";
+    var source = document.createElement("source");
+    source.src = src;
+    source.type = "video/mp4";
+    video.appendChild(source);
+    stage.appendChild(video);
+    var playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(function () {});
+    }
+  }
+
+  playBtn.addEventListener("click", activate);
+})();
+</script>
+
 <!-- ALA_I18N_START -->
 <script>
-window.ALA_I18N_DICT = {"Transformative learning in leadership, coaching, communication, psychology, and personal development.": "تعلّم يُحدث تحوّلًا في القيادة والكوتشينج والتواصل وعلم النفس والتطوير الشخصي.", "Learn": "تعلّم", "Quick Links": "روابط سريعة", "Programs": "البرامج", "Contact": "تواصل معنا", "Home": "الرئيسية", "About": "نبذة", "Events": "الفعاليات", "News": "الأخبار", "Find Your Program": "اعثر على برنامجك", "Ask About This Program": "ابدأ رحلتك الآن", "Ask on WhatsApp": "اسأل عبر واتساب", "Live Courses": "البرامج المباشرة", "Recorded Courses": "البرامج المسجّلة", "Camps": "المعسكرات", "Workshops": "ورش العمل", "Main navigation": "التنقل الرئيسي", "Open menu": "افتح القائمة", "Mobile navigation": "قائمة التنقل للجوال", "Breadcrumb": "مسار التنقل", "Program facts": "معلومات البرنامج", "Program quick facts": "معلومات سريعة عن البرنامج", "Website": "الموقع الإلكتروني", "Contact Ahmed Latif Academy on WhatsApp": "تواصل مع Ahmed Latif Academy عبر واتساب", "Close gallery": "إغلاق المعرض", "Previous image": "الصورة السابقة", "Next image": "الصورة التالية", "Explore Ahmed Latif Academy": "استكشف Ahmed Latif Academy", "View larger: ": "عرض بحجم أكبر: ", "Previous photo": "الصورة السابقة", "Next photo": "الصورة التالية", "Scroll thumbnails left": "تحريك المصغّرات إلى اليسار", "Gallery thumbnails": "مصغّرات المعرض", "Scroll thumbnails right": "تحريك المصغّرات إلى اليمين", "Show photo ": "عرض الصورة ", "Use the arrows to browse all photos. Click the image to view it larger.": "استخدم الأسهم لتصفّح جميع الصور. اضغط على الصورة لعرضها بحجم أكبر.", "Shift Camp": "معسكر Shift", "PROGRAM": "برنامج", "Program": "برنامج", "Training": "تدريب", "Live": "مباشر", "Understand": "افهم", "Rebuild": "أعد البناء", "Delivery": "التقديم", "Camp": "معسكر", "Live Camp": "معسكر مباشر", "Who Is This Camp For?": "لمن هذا المعسكر؟", "Why This Camp?": "لماذا هذا المعسكر؟", "How the Camp Works": "كيف يسير المعسكر", "Leave": "انطلق", "Face": "واجه", "Participants together during an Ahmed Latif Academy camp": "مشاركون معًا خلال أحد معسكرات Ahmed Latif Academy", "Journey": "المسيرة", "There's a moment in every life we never forget... a moment that changed us at our core, a real turning point, a fresh beginning... or a brave step that opened up possibilities we never imagined were even there. But here's the real question: do we sit and wait for that moment to happen by chance... or do we go looking for it? Shift Camp isn't a relaxing getaway. It's a complete strategy built to pull you out of your routine — away from the noise, speed, and pressure of daily life — away from the voice inside you that keeps whispering \"I'm just living\" toward \"I actually want to live.\"": "هناك لحظة في كل حياة لا ننساها أبدًا... لحظة غيّرتنا من الداخل، أو نقطة تحوّل حقيقية، أو بداية جديدة... أو خطوة جريئة فتحت أمامنا احتمالات لم نتخيّل يومًا أنها موجودة. لكن السؤال الحقيقي: هل نجلس وننتظر أن تأتي هذه اللحظة بالمصادفة... أم نذهب للبحث عنها؟ معسكر Shift ليس رحلة استجمام، بل استراتيجية كاملة مبنية لتخرجك من روتينك — بعيدًا عن ضجيج الحياة اليومية وسرعتها وضغوطها — بعيدًا عن الصوت داخلك الذي يهمس «أنا فقط أعيش» نحو «أنا أريد أن أعيش فعلًا».", "Do we sit and wait for that turning point to happen by chance... or do we go looking for it?": "هل نجلس وننتظر أن تأتي نقطة التحوّل بالمصادفة... أم نذهب للبحث عنها؟", "If you feel like something's been broken in you for a while... stuck, not moving... bored and restless... lost, like you've lost your direction... nothing tastes the way it used to... this camp is exactly for you.": "إذا كنت تشعر أن شيئًا ما مكسور فيك منذ فترة... واقفًا لا تتحرّك... مللًا وقلقًا... تائهًا كأنك فقدت اتجاهك... ولا شيء له طعم كما كان... فهذا المعسكر لك تمامًا.", "When energy runs low, we stall halfway through — ambitions close enough to touch, yet somehow out of reach. This camp is about charging that energy, and seeing what has been quietly draining it.": "عندما تنخفض الطاقة، نتوقف في منتصف الطريق — وطموحاتنا قريبة بما يكفي لنلمسها، لكنها بعيدة عن المتناول. وهذا المعسكر عن شحن هذه الطاقة، ورؤية ما كان يستنزفها في صمت.", "What You'll Work On": "ما ستعمل عليه", "Eliminating the disruptive behaviors and repetitive negative patterns holding you back.": "التخلّص من السلوكيات المشوّشة والأنماط السلبية المتكرّرة التي تعيقك.", "Understanding the keys to energy and its different types, and how to actually recharge instead of running on empty.": "فهم مفاتيح الطاقة وأنواعها المختلفة، وكيف تشحنها فعلًا بدلًا من العمل على الفراغ.", "Confronting the biggest internal enemy standing between you and your productivity and achievements.": "مواجهة أكبر عدو داخلي يقف بينك وبين إنتاجيتك وإنجازاتك.", "Identifying the energy leaks that drain you without you even noticing.": "تحديد منافذ تسريب الطاقة التي تستنزفك دون أن تلاحظ.", "Handling energy blockers like boredom, frustration, and disorientation.": "التعامل مع معوّقات الطاقة كالملل والإحباط والتشتت.", "Distinguishing your real self from your false self, and understanding how each relates to the energy that drives real action.": "التمييز بين ذاتك الحقيقية وذاتك الزائفة، وفهم علاقة كل منهما بالطاقة التي تدفع للعمل الحقيقي.", "The dynamics of achieving major milestones, and how to genuinely celebrate them.": "ديناميكيات تحقيق الإنجازات الكبرى، وكيف تحتفل بها بصدق.", "Achieving real, positive detachment, and learning practical ways to handle pressure.": "تحقيق انفصال إيجابي حقيقي، وتعلّم طرق عملية للتعامل مع الضغوط.", "Rebuilding the ability to write a new success story, and reclaiming a passion lost in life's difficulties.": "إعادة بناء القدرة على كتابة قصة نجاح جديدة، واستعادة شغف فقدته في مصاعب الحياة.", "By the End of the Camp": "في نهاية المعسكر", "You'll learn what a real shift truly means: in your thinking, your awareness, your emotions, and your relationship with yourself and with everyone around you.": "ستتعلّم ما يعنيه التحوّل الحقيقي: في تفكيرك، ووعيك، ومشاعرك، وعلاقتك بنفسك وبكل من حولك.", "An extended, carefully designed camp that blends deep learning spaces with open spaces for fun. A warm, uplifting atmosphere with supportive company, motivating energy from the first moment to the last, playfulness, spontaneity, and reflective sessions for inner clarity.": "معسكر ممتد مصمّم بعناية يمزج بين مساحات التعلّم العميق ومساحات مفتوحة للمتعة. جو دافئ ومُلهم برفقة داعمة، وطاقة محفّزة من اللحظة الأولى إلى الأخيرة، ومرح وعفوية، وجلسات تأمّل للصفاء الداخلي.", "Ahmed Latif leads the journey, with a full team of qualified people by your side every step of the way.": "يقود أحمد لطيف الرحلة، مع فريق كامل من المؤهّلين إلى جانبك في كل خطوة.", "The First Edition": "النسخة الأولى", "Energy is the source of life that fuels the drive inside us. The point of this camp is understanding how to charge your energy, and recognizing who — or what — has been quietly draining it.": "الطاقة هي منبع الحياة الذي يغذّي الدافع داخلنا. والهدف من هذا المعسكر هو فهم كيف تشحن طاقتك، وإدراك مَن — أو ما — كان يستنزفها في صمت.", "Pulled out of the noise, speed, and pressure of daily life": "بعيدًا عن ضجيج الحياة اليومية وسرعتها وضغوطها", "Energy keys, leaks, blockers — and how to recharge": "مفاتيح الطاقة ومنافذ تسريبها ومعوّقاتها — وكيف تشحنها", "Thinking, awareness, emotions, and your relationship with yourself": "التفكير والوعي والمشاعر وعلاقتك بنفسك", "Reflective sessions, inner clarity, and the version of you that you haven't reached yet": "جلسات تأمّل وصفاء داخلي والنسخة منك التي لم تصل إليها بعد", "Camp Atmosphere & Guidelines": "جو المعسكر وتعليماته", "Come ready to empty your heart and mind, so there's real mental and practical space for what's coming. Be ready for shocks that push you to rise above and create. You'll be asked to follow camp instructions without debate.": "تعال مستعدًا لتفريغ قلبك وعقلك، ليكون هناك مساحة ذهنية وعملية حقيقية لما هو قادم. وكن مستعدًا لصدمات تدفعك للارتفاع والإبداع. وسيُطلب منك اتباع تعليمات المعسكر دون جدال.", "Phones are collected at certain times and returned to you later. Companions are allowed to join the trip (though they won't attend camp sessions, under specific guidelines).": "تُجمع الهواتف في أوقات معينة وتُعاد إليك لاحقًا. ويُسمح للمرافقين بالانضمام إلى الرحلة (دون حضور جلسات المعسكر، ووفق تعليمات محدّدة).", "Real transformation happens when the world around you goes quiet, and you finally look inward — and ask the questions you've always been putting off. Ask about the next Shift Camp dates, fees, and current offers.": "التحوّل الحقيقي يحدث عندما يهدأ العالم حولك، وتنظر أخيرًا إلى داخلك — وتسأل الأسئلة التي كنت تؤجّلها دائمًا. اسأل عن أقرب مواعيد معسكر Shift والأسعار والعروض الحالية.", "Stuck. Restless. Running on Empty.": "واقف. قلق. بلا طاقة.", "Fuel / Charge the Shift. Wake the Fire.": "اشحن التحوّل. أيقظ النار.", "You'll Achieve:": "ستحقّق:", "Not a Relaxing Getaway. A Complete Strategy.": "ليس رحلة استجمام. بل استراتيجية كاملة.", "Dynamo Camp. Wake the Fire.": "معسكر Dynamo. أيقظ النار.", "From \"I'm Just Living\" to \"I Actually Want to Live\"": "من «أنا فقط أعيش» إلى «أنا أريد أن أعيش فعلًا»", "Come Ready. Follow the Journey.": "تعال مستعدًا. واتبع الرحلة.", "Go Looking for the Shift": "ابحث عن التحوّل", "Waiting for the Moment": "انتظار اللحظة", "Stuck in Place": "واقف في المكان", "Energy Drained": "طاقة مستنزفة", "Disruptive Patterns": "الأنماط المشوّشة", "Keys to Energy": "مفاتيح الطاقة", "The Internal Enemy": "العدو الداخلي", "Energy Leaks": "تسريب الطاقة", "Energy Blockers": "معوّقات الطاقة", "Real Self and False Self": "الذات الحقيقية والذات الزائفة", "Major Milestones": "الإنجازات الكبرى", "Positive Detachment": "الانفصال الإيجابي", "A New Success Story": "قصة نجاح جديدة", "What a Real Shift Means": "ما يعنيه التحوّل الحقيقي", "Learning and Open Space": "تعلّم ومساحة مفتوحة", "Led by Ahmed Latif": "بقيادة أحمد لطيف", "Leave Routine": "اترك الروتين", "Charge": "اشحن", "Shift": "تحوّل", "Look Inward": "انظر للداخل", "Extended Live Camp": "معسكر مباشر ممتد", "Phones and Companions": "الهواتف والمرافقون", "Dynamo Camp": "معسكر Dynamo", "120 Hours": "120 ساعة", "First Edition: Dynamo": "النسخة الأولى: Dynamo", "Extended Camp": "معسكر ممتد", "First Edition": "النسخة الأولى", "With a Full Team": "مع فريق كامل", "Breaking free from that recurring state of numbness, laziness, boredom, and being lost": "التحرّر من حالة الفتور والخمول والملل والتيه المتكرّرة", "Eliminating the negative behaviors and patterns that were holding you back": "التخلّص من السلوكيات والأنماط السلبية التي كانت تعيقك", "Building real connections between your goals and the inner drive that moves you": "بناء روابط حقيقية بين أهدافك والدافع الداخلي الذي يحرّكك", "Reconnecting with the strength you once had, and building a brand-new kind of strength you've never had before": "إعادة الاتصال بالقوة التي كانت لديك يومًا، وبناء نوع جديد تمامًا من القوة لم تعرفه قبل", "Making peace with the image you've carried of yourself your whole life": "مصالحة الصورة التي حملتها عن نفسك طوال حياتك", "Discovering your own unique keys to productivity — which might look nothing like everyone else's": "اكتشاف مفاتيحك الخاصة للإنتاجية — التي قد لا تشبه مفاتيح أي شخص آخر", "Charging your physical, mental, emotional, and spiritual energy, and learning how to maintain and renew it": "شحن طاقتك الجسدية والذهنية والعاطفية والروحية، وتعلّم كيف تحافظ عليها وتجدّدها", "Disconnecting from life's burdens and giving yourself space to discover the version of you that you haven't reached yet": "الانفصال عن أثقال الحياة ومنح نفسك مساحة لاكتشاف النسخة منك التي لم تصل إليها بعد", "Live Camp Training": "تدريب في معسكر مباشر", "First Edition of Shift Camp": "النسخة الأولى من معسكر Shift", "Shift Camp | Ahmed Latif Academy": "معسكر Shift | Ahmed Latif Academy", "Language": "اللغة", "English": "English", "Dynamo": "Dynamo", "Camp Experience": "تجربة المعسكر", "Inside the Shift Camp Experience": "من داخل تجربة Shift Camp", "Explore highlights from previous Shift Camp groups.": "استعرض لمحات من مجموعات Shift Camp السابقة.", "Shift Camp photo gallery": "معرض صور معسكر Shift", "See More": "اعرف المزيد", "Explore Programs": "استكشف البرامج", "Close menu": "أغلق القائمة", "Toggle menu": "إظهار/إخفاء القائمة", "© Ahmed Latif Academy. All rights reserved.": "© Ahmed Latif Academy. جميع الحقوق محفوظة.", "You're just one step away from joining ALA! Contact us today, and one of our team members will be happy to assist you with the next available course date, course fees, current offers, answer all your questions, and help you complete your registration with ease.": "أنت على بُعد خطوة واحدة من الانضمام إلى ALA! تواصل معنا اليوم، وسيسعد أحد أعضاء فريقنا بمساعدتك بموعد الدورة المتاح التالي، والرسوم، والعروض الحالية، والإجابة عن كل أسئلتك، وإتمام تسجيلك بسهولة.", "Start Your Journey Now": "ابدأ رحلتك الآن"};
+window.ALA_I18N_DICT = {"Transformative learning in leadership, coaching, communication, psychology, and personal development.": "تعلّم يُحدث تحوّلًا في القيادة والكوتشينج والتواصل وعلم النفس والتطوير الشخصي.", "Learn": "تعلّم", "Quick Links": "روابط سريعة", "Programs": "البرامج", "Contact": "تواصل معنا", "Home": "الرئيسية", "About": "نبذة", "Events": "الفعاليات", "News": "الأخبار", "Find Your Program": "اعثر على برنامجك", "Ask About This Program": "ابدأ رحلتك الآن", "Ask on WhatsApp": "اسأل عبر واتساب", "Live Courses": "البرامج المباشرة", "Recorded Courses": "البرامج المسجّلة", "Camps": "المعسكرات", "Workshops": "ورش العمل", "Main navigation": "التنقل الرئيسي", "Open menu": "افتح القائمة", "Mobile navigation": "قائمة التنقل للجوال", "Breadcrumb": "مسار التنقل", "Program facts": "معلومات البرنامج", "Program quick facts": "معلومات سريعة عن البرنامج", "Website": "الموقع الإلكتروني", "Contact Ahmed Latif Academy on WhatsApp": "تواصل مع Ahmed Latif Academy عبر واتساب", "Close gallery": "إغلاق المعرض", "Previous image": "الصورة السابقة", "Next image": "الصورة التالية", "Explore Ahmed Latif Academy": "استكشف Ahmed Latif Academy", "View larger: ": "عرض بحجم أكبر: ", "Previous photo": "الصورة السابقة", "Next photo": "الصورة التالية", "Scroll thumbnails left": "تحريك المصغّرات إلى اليسار", "Gallery thumbnails": "مصغّرات المعرض", "Scroll thumbnails right": "تحريك المصغّرات إلى اليمين", "Show photo ": "عرض الصورة ", "Use the arrows to browse all photos. Click the image to view it larger.": "استخدم الأسهم لتصفّح جميع الصور. اضغط على الصورة لعرضها بحجم أكبر.", "Shift Camp": "معسكر Shift", "PROGRAM": "برنامج", "Program": "برنامج", "Training": "تدريب", "Live": "مباشر", "Understand": "افهم", "Rebuild": "أعد البناء", "Delivery": "التقديم", "Camp": "معسكر", "Live Camp": "معسكر مباشر", "Who Is This Camp For?": "لمن هذا المعسكر؟", "Why This Camp?": "لماذا هذا المعسكر؟", "How the Camp Works": "كيف يسير المعسكر", "Leave": "انطلق", "Face": "واجه", "Participants together during an Ahmed Latif Academy camp": "مشاركون معًا خلال أحد معسكرات Ahmed Latif Academy", "Journey": "المسيرة", "There's a moment in every life we never forget... a moment that changed us at our core, a real turning point, a fresh beginning... or a brave step that opened up possibilities we never imagined were even there. But here's the real question: do we sit and wait for that moment to happen by chance... or do we go looking for it? Shift Camp isn't a relaxing getaway. It's a complete strategy built to pull you out of your routine — away from the noise, speed, and pressure of daily life — away from the voice inside you that keeps whispering \"I'm just living\" toward \"I actually want to live.\"": "هناك لحظة في كل حياة لا ننساها أبدًا... لحظة غيّرتنا من الداخل، أو نقطة تحوّل حقيقية، أو بداية جديدة... أو خطوة جريئة فتحت أمامنا احتمالات لم نتخيّل يومًا أنها موجودة. لكن السؤال الحقيقي: هل نجلس وننتظر أن تأتي هذه اللحظة بالمصادفة... أم نذهب للبحث عنها؟ معسكر Shift ليس رحلة استجمام، بل استراتيجية كاملة مبنية لتخرجك من روتينك — بعيدًا عن ضجيج الحياة اليومية وسرعتها وضغوطها — بعيدًا عن الصوت داخلك الذي يهمس «أنا فقط أعيش» نحو «أنا أريد أن أعيش فعلًا».", "Do we sit and wait for that turning point to happen by chance... or do we go looking for it?": "هل نجلس وننتظر أن تأتي نقطة التحوّل بالمصادفة... أم نذهب للبحث عنها؟", "If you feel like something's been broken in you for a while... stuck, not moving... bored and restless... lost, like you've lost your direction... nothing tastes the way it used to... this camp is exactly for you.": "إذا كنت تشعر أن شيئًا ما مكسور فيك منذ فترة... واقفًا لا تتحرّك... مللًا وقلقًا... تائهًا كأنك فقدت اتجاهك... ولا شيء له طعم كما كان... فهذا المعسكر لك تمامًا.", "When energy runs low, we stall halfway through — ambitions close enough to touch, yet somehow out of reach. This camp is about charging that energy, and seeing what has been quietly draining it.": "عندما تنخفض الطاقة، نتوقف في منتصف الطريق — وطموحاتنا قريبة بما يكفي لنلمسها، لكنها بعيدة عن المتناول. وهذا المعسكر عن شحن هذه الطاقة، ورؤية ما كان يستنزفها في صمت.", "What You'll Work On": "ما ستعمل عليه", "Eliminating the disruptive behaviors and repetitive negative patterns holding you back.": "التخلّص من السلوكيات المشوّشة والأنماط السلبية المتكرّرة التي تعيقك.", "Understanding the keys to energy and its different types, and how to actually recharge instead of running on empty.": "فهم مفاتيح الطاقة وأنواعها المختلفة، وكيف تشحنها فعلًا بدلًا من العمل على الفراغ.", "Confronting the biggest internal enemy standing between you and your productivity and achievements.": "مواجهة أكبر عدو داخلي يقف بينك وبين إنتاجيتك وإنجازاتك.", "Identifying the energy leaks that drain you without you even noticing.": "تحديد منافذ تسريب الطاقة التي تستنزفك دون أن تلاحظ.", "Handling energy blockers like boredom, frustration, and disorientation.": "التعامل مع معوّقات الطاقة كالملل والإحباط والتشتت.", "Distinguishing your real self from your false self, and understanding how each relates to the energy that drives real action.": "التمييز بين ذاتك الحقيقية وذاتك الزائفة، وفهم علاقة كل منهما بالطاقة التي تدفع للعمل الحقيقي.", "The dynamics of achieving major milestones, and how to genuinely celebrate them.": "ديناميكيات تحقيق الإنجازات الكبرى، وكيف تحتفل بها بصدق.", "Achieving real, positive detachment, and learning practical ways to handle pressure.": "تحقيق انفصال إيجابي حقيقي، وتعلّم طرق عملية للتعامل مع الضغوط.", "Rebuilding the ability to write a new success story, and reclaiming a passion lost in life's difficulties.": "إعادة بناء القدرة على كتابة قصة نجاح جديدة، واستعادة شغف فقدته في مصاعب الحياة.", "By the End of the Camp": "في نهاية المعسكر", "You'll learn what a real shift truly means: in your thinking, your awareness, your emotions, and your relationship with yourself and with everyone around you.": "ستتعلّم ما يعنيه التحوّل الحقيقي: في تفكيرك، ووعيك، ومشاعرك، وعلاقتك بنفسك وبكل من حولك.", "An extended, carefully designed camp that blends deep learning spaces with open spaces for fun. A warm, uplifting atmosphere with supportive company, motivating energy from the first moment to the last, playfulness, spontaneity, and reflective sessions for inner clarity.": "معسكر ممتد مصمّم بعناية يمزج بين مساحات التعلّم العميق ومساحات مفتوحة للمتعة. جو دافئ ومُلهم برفقة داعمة، وطاقة محفّزة من اللحظة الأولى إلى الأخيرة، ومرح وعفوية، وجلسات تأمّل للصفاء الداخلي.", "Ahmed Latif leads the journey, with a full team of qualified people by your side every step of the way.": "يقود أحمد لطيف الرحلة، مع فريق كامل من المؤهّلين إلى جانبك في كل خطوة.", "The First Edition": "النسخة الأولى", "Energy is the source of life that fuels the drive inside us. The point of this camp is understanding how to charge your energy, and recognizing who — or what — has been quietly draining it.": "الطاقة هي منبع الحياة الذي يغذّي الدافع داخلنا. والهدف من هذا المعسكر هو فهم كيف تشحن طاقتك، وإدراك مَن — أو ما — كان يستنزفها في صمت.", "Pulled out of the noise, speed, and pressure of daily life": "بعيدًا عن ضجيج الحياة اليومية وسرعتها وضغوطها", "Energy keys, leaks, blockers — and how to recharge": "مفاتيح الطاقة ومنافذ تسريبها ومعوّقاتها — وكيف تشحنها", "Thinking, awareness, emotions, and your relationship with yourself": "التفكير والوعي والمشاعر وعلاقتك بنفسك", "Reflective sessions, inner clarity, and the version of you that you haven't reached yet": "جلسات تأمّل وصفاء داخلي والنسخة منك التي لم تصل إليها بعد", "Camp Atmosphere & Guidelines": "جو المعسكر وتعليماته", "Come ready to empty your heart and mind, so there's real mental and practical space for what's coming. Be ready for shocks that push you to rise above and create. You'll be asked to follow camp instructions without debate.": "تعال مستعدًا لتفريغ قلبك وعقلك، ليكون هناك مساحة ذهنية وعملية حقيقية لما هو قادم. وكن مستعدًا لصدمات تدفعك للارتفاع والإبداع. وسيُطلب منك اتباع تعليمات المعسكر دون جدال.", "Phones are collected at certain times and returned to you later. Companions are allowed to join the trip (though they won't attend camp sessions, under specific guidelines).": "تُجمع الهواتف في أوقات معينة وتُعاد إليك لاحقًا. ويُسمح للمرافقين بالانضمام إلى الرحلة (دون حضور جلسات المعسكر، ووفق تعليمات محدّدة).", "Real transformation happens when the world around you goes quiet, and you finally look inward — and ask the questions you've always been putting off. Ask about the next Shift Camp dates, fees, and current offers.": "التحوّل الحقيقي يحدث عندما يهدأ العالم حولك، وتنظر أخيرًا إلى داخلك — وتسأل الأسئلة التي كنت تؤجّلها دائمًا. اسأل عن أقرب مواعيد معسكر Shift والأسعار والعروض الحالية.", "Stuck. Restless. Running on Empty.": "واقف. قلق. بلا طاقة.", "Fuel / Charge the Shift. Wake the Fire.": "اشحن التحوّل. أيقظ النار.", "You'll Achieve:": "ستحقّق:", "Not a Relaxing Getaway. A Complete Strategy.": "ليس رحلة استجمام. بل استراتيجية كاملة.", "Dynamo Camp. Wake the Fire.": "معسكر Dynamo. أيقظ النار.", "From \"I'm Just Living\" to \"I Actually Want to Live\"": "من «أنا فقط أعيش» إلى «أنا أريد أن أعيش فعلًا»", "Come Ready. Follow the Journey.": "تعال مستعدًا. واتبع الرحلة.", "Go Looking for the Shift": "ابحث عن التحوّل", "Waiting for the Moment": "انتظار اللحظة", "Stuck in Place": "واقف في المكان", "Energy Drained": "طاقة مستنزفة", "Disruptive Patterns": "الأنماط المشوّشة", "Keys to Energy": "مفاتيح الطاقة", "The Internal Enemy": "العدو الداخلي", "Energy Leaks": "تسريب الطاقة", "Energy Blockers": "معوّقات الطاقة", "Real Self and False Self": "الذات الحقيقية والذات الزائفة", "Major Milestones": "الإنجازات الكبرى", "Positive Detachment": "الانفصال الإيجابي", "A New Success Story": "قصة نجاح جديدة", "What a Real Shift Means": "ما يعنيه التحوّل الحقيقي", "Learning and Open Space": "تعلّم ومساحة مفتوحة", "Led by Ahmed Latif": "بقيادة أحمد لطيف", "Leave Routine": "اترك الروتين", "Charge": "اشحن", "Shift": "تحوّل", "Look Inward": "انظر للداخل", "Extended Live Camp": "معسكر مباشر ممتد", "Phones and Companions": "الهواتف والمرافقون", "Dynamo Camp": "معسكر Dynamo", "120 Hours": "120 ساعة", "First Edition: Dynamo": "النسخة الأولى: Dynamo", "Extended Camp": "معسكر ممتد", "First Edition": "النسخة الأولى", "With a Full Team": "مع فريق كامل", "Breaking free from that recurring state of numbness, laziness, boredom, and being lost": "التحرّر من حالة الفتور والخمول والملل والتيه المتكرّرة", "Eliminating the negative behaviors and patterns that were holding you back": "التخلّص من السلوكيات والأنماط السلبية التي كانت تعيقك", "Building real connections between your goals and the inner drive that moves you": "بناء روابط حقيقية بين أهدافك والدافع الداخلي الذي يحرّكك", "Reconnecting with the strength you once had, and building a brand-new kind of strength you've never had before": "إعادة الاتصال بالقوة التي كانت لديك يومًا، وبناء نوع جديد تمامًا من القوة لم تعرفه قبل", "Making peace with the image you've carried of yourself your whole life": "مصالحة الصورة التي حملتها عن نفسك طوال حياتك", "Discovering your own unique keys to productivity — which might look nothing like everyone else's": "اكتشاف مفاتيحك الخاصة للإنتاجية — التي قد لا تشبه مفاتيح أي شخص آخر", "Charging your physical, mental, emotional, and spiritual energy, and learning how to maintain and renew it": "شحن طاقتك الجسدية والذهنية والعاطفية والروحية، وتعلّم كيف تحافظ عليها وتجدّدها", "Disconnecting from life's burdens and giving yourself space to discover the version of you that you haven't reached yet": "الانفصال عن أثقال الحياة ومنح نفسك مساحة لاكتشاف النسخة منك التي لم تصل إليها بعد", "Live Camp Training": "تدريب في معسكر مباشر", "First Edition of Shift Camp": "النسخة الأولى من معسكر Shift", "Shift Camp | Ahmed Latif Academy": "معسكر Shift | Ahmed Latif Academy", "Language": "اللغة", "English": "English", "Dynamo": "Dynamo", "Camp Experience": "تجربة المعسكر", "Inside the Shift Camp Experience": "من داخل تجربة Shift Camp", "Explore highlights from previous Shift Camp groups.": "استعرض لمحات من مجموعات Shift Camp السابقة.", "Shift Camp photo gallery": "معرض صور معسكر Shift", "See More": "اعرف المزيد", "Explore Programs": "استكشف البرامج", "Close menu": "أغلق القائمة", "Toggle menu": "إظهار/إخفاء القائمة", "© Ahmed Latif Academy. All rights reserved.": "© Ahmed Latif Academy. جميع الحقوق محفوظة.", "You're just one step away from joining ALA! Contact us today, and one of our team members will be happy to assist you with the next available course date, course fees, current offers, answer all your questions, and help you complete your registration with ease.": "أنت على بُعد خطوة واحدة من الانضمام إلى ALA! تواصل معنا اليوم، وسيسعد أحد أعضاء فريقنا بمساعدتك بموعد الدورة المتاح التالي، والرسوم، والعروض الحالية، والإجابة عن كل أسئلتك، وإتمام تسجيلك بسهولة.", "Start Your Journey Now": "ابدأ رحلتك الآن", "REAL STORIES": "تجارب حقيقية", "Hear It From Those Who Lived It.": "اسمع التجربة من الناس اللي عاشوها.", "Real experiences, honest reflections, and moments from people who have been part of the journey.": "تجارب حقيقية وانطباعات صادقة من أشخاص كانوا جزءًا من الرحلة.", "Real experiences. Real voices. One shared journey.": "تجارب حقيقية. أصوات حقيقية. رحلة واحدة جمعتهم.", "Play participant feedback video": "تشغيل فيديو تجارب المشاركين", "ACC program participant feedback": "تجارب مشاركين في برنامج ACC", "POC Camp participant feedback": "تجارب مشاركين في معسكر POC", "Silent Camp participant feedback": "تجارب مشاركين في معسكر Silent", "Shift Camp participant feedback": "تجارب مشاركين في معسكر Shift", "Public Speaking program participant feedback": "تجارب مشاركين في برنامج التحدث أمام الجمهور"};
 </script>
 <script>
 (function (window, document) {

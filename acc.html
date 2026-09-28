@@ -1200,6 +1200,154 @@
       font-size: 12px;
     }
 
+
+    /* Video Feedback */
+    .video-feedback {
+      background: var(--warm-white);
+      padding: 88px 0;
+      scroll-margin-top: 96px;
+    }
+
+    .video-feedback-inner {
+      text-align: center;
+    }
+
+    .video-feedback-header {
+      max-width: 720px;
+      margin: 0 auto 36px;
+    }
+
+    .video-feedback-header .eyebrow {
+      margin-bottom: 14px;
+    }
+
+    .video-feedback-title {
+      margin-bottom: 16px;
+    }
+
+    .video-feedback-description {
+      font-size: 15px;
+      color: var(--muted-text);
+      line-height: 1.75;
+      margin: 0 auto;
+      max-width: 38em;
+      text-align: center;
+    }
+
+    .video-feedback-player {
+      width: min(100%, 960px);
+      margin-inline: auto;
+    }
+
+    .video-feedback-stage {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #171717;
+      border: 1px solid rgba(184, 146, 47, 0.35);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .video-feedback-poster {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-feedback-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(26, 26, 26, 0.22);
+      transition: background var(--transition);
+    }
+
+    .video-feedback-player:hover .video-feedback-overlay {
+      background: rgba(26, 26, 26, 0.32);
+    }
+
+    .video-feedback-play {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      padding-inline-start: 4px;
+      transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+    }
+
+    .video-feedback-play:hover {
+      background: var(--gold-hover);
+      transform: scale(1.06) translateY(-1px);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+    }
+
+    html[dir="rtl"] .video-feedback-play i.fa-play,
+    html[dir="rtl"] .video-feedback-play:hover i.fa-play {
+      transform: none;
+    }
+
+    .video-feedback-video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: 0;
+      background: #000;
+      object-fit: contain;
+    }
+
+    .video-feedback-player.is-playing .video-feedback-video {
+      position: absolute;
+      inset: 0;
+    }
+
+    .video-feedback-player.is-playing .video-feedback-overlay,
+    .video-feedback-player.is-playing .video-feedback-poster {
+      display: none;
+    }
+
+    .video-feedback-footer {
+      margin: 22px auto 0;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--muted-text);
+      opacity: 0.88;
+    }
+
+    html[dir="rtl"] .video-feedback-footer {
+      letter-spacing: 0;
+    }
+
+    @media (max-width: 768px) {
+      .video-feedback {
+        padding: 64px 0;
+      }
+
+      .video-feedback-header {
+        margin-bottom: 28px;
+      }
+
+      .video-feedback-play {
+        width: 60px;
+        height: 60px;
+        font-size: 20px;
+      }
+
+      .video-feedback-stage {
+        border-radius: 14px;
+      }
+    }
+
     /* Final CTA */
     .program-cta {
       background: var(--program-warm);
@@ -2121,6 +2269,37 @@ html[dir="rtl"] .breadcrumb-list li:not(:last-child)::after {
       </div>
     </section>
 
+    
+    <section class="video-feedback" id="video-feedback" aria-labelledby="video-feedback-heading">
+      <div class="container video-feedback-inner">
+        <div class="video-feedback-header">
+          <p class="eyebrow video-feedback-eyebrow anim-item">REAL STORIES</p>
+          <h2 class="section-heading video-feedback-title anim-item" id="video-feedback-heading">Hear It From Those Who Lived It.</h2>
+          <p class="video-feedback-description anim-item">Real experiences, honest reflections, and moments from people who have been part of the journey.</p>
+        </div>
+        <div class="video-feedback-player anim-scale" data-video-src="ACC_VIDEO_URL">
+          <!-- TODO: replace ACC_VIDEO_URL and ACC_VIDEO_POSTER with the real program video and poster URLs -->
+          <div class="video-feedback-stage">
+            <img
+              class="video-feedback-poster"
+              src="ACC_VIDEO_POSTER"
+              alt="ACC program participant feedback"
+              width="1600"
+              height="900"
+              loading="lazy"
+              decoding="async"
+            >
+            <div class="video-feedback-overlay">
+              <button type="button" class="video-feedback-play" aria-label="Play participant feedback video">
+                <i class="fa-solid fa-play" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <p class="video-feedback-footer anim-item">Real experiences. Real voices. One shared journey.</p>
+      </div>
+    </section>
+
     <section class="program-cta" id="program-cta">
       <div class="container">
         <div class="program-cta-card anim-item">
@@ -2586,9 +2765,81 @@ html[dir="rtl"] .breadcrumb-list li:not(:last-child)::after {
     })();
   </script>
 
+
+<script>
+(function () {
+  var player = document.querySelector("#video-feedback .video-feedback-player");
+  if (!player) return;
+  var playBtn = player.querySelector(".video-feedback-play");
+  var stage = player.querySelector(".video-feedback-stage");
+  if (!playBtn || !stage) return;
+
+  function youtubeId(url) {
+    var m = String(url).match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{6,})/);
+    return m ? m[1] : null;
+  }
+
+  function vimeoId(url) {
+    var m = String(url).match(/vimeo\.com\/(?:video\/)?(\d+)/);
+    return m ? m[1] : null;
+  }
+
+  function activate() {
+    if (player.classList.contains("is-playing")) return;
+    var src = player.getAttribute("data-video-src") || "";
+    var label = playBtn.getAttribute("aria-label") || "Video";
+    var yt = youtubeId(src);
+    var vm = vimeoId(src);
+    player.classList.add("is-playing");
+
+    if (yt) {
+      var iframe = document.createElement("iframe");
+      iframe.className = "video-feedback-video";
+      iframe.src = "https://www.youtube.com/embed/" + encodeURIComponent(yt) + "?autoplay=1&rel=0";
+      iframe.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture");
+      iframe.setAttribute("allowfullscreen", "");
+      iframe.setAttribute("title", label);
+      iframe.setAttribute("loading", "lazy");
+      stage.appendChild(iframe);
+      return;
+    }
+
+    if (vm) {
+      var vimeo = document.createElement("iframe");
+      vimeo.className = "video-feedback-video";
+      vimeo.src = "https://player.vimeo.com/video/" + encodeURIComponent(vm) + "?autoplay=1";
+      vimeo.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
+      vimeo.setAttribute("allowfullscreen", "");
+      vimeo.setAttribute("title", label);
+      vimeo.setAttribute("loading", "lazy");
+      stage.appendChild(vimeo);
+      return;
+    }
+
+    var video = document.createElement("video");
+    video.className = "video-feedback-video";
+    video.setAttribute("controls", "");
+    video.setAttribute("playsinline", "");
+    video.playsInline = true;
+    video.preload = "metadata";
+    var source = document.createElement("source");
+    source.src = src;
+    source.type = "video/mp4";
+    video.appendChild(source);
+    stage.appendChild(video);
+    var playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(function () {});
+    }
+  }
+
+  playBtn.addEventListener("click", activate);
+})();
+</script>
+
 <!-- ALA_I18N_START -->
 <script>
-window.ALA_I18N_DICT = {"Live Program": "برنامج مباشر", "Whether you're ready to begin your professional journey as a Life Coach, or you're a leader or professional looking to transform the way you work and connect with others, this program is designed to give you real coaching tools you can apply in your career, relationships, and everyday life.": "سواء كنت مستعدًا لبدء رحلتك المهنية ككوتش حياة، أو كنت قائدًا أو محترفًا يسعى لتغيير طريقة عمله وتواصله مع الآخرين، فقد صُمّم هذا البرنامج ليمنحك أدوات كوتشينج حقيقية يمكنك تطبيقها في عملك وعلاقاتك وحياتك اليومية.", "Who Is This Program For?": "لمن هذا البرنامج؟", "For people ready to begin a professional coaching journey and develop practical, real-world coaching skills.": "لمن هم مستعدون لبدء رحلة مهنية في الكوتشينج وتطوير مهارات عملية قابلة للتطبيق في الواقع.", "For professionals who want to use coaching to improve leadership, communication, relationships, and influence.": "للمحترفين الذين يريدون استخدام الكوتشينج لتطوير القيادة والتواصل والعلاقات والتأثير.", "What You'll Learn": "ما ستتعلّمه", "Learn the fundamentals of Life Coaching aligned with ICF global standards.": "تتعلّم أساسيات الكوتشينج الحياتي وفق المعايير العالمية لـ ICF.", "Develop deep listening skills and a powerful coaching presence.": "تنمّي مهارات الإنصات العميق وحضورًا قويًا في جلسات الكوتشينج.", "Learn the art of asking questions that unlock new perspectives.": "تتعلّم فنّ طرح الأسئلة التي تفتح آفاقًا جديدة.", "Learn how to structure and run coaching sessions with confidence.": "تتعلّم كيف تبني جلسات الكوتشينج وتديرها بثقة.", "Understand human behavior and different thinking patterns.": "تفهم السلوك الإنساني وأنماط التفكير المختلفة.", "Learn how to help clients make decisions and move toward their goals.": "تتعلّم كيف تساعد عملاءك على اتخاذ قراراتهم والتقدّم نحو أهدافهم.", "Practice real coaching sessions — not theory alone.": "تتدرّب على جلسات كوتشينج حقيقية — لا نظريات فقط.", "By the End of the Program": "في نهاية البرنامج", "Why This Program?": "لماذا هذا البرنامج؟", "Training aligned with internationally recognized coaching standards.": "تدريب متوافق مع معايير الكوتشينج المعترف بها عالميًا.", "Hands-on coaching experience instead of theory-only learning.": "خبرة تطبيقية في الكوتشينج بدلًا من التعلّم النظري فقط.", "The learning relationship continues after the program to help you apply what you've learned and continue growing.": "تستمر علاقة التعلّم بعد انتهاء البرنامج لمساعدتك على تطبيق ما تعلّمته ومواصلة نموّك.", "Proven Track Record": "سجل حافل بالنتائج", "This isn't a first-time program. More than 200 coaches have already graduated across 11 completed batches.": "هذا ليس برنامجًا يُقدَّم للمرة الأولى؛ فقد تخرّج بالفعل أكثر من 200 كوتش على مدى 11 دفعة مكتملة.", "How the Program Works": "كيف يسير البرنامج", "60 hours of intensive training": "60 ساعة من التدريب المكثّف", "Hands-on coaching sessions": "جلسات كوتشينج تطبيقية", "10 hours of mentoring included": "10 ساعات من الإرشاد المهني (Mentoring) مضمّنة", "One full year of follow-up support": "متابعة ودعم لمدة عام كامل", "Offline batches are available.": "تتوفر دفعات حضورية.", "Live interactive online batches are available.": "تتوفر دفعات تفاعلية مباشرة عبر الإنترنت.", "Program Experience": "تجربة البرنامج", "Explore highlights from training sessions, practical coaching activities, mentoring, and the learning community.": "استعرض لمحات من الجلسات التدريبية وأنشطة الكوتشينج التطبيقية وجلسات الإرشاد ومجتمع التعلّم.", "Take the next step toward developing practical coaching skills and building your professional coaching path.": "اتخذ خطوتك التالية نحو تطوير مهارات كوتشينج عملية وبناء مسارك المهني في الكوتشينج.", "Transformative learning in leadership, coaching, communication, psychology, and personal development.": "تعلّم يُحدث تحوّلًا في القيادة والكوتشينج والتواصل وعلم النفس والتطوير الشخصي.", "Is This Program Right for You?": "هل هذا البرنامج مناسب لك؟", "Practical Skills. Real Application.": "مهارات عملية. تطبيق حقيقي.", "You'll Be Able To:": "ستكون قادرًا على:", "More Than a Course. A Real Coaching Journey.": "أكثر من دورة. رحلة كوتشينج حقيقية.", "Join a Coaching Community That's Already Growing": "انضم إلى مجتمع كوتشينج ينمو بالفعل", "A Journey Designed for Practice and Growth": "رحلة مصمّمة للتطبيق والنمو", "Choose the Format That Works for You": "اختر الصيغة التي تناسبك", "Inside the ACC Experience": "من داخل تجربة ACC", "Ready to Start Your Coaching Journey?": "هل أنت مستعد لبدء رحلتك في الكوتشينج؟", "Aspiring Life Coaches": "الطامحون لأن يكونوا كوتشز حياة", "Leaders & Professionals": "القادة والمحترفون", "Life Coaching Fundamentals": "أساسيات الكوتشينج الحياتي", "Deep Listening & Presence": "الإنصات العميق والحضور", "Powerful Questions": "الأسئلة القوية", "Professional Coaching Sessions": "جلسات كوتشينج احترافية", "Human Behavior & Thinking": "السلوك الإنساني والتفكير", "Helping Clients Succeed": "مساعدة العملاء على النجاح", "Hands-On Coaching": "كوتشينج تطبيقي", "ICF-Aligned Learning": "تعلّم متوافق مع ICF", "Real Practice": "تطبيق حقيقي", "One Full Year of Support": "عام كامل من الدعم", "Learn": "تعلّم", "Practice": "تدرّب", "Mentoring": "إرشاد", "Grow": "انمُ", "In-Person": "حضوري", "Interactive Online": "أونلاين تفاعلي", "Quick Links": "روابط سريعة", "Programs": "البرامج", "Contact": "تواصل معنا", "Home": "الرئيسية", "About": "نبذة", "Events": "الفعاليات", "News": "الأخبار", "Find Your Program": "اعثر على برنامجك", "Ask About This Program": "ابدأ رحلتك الآن", "Ask on WhatsApp": "اسأل عبر واتساب", "Live Courses": "البرامج المباشرة", "Recorded Courses": "البرامج المسجّلة", "Camps": "المعسكرات", "Workshops": "ورش العمل", "Life Coaching Program": "برنامج الكوتشينج الحياتي", "ACC Level": "مستوى ACC", "60 Certified Hours": "60 ساعة معتمدة", "1 Year Follow-up": "متابعة لمدة عام", "Intensive Training": "تدريب مكثّف", "Mentoring Included": "إرشاد مهني مضمّن", "Follow-up Support": "دعم ومتابعة", "Standards Aligned": "متوافق مع المعايير", "Available Batches": "الدفعات المتاحة", "Run coaching sessions with confidence and professionalism": "أن تدير جلسات الكوتشينج بثقة واحترافية", "Help others uncover their own solutions and reach their goals": "أن تساعد الآخرين على اكتشاف حلولهم الخاصة والوصول إلى أهدافهم", "Strengthen leadership, influence, and communication skills": "أن تعزّز مهارات القيادة والتأثير والتواصل", "Apply coaching tools in both your career and personal life": "أن تطبّق أدوات الكوتشينج في عملك وحياتك الشخصية", "Begin your professional journey as a Life Coach": "أن تبدأ رحلتك المهنية ككوتش حياة", "Prepare for your ICF credential path": "أن تتهيّأ لمسار الاعتماد الدولي من ICF", "Life Coaching Program | ACC Level": "برنامج الكوتشينج الحياتي | مستوى ACC", "60 Hours": "60 ساعة", "10 Hours": "10 ساعات", "1 Year": "عام واحد", "Online + In Person": "أونلاين + حضوري", "Coaches Graduated": "كوتش متخرّج", "Completed Batches": "دفعة مكتملة", "Life Coaching Program | ACC Level | Ahmed Latif Academy": "برنامج الكوتشينج الحياتي | مستوى ACC | Ahmed Latif Academy", "Ahmed Latif mentoring a participant during an ACC coaching session": "أحمد لطيف يقدّم الإرشاد لأحد المشاركين خلال جلسة كوتشينج في برنامج ACC", "Main navigation": "التنقل الرئيسي", "Open menu": "افتح القائمة", "Mobile navigation": "قائمة التنقل للجوال", "Breadcrumb": "مسار التنقل", "Program facts": "معلومات البرنامج", "Program quick facts": "معلومات سريعة عن البرنامج", "ACC program photo gallery": "معرض صور برنامج ACC", "Website": "الموقع الإلكتروني", "Contact Ahmed Latif Academy on WhatsApp": "تواصل مع Ahmed Latif Academy عبر واتساب", "Close gallery": "إغلاق المعرض", "Previous image": "الصورة السابقة", "Next image": "الصورة التالية", "Explore Ahmed Latif Academy": "استكشف Ahmed Latif Academy", "View larger: ": "عرض بحجم أكبر: ", "Previous photo": "الصورة السابقة", "Next photo": "الصورة التالية", "Scroll thumbnails left": "تحريك المصغّرات إلى اليسار", "Gallery thumbnails": "مصغّرات المعرض", "Scroll thumbnails right": "تحريك المصغّرات إلى اليمين", "Show photo ": "عرض الصورة ", "Use the arrows to browse all photos. Click the image to view it larger.": "استخدم الأسهم لتصفّح جميع الصور. اضغط على الصورة لعرضها بحجم أكبر.", "PROGRAM": "برنامج", "Fundamentals": "الأساسيات", "Program": "برنامج", "Training": "تدريب", "Live": "مباشر", "Understand": "افهم", "Apply": "طبّق", "Interactive": "تفاعلي", "Coaches": "الكوتشز", "Delivery": "التقديم", "Graduate": "التخرّج", "In Person": "حضوري", "Camp": "معسكر", "Deep Listening": "إنصات عميق", "Face": "واجه", "Stand": "اثبت", "Journey": "المسيرة", "Life Coach": "كوتش حياة", "Language": "اللغة", "English": "English", "See More": "اعرف المزيد", "Explore Programs": "استكشف البرامج", "Close menu": "أغلق القائمة", "Toggle menu": "إظهار/إخفاء القائمة", "© Ahmed Latif Academy. All rights reserved.": "© Ahmed Latif Academy. جميع الحقوق محفوظة.", "You're just one step away from joining ALA! Contact us today, and one of our team members will be happy to assist you with the next available course date, course fees, current offers, answer all your questions, and help you complete your registration with ease.": "أنت على بُعد خطوة واحدة من الانضمام إلى ALA! تواصل معنا اليوم، وسيسعد أحد أعضاء فريقنا بمساعدتك بموعد الدورة المتاح التالي، والرسوم، والعروض الحالية، والإجابة عن كل أسئلتك، وإتمام تسجيلك بسهولة.", "Start Your Journey Now": "ابدأ رحلتك الآن"};
+window.ALA_I18N_DICT = {"Live Program": "برنامج مباشر", "Whether you're ready to begin your professional journey as a Life Coach, or you're a leader or professional looking to transform the way you work and connect with others, this program is designed to give you real coaching tools you can apply in your career, relationships, and everyday life.": "سواء كنت مستعدًا لبدء رحلتك المهنية ككوتش حياة، أو كنت قائدًا أو محترفًا يسعى لتغيير طريقة عمله وتواصله مع الآخرين، فقد صُمّم هذا البرنامج ليمنحك أدوات كوتشينج حقيقية يمكنك تطبيقها في عملك وعلاقاتك وحياتك اليومية.", "Who Is This Program For?": "لمن هذا البرنامج؟", "For people ready to begin a professional coaching journey and develop practical, real-world coaching skills.": "لمن هم مستعدون لبدء رحلة مهنية في الكوتشينج وتطوير مهارات عملية قابلة للتطبيق في الواقع.", "For professionals who want to use coaching to improve leadership, communication, relationships, and influence.": "للمحترفين الذين يريدون استخدام الكوتشينج لتطوير القيادة والتواصل والعلاقات والتأثير.", "What You'll Learn": "ما ستتعلّمه", "Learn the fundamentals of Life Coaching aligned with ICF global standards.": "تتعلّم أساسيات الكوتشينج الحياتي وفق المعايير العالمية لـ ICF.", "Develop deep listening skills and a powerful coaching presence.": "تنمّي مهارات الإنصات العميق وحضورًا قويًا في جلسات الكوتشينج.", "Learn the art of asking questions that unlock new perspectives.": "تتعلّم فنّ طرح الأسئلة التي تفتح آفاقًا جديدة.", "Learn how to structure and run coaching sessions with confidence.": "تتعلّم كيف تبني جلسات الكوتشينج وتديرها بثقة.", "Understand human behavior and different thinking patterns.": "تفهم السلوك الإنساني وأنماط التفكير المختلفة.", "Learn how to help clients make decisions and move toward their goals.": "تتعلّم كيف تساعد عملاءك على اتخاذ قراراتهم والتقدّم نحو أهدافهم.", "Practice real coaching sessions — not theory alone.": "تتدرّب على جلسات كوتشينج حقيقية — لا نظريات فقط.", "By the End of the Program": "في نهاية البرنامج", "Why This Program?": "لماذا هذا البرنامج؟", "Training aligned with internationally recognized coaching standards.": "تدريب متوافق مع معايير الكوتشينج المعترف بها عالميًا.", "Hands-on coaching experience instead of theory-only learning.": "خبرة تطبيقية في الكوتشينج بدلًا من التعلّم النظري فقط.", "The learning relationship continues after the program to help you apply what you've learned and continue growing.": "تستمر علاقة التعلّم بعد انتهاء البرنامج لمساعدتك على تطبيق ما تعلّمته ومواصلة نموّك.", "Proven Track Record": "سجل حافل بالنتائج", "This isn't a first-time program. More than 200 coaches have already graduated across 11 completed batches.": "هذا ليس برنامجًا يُقدَّم للمرة الأولى؛ فقد تخرّج بالفعل أكثر من 200 كوتش على مدى 11 دفعة مكتملة.", "How the Program Works": "كيف يسير البرنامج", "60 hours of intensive training": "60 ساعة من التدريب المكثّف", "Hands-on coaching sessions": "جلسات كوتشينج تطبيقية", "10 hours of mentoring included": "10 ساعات من الإرشاد المهني (Mentoring) مضمّنة", "One full year of follow-up support": "متابعة ودعم لمدة عام كامل", "Offline batches are available.": "تتوفر دفعات حضورية.", "Live interactive online batches are available.": "تتوفر دفعات تفاعلية مباشرة عبر الإنترنت.", "Program Experience": "تجربة البرنامج", "Explore highlights from training sessions, practical coaching activities, mentoring, and the learning community.": "استعرض لمحات من الجلسات التدريبية وأنشطة الكوتشينج التطبيقية وجلسات الإرشاد ومجتمع التعلّم.", "Take the next step toward developing practical coaching skills and building your professional coaching path.": "اتخذ خطوتك التالية نحو تطوير مهارات كوتشينج عملية وبناء مسارك المهني في الكوتشينج.", "Transformative learning in leadership, coaching, communication, psychology, and personal development.": "تعلّم يُحدث تحوّلًا في القيادة والكوتشينج والتواصل وعلم النفس والتطوير الشخصي.", "Is This Program Right for You?": "هل هذا البرنامج مناسب لك؟", "Practical Skills. Real Application.": "مهارات عملية. تطبيق حقيقي.", "You'll Be Able To:": "ستكون قادرًا على:", "More Than a Course. A Real Coaching Journey.": "أكثر من دورة. رحلة كوتشينج حقيقية.", "Join a Coaching Community That's Already Growing": "انضم إلى مجتمع كوتشينج ينمو بالفعل", "A Journey Designed for Practice and Growth": "رحلة مصمّمة للتطبيق والنمو", "Choose the Format That Works for You": "اختر الصيغة التي تناسبك", "Inside the ACC Experience": "من داخل تجربة ACC", "Ready to Start Your Coaching Journey?": "هل أنت مستعد لبدء رحلتك في الكوتشينج؟", "Aspiring Life Coaches": "الطامحون لأن يكونوا كوتشز حياة", "Leaders & Professionals": "القادة والمحترفون", "Life Coaching Fundamentals": "أساسيات الكوتشينج الحياتي", "Deep Listening & Presence": "الإنصات العميق والحضور", "Powerful Questions": "الأسئلة القوية", "Professional Coaching Sessions": "جلسات كوتشينج احترافية", "Human Behavior & Thinking": "السلوك الإنساني والتفكير", "Helping Clients Succeed": "مساعدة العملاء على النجاح", "Hands-On Coaching": "كوتشينج تطبيقي", "ICF-Aligned Learning": "تعلّم متوافق مع ICF", "Real Practice": "تطبيق حقيقي", "One Full Year of Support": "عام كامل من الدعم", "Learn": "تعلّم", "Practice": "تدرّب", "Mentoring": "إرشاد", "Grow": "انمُ", "In-Person": "حضوري", "Interactive Online": "أونلاين تفاعلي", "Quick Links": "روابط سريعة", "Programs": "البرامج", "Contact": "تواصل معنا", "Home": "الرئيسية", "About": "نبذة", "Events": "الفعاليات", "News": "الأخبار", "Find Your Program": "اعثر على برنامجك", "Ask About This Program": "ابدأ رحلتك الآن", "Ask on WhatsApp": "اسأل عبر واتساب", "Live Courses": "البرامج المباشرة", "Recorded Courses": "البرامج المسجّلة", "Camps": "المعسكرات", "Workshops": "ورش العمل", "Life Coaching Program": "برنامج الكوتشينج الحياتي", "ACC Level": "مستوى ACC", "60 Certified Hours": "60 ساعة معتمدة", "1 Year Follow-up": "متابعة لمدة عام", "Intensive Training": "تدريب مكثّف", "Mentoring Included": "إرشاد مهني مضمّن", "Follow-up Support": "دعم ومتابعة", "Standards Aligned": "متوافق مع المعايير", "Available Batches": "الدفعات المتاحة", "Run coaching sessions with confidence and professionalism": "أن تدير جلسات الكوتشينج بثقة واحترافية", "Help others uncover their own solutions and reach their goals": "أن تساعد الآخرين على اكتشاف حلولهم الخاصة والوصول إلى أهدافهم", "Strengthen leadership, influence, and communication skills": "أن تعزّز مهارات القيادة والتأثير والتواصل", "Apply coaching tools in both your career and personal life": "أن تطبّق أدوات الكوتشينج في عملك وحياتك الشخصية", "Begin your professional journey as a Life Coach": "أن تبدأ رحلتك المهنية ككوتش حياة", "Prepare for your ICF credential path": "أن تتهيّأ لمسار الاعتماد الدولي من ICF", "Life Coaching Program | ACC Level": "برنامج الكوتشينج الحياتي | مستوى ACC", "60 Hours": "60 ساعة", "10 Hours": "10 ساعات", "1 Year": "عام واحد", "Online + In Person": "أونلاين + حضوري", "Coaches Graduated": "كوتش متخرّج", "Completed Batches": "دفعة مكتملة", "Life Coaching Program | ACC Level | Ahmed Latif Academy": "برنامج الكوتشينج الحياتي | مستوى ACC | Ahmed Latif Academy", "Ahmed Latif mentoring a participant during an ACC coaching session": "أحمد لطيف يقدّم الإرشاد لأحد المشاركين خلال جلسة كوتشينج في برنامج ACC", "Main navigation": "التنقل الرئيسي", "Open menu": "افتح القائمة", "Mobile navigation": "قائمة التنقل للجوال", "Breadcrumb": "مسار التنقل", "Program facts": "معلومات البرنامج", "Program quick facts": "معلومات سريعة عن البرنامج", "ACC program photo gallery": "معرض صور برنامج ACC", "Website": "الموقع الإلكتروني", "Contact Ahmed Latif Academy on WhatsApp": "تواصل مع Ahmed Latif Academy عبر واتساب", "Close gallery": "إغلاق المعرض", "Previous image": "الصورة السابقة", "Next image": "الصورة التالية", "Explore Ahmed Latif Academy": "استكشف Ahmed Latif Academy", "View larger: ": "عرض بحجم أكبر: ", "Previous photo": "الصورة السابقة", "Next photo": "الصورة التالية", "Scroll thumbnails left": "تحريك المصغّرات إلى اليسار", "Gallery thumbnails": "مصغّرات المعرض", "Scroll thumbnails right": "تحريك المصغّرات إلى اليمين", "Show photo ": "عرض الصورة ", "Use the arrows to browse all photos. Click the image to view it larger.": "استخدم الأسهم لتصفّح جميع الصور. اضغط على الصورة لعرضها بحجم أكبر.", "PROGRAM": "برنامج", "Fundamentals": "الأساسيات", "Program": "برنامج", "Training": "تدريب", "Live": "مباشر", "Understand": "افهم", "Apply": "طبّق", "Interactive": "تفاعلي", "Coaches": "الكوتشز", "Delivery": "التقديم", "Graduate": "التخرّج", "In Person": "حضوري", "Camp": "معسكر", "Deep Listening": "إنصات عميق", "Face": "واجه", "Stand": "اثبت", "Journey": "المسيرة", "Life Coach": "كوتش حياة", "Language": "اللغة", "English": "English", "See More": "اعرف المزيد", "Explore Programs": "استكشف البرامج", "Close menu": "أغلق القائمة", "Toggle menu": "إظهار/إخفاء القائمة", "© Ahmed Latif Academy. All rights reserved.": "© Ahmed Latif Academy. جميع الحقوق محفوظة.", "You're just one step away from joining ALA! Contact us today, and one of our team members will be happy to assist you with the next available course date, course fees, current offers, answer all your questions, and help you complete your registration with ease.": "أنت على بُعد خطوة واحدة من الانضمام إلى ALA! تواصل معنا اليوم، وسيسعد أحد أعضاء فريقنا بمساعدتك بموعد الدورة المتاح التالي، والرسوم، والعروض الحالية، والإجابة عن كل أسئلتك، وإتمام تسجيلك بسهولة.", "Start Your Journey Now": "ابدأ رحلتك الآن", "REAL STORIES": "تجارب حقيقية", "Hear It From Those Who Lived It.": "اسمع التجربة من الناس اللي عاشوها.", "Real experiences, honest reflections, and moments from people who have been part of the journey.": "تجارب حقيقية وانطباعات صادقة من أشخاص كانوا جزءًا من الرحلة.", "Real experiences. Real voices. One shared journey.": "تجارب حقيقية. أصوات حقيقية. رحلة واحدة جمعتهم.", "Play participant feedback video": "تشغيل فيديو تجارب المشاركين", "ACC program participant feedback": "تجارب مشاركين في برنامج ACC", "POC Camp participant feedback": "تجارب مشاركين في معسكر POC", "Silent Camp participant feedback": "تجارب مشاركين في معسكر Silent", "Shift Camp participant feedback": "تجارب مشاركين في معسكر Shift", "Public Speaking program participant feedback": "تجارب مشاركين في برنامج التحدث أمام الجمهور"};
 </script>
 <script>
 (function (window, document) {
