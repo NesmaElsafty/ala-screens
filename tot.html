@@ -1990,7 +1990,7 @@ html[dir="rtl"] .breadcrumb-list li:not(:last-child)::after {
           <div class="program-hero-frame">
             <img
               id="programHeroImage"
-              src="images/tot/Copy%20of%20IMG_9171.JPG"
+              src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ab917e0be703c7b30213490.jpg"
               alt="Participants during a live Professional TOT training with Ahmed Latif Academy"
               width="960"
               height="1200"
@@ -2210,19 +2210,12 @@ html[dir="rtl"] .breadcrumb-list li:not(:last-child)::after {
          Replace these URLs when cloning this page for another
          ALA program. Layout stays the same.
          ============================================================ */
-      var galleryFolder = "images/tot/";
-      var galleryFiles = [
-        "Copy of IMG_9171.JPG",
-        "Copy of IMG_9172.JPG",
-        "Copy of IMG_9625.JPG",
-        "Copy of IMG_9627.JPG"
+      var galleryImages = [
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ab917e0be703c7b3021348f.jpg", alt: "TOT program gallery photo 1" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ab917e0be703c7b3021349e.jpg", alt: "TOT program gallery photo 2" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ab917df7ef452865a00009c.jpg", alt: "TOT program gallery photo 3" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ab917df5597aeb9d7ddb968.jpg", alt: "TOT program gallery photo 4" }
       ];
-      var galleryImages = galleryFiles.map(function (file, index) {
-        return {
-          src: galleryFolder + encodeURIComponent(file),
-          alt: "Professional TOT program photo " + (index + 1)
-        };
-      });
 
       var galleryRoot = document.getElementById("galleryRoot");
       var lightbox = document.getElementById("lightbox");

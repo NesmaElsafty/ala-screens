@@ -29,6 +29,14 @@
 
     --ala-shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.06);
     --ala-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+    --ala-transition: 0.25s ease;
+
+    --gold: #b8922f;
+    --gold-hover: #d4af37;
+    --soft-black: #1a1a1a;
+    --white: #fff;
+    --charcoal: #1a1a1a;
+    --transition: 0.25s ease;
   }
 
   
@@ -41,41 +49,85 @@
   }
   
   
-  #ala-page {
+
+  /* Shared shell layout (match acc.html site chrome) */
+
+  #ala-shell {
     position: relative !important;
-  
     left: 50% !important;
-  
     width: 100vw !important;
     max-width: none !important;
-  
     margin-left: -50vw !important;
-  
+    box-sizing: border-box;
+    padding-top: 4.75rem;
+    overflow-x: hidden;
+    overflow-y: visible;
+    background: var(--ala-white);
+    color: var(--charcoal);
+    font-family: "Raleway", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @supports (width: 100dvw) {
+    #ala-shell {
+      width: 100dvw !important;
+      margin-left: -50dvw !important;
+    }
+  }
+
+  #ala-shell *,
+  #ala-shell *::before,
+  #ala-shell *::after {
+    box-sizing: border-box;
+  }
+
+  #ala-shell a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  #ala-shell button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+  #ala-shell img {
+    max-width: 100%;
+    display: block;
+  }
+
+  #ala-shell .logo-text small {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: #555555;
+  }
+
+  #ala-shell .site-header .logo-text small {
+    color: #555555;
+  }
+
+  #ala-page {
     font-family:
       "Cairo",
       "Tahoma",
       Arial,
       sans-serif;
-  
+
     color: var(--ala-charcoal);
-  
+
     background: var(--ala-white);
-  
+
     overflow-x: hidden;
     overflow-y: visible;
-  
+
     box-sizing: border-box;
   }
-  
-  
-  @supports (width: 100dvw) {
-  
-    #ala-page {
-      width: 100dvw !important;
-      margin-left: -50dvw !important;
-    }
-  
-  }
+
   
   
   #ala-page *,
@@ -242,73 +294,53 @@
      ========================================================= */
   
   .ala-btn {
-    min-height: 46px;
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-
-    padding:
-      13px 24px;
-
-    border-radius: 5px;
-
-    text-decoration: none;
-
+    background: transparent;
+    color: inherit;
     font-size: 14px;
     font-weight: 600;
-
+    padding: 13px 24px;
+    border-radius: 5px;
+    border: none;
+    text-decoration: none;
     cursor: pointer;
-
     transition:
-      background .2s ease,
-      border-color .2s ease,
-      color .2s ease,
-      transform .2s ease,
-      box-shadow .2s ease;
+      background var(--ala-transition),
+      transform var(--ala-transition),
+      box-shadow var(--ala-transition),
+      color var(--ala-transition),
+      border-color var(--ala-transition);
   }
 
 
   .ala-btn-primary {
-    border:
-      1px solid var(--ala-gold);
-
     background: var(--ala-gold);
-
-    color: #FFFFFF;
-
-    box-shadow: var(--ala-shadow-sm);
+    color: var(--ala-white);
   }
 
 
   .ala-btn-primary:hover {
     background: var(--ala-gold-hover);
-
-    border-color:
-      var(--ala-gold-hover);
-
-    transform:
-      translateY(-2px);
+    transform: translateY(-2px);
   }
 
 
   .ala-btn-secondary {
-    border:
-      1.5px solid var(--ala-charcoal);
-
     background: var(--ala-white);
-
     color: var(--ala-charcoal);
+    padding: 12px 22px;
+    border: 1.5px solid var(--ala-charcoal);
   }
 
 
   .ala-btn-secondary:hover {
-    background: var(--ala-warm);
-
-    transform:
-      translateY(-2px);
+    background: var(--ala-white);
+    transform: translateY(-2px);
   }
+
 
   
   
@@ -418,22 +450,8 @@
   }
   
   
-  .ala-header.ala-reveal {
-    transform:
-      translateY(-16px);
-  
-    transition:
-      opacity .55s cubic-bezier(.2,.8,.2,1),
-      transform .55s cubic-bezier(.2,.8,.2,1);
-  }
   
   
-  .ala-header.ala-reveal.is-visible {
-    opacity: 1;
-  
-    transform:
-      translateY(0);
-  }
   
   
   
@@ -705,93 +723,447 @@
   }
   
   
+
   /* =========================================================
-     01 — HEADER
+     SHARED ALA SITE HEADER (from acc.html / index.html)
      ========================================================= */
-  
-  .ala-header {
-    position: relative;
-    z-index: 20;
-  
-    background:
-      rgba(248,246,241,.96);
-  
-    border-bottom:
-      1px solid
-      rgba(41,41,41,.06);
+
+  #ala-shell .container {
+    width: min(1240px, calc(100% - 48px));
+    margin: 0 auto;
   }
-  
-  
-  .ala-header-inner {
-    min-height: 74px;
-  
+
+  #ala-shell .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s;
+    border-bottom: 1px solid rgba(184, 146, 47, 0.15);
+    background: rgba(250, 250, 248, 0.8);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  #ala-shell .site-header.scrolled {
+    background: rgba(250, 250, 248, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom-color: rgba(184, 146, 47, 0.3);
+    box-shadow: 0 4px 24px rgba(184, 146, 47, 0.12);
+  }
+
+  #ala-shell .header-inner {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0.625rem 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-  
-    gap: 20px;
-  }
-  
-  
-  .ala-logo {
-    width: 88px;
+    gap: 1rem;
     height: auto;
-  
-    display: block;
   }
-  
-  
-  .ala-header-actions {
+
+  #ala-shell .logo {
     display: flex;
     align-items: center;
-  
-    gap: 13px;
-  
-    direction: ltr;
+    gap: 12px;
+    flex-shrink: 0;
+    transition: opacity 0.3s;
+    text-decoration: none;
+    color: inherit;
   }
-  
-  
-  .ala-lang-switch {
+
+  #ala-shell .site-header .logo:hover {
+    opacity: 0.8;
+  }
+
+  #ala-shell .logo-img {
+    width: auto;
+    height: 2.75rem;
+    object-fit: contain;
+    flex-shrink: 0;
+    display: block;
+  }
+
+  @media (min-width: 640px) {
+    #ala-shell .site-header .logo-img { height: 3rem; }
+  }
+
+  #ala-shell .logo-text strong {
+    display: block;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ala-charcoal);
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+  }
+
+  #ala-shell .logo-text .logo-academy {
+    color: var(--ala-gold);
+  }
+
+  #ala-shell .main-nav {
+    display: none;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #555;
+  }
+
+  @media (min-width: 1024px) {
+    #ala-shell .main-nav { display: flex; }
+  }
+
+  #ala-shell .main-nav a {
+    position: relative;
+    padding: 0.375rem 0.625rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #555;
+    transition: color 0.3s;
+    text-decoration: none;
+  }
+
+  #ala-shell .main-nav a:hover,
+  #ala-shell .main-nav a.active {
+    color: #b8922f;
+  }
+
+  #ala-shell .main-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0.625rem;
+    right: 0.625rem;
+    bottom: 0.125rem;
+    height: 1px;
+    background: #b8922f;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  #ala-shell .main-nav a:hover::after,
+  #ala-shell .main-nav a.active::after {
+    transform: scaleX(1);
+  }
+
+  #ala-shell[dir="rtl"] .main-nav a::after {
+    transform-origin: right;
+  }
+
+  #ala-shell .nav-dropdown {
     display: flex;
-  
-    padding: 3px;
-  
-    border-radius: 8px;
-  
-    border:
-      1px solid
-      var(--ala-border);
-  
-    background: #FFFFFF;
+    align-items: center;
+    gap: 5px;
   }
-  
-  
-  .ala-lang-btn {
-    min-width: 37px;
-    height: 31px;
-  
-    border: 0;
-  
-    border-radius: 6px;
-  
-    background: transparent;
-  
-    color: #777;
-  
-    font-size: 11px;
-    font-weight: 900;
-  
+
+  #ala-shell .nav-dropdown i {
+    font-size: 10px;
+    color: #888;
+  }
+
+  #ala-shell .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  #ala-shell .header-cta {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: #b8922f;
+    color: #fff;
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+
+  @media (min-width: 768px) {
+    #ala-shell .header-inner > .header-cta,
+    #ala-shell .nav-actions > .header-cta { display: inline-flex; }
+  }
+
+  #ala-shell .header-cta:hover {
+    background: #d4af37;
+    box-shadow: 0 6px 20px rgba(184, 146, 47, 0.35);
+    transform: translateY(-2px);
+  }
+
+  #ala-shell .header-cta i {
+    font-size: 13px;
+  }
+
+  #ala-shell[dir="rtl"] .header-cta,
+  #ala-shell[dir="rtl"] .mobile-nav .header-cta {
+    text-transform: none;
+    letter-spacing: 0.04em;
+  }
+
+  #ala-shell .menu-toggle {
+    display: flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    border: 1px solid rgba(184, 146, 47, 0.3);
+    background: rgba(184, 146, 47, 0.1);
+    color: #b8922f;
+    font-size: 16px;
+    transition: all 0.3s;
     cursor: pointer;
   }
-  
-  
-  .ala-lang-btn.is-active {
-    background: var(--ala-charcoal);
-  
-    color: #FFFFFF;
+
+  @media (min-width: 1024px) {
+    #ala-shell .menu-toggle { display: none; }
   }
-  
-  
+
+  #ala-shell .menu-toggle:hover {
+    background: #b8922f;
+    color: #fff;
+  }
+
+  #ala-shell .mobile-nav {
+    display: block;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    border-top: 0;
+    background: rgba(250, 250, 248, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s ease-out;
+  }
+
+  @media (min-width: 1024px) {
+    #ala-shell .mobile-nav { display: none; }
+  }
+
+  #ala-shell .mobile-nav.open {
+    max-height: 70vh;
+    opacity: 1;
+    border-top: 1px solid rgba(184, 146, 47, 0.15);
+  }
+
+  #ala-shell .mobile-nav-inner {
+    padding: 1rem;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  #ala-shell .mobile-nav a {
+    display: block;
+    border-radius: 0.5rem;
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #333;
+    border-bottom: 0;
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+
+  #ala-shell .mobile-nav a:hover,
+  #ala-shell .mobile-nav a.active {
+    background: rgba(184, 146, 47, 0.1);
+    color: #b8922f;
+  }
+
+  #ala-shell .mobile-nav .header-cta {
+    display: flex;
+    margin-top: 0.75rem;
+    width: auto;
+    justify-content: center;
+    border-radius: 9999px;
+    background: #b8922f;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+  }
+
+  #ala-shell .mobile-nav .header-cta:hover {
+    background: #d4af37;
+    color: #fff;
+  }
+
+  #ala-shell .lang-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.1rem;
+    flex-shrink: 0;
+  }
+
+  #ala-shell .lang-switcher button {
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #888;
+    padding: 0.3rem 0.4rem;
+    border-radius: 0.25rem;
+    line-height: 1;
+    min-width: 1.75rem;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+
+  #ala-shell .lang-switcher button:hover {
+    color: #b8922f;
+  }
+
+  #ala-shell .lang-switcher button.is-active,
+  #ala-shell .lang-switcher button[aria-current="true"] {
+    color: #b8922f;
+  }
+
+  #ala-shell .lang-sep {
+    color: #c8c8c8;
+    font-size: 0.75rem;
+    font-weight: 500;
+    user-select: none;
+  }
+
+  #ala-shell[dir="rtl"] .logo-text strong {
+    font-family: "Playfair Display", Georgia, serif;
+  }
+
+  @media (max-width: 480px) {
+    #ala-shell .container {
+      width: calc(100% - 32px);
+    }
+  }
+
+
+  /* =========================================================
+     SHARED ALA SITE FOOTER (from acc.html / index.html)
+     Scoped to #ala-shell so funnel #ala-page styles cannot override it.
+     ========================================================= */
+
+  #ala-shell .site-footer {
+    background: var(--soft-black);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 56px 0 28px;
+    font-family: "Raleway", system-ui, sans-serif;
+  }
+
+  #ala-shell .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  #ala-shell .footer-brand p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-top: 16px;
+    max-width: 280px;
+    margin-bottom: 0;
+  }
+
+  #ala-shell .footer-brand .logo-text strong {
+    color: var(--white);
+  }
+
+  #ala-shell .footer-brand .logo-img {
+    height: 44px;
+  }
+
+  #ala-shell .footer-col h4 {
+    font-family: "Raleway", system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+    margin: 0 0 18px;
+  }
+
+  #ala-shell .footer-col a {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 10px;
+    transition: color var(--transition);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  #ala-shell .footer-col a:hover {
+    color: var(--gold);
+  }
+
+  #ala-shell .footer-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  #ala-shell .footer-social a {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: border-color var(--transition), color var(--transition);
+    text-decoration: none;
+    margin-bottom: 0;
+  }
+
+  #ala-shell .footer-social a:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  #ala-shell .footer-col .footer-social {
+    margin-top: 0;
+    flex-wrap: wrap;
+  }
+
+  #ala-shell .footer-col .footer-social a {
+    display: flex;
+    margin-bottom: 0;
+  }
+
+  #ala-shell .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 13px;
+  }
+
+  @media (max-width: 1024px) {
+    #ala-shell .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    #ala-shell .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   /* =========================================================
      HERO
      ========================================================= */
@@ -2680,49 +3052,7 @@
   }
 
 
-  /* =========================================================
-     13 — FOOTER
-     ========================================================= */
-  
-  .ala-footer {
-    padding:
-      28px 0;
-  
-    background: #F3F0E9;
-  
-    border-top:
-      1px solid
-      rgba(41,41,41,.07);
-  }
-  
-  
-  .ala-footer-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  
-    gap: 20px;
-  }
-  
-  
-  .ala-footer-logo {
-    width: 73px;
-    height: auto;
-  }
-  
-  
-  .ala-footer-text {
-    color: #595959;
-  
-    font-size: 11px;
-  
-    line-height: 1.6;
-  
-    font-weight: 700;
-  }
-  
-  
-  /* =========================================================
+/* =========================================================
      LARGE TABLET / SMALL DESKTOP
      ========================================================= */
   
@@ -2755,14 +3085,8 @@
     }
   
   
-    .ala-header-inner {
-      min-height: 72px;
-    }
   
   
-    .ala-logo {
-      width: 80px;
-    }
   
   
     .ala-hero-inner {
@@ -2869,12 +3193,6 @@
     }
   
   
-    .ala-header-cta {
-      padding:
-        10px 14px;
-  
-      font-size: 12px;
-    }
   
   
     .ala-hero-actions {
@@ -3033,39 +3351,12 @@
     }
   
   
-    .ala-header-inner {
-      min-height: 64px;
-  
-      gap: 10px;
-    }
   
   
-    .ala-logo {
-      width: 68px;
-    }
   
   
-    .ala-header .ala-header-cta {
-      display: inline-flex;
-
-      width: auto;
-      min-height: 38px;
-
-      padding:
-        8px 10px;
-
-      font-size: 10px;
-
-      white-space: nowrap;
-    }
   
   
-    .ala-lang-btn {
-      min-width: 34px;
-      height: 29px;
-  
-      font-size: 10px;
-    }
   
   
     /* HERO — keep image, scale fluidly */
@@ -3605,33 +3896,7 @@
     }
   
   
-    /* FOOTER */
-  
-    .ala-footer {
-      padding:
-        22px 0;
-    }
-  
-  
-    .ala-footer-inner {
-      flex-direction: column;
-  
-      text-align: center;
-  
-      gap: 12px;
-    }
-  
-  
-    .ala-footer-logo {
-      width: 64px;
-    }
-  
-  
-    .ala-footer-text {
-      font-size: 10.5px;
-    }
-  
-  }
+}
   
   
   /* =========================================================
@@ -3765,8 +4030,8 @@
     .ala-transform-item.ala-reveal,
     .ala-faq-item.ala-reveal,
     .ala-price-card.ala-reveal,
-    .ala-hero-visual.ala-reveal,
-    .ala-header.ala-reveal {
+    .ala-hero-visual.ala-reveal
+ {
       opacity: 1 !important;
   
       transform: none !important;
@@ -3829,88 +4094,78 @@
   
   
   
-  <div
-    id="ala-page"
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<div
+    id="ala-shell"
     dir="rtl"
+    lang="ar"
     data-lang="ar"
   >
-  
-  
+
   <!-- =======================================================
-       01 — HEADER
+       01 — SHARED ALA SITE HEADER
        ======================================================= -->
-  
-  <header class="ala-header ala-reveal">
-  
-    <div class="ala-container ala-header-inner">
+
   
   
-      <img
-        class="ala-logo"
-        src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a787bb09994d35aa03bbe17.png"
-        alt="ALA Ahmed Latif Academy"
-      >
-  
-  
-      <div class="ala-header-actions">
-  
-  
-        <div
-          class="ala-lang-switch"
-          aria-label="Language"
-        >
-  
-          <button
-            type="button"
-            class="ala-lang-btn is-active"
-            data-ala-lang="ar"
-          >
-            AR
-          </button>
-  
-          <button
-            type="button"
-            class="ala-lang-btn"
-            data-ala-lang="en"
-          >
-            EN
-          </button>
-  
+
+  <!-- =======================================================
+       01 — SHARED ALA SITE HEADER
+       ======================================================= -->
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u" class="logo" target="_top">
+        <img class="logo-img" src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a787bb09994d35aa03bbe17.png" alt="Ahmed Latif Academy">
+        <div class="logo-text">
+          <strong>Ahmed Latif <span class="logo-academy">Academy</span></strong>
         </div>
-  
-  
-        <a
-href="#lead-form"
-data-ala-open-form
-class="
-  ala-btn
-  ala-btn-primary
-  ala-header-cta
-"
->
-  
-          <span class="ala-ar">
-            ابدأ دلوقتي
-          </span>
-  
-          <span
-            class="ala-en"
-            hidden
-          >
-            Start Now
-          </span>
-  
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u" target="_top">Home</a>
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#instructor" target="_top">About</a>
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#programs" class="nav-dropdown active" target="_top">Programs <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#updates" target="_top">Events</a>
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#updates" target="_top">News</a>
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#contact" target="_top">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#contact" class="header-cta" target="_top">
+          <i class="fa-regular fa-compass" aria-hidden="true"></i>
+          Find Your Program
         </a>
-  
-  
+        <div class="lang-switcher" role="group" aria-label="Language">
+          <button type="button" data-lang-switch="en" lang="en" aria-label="English">EN</button>
+          <span class="lang-sep" aria-hidden="true">/</span>
+          <button type="button" data-lang-switch="ar" lang="ar" aria-label="العربية">AR</button>
+        </div>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
       </div>
-  
     </div>
-  
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <div class="mobile-nav-inner">
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u" target="_top">Home</a>
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#instructor" target="_top">About</a>
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#programs" class="active" target="_top">Programs</a>
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#updates" target="_top">Events</a>
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#updates" target="_top">News</a>
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#contact" target="_top">Contact</a>
+        <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#contact" class="header-cta" target="_top">
+          <i class="fa-regular fa-compass" aria-hidden="true"></i>
+          Find Your Program
+        </a>
+      </div>
+    </nav>
   </header>
-  
-  
-  
+
+  <div id="ala-page">
+
   <!-- =======================================================
        HERO
        ======================================================= -->
@@ -6260,41 +6515,66 @@ class="
 
 
 
+  </div><!-- /#ala-page -->
+
   <!-- =======================================================
-       13 — FOOTER
+       SHARED ALA SITE FOOTER
        ======================================================= -->
-  
-  <footer class="ala-footer">
-  
-    <div class="ala-container ala-footer-inner">
-  
-  
-      <img
-        class="ala-footer-logo"
-        src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a787bb09994d35aa03bbe17.png"
-        alt="ALA Ahmed Latif Academy"
-      >
-  
-  
-      <div class="ala-footer-text">
-  
-        <strong>
-          Ahmed Latif Academy
-        </strong>
-  
-        <br>
-  
-        Training Without Training
-  
+
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u" class="logo" target="_top">
+            <img class="logo-img" src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a787bb09994d35aa03bbe17.png" alt="Ahmed Latif Academy">
+            <div class="logo-text">
+              <strong>Ahmed Latif</strong>
+              <small>ALA</small>
+            </div>
+          </a>
+          <p>Transformative learning in leadership, coaching, communication, psychology, and personal development.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u" target="_top">Home</a>
+          <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#instructor" target="_top">About</a>
+          <a href="https://link.cashprocess.io/preview/fRaRY5RMY05VbnLSxGoO" target="_top">Programs</a>
+          <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#updates" target="_top">Events</a>
+          <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#updates" target="_top">News</a>
+          <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#contact" target="_top">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <a href="https://link.cashprocess.io/preview/fRaRY5RMY05VbnLSxGoO" data-interest="help-choosing" target="_top">Live Courses</a>
+          <a href="https://link.cashprocess.io/preview/j67uSKwgeUSNZMm9suAo" data-interest="help-choosing" target="_top">Recorded Courses</a>
+          <a href="https://link.cashprocess.io/preview/0jAQplJCVpLvfAWky1jX" data-interest="poc-camp" target="_top">Camps</a>
+          <a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u#contact" data-interest="help-choosing" target="_top">Workshops</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/ALA.Academy1" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.instagram.com/alaacademy2030/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://wa.me/201010002231" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            </a>
+            <a href="https://ala-eg.com/home" target="_blank" rel="noopener noreferrer" aria-label="Website">
+              <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
       </div>
-  
-  
+      <div class="footer-bottom">
+        <span id="currentYear">&copy; Ahmed Latif Academy. All rights reserved.</span>
+      </div>
     </div>
-  
   </footer>
-  
-  
-  </div>
+
+</div><!-- /#ala-shell -->
   
   
   
@@ -6331,26 +6611,149 @@ class="
          ===================================================== */
   
       const languageButtons =
-        page.querySelectorAll(
-          "[data-ala-lang]"
+        document.querySelectorAll(
+          "[data-lang-switch]"
         );
   
   
+
+      /* =====================================================
+         SHARED SHELL I18N (nav + footer) — same dict as site
+         ===================================================== */
+
+      var SHELL_I18N_DICT = {"Transformative learning in leadership, coaching, communication, psychology, and personal development.": "تعلّم يُحدث تحوّلًا في القيادة والكوتشينج والتواصل وعلم النفس والتطوير الشخصي.", "Quick Links": "روابط سريعة", "Programs": "البرامج", "Contact": "تواصل معنا", "Home": "الرئيسية", "About": "نبذة", "Events": "الفعاليات", "News": "الأخبار", "Find Your Program": "اعثر على برنامجك", "Live Courses": "البرامج المباشرة", "Recorded Courses": "البرامج المسجّلة", "Camps": "المعسكرات", "Workshops": "ورش العمل", "Main navigation": "التنقل الرئيسي", "Open menu": "افتح القائمة", "Mobile navigation": "قائمة التنقل للجوال", "Website": "الموقع الإلكتروني", "Language": "اللغة"};
+
+      var shellTextMemory = typeof WeakMap !== "undefined" ? new WeakMap() : null;
+      var shellAttrMemory = typeof WeakMap !== "undefined" ? new WeakMap() : null;
+
+      function rememberShellText(node, value) {
+        if (shellTextMemory) {
+          if (!shellTextMemory.has(node)) shellTextMemory.set(node, value);
+          return shellTextMemory.get(node);
+        }
+        if (node.alaShellOrig == null) node.alaShellOrig = value;
+        return node.alaShellOrig;
+      }
+
+      function rememberShellAttr(el, name, value) {
+        var bag;
+        if (shellAttrMemory) {
+          bag = shellAttrMemory.get(el);
+          if (!bag) {
+            bag = {};
+            shellAttrMemory.set(el, bag);
+          }
+        } else {
+          el.alaShellAttrs = el.alaShellAttrs || {};
+          bag = el.alaShellAttrs;
+        }
+        if (!(name in bag)) bag[name] = value;
+        return bag[name];
+      }
+
+      function translateShellString(text, lang) {
+        if (text == null) return text;
+        if (lang === "en") return text;
+        var map = SHELL_I18N_DICT;
+        if (map[text]) return map[text];
+        var trimmed = String(text).trim();
+        if (map[trimmed]) {
+          if (trimmed === String(text)) return map[trimmed];
+          return String(text).replace(trimmed, map[trimmed]);
+        }
+        var copy = trimmed.match(/^©\s+(\d{4})\s+Ahmed Latif Academy\.\s+All rights reserved\.$/);
+        if (copy) {
+          return "© " + copy[1] + " Ahmed Latif Academy. جميع الحقوق محفوظة.";
+        }
+        return text;
+      }
+
+      function shouldSkipShell(el) {
+        if (!el || !el.closest) return true;
+        if (el.closest("script, style, noscript, .lang-switcher")) return true;
+        if (el.closest(".site-header .logo, .site-header .logo-text, .site-header .logo-academy")) return true;
+        if (el.closest(".footer-brand .logo, .footer-brand .logo-text")) return true;
+        return false;
+      }
+
+      function translateShellRoot(root, lang) {
+        if (!root) return;
+        var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+        var node;
+        while ((node = walker.nextNode())) {
+          var parent = node.parentNode;
+          if (!parent || parent.nodeType !== 1) continue;
+          var tag = parent.tagName;
+          if (tag === "SCRIPT" || tag === "STYLE" || tag === "NOSCRIPT") continue;
+          if (shouldSkipShell(parent)) continue;
+          var raw = node.nodeValue;
+          if (!raw || !raw.trim()) continue;
+          if (!/[A-Za-z]/.test(raw) && lang === "ar") continue;
+          var orig = rememberShellText(node, raw);
+          var next = lang === "en" ? orig : translateShellString(orig, lang);
+          if (next !== node.nodeValue) node.nodeValue = next;
+        }
+
+        var attrEls = root.querySelectorAll("[aria-label], [alt], [title]");
+        for (var i = 0; i < attrEls.length; i++) {
+          var el = attrEls[i];
+          if (shouldSkipShell(el)) continue;
+          ["aria-label", "alt", "title"].forEach(function (name) {
+            if (!el.hasAttribute(name)) return;
+            var current = el.getAttribute(name);
+            var orig = rememberShellAttr(el, name, current);
+            var next = lang === "en" ? orig : translateShellString(orig, lang);
+            if (next !== current) el.setAttribute(name, next);
+          });
+        }
+      }
+
+      function translateShell(lang) {
+        translateShellRoot(document.querySelector(".site-header"), lang);
+        translateShellRoot(document.querySelector(".site-footer"), lang);
+      }
+
       function setLanguage(lang) {
   
         const isArabic =
           lang === "ar";
   
   
+        
+        var shell =
+          document.getElementById(
+            "ala-shell"
+          );
+
         page.dataset.lang =
           lang;
-  
-  
+
+        if (shell) {
+          shell.dataset.lang =
+            lang;
+          shell.setAttribute(
+            "dir",
+            isArabic
+              ? "rtl"
+              : "ltr"
+          );
+          shell.setAttribute(
+            "lang",
+            lang
+          );
+        }
+
         page.setAttribute(
           "dir",
           isArabic
             ? "rtl"
             : "ltr"
+        );
+
+
+        page.setAttribute(
+          "lang",
+          lang
         );
   
   
@@ -6385,11 +6788,25 @@ class="
         languageButtons.forEach(
           function (button) {
   
+            var active =
+              button.dataset.langSwitch
+              === lang;
+
             button.classList.toggle(
               "is-active",
-              button.dataset.alaLang
-              === lang
+              active
             );
+
+            if (active) {
+              button.setAttribute(
+                "aria-current",
+                "true"
+              );
+            } else {
+              button.removeAttribute(
+                "aria-current"
+              );
+            }
   
           }
         );
@@ -6403,6 +6820,8 @@ class="
           );
   
         } catch (error) {}
+
+        translateShell(lang);
   
       }
   
@@ -6415,7 +6834,7 @@ class="
             function () {
   
               setLanguage(
-                button.dataset.alaLang
+                button.dataset.langSwitch
               );
   
             }
@@ -6461,11 +6880,134 @@ class="
       } catch (error) {}
 
 
+      var currentYear =
+        document.getElementById(
+          "currentYear"
+        );
+
+      if (currentYear) {
+        currentYear.textContent =
+          "\u00A9 " +
+          new Date().getFullYear() +
+          " Ahmed Latif Academy. All rights reserved.";
+      }
+
       setLanguage(
         savedLanguage === "en"
           ? "en"
           : "ar"
       );
+
+
+
+
+      /* =====================================================
+         SHARED SITE HEADER
+         ===================================================== */
+
+      var menuToggle =
+        document.getElementById(
+          "menuToggle"
+        );
+
+      var mobileNav =
+        document.getElementById(
+          "mobileNav"
+        );
+
+      var siteHeader =
+        document.querySelector(
+          ".site-header"
+        );
+
+      function onHeaderScroll() {
+        if (siteHeader) {
+          siteHeader.classList.toggle(
+            "scrolled",
+            window.scrollY > 12
+          );
+        }
+      }
+
+      onHeaderScroll();
+
+      window.addEventListener(
+        "scroll",
+        onHeaderScroll,
+        { passive: true }
+      );
+
+      if (menuToggle && mobileNav) {
+
+        var menuIcon =
+          menuToggle.querySelector(
+            "i"
+          );
+
+        menuToggle.addEventListener(
+          "click",
+          function () {
+
+            var isOpen =
+              mobileNav.classList.toggle(
+                "open"
+              );
+
+            if (menuIcon) {
+              menuIcon.classList.toggle(
+                "fa-bars",
+                !isOpen
+              );
+              menuIcon.classList.toggle(
+                "fa-xmark",
+                isOpen
+              );
+            }
+
+            menuToggle.setAttribute(
+              "aria-expanded",
+              isOpen
+                ? "true"
+                : "false"
+            );
+
+          }
+        );
+
+        mobileNav
+          .querySelectorAll("a")
+          .forEach(
+            function (link) {
+
+              link.addEventListener(
+                "click",
+                function () {
+
+                  mobileNav.classList.remove(
+                    "open"
+                  );
+
+                  if (menuIcon) {
+                    menuIcon.classList.add(
+                      "fa-bars"
+                    );
+                    menuIcon.classList.remove(
+                      "fa-xmark"
+                    );
+                  }
+
+                  menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                  );
+
+                }
+              );
+
+            }
+          );
+
+      }
 
 
 

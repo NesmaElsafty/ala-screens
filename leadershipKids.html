@@ -1881,7 +1881,7 @@ html[dir="rtl"] .breadcrumb-list li:not(:last-child)::after {
           <div class="program-hero-frame">
             <img
               id="programHeroImage"
-              src="images/leadershipKids/hero.jpg"
+              src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ab91b157ef452865a00445f.png"
               alt="Live leadership training at Ahmed Latif Academy"
               width="1600"
               height="2000"
@@ -2080,6 +2080,17 @@ html[dir="rtl"] .breadcrumb-list li:not(:last-child)::after {
       </div>
     </section>
 
+    <section class="program-gallery" id="program-gallery">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow anim-item">Program Experience</p>
+          <h2 class="section-heading anim-item">Inside the Leadership Kids Experience</h2>
+          <p class="section-intro anim-item">Explore moments from Leadership Kids training, activities, and growth.</p>
+        </div>
+        <div class="gallery-slider" id="galleryRoot" aria-roledescription="carousel" aria-label="Leadership Kids program photo gallery"></div>
+      </div>
+    </section>
+
     <section class="program-cta" id="program-cta">
       <div class="container">
         <div class="program-cta-card anim-item">
@@ -2150,8 +2161,269 @@ html[dir="rtl"] .breadcrumb-list li:not(:last-child)::after {
     <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
   </a>
 
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxStatus" hidden>
+    <div class="lightbox-inner">
+      <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close gallery">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+      <button type="button" class="lightbox-prev" id="lightboxPrev" aria-label="Previous image">
+        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+      </button>
+      <img id="lightboxImage" src="" alt="">
+      <button type="button" class="lightbox-next" id="lightboxNext" aria-label="Next image">
+        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      </button>
+      <p class="lightbox-status" id="lightboxStatus"></p>
+    </div>
+  </div>
+
   <script>
     (function () {
+      /* PROGRAM MEDIA CONFIG */
+      var galleryImages = [
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ab91b747ef452865a004b41.png", alt: "Leadership Kids program gallery photo 1" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ab91b70c13d4373c2bf9ea4.png", alt: "Leadership Kids program gallery photo 2" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ab91b6bc13d4373c2bf9e14.png", alt: "Leadership Kids program gallery photo 3" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ab91b68b4d207ff9df99cee.png", alt: "Leadership Kids program gallery photo 4" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ab91b5db4d207ff9df99ca9.png", alt: "Leadership Kids program gallery photo 5" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ab91b4b7ef452865a00490e.png", alt: "Leadership Kids program gallery photo 6" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ab91b55be703c7b30218084.png", alt: "Leadership Kids program gallery photo 7" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ab91b59b4d207ff9df99c6a.png", alt: "Leadership Kids program gallery photo 8" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ab91b4b5597aeb9d7de0115.png", alt: "Leadership Kids program gallery photo 9" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ab91b3d5597aeb9d7ddfff9.png", alt: "Leadership Kids program gallery photo 10" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ab91b3c7ef452865a004763.png", alt: "Leadership Kids program gallery photo 11" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ab91b3e7ef452865a0047bf.png", alt: "Leadership Kids program gallery photo 12" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ab91b377ef452865a004701.png", alt: "Leadership Kids program gallery photo 13" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ab91b15c13d4373c2bf97dd.png", alt: "Leadership Kids program gallery photo 14" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ab91b155597aeb9d7ddfcd1.png", alt: "Leadership Kids program gallery photo 15" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ab91b15be703c7b30217b57.png", alt: "Leadership Kids program gallery photo 16" },
+        { src: "https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ab91b15be703c7b30217b58.png", alt: "Leadership Kids program gallery photo 17" }
+      ];
+
+      var galleryRoot = document.getElementById("galleryRoot");
+      var lightbox = document.getElementById("lightbox");
+      var lightboxImage = document.getElementById("lightboxImage");
+      var lightboxStatus = document.getElementById("lightboxStatus");
+      var lightboxClose = document.getElementById("lightboxClose");
+      var lightboxPrev = document.getElementById("lightboxPrev");
+      var lightboxNext = document.getElementById("lightboxNext");
+      var currentIndex = 0;
+      var lastFocused = null;
+      var stageImg = null;
+      var stageBtn = null;
+      var counterEl = null;
+      var thumbsEl = null;
+      var thumbButtons = [];
+
+      function setSlide(index, options) {
+        if (!galleryImages.length) return;
+        currentIndex = (index + galleryImages.length) % galleryImages.length;
+        var image = galleryImages[currentIndex];
+        if (stageImg) {
+          stageImg.src = image.src;
+          stageImg.alt = image.alt;
+        }
+        if (stageBtn) {
+          stageBtn.setAttribute("aria-label", "View larger: " + image.alt);
+        }
+        if (counterEl) {
+          counterEl.textContent = (currentIndex + 1) + " / " + galleryImages.length;
+        }
+        thumbButtons.forEach(function (btn, i) {
+          btn.classList.toggle("is-active", i === currentIndex);
+          btn.setAttribute("aria-current", i === currentIndex ? "true" : "false");
+        });
+        if (thumbsEl && thumbButtons[currentIndex] && (!options || options.scroll !== false)) {
+          thumbButtons[currentIndex].scrollIntoView({
+            behavior: options && options.instant ? "auto" : "smooth",
+            inline: "center",
+            block: "nearest"
+          });
+        }
+        preloadNeighbor(currentIndex + 1);
+        preloadNeighbor(currentIndex - 1);
+      }
+
+      function preloadNeighbor(index) {
+        var i = (index + galleryImages.length) % galleryImages.length;
+        var img = new Image();
+        img.src = galleryImages[i].src;
+      }
+
+      function renderGallery() {
+        if (!galleryRoot || !galleryImages.length) return;
+        galleryRoot.innerHTML = "";
+        galleryRoot.tabIndex = 0;
+
+        var stage = document.createElement("div");
+        stage.className = "gallery-stage";
+
+        stageBtn = document.createElement("button");
+        stageBtn.type = "button";
+        stageBtn.className = "gallery-stage-btn";
+        stageImg = document.createElement("img");
+        stageImg.width = 1600;
+        stageImg.height = 1000;
+        stageImg.decoding = "async";
+        stageBtn.appendChild(stageImg);
+        stageBtn.addEventListener("click", function () {
+          openLightbox(currentIndex);
+        });
+        stage.appendChild(stageBtn);
+
+        var prevBtn = document.createElement("button");
+        prevBtn.type = "button";
+        prevBtn.className = "gallery-nav gallery-nav-prev";
+        prevBtn.setAttribute("aria-label", "Previous photo");
+        prevBtn.innerHTML = '<i class="fa-solid fa-chevron-left" aria-hidden="true"></i>';
+        prevBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          setSlide(currentIndex - 1);
+        });
+
+        var nextBtn = document.createElement("button");
+        nextBtn.type = "button";
+        nextBtn.className = "gallery-nav gallery-nav-next";
+        nextBtn.setAttribute("aria-label", "Next photo");
+        nextBtn.innerHTML = '<i class="fa-solid fa-chevron-right" aria-hidden="true"></i>';
+        nextBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          setSlide(currentIndex + 1);
+        });
+
+        counterEl = document.createElement("div");
+        counterEl.className = "gallery-counter";
+        counterEl.setAttribute("aria-live", "polite");
+
+        stage.appendChild(prevBtn);
+        stage.appendChild(nextBtn);
+        stage.appendChild(counterEl);
+        galleryRoot.appendChild(stage);
+
+        var thumbsWrap = document.createElement("div");
+        thumbsWrap.className = "gallery-thumbs-wrap";
+
+        var thumbsPrev = document.createElement("button");
+        thumbsPrev.type = "button";
+        thumbsPrev.className = "gallery-thumbs-btn";
+        thumbsPrev.setAttribute("aria-label", "Scroll thumbnails left");
+        thumbsPrev.innerHTML = '<i class="fa-solid fa-chevron-left" aria-hidden="true"></i>';
+
+        thumbsEl = document.createElement("div");
+        thumbsEl.className = "gallery-thumbs";
+        thumbsEl.setAttribute("role", "tablist");
+        thumbsEl.setAttribute("aria-label", "Gallery thumbnails");
+
+        var thumbsNext = document.createElement("button");
+        thumbsNext.type = "button";
+        thumbsNext.className = "gallery-thumbs-btn";
+        thumbsNext.setAttribute("aria-label", "Scroll thumbnails right");
+        thumbsNext.innerHTML = '<i class="fa-solid fa-chevron-right" aria-hidden="true"></i>';
+
+        thumbButtons = galleryImages.map(function (image, index) {
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "gallery-thumb";
+          btn.setAttribute("role", "tab");
+          btn.setAttribute("aria-label", "Show photo " + (index + 1) + ": " + image.alt);
+          btn.innerHTML =
+            '<img src="' + image.src + '" alt="" width="192" height="136" loading="lazy" decoding="async">';
+          btn.addEventListener("click", function () {
+            setSlide(index);
+          });
+          thumbsEl.appendChild(btn);
+          return btn;
+        });
+
+        thumbsPrev.addEventListener("click", function () {
+          thumbsEl.scrollBy({ left: (document.documentElement.dir === "rtl" ? 280 : -280), behavior: "smooth" });
+        });
+        thumbsNext.addEventListener("click", function () {
+          thumbsEl.scrollBy({ left: (document.documentElement.dir === "rtl" ? -280 : 280), behavior: "smooth" });
+        });
+
+        thumbsWrap.appendChild(thumbsPrev);
+        thumbsWrap.appendChild(thumbsEl);
+        thumbsWrap.appendChild(thumbsNext);
+        galleryRoot.appendChild(thumbsWrap);
+
+        var hint = document.createElement("p");
+        hint.className = "gallery-hint";
+        hint.textContent = "Use the arrows to browse all photos. Click the image to view it larger.";
+        galleryRoot.appendChild(hint);
+
+        var startX = 0;
+        stage.addEventListener("touchstart", function (e) {
+          startX = e.changedTouches[0].clientX;
+        }, { passive: true });
+        stage.addEventListener("touchend", function (e) {
+          var dx = e.changedTouches[0].clientX - startX;
+          if (Math.abs(dx) < 40) return;
+          setSlide(currentIndex + (dx < 0 ? 1 : -1));
+        }, { passive: true });
+
+        galleryRoot.addEventListener("keydown", function (e) {
+          if (lightbox.classList.contains("is-open")) return;
+          if (e.key === "ArrowRight") {
+            e.preventDefault();
+            setSlide(currentIndex + 1);
+          } else if (e.key === "ArrowLeft") {
+            e.preventDefault();
+            setSlide(currentIndex - 1);
+          }
+        });
+
+        setSlide(0, { instant: true, scroll: false });
+      }
+
+      function updateLightbox() {
+        var image = galleryImages[currentIndex];
+        if (!image) return;
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt;
+        lightboxStatus.textContent = (currentIndex + 1) + " / " + galleryImages.length;
+      }
+
+      function openLightbox(index) {
+        currentIndex = index;
+        lastFocused = document.activeElement;
+        updateLightbox();
+        lightbox.hidden = false;
+        lightbox.classList.add("is-open");
+        document.body.classList.add("lightbox-open");
+        lightboxClose.focus();
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove("is-open");
+        lightbox.hidden = true;
+        document.body.classList.remove("lightbox-open");
+        if (lastFocused && typeof lastFocused.focus === "function") {
+          lastFocused.focus();
+        }
+      }
+
+      function showNext(step) {
+        setSlide(currentIndex + step);
+        updateLightbox();
+      }
+
+      renderGallery();
+
+      lightboxClose.addEventListener("click", closeLightbox);
+      lightboxPrev.addEventListener("click", function () { showNext(-1); });
+      lightboxNext.addEventListener("click", function () { showNext(1); });
+      lightbox.addEventListener("click", function (e) {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (!lightbox.classList.contains("is-open")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowRight") showNext(1);
+        if (e.key === "ArrowLeft") showNext(-1);
+      });
+
       var menuToggle = document.getElementById("menuToggle");
       var mobileNav = document.getElementById("mobileNav");
       var icon = menuToggle.querySelector("i");

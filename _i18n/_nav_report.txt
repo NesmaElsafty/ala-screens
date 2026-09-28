@@ -1,0 +1,2 @@
+ps-recorded-funnel.html: ok site-header=6 lang-switch=3 fa=True
+ja-recorded-funnel.html: ok site-header=6 lang-switch=3 fa=True

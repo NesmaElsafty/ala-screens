@@ -327,7 +327,7 @@ def main() -> None:
         <div class="program-cta-card anim-item">
           <h2>{EN_CTA}</h2>
           <div class="program-cta-actions">
-            <a class="btn-primary" id="ctaAskProgram" href="https://wa.me/201010002231?text={quote(WA_INTEREST_EN)}" target="_blank" rel="noopener noreferrer">Start Your Journey Now</a>
+            <a class="btn-primary" id="ctaAskProgram" href="https://wa.me/qr/F3IVDAUVIKU2E1" target="_blank" rel="noopener noreferrer">Join the World’s Largest Public Speaking Community</a>
           </div>
         </div>
       </div>
@@ -384,6 +384,7 @@ def main() -> None:
         EN_SCHEDULE: AR_SCHEDULE,
         "Course Duration": "مدة البرنامج",
         EN_CTA: AR_CTA,
+        "Join the World’s Largest Public Speaking Community": "كن جزءًا من أكبر مجتمع لفن الخطابة في العالم",
         "Members during an ALA Toastmasters Club meeting with Ahmed Latif Academy": (
             "أعضاء خلال لقاء نادي ALA Toastmasters مع Ahmed Latif Academy"
         ),
