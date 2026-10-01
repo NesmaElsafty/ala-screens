@@ -236,8 +236,8 @@ def main() -> None:
     main_content = f"""    <nav class="breadcrumb" aria-label="Breadcrumb">
       <div class="container">
         <ol class="breadcrumb-list">
-          <li><a href="https://link.cashprocess.io/preview/LFFNtiNpdGcVJBl4zV8u" target="_top">Home</a></li>
-          <li><a href="https://link.cashprocess.io/preview/fRaRY5RMY05VbnLSxGoO" target="_top">Programs</a></li>
+          <li><a href="https://home.ala-eg.com" target="_top">Home</a></li>
+          <li><a href="https://home.ala-eg.com/live-courses" target="_top">Programs</a></li>
           <li class="breadcrumb-current" aria-current="page">Enneagram | Level 2</li>
         </ol>
       </div>
