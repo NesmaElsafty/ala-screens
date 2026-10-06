@@ -1,0 +1,578 @@
+<!-- ALA Blog Header snippet for CashProcess Blog Builder -->
+<!-- Source of truth: programs.html site-header (production URLs) -->
+<!-- Requires Font Awesome 6.5.1 and Google Fonts (Raleway, Playfair Display, Cairo) if not already loaded -->
+<!-- i18n: minimal EN/AR for header labels only (localStorage key: ala-language). Does NOT include the full site dictionary. -->
+
+<style>
+  .ala-blog-header {
+    --ala-gold: #b8922f;
+    --ala-gold-hover: #d4af37;
+    --ala-charcoal: #1a1a1a;
+    --ala-warm-white: #fafaf8;
+    --ala-muted: #555555;
+    --ala-transition: 0.2s ease;
+    font-family: "Raleway", system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ala-charcoal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+  }
+
+  .ala-blog-header *,
+  .ala-blog-header *::before,
+  .ala-blog-header *::after {
+    box-sizing: border-box;
+  }
+
+  .ala-blog-header a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .ala-blog-header button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+  .ala-blog-header img {
+    max-width: 100%;
+    display: block;
+  }
+
+  .ala-blog-header .ala-blog-header-offset {
+    height: 4.75rem;
+    width: 100%;
+    pointer-events: none;
+  }
+
+  .ala-blog-header .container {
+    width: min(1240px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  .ala-blog-header .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s;
+    border-bottom: 1px solid rgba(184, 146, 47, 0.15);
+    background: rgba(250, 250, 248, 0.8);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .ala-blog-header .site-header.scrolled {
+    background: rgba(250, 250, 248, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom-color: rgba(184, 146, 47, 0.3);
+    box-shadow: 0 4px 24px rgba(184, 146, 47, 0.12);
+  }
+
+  .ala-blog-header .header-inner {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0.625rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    height: auto;
+  }
+
+  .ala-blog-header .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    transition: opacity 0.3s;
+  }
+
+  .ala-blog-header .site-header .logo:hover {
+    opacity: 0.8;
+  }
+
+  .ala-blog-header .logo-img {
+    width: auto;
+    height: 2.75rem;
+    object-fit: contain;
+    flex-shrink: 0;
+    display: block;
+  }
+
+  @media (min-width: 640px) {
+    .ala-blog-header .site-header .logo-img { height: 3rem; }
+  }
+
+  .ala-blog-header .logo-text strong {
+    display: block;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ala-charcoal);
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+  }
+
+  .ala-blog-header .logo-text .logo-academy {
+    color: var(--ala-gold);
+  }
+
+  .ala-blog-header .logo-text small {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--ala-muted);
+  }
+
+  .ala-blog-header .main-nav {
+    display: none;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #555;
+  }
+
+  @media (min-width: 1024px) {
+    .ala-blog-header .main-nav { display: flex; }
+  }
+
+  .ala-blog-header .main-nav a {
+    position: relative;
+    padding: 0.375rem 0.625rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #555;
+    transition: color 0.3s;
+  }
+
+  .ala-blog-header .main-nav a:hover,
+  .ala-blog-header .main-nav a.active {
+    color: #b8922f;
+  }
+
+  .ala-blog-header .main-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0.625rem;
+    right: 0.625rem;
+    bottom: 0.125rem;
+    height: 1px;
+    background: #b8922f;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .ala-blog-header .main-nav a:hover::after,
+  .ala-blog-header .main-nav a.active::after {
+    transform: scaleX(1);
+  }
+
+  .ala-blog-header .nav-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .ala-blog-header .nav-dropdown i {
+    font-size: 10px;
+    color: #888;
+  }
+
+  .ala-blog-header .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .ala-blog-header .header-cta {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: #b8922f;
+    color: #fff;
+    transition: all 0.3s;
+  }
+
+  @media (min-width: 768px) {
+    .ala-blog-header .header-inner > .header-cta,
+    .ala-blog-header .nav-actions > .header-cta { display: inline-flex; }
+  }
+
+  .ala-blog-header .header-cta:hover {
+    background: #d4af37;
+    box-shadow: 0 6px 20px rgba(184, 146, 47, 0.35);
+    transform: translateY(-2px);
+  }
+
+  .ala-blog-header .header-cta i {
+    font-size: 13px;
+  }
+
+  .ala-blog-header .menu-toggle {
+    display: flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    border: 1px solid rgba(184, 146, 47, 0.3);
+    background: rgba(184, 146, 47, 0.1);
+    color: #b8922f;
+    font-size: 16px;
+    transition: all 0.3s;
+  }
+
+  @media (min-width: 1024px) {
+    .ala-blog-header .menu-toggle { display: none; }
+  }
+
+  .ala-blog-header .menu-toggle:hover {
+    background: #b8922f;
+    color: #fff;
+  }
+
+  .ala-blog-header .mobile-nav {
+    display: block;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    border-top: 0;
+    background: rgba(250, 250, 248, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s ease-out;
+  }
+
+  @media (min-width: 1024px) {
+    .ala-blog-header .mobile-nav { display: none; }
+  }
+
+  .ala-blog-header .mobile-nav.open {
+    max-height: 70vh;
+    opacity: 1;
+    border-top: 1px solid rgba(184, 146, 47, 0.15);
+  }
+
+  .ala-blog-header .mobile-nav-inner {
+    padding: 1rem;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  .ala-blog-header .mobile-nav a {
+    display: block;
+    border-radius: 0.5rem;
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #333;
+    border-bottom: 0;
+    transition: all 0.3s;
+  }
+
+  .ala-blog-header .mobile-nav a:hover,
+  .ala-blog-header .mobile-nav a.active {
+    background: rgba(184, 146, 47, 0.1);
+    color: #b8922f;
+  }
+
+  .ala-blog-header .mobile-nav .header-cta {
+    display: flex;
+    margin-top: 0.75rem;
+    width: auto;
+    justify-content: center;
+    border-radius: 9999px;
+    background: #b8922f;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+  }
+
+  .ala-blog-header .mobile-nav .header-cta:hover {
+    background: #d4af37;
+    color: #fff;
+  }
+
+  .ala-blog-header .lang-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.1rem;
+    flex-shrink: 0;
+  }
+
+  .ala-blog-header .lang-switcher button {
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #888;
+    padding: 0.3rem 0.4rem;
+    border-radius: 0.25rem;
+    line-height: 1;
+    min-width: 1.75rem;
+  }
+
+  .ala-blog-header .lang-switcher button:hover {
+    color: #b8922f;
+  }
+
+  .ala-blog-header .lang-switcher button.is-active,
+  .ala-blog-header .lang-switcher button[aria-current="true"] {
+    color: #b8922f;
+  }
+
+  .ala-blog-header .lang-sep {
+    color: #c8c8c8;
+    font-size: 0.75rem;
+    font-weight: 500;
+    user-select: none;
+  }
+
+  html[lang="ar"] .ala-blog-header,
+  html[lang="ar"] .ala-blog-header button {
+    font-family: "Cairo", "Tahoma", sans-serif;
+  }
+
+  html[lang="ar"] .ala-blog-header .logo-text strong {
+    font-family: "Playfair Display", Georgia, serif;
+  }
+
+  html[lang="ar"] .ala-blog-header .header-cta,
+  html[lang="ar"] .ala-blog-header .mobile-nav .header-cta {
+    text-transform: none;
+    letter-spacing: 0.04em;
+  }
+
+  html[dir="rtl"] .ala-blog-header .main-nav a::after {
+    transform-origin: right;
+  }
+
+  @media (max-width: 480px) {
+    .ala-blog-header .container {
+      width: calc(100% - 32px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ala-blog-header *,
+    .ala-blog-header *::before,
+    .ala-blog-header *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+
+<div class="ala-blog-header" data-ala-blog-header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="https://home.ala-eg.com" class="logo" target="_top">
+        <img class="logo-img" src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a787bb09994d35aa03bbe17.png" alt="Ahmed Latif Academy">
+        <div class="logo-text">
+          <strong>Ahmed Latif <span class="logo-academy">Academy</span></strong>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="https://home.ala-eg.com" target="_top" data-i18n>Home</a>
+        <a href="https://home.ala-eg.com#instructor" target="_top" data-i18n>About</a>
+        <a href="https://home.ala-eg.com/live-courses" class="nav-dropdown" target="_top">Programs <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+        <a href="https://home.ala-eg.com#updates" target="_top" data-i18n>Events</a>
+        <a href="https://home.ala-eg.com#updates" target="_top" data-i18n>News</a>
+        <a href="https://home.ala-eg.com#contact" target="_top" data-i18n>Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://home.ala-eg.com#contact" class="header-cta" target="_top">
+          <i class="fa-regular fa-compass" aria-hidden="true"></i>
+          <span data-i18n>Find Your Program</span>
+        </a>
+        <div class="lang-switcher" role="group" aria-label="Language">
+          <button type="button" data-lang-switch="en" lang="en" aria-label="English">EN</button>
+          <span class="lang-sep" aria-hidden="true">/</span>
+          <button type="button" data-lang-switch="ar" lang="ar" aria-label="العربية">AR</button>
+        </div>
+        <button type="button" class="menu-toggle" id="alaBlogMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="alaBlogMobileNav">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" id="alaBlogMobileNav" aria-label="Mobile navigation">
+      <div class="mobile-nav-inner">
+        <a href="https://home.ala-eg.com" target="_top" data-i18n>Home</a>
+        <a href="https://home.ala-eg.com#instructor" target="_top" data-i18n>About</a>
+        <a href="https://home.ala-eg.com/live-courses" target="_top" data-i18n>Programs</a>
+        <a href="https://home.ala-eg.com#updates" target="_top" data-i18n>Events</a>
+        <a href="https://home.ala-eg.com#updates" target="_top" data-i18n>News</a>
+        <a href="https://home.ala-eg.com#contact" target="_top" data-i18n>Contact</a>
+        <a href="https://home.ala-eg.com#contact" class="header-cta" target="_top">
+          <i class="fa-regular fa-compass" aria-hidden="true"></i>
+          <span data-i18n>Find Your Program</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+  <div class="ala-blog-header-offset" aria-hidden="true"></div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  function ensureStylesheet(href, test) {
+    if (document.querySelector(test)) return;
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = href;
+    document.head.appendChild(link);
+  }
+
+  ensureStylesheet(
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
+    'link[href*="font-awesome"]'
+  );
+  ensureStylesheet(
+    "https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Raleway:wght@300;400;500;600;700&display=swap",
+    'link[href*="fonts.googleapis.com"][href*="Raleway"]'
+  );
+
+  var root = document.querySelector("[data-ala-blog-header]");
+  if (!root) return;
+
+  var menuToggle = root.querySelector("#alaBlogMenuToggle");
+  var mobileNav = root.querySelector("#alaBlogMobileNav");
+  var siteHeader = root.querySelector(".site-header");
+
+  if (menuToggle && mobileNav) {
+    var icon = menuToggle.querySelector("i");
+    menuToggle.addEventListener("click", function () {
+      var isOpen = mobileNav.classList.toggle("open");
+      if (icon) {
+        icon.classList.toggle("fa-bars", !isOpen);
+        icon.classList.toggle("fa-xmark", isOpen);
+      }
+      menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    });
+
+    mobileNav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        mobileNav.classList.remove("open");
+        if (icon) {
+          icon.classList.add("fa-bars");
+          icon.classList.remove("fa-xmark");
+        }
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open menu");
+      });
+    });
+  }
+
+  function onHeaderScroll() {
+    if (siteHeader) siteHeader.classList.toggle("scrolled", window.scrollY > 12);
+  }
+  onHeaderScroll();
+  window.addEventListener("scroll", onHeaderScroll, { passive: true });
+
+  /* Minimal header-only i18n */
+  var STORAGE_KEY = "ala-language";
+  var DICT = {
+    "Home": "الرئيسية",
+    "About": "نبذة",
+    "Programs": "البرامج",
+    "Events": "الفعاليات",
+    "News": "الأخبار",
+    "Contact": "تواصل معنا",
+    "Find Your Program": "اعثر على برنامجك",
+    "Main navigation": "التنقل الرئيسي",
+    "Open menu": "افتح القائمة",
+    "Close menu": "أغلق القائمة",
+    "Mobile navigation": "قائمة التنقل للجوال",
+    "Language": "اللغة"
+  };
+
+  function getLang() {
+    try {
+      var q = (location.search.match(/[?&]lang=(en|ar)(?:&|#|$)/) || [])[1];
+      if (q) return q;
+      var s = localStorage.getItem(STORAGE_KEY);
+      if (s === "en" || s === "ar") return s;
+    } catch (e) {}
+    return "en";
+  }
+
+  function setLang(lang) {
+    lang = lang === "ar" ? "ar" : "en";
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+    var html = document.documentElement;
+    html.lang = lang;
+    html.dir = lang === "ar" ? "rtl" : "ltr";
+    html.setAttribute("lang", lang);
+    html.setAttribute("dir", html.dir);
+
+    root.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var en = el.getAttribute("data-i18n-en") || el.textContent.trim();
+      if (!el.getAttribute("data-i18n-en")) el.setAttribute("data-i18n-en", en);
+      el.textContent = lang === "ar" && DICT[en] ? DICT[en] : en;
+    });
+
+    /* Programs desktop link keeps chevron icon */
+    root.querySelectorAll(".nav-dropdown").forEach(function (a) {
+      var en = "Programs";
+      var label = lang === "ar" && DICT[en] ? DICT[en] : en;
+      a.innerHTML = label + ' <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>';
+    });
+
+    root.querySelectorAll("[data-lang-switch]").forEach(function (btn) {
+      var active = btn.getAttribute("data-lang-switch") === lang;
+      btn.classList.toggle("is-active", active);
+      if (active) btn.setAttribute("aria-current", "true");
+      else btn.removeAttribute("aria-current");
+    });
+
+    var switcher = root.querySelector('.lang-switcher[aria-label]');
+    if (switcher) switcher.setAttribute("aria-label", lang === "ar" ? DICT["Language"] : "Language");
+    var mainNav = root.querySelector('.main-nav[aria-label]');
+    if (mainNav) mainNav.setAttribute("aria-label", lang === "ar" ? DICT["Main navigation"] : "Main navigation");
+    var mobile = root.querySelector('.mobile-nav[aria-label]');
+    if (mobile) mobile.setAttribute("aria-label", lang === "ar" ? DICT["Mobile navigation"] : "Mobile navigation");
+    if (menuToggle) {
+      var open = mobileNav && mobileNav.classList.contains("open");
+      menuToggle.setAttribute(
+        "aria-label",
+        lang === "ar"
+          ? (open ? DICT["Close menu"] : DICT["Open menu"])
+          : (open ? "Close menu" : "Open menu")
+      );
+    }
+  }
+
+  root.querySelectorAll("[data-lang-switch]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      setLang(btn.getAttribute("data-lang-switch"));
+    });
+  });
+
+  setLang(getLang());
+})();
+</script>

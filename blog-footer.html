@@ -1,0 +1,343 @@
+<!-- ALA Blog Footer snippet for CashProcess Blog Builder -->
+<!-- Source of truth: programs.html site-footer (production URLs) -->
+<!-- Requires Font Awesome 6.5.1 and Google Fonts (Raleway, Playfair Display, Cairo) if not already loaded -->
+<!-- i18n: minimal EN/AR for footer labels only (localStorage key: ala-language). Does NOT include the full site dictionary. -->
+
+<style>
+  .ala-blog-footer {
+    --ala-gold: #b8922f;
+    --ala-charcoal: #1a1a1a;
+    --ala-soft-black: #1a1a1a;
+    --ala-white: #fff;
+    --ala-transition: 0.2s ease;
+    font-family: "Raleway", system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+  }
+
+  .ala-blog-footer *,
+  .ala-blog-footer *::before,
+  .ala-blog-footer *::after {
+    box-sizing: border-box;
+  }
+
+  .ala-blog-footer a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .ala-blog-footer img {
+    max-width: 100%;
+    display: block;
+  }
+
+  .ala-blog-footer .container {
+    width: min(1240px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  .ala-blog-footer .site-footer {
+    background: var(--ala-soft-black);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 56px 0 28px;
+  }
+
+  .ala-blog-footer .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .ala-blog-footer .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    transition: opacity 0.3s;
+  }
+
+  .ala-blog-footer .logo:hover {
+    opacity: 0.8;
+  }
+
+  .ala-blog-footer .logo-img {
+    width: auto;
+    height: 44px;
+    object-fit: contain;
+    flex-shrink: 0;
+    display: block;
+  }
+
+  .ala-blog-footer .logo-text strong {
+    display: block;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ala-white);
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+  }
+
+  .ala-blog-footer .logo-text small {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  .ala-blog-footer .footer-brand p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-top: 16px;
+    max-width: 280px;
+  }
+
+  .ala-blog-footer .footer-col h4 {
+    font-family: "Raleway", system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ala-white);
+    margin-bottom: 18px;
+  }
+
+  .ala-blog-footer .footer-col a {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 10px;
+    transition: color var(--ala-transition);
+  }
+
+  .ala-blog-footer .footer-col a:hover {
+    color: var(--ala-gold);
+  }
+
+  .ala-blog-footer .footer-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 0;
+    flex-wrap: wrap;
+  }
+
+  .ala-blog-footer .footer-social a {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0;
+    transition: border-color var(--ala-transition), color var(--ala-transition);
+  }
+
+  .ala-blog-footer .footer-social a:hover {
+    border-color: var(--ala-gold);
+    color: var(--ala-gold);
+  }
+
+  .ala-blog-footer .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 13px;
+  }
+
+  html[lang="ar"] .ala-blog-footer {
+    font-family: "Cairo", "Tahoma", sans-serif;
+  }
+
+  html[lang="ar"] .ala-blog-footer .footer-col h4 {
+    font-family: "Cairo", "Tahoma", sans-serif;
+  }
+
+  html[lang="ar"] .ala-blog-footer .logo-text strong {
+    font-family: "Playfair Display", Georgia, serif;
+  }
+
+  @media (max-width: 1024px) {
+    .ala-blog-footer .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .ala-blog-footer .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .ala-blog-footer .container {
+      width: calc(100% - 32px);
+    }
+  }
+</style>
+
+<div class="ala-blog-footer" data-ala-blog-footer>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="https://home.ala-eg.com" class="logo" target="_top">
+            <img class="logo-img" src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6a787bb09994d35aa03bbe17.png" alt="Ahmed Latif Academy">
+            <div class="logo-text">
+              <strong>Ahmed Latif</strong>
+              <small>ALA</small>
+            </div>
+          </a>
+          <p data-i18n>Transformative learning in leadership, coaching, communication, psychology, and personal development.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n>Quick Links</h4>
+          <a href="https://home.ala-eg.com" target="_top" data-i18n>Home</a>
+          <a href="https://home.ala-eg.com#instructor" target="_top" data-i18n>About</a>
+          <a href="https://home.ala-eg.com/live-courses" target="_top" data-i18n>Programs</a>
+          <a href="https://home.ala-eg.com#updates" target="_top" data-i18n>Events</a>
+          <a href="https://home.ala-eg.com#updates" target="_top" data-i18n>News</a>
+          <a href="https://home.ala-eg.com#contact" target="_top" data-i18n>Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n>Programs</h4>
+          <a href="https://home.ala-eg.com/live-courses" data-interest="help-choosing" target="_top" data-i18n>Live Courses</a>
+          <a href="https://home.ala-eg.com/recorded-courses" data-interest="help-choosing" target="_top" data-i18n>Recorded Courses</a>
+          <a href="https://home.ala-eg.com/camps" data-interest="poc-camp" target="_top" data-i18n>Camps</a>
+          <a href="https://home.ala-eg.com#contact" data-interest="help-choosing" target="_top" data-i18n>Workshops</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n>Contact</h4>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/ALA.Academy1" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.instagram.com/alaacademy2030/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://wa.me/201010002231" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            </a>
+            <a href="https://ala-eg.com/home" target="_blank" rel="noopener noreferrer" aria-label="Website">
+              <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span id="alaBlogCurrentYear">&copy; Ahmed Latif Academy. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  function ensureStylesheet(href, test) {
+    if (document.querySelector(test)) return;
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = href;
+    document.head.appendChild(link);
+  }
+
+  ensureStylesheet(
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css",
+    'link[href*="font-awesome"]'
+  );
+  ensureStylesheet(
+    "https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Raleway:wght@300;400;500;600;700&display=swap",
+    'link[href*="fonts.googleapis.com"][href*="Raleway"]'
+  );
+
+  var root = document.querySelector("[data-ala-blog-footer]");
+  if (!root) return;
+
+  var yearEl = root.querySelector("#alaBlogCurrentYear");
+  var year = new Date().getFullYear();
+
+  var STORAGE_KEY = "ala-language";
+  var DICT = {
+    "Quick Links": "روابط سريعة",
+    "Programs": "البرامج",
+    "Contact": "تواصل معنا",
+    "Home": "الرئيسية",
+    "About": "نبذة",
+    "Events": "الفعاليات",
+    "News": "الأخبار",
+    "Live Courses": "البرامج المباشرة",
+    "Recorded Courses": "البرامج المسجّلة",
+    "Camps": "المعسكرات",
+    "Workshops": "ورش العمل",
+    "Transformative learning in leadership, coaching, communication, psychology, and personal development.": "تعلّم يُحدث تحوّلًا في القيادة والكوتشينج والتواصل وعلم النفس والتطوير الشخصي.",
+    "Website": "الموقع الإلكتروني",
+    "© Ahmed Latif Academy. All rights reserved.": "© Ahmed Latif Academy. جميع الحقوق محفوظة."
+  };
+
+  function copyright(lang) {
+    var en = "\u00A9 " + year + " Ahmed Latif Academy. All rights reserved.";
+    var ar = "\u00A9 " + year + " Ahmed Latif Academy. جميع الحقوق محفوظة.";
+    return lang === "ar" ? ar : en;
+  }
+
+  function getLang() {
+    try {
+      var q = (location.search.match(/[?&]lang=(en|ar)(?:&|#|$)/) || [])[1];
+      if (q) return q;
+      var s = localStorage.getItem(STORAGE_KEY);
+      if (s === "en" || s === "ar") return s;
+    } catch (e) {}
+    return "en";
+  }
+
+  function setLang(lang) {
+    lang = lang === "ar" ? "ar" : "en";
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+    var html = document.documentElement;
+    html.lang = lang;
+    html.dir = lang === "ar" ? "rtl" : "ltr";
+    html.setAttribute("lang", lang);
+    html.setAttribute("dir", html.dir);
+
+    root.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var en = el.getAttribute("data-i18n-en") || el.textContent.trim();
+      if (!el.getAttribute("data-i18n-en")) el.setAttribute("data-i18n-en", en);
+      el.textContent = lang === "ar" && DICT[en] ? DICT[en] : en;
+    });
+
+    if (yearEl) yearEl.textContent = copyright(lang);
+
+    root.querySelectorAll(".footer-social a[aria-label]").forEach(function (a) {
+      var label = a.getAttribute("data-aria-en") || a.getAttribute("aria-label");
+      if (!a.getAttribute("data-aria-en")) a.setAttribute("data-aria-en", label);
+      if (label === "Website" && lang === "ar") a.setAttribute("aria-label", DICT["Website"]);
+      else a.setAttribute("aria-label", a.getAttribute("data-aria-en"));
+    });
+  }
+
+  if (yearEl) yearEl.textContent = copyright(getLang());
+  setLang(getLang());
+
+  /* Sync if header switcher changes language on same page */
+  window.addEventListener("storage", function (e) {
+    if (e.key === STORAGE_KEY) setLang(getLang());
+  });
+
+  document.addEventListener("click", function (event) {
+    var btn = event.target && event.target.closest && event.target.closest("[data-lang-switch]");
+    if (!btn) return;
+    setTimeout(function () { setLang(getLang()); }, 0);
+  });
+})();
+</script>
