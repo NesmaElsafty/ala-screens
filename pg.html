@@ -1200,6 +1200,154 @@
       font-size: 12px;
     }
 
+
+    /* Video Feedback */
+    .video-feedback {
+      background: var(--warm-white);
+      padding: 88px 0;
+      scroll-margin-top: 96px;
+    }
+
+    .video-feedback-inner {
+      text-align: center;
+    }
+
+    .video-feedback-header {
+      max-width: 720px;
+      margin: 0 auto 36px;
+    }
+
+    .video-feedback-header .eyebrow {
+      margin-bottom: 14px;
+    }
+
+    .video-feedback-title {
+      margin-bottom: 16px;
+    }
+
+    .video-feedback-description {
+      font-size: 15px;
+      color: var(--muted-text);
+      line-height: 1.75;
+      margin: 0 auto;
+      max-width: 38em;
+      text-align: center;
+    }
+
+    .video-feedback-player {
+      width: min(100%, 960px);
+      margin-inline: auto;
+    }
+
+    .video-feedback-stage {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #171717;
+      border: 1px solid rgba(184, 146, 47, 0.35);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .video-feedback-poster {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-feedback-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(26, 26, 26, 0.22);
+      transition: background var(--transition);
+    }
+
+    .video-feedback-player:hover .video-feedback-overlay {
+      background: rgba(26, 26, 26, 0.32);
+    }
+
+    .video-feedback-play {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      padding-inline-start: 4px;
+      transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+    }
+
+    .video-feedback-play:hover {
+      background: var(--gold-hover);
+      transform: scale(1.06) translateY(-1px);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+    }
+
+    html[dir="rtl"] .video-feedback-play i.fa-play,
+    html[dir="rtl"] .video-feedback-play:hover i.fa-play {
+      transform: none;
+    }
+
+    .video-feedback-video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: 0;
+      background: #000;
+      object-fit: contain;
+    }
+
+    .video-feedback-player.is-playing .video-feedback-video {
+      position: absolute;
+      inset: 0;
+    }
+
+    .video-feedback-player.is-playing .video-feedback-overlay,
+    .video-feedback-player.is-playing .video-feedback-poster {
+      display: none;
+    }
+
+    .video-feedback-footer {
+      margin: 22px auto 0;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--muted-text);
+      opacity: 0.88;
+    }
+
+    html[dir="rtl"] .video-feedback-footer {
+      letter-spacing: 0;
+    }
+
+    @media (max-width: 768px) {
+      .video-feedback {
+        padding: 64px 0;
+      }
+
+      .video-feedback-header {
+        margin-bottom: 28px;
+      }
+
+      .video-feedback-play {
+        width: 60px;
+        height: 60px;
+        font-size: 20px;
+      }
+
+      .video-feedback-stage {
+        border-radius: 14px;
+      }
+    }
+
     /* Final CTA */
     .program-cta {
       background: var(--program-warm);
@@ -2090,6 +2238,36 @@ html[dir="rtl"] .breadcrumb-list li:not(:last-child)::after {
       </div>
     </section>
 
+    <section class="video-feedback" id="video-feedback" aria-labelledby="video-feedback-heading">
+      <div class="container video-feedback-inner">
+        <div class="video-feedback-header">
+          <p class="eyebrow video-feedback-eyebrow anim-item">REAL STORIES</p>
+          <h2 class="section-heading video-feedback-title anim-item" id="video-feedback-heading">Hear It From Those Who Lived It.</h2>
+          <p class="video-feedback-description anim-item">Real experiences, honest reflections, and moments from people who have been part of the journey.</p>
+        </div>
+        <div class="video-feedback-player anim-scale" data-video-src="PG_VIDEO_URL">
+          <!-- TODO: replace PG_VIDEO_URL and PG_VIDEO_POSTER with the real program video and poster URLs -->
+          <div class="video-feedback-stage">
+            <img
+              class="video-feedback-poster"
+              src="PG_VIDEO_POSTER"
+              alt="Psychological Genius participant feedback"
+              width="1600"
+              height="900"
+              loading="lazy"
+              decoding="async"
+            >
+            <div class="video-feedback-overlay">
+              <button type="button" class="video-feedback-play" aria-label="Play participant feedback video">
+                <i class="fa-solid fa-play" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <p class="video-feedback-footer anim-item">Real experiences. Real voices. One shared journey.</p>
+      </div>
+    </section>
+
     <section class="program-gallery" id="program-gallery">
       <div class="container">
         <div class="section-header">
@@ -2570,6 +2748,78 @@ html[dir="rtl"] .breadcrumb-list li:not(:last-child)::after {
       });
     })();
   </script>
+
+
+<script>
+(function () {
+  var player = document.querySelector("#video-feedback .video-feedback-player");
+  if (!player) return;
+  var playBtn = player.querySelector(".video-feedback-play");
+  var stage = player.querySelector(".video-feedback-stage");
+  if (!playBtn || !stage) return;
+
+  function youtubeId(url) {
+    var m = String(url).match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{6,})/);
+    return m ? m[1] : null;
+  }
+
+  function vimeoId(url) {
+    var m = String(url).match(/vimeo\.com\/(?:video\/)?(\d+)/);
+    return m ? m[1] : null;
+  }
+
+  function activate() {
+    if (player.classList.contains("is-playing")) return;
+    var src = player.getAttribute("data-video-src") || "";
+    var label = playBtn.getAttribute("aria-label") || "Video";
+    var yt = youtubeId(src);
+    var vm = vimeoId(src);
+    player.classList.add("is-playing");
+
+    if (yt) {
+      var iframe = document.createElement("iframe");
+      iframe.className = "video-feedback-video";
+      iframe.src = "https://www.youtube.com/embed/" + encodeURIComponent(yt) + "?autoplay=1&rel=0";
+      iframe.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture");
+      iframe.setAttribute("allowfullscreen", "");
+      iframe.setAttribute("title", label);
+      iframe.setAttribute("loading", "lazy");
+      stage.appendChild(iframe);
+      return;
+    }
+
+    if (vm) {
+      var vimeo = document.createElement("iframe");
+      vimeo.className = "video-feedback-video";
+      vimeo.src = "https://player.vimeo.com/video/" + encodeURIComponent(vm) + "?autoplay=1";
+      vimeo.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
+      vimeo.setAttribute("allowfullscreen", "");
+      vimeo.setAttribute("title", label);
+      vimeo.setAttribute("loading", "lazy");
+      stage.appendChild(vimeo);
+      return;
+    }
+
+    var video = document.createElement("video");
+    video.className = "video-feedback-video";
+    video.setAttribute("controls", "");
+    video.setAttribute("playsinline", "");
+    video.playsInline = true;
+    video.preload = "metadata";
+    var source = document.createElement("source");
+    source.src = src;
+    source.type = "video/mp4";
+    video.appendChild(source);
+    stage.appendChild(video);
+    var playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(function () {});
+    }
+  }
+
+  playBtn.addEventListener("click", activate);
+})();
+</script>
 
 <!-- ALA_I18N_START -->
 <script>

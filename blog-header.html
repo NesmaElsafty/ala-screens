@@ -311,41 +311,6 @@
     color: #fff;
   }
 
-  .ala-blog-header .lang-switcher {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.1rem;
-    flex-shrink: 0;
-  }
-
-  .ala-blog-header .lang-switcher button {
-    font-family: inherit;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    color: #888;
-    padding: 0.3rem 0.4rem;
-    border-radius: 0.25rem;
-    line-height: 1;
-    min-width: 1.75rem;
-  }
-
-  .ala-blog-header .lang-switcher button:hover {
-    color: #b8922f;
-  }
-
-  .ala-blog-header .lang-switcher button.is-active,
-  .ala-blog-header .lang-switcher button[aria-current="true"] {
-    color: #b8922f;
-  }
-
-  .ala-blog-header .lang-sep {
-    color: #c8c8c8;
-    font-size: 0.75rem;
-    font-weight: 500;
-    user-select: none;
-  }
-
   html[lang="ar"] .ala-blog-header,
   html[lang="ar"] .ala-blog-header button {
     font-family: "Cairo", "Tahoma", sans-serif;
@@ -406,11 +371,6 @@
           <i class="fa-regular fa-compass" aria-hidden="true"></i>
           <span data-i18n>Find Your Program</span>
         </a>
-        <div class="lang-switcher" role="group" aria-label="Language">
-          <button type="button" data-lang-switch="en" lang="en" aria-label="English">EN</button>
-          <span class="lang-sep" aria-hidden="true">/</span>
-          <button type="button" data-lang-switch="ar" lang="ar" aria-label="العربية">AR</button>
-        </div>
         <button type="button" class="menu-toggle" id="alaBlogMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="alaBlogMobileNav">
           <i class="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
@@ -507,8 +467,7 @@
     "Main navigation": "التنقل الرئيسي",
     "Open menu": "افتح القائمة",
     "Close menu": "أغلق القائمة",
-    "Mobile navigation": "قائمة التنقل للجوال",
-    "Language": "اللغة"
+    "Mobile navigation": "قائمة التنقل للجوال"
   };
 
   function getLang() {
@@ -543,15 +502,6 @@
       a.innerHTML = label + ' <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>';
     });
 
-    root.querySelectorAll("[data-lang-switch]").forEach(function (btn) {
-      var active = btn.getAttribute("data-lang-switch") === lang;
-      btn.classList.toggle("is-active", active);
-      if (active) btn.setAttribute("aria-current", "true");
-      else btn.removeAttribute("aria-current");
-    });
-
-    var switcher = root.querySelector('.lang-switcher[aria-label]');
-    if (switcher) switcher.setAttribute("aria-label", lang === "ar" ? DICT["Language"] : "Language");
     var mainNav = root.querySelector('.main-nav[aria-label]');
     if (mainNav) mainNav.setAttribute("aria-label", lang === "ar" ? DICT["Main navigation"] : "Main navigation");
     var mobile = root.querySelector('.mobile-nav[aria-label]');
@@ -566,12 +516,6 @@
       );
     }
   }
-
-  root.querySelectorAll("[data-lang-switch]").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      setLang(btn.getAttribute("data-lang-switch"));
-    });
-  });
 
   setLang(getLang());
 })();
