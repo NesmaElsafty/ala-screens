@@ -1251,6 +1251,8 @@
     }
 
     .video-feedback-poster {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -1260,6 +1262,7 @@
     .video-feedback-overlay {
       position: absolute;
       inset: 0;
+      z-index: 3;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1298,17 +1301,15 @@
     }
 
     .video-feedback-video {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
       width: 100%;
       height: 100%;
       display: block;
       border: 0;
       background: #000;
       object-fit: contain;
-    }
-
-    .video-feedback-player.is-playing .video-feedback-video {
-      position: absolute;
-      inset: 0;
     }
 
     .video-feedback-player.is-playing .video-feedback-overlay,
@@ -2252,17 +2253,8 @@ html[dir="rtl"] .breadcrumb-list li:not(:last-child)::after {
           <p class="video-feedback-description anim-item">Real experiences, honest reflections, and moments from people who have been part of the journey.</p>
         </div>
         <div class="video-feedback-player anim-scale" data-video-src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ac4a33bbbad531ac8e2d569.mp4">
-          <!-- TODO: replace SHIFT_CAMP_VIDEO_POSTER with the real program poster URL -->
           <div class="video-feedback-stage">
-            <img
-              class="video-feedback-poster"
-              src="SHIFT_CAMP_VIDEO_POSTER"
-              alt="Shift Camp participant feedback"
-              width="1600"
-              height="900"
-              loading="lazy"
-              decoding="async"
-            >
+            <video class="video-feedback-video" src="https://assets.cdn.filesafe.space/x2KOxD9uXD3EImAPNXfQ/media/6ac4a33bbbad531ac8e2d569.mp4" playsinline preload="auto" fetchpriority="high" title="Shift Camp participant feedback"></video>
             <div class="video-feedback-overlay">
               <button type="button" class="video-feedback-play" aria-label="Play participant feedback video">
                 <i class="fa-solid fa-play" aria-hidden="true"></i>
@@ -2759,6 +2751,34 @@ html[dir="rtl"] .breadcrumb-list li:not(:last-child)::after {
   var stage = player.querySelector(".video-feedback-stage");
   if (!playBtn || !stage) return;
 
+  var existingVideo = stage.querySelector("video.video-feedback-video");
+
+  function startVideo(video) {
+    if (!video || player.classList.contains("is-playing")) return;
+    player.classList.add("is-playing");
+    video.controls = true;
+    video.setAttribute("playsinline", "");
+    video.playsInline = true;
+    var playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(function () {});
+    }
+  }
+
+  if (existingVideo && existingVideo.getAttribute("src")) {
+    playBtn.addEventListener("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      startVideo(existingVideo);
+    });
+    stage.addEventListener("click", function (event) {
+      if (player.classList.contains("is-playing")) return;
+      if (event.target.closest && event.target.closest(".video-feedback-play")) return;
+      startVideo(existingVideo);
+    });
+    return;
+  }
+
   function youtubeId(url) {
     var m = String(url).match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{6,})/);
     return m ? m[1] : null;
@@ -2775,6 +2795,7 @@ html[dir="rtl"] .breadcrumb-list li:not(:last-child)::after {
     var label = playBtn.getAttribute("aria-label") || "Video";
     var yt = youtubeId(src);
     var vm = vimeoId(src);
+    if (!yt && !vm && !/^https?:\/\//i.test(src)) return;
     player.classList.add("is-playing");
 
     if (yt) {
@@ -2803,22 +2824,31 @@ html[dir="rtl"] .breadcrumb-list li:not(:last-child)::after {
 
     var video = document.createElement("video");
     video.className = "video-feedback-video";
-    video.setAttribute("controls", "");
+    video.controls = true;
     video.setAttribute("playsinline", "");
     video.playsInline = true;
-    video.preload = "metadata";
-    var source = document.createElement("source");
-    source.src = src;
-    source.type = "video/mp4";
-    video.appendChild(source);
+    video.preload = "auto";
+    video.src = src;
     stage.appendChild(video);
     var playPromise = video.play();
     if (playPromise && typeof playPromise.catch === "function") {
       playPromise.catch(function () {});
     }
+    video.addEventListener("error", function () {
+      player.classList.remove("is-playing");
+      if (video.parentNode) video.parentNode.removeChild(video);
+    });
   }
 
-  playBtn.addEventListener("click", activate);
+  playBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    activate();
+  });
+  stage.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("video, .video-feedback-play")) return;
+    activate();
+  });
 })();
 </script>
 
